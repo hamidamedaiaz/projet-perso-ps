@@ -11,6 +11,7 @@ import { GamemodeService } from 'src/services/gamemode.service';
 import { SocketService } from 'src/services/socket.service';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/services/session.service';
+import { RealTimeStatsService } from 'src/services/real-time-stats.service';
 
 
 @Component({
@@ -50,7 +51,8 @@ export class QuizAnswersComponent {
     private gamemodeService: GamemodeService,
     private socketService: SocketService,
     private router: Router,
-    private sessionService: SessionService) {
+    private sessionService: SessionService,
+  private realTimeStatsService: RealTimeStatsService) {
 
     this.currentProfileService.current_profile$.subscribe((profile) => {
       this.REMOVE_WRONG_ANSWER_INTERVAL = profile.REMOVE_WRONG_ANSWER_INTERVAL;
@@ -148,10 +150,28 @@ export class QuizAnswersComponent {
   }
 
   public getMultiplayerAnswers() {
-    const stats = [25, 15, 50, 10]
-    for (let i = 0; i < stats.length; i++) { this.answers[i].stats = stats[i]; }
+    // on  Recuperee la question courante
+    const currentQuestion = this.quizService.question$.getValue();
+    
+    if (currentQuestion && currentQuestion.id !== -1) {
+        const questionStats = this.realTimeStatsService.getQuestionStats(currentQuestion.id);
+        
+        if (questionStats) {
+            // on  Applique les pourcentages reeels
+          this.answers.forEach(answer => {
+                const percentage = questionStats.percentages.get(answer.id) || 0;
+                answer.stats = percentage;
+            });
+               } else {
+            //  si  Pas encore de reponses, tout ===> 0%
+            this.answers.forEach(answer => {
+                answer.stats = 0;
+            });
+        }
+    }
+    
     return this.answers;
-  }
+}
 
   private getNumberOfCorrentAnswers(answers:Answer[]){
     let counter = 0;

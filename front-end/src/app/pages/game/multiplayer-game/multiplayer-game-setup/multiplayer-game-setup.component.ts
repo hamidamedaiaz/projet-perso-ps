@@ -40,6 +40,8 @@ export class MultiplayerGameSetupComponent {
 
   public launchGame() {
     this.gamemodeService.setCurrentGamemode(1);
+    this.sessionService.initializeStatsForSession();
+
     this.socketService.emit('start-session', { sessionId: this.sessionService.getSessionId() })
     this.quizService.startQuiz()
     this.router.navigate(['/multiplayer-game'])

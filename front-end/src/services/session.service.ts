@@ -10,7 +10,7 @@ import { Profile } from 'src/models/profile.model';
 import { CurrentProfileService } from './currentProfile.service';
 import {GamemodeService} from "./gamemode.service";
 import {PopUpService} from "./pop-up.service";
-
+import { RealTimeStatsService } from './real-time-stats.service';
 @Injectable({
     providedIn: 'root'
 })
@@ -32,7 +32,8 @@ export class SessionService {
         private localStorageService: LocalStorageService,
         private currentProfileService: CurrentProfileService,
         private gamemodeService : GamemodeService,
-        private popupService : PopUpService) {
+        private popupService : PopUpService,
+        private realTimeStatsService: RealTimeStatsService) {
 
         this.initSocketListeners();
     }
@@ -170,6 +171,13 @@ export class SessionService {
 
         this.players$.next(players);
 
+        
+         const currentQuestion = this.quizService.question$.getValue();
+
+     if (currentQuestion && currentQuestion.id !== -1) {
+        this.realTimeStatsService.addAnswer(this.sessionId, currentQuestion.id, answerId);
+     }
+
         if (this.verifyPlayersHasAllAnswered()) {
             this.socketService.emit('all-player-has-answered', { sessionId: this.sessionId })
         }
@@ -239,6 +247,9 @@ export class SessionService {
         this.sessionId = sessionId;
         this.sessionId$.next(sessionId);
     }
+ public initializeStatsForSession() {
+    this.realTimeStatsService.initSession(this.sessionId);
+}
 
 
     public getSessionId() { return this.sessionId; }
