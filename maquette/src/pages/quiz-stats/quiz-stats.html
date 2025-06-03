@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="english">
+<meta charset="utf-8">
+
+<head>
+    <title>Octave</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+    <header>
+        <matrio path="/components/navbar/navbar"></matrio>
+    </header>
+    <main>
+        <div class="quiz-container">
+            <div class="quiz-header-container">
+                <div class="quiz-header-content">
+                    <h1 class="quiz-title">Titre du Quiz</h1>
+                    <h3 class="average">Moyenne: 15/20</h3>
+                </div>
+            </div>
+            <div class="quiz-questions-container">
+                <div class="quiz-questions-content">
+                    <matrio path="/components/statistiques/question/question"></matrio>
+                    <matrio path="/components/statistiques/question/question"></matrio>
+                    <matrio path="/components/statistiques/question/question"></matrio>
+                    <matrio path="/components/statistiques/question/question"></matrio>
+                </div>
+            </div>
+        </div>
+        <matrio-content></matrio-content>
+    </main>
+    <footer>
+        <matrio path="/components/footer/footer"></matrio>
+    </footer>
+</body>
+
+</html>

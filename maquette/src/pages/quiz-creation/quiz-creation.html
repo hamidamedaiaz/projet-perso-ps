@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quiz Creation</title>
+    <meta charset="UTF-8"></meta>
+    <link rel="stylesheet" href="quiz-creation.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+
+<matrio path="components/navbar/navbar"></matrio>
+
+<div id="container">
+
+    <div id = "quiz-creation-left-container">
+        <div id="quiz-create">
+        <h2 class="title-quiz-template">Question :</h2>
+            <input type="text" class="question-input" placeholder="Entrez la question...">
+            <select name="music-select" id="question-music-select" class="question-input">
+                <option value="empty" selected>Choisissez une musique</option>
+                <option value="empty">September - Earth, Wind & Fire</option>
+                <option value="empty">Take It Easy - Eagles</option>
+                <option value="empty">The Passenger - Iggy Pop</option>
+                <option value="empty">Don’t Stop ’Til You Get Enough - Michael Jackson</option>
+                <option value="empty">Bohemian Rhapsody - Queen</option>
+            </select>
+            <h2 class="title-quiz-template">Reponses :</h2>
+            <p id="button-info">Cochez la case à côté de la réponse pour indiquer qu'elle est juste </p>
+            <matrio path="components/quiz-creation/answers/answers"></matrio>
+            <matrio path="components/quiz-creation/answers/answers"></matrio>
+            <matrio path="components/quiz-creation/answers/answers"></matrio>
+            <button id="add-answer" class="simple-btn">+ Ajouter réponse</button>
+            <button id="add-question" class="simple-btn">Ajouter la question au quiz</button>
+        </div>
+
+    </div>
+    <div id = "quiz-creation-right-container">
+        <div id = "question-list">
+            <h2 class="title-quiz-template">Liste des questions :</h2>
+            <matrio path="components/quiz-creation/question/question"></matrio>
+            <matrio path="components/quiz-creation/question/question"></matrio>
+            <matrio path="components/quiz-creation/question/question"></matrio>
+            <matrio path="components/quiz-creation/question/question"></matrio>
+
+            <button id="add-listQ" class="simple-btn">+ Ajouter questions</button>
+            <button id="end-quiz" class="simple-btn">Enregistrer ce quiz</button>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="english">
+<head><meta charset="utf-8"/>
+<title>Octave</title>
+<link href="./style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+</head><body>
+<header>
+<div class="navbar">
+<div class="navbar-container">
+<div>
+<a href="/">Octave</a>
+<a href="/games.html">Jeux</a>
+<a href="/statistics.html">Statistiques</a>
+<!--<a href="/configuration.html">Configuration</a>-->
+</div>
+<div>
+<a class="button" href="/">Se Connecter</a>
+</div>
+</div>
+</div>
+
+</header>
+<main>
+<div class="person-infos-container">
+<div class="person-infos-box">
+<p class="name">Jean Jass</p>
+<div class="person-info-item">
+<img alt="email-picture" class="profile-icon" src="../../../assets/icons/email.svg"/>
+<p class="email">email@exemple.com</p>
+</div>
+<div class="person-info-item">
+<img alt="phone-picture" class="profile-icon" src="../../../assets/icons/phone.svg"/>
+<p class="phone-number">+33 7 63 33 27 37</p>
+</div>
+<div class="person-info-item">
+<img alt="home-picture" class="profile-icon" src="../../../assets/icons/home.svg"/>
+<p class="address">64 Chem. de Vallauris, 06410 Biot</p>
+</div>
+</div>
+<div class="profile-picture-container">
+<img alt="Photo Accueillis" class="profile-picture" src="../../../assets/profile-pictures/senior.jpeg"/>
+</div>
+</div>
+<matrio-content></matrio-content>
+<div class="user-stats-container">
+<p class="user-stats-title">Statistiques Générales</p>
+<div class="user-stats-box">
+<div class="stats-details">
+<div class="general-stats-content">
+<img alt="Manette ico" class="general-stats-icon" src="../../../assets/icons/game.svg"/>
+<span class="user-stats-item">Nombre total de parties jouées : 17</span>
+</div>
+<div class="general-stats-content">
+<img alt="Success ico" class="general-stats-icon" src="../../../assets/icons/success.svg"/>
+<span class="user-stats-item">Taux de réussite moyen : 65 %</span>
+</div>
+<div class="general-stats-content">
+<img alt="Clock ico" class="general-stats-icon" src="../../../assets/icons/clock.svg"/>
+<span class="user-stats-item">Temps moyen de réaction : 7.8 secondes</span>
+</div>
+<div class="general-stats-content">
+<img alt="Manette ico" class="general-stats-icon" src="../../../assets/icons/target.svg"/>
+<span class="user-stats-item">Precision : 50 %</span>
+</div>
+</div>
+<div class="graph-container">
+<span class="graph-title">Répartition des Parties</span>
+<img alt="Diagramme circulaire" class="user-stats-chart" id="user-stats-circular" src="../../../assets/graphs/diagramme-circulaire.png"/>
+</div>
+<div class="graph-container">
+<span class="graph-title">Précisions par parties</span>
+<img alt="Graphe" class="user-stats-chart" id="user-stats-graph" src="../../../assets/graphs/precision-histogram.jpg"/>
+</div>
+<div class="graph-container">
+<span class="graph-title">Scores par parties</span>
+<img alt="Histogramme" class="user-stats-chart" id="user-stats-histogram" src="../../../assets/graphs/score-graphic.jpg"/>
+</div>
+</div>
+</div>
+<matrio-content class="additional-content"></matrio-content>
+<div class="quiz-history">
+<span class="quiz-history-title">Historique des quiz</span>
+<div class="findName">
+<div class="quiz-history-content">
+<a class="quiz-item" href="/personal-quiz-stats.html">
+<span class="quiz-name">Titre Quiz</span>
+<span class="quiz-date">01/01/25</span>
+<span class="quiz-score">Score: 15/20</span>
+</a>
+<a class="quiz-item" href="/personal-quiz-stats.html">
+<span class="quiz-name">Titre Quiz</span>
+<span class="quiz-date">01/01/25</span>
+<span class="quiz-score">Score: 15/20</span>
+</a>
+<a class="quiz-item" href="/personal-quiz-stats.html">
+<span class="quiz-name">Titre Quiz</span>
+<span class="quiz-date">01/01/25</span>
+<span class="quiz-score">Score: 15/20</span>
+</a>
+<a class="quiz-item" href="/personal-quiz-stats.html">
+<span class="quiz-name">Titre Quiz</span>
+<span class="quiz-date">01/01/25</span>
+<span class="quiz-score">Score: 15/20</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<footer>
+<footer class="footer">
+<div class="container">
+<div class="footer-links">
+<a href="/">Accueil</a>
+<a href="/a-propos">À Propos</a>
+<a href="/contact">Contact</a>
+<a href="/politique">Politique de Confidentialité</a>
+</div>
+<span class="footer-text">2025 Octave. Tous droits réservés.</span>
+</div>
+</footer>
+
+</footer>
+<script src="scripts/websockets.js"></script></body>
+</html>

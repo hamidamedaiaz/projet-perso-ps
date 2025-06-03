@@ -1,0 +1,28 @@
+<div class="quiz-result-container" *ngIf="getQuiz() && getProfile()">
+  <app-quiz-result-header (goBack)="navigateBack()" (show_pop_up)="showPopUp()"></app-quiz-result-header>
+
+  <app-quiz-result-info [quiz]="getQuiz()" [profile]="getProfile()" [questionResults]="getQuestionResults()"
+    [date]="getDateDebut()">
+  </app-quiz-result-info>
+
+  <div class="quiz-details-section" *ngIf="isQuizMulti">
+    <div class="tabs-container">
+      <button class="tab-btn" [class.active]="activeTab === 'questions'" (click)="setActiveTab('questions')">
+        Details des réponses
+      </button>
+      <button class="tab-btn" [class.active]="activeTab === 'players'" (click)="setActiveTab('players')">
+        Joueurs ayant participé au quiz
+      </button>
+    </div>
+  </div>
+
+  <app-quiz-result-questions [quiz]="getQuiz()" [questionResults]="getQuestionResults()"
+    class="quiz-result-questions" *ngIf="activeTab === 'questions' || !isQuizMulti"></app-quiz-result-questions>
+  <app-quiz-players-list *ngIf="activeTab === 'players'" [profileList]="getProfileListFromQuizResult()"></app-quiz-players-list>
+</div>
+
+<div class="loading-container" *ngIf="!getQuiz() || !getProfile()">
+  <div class="spinner"></div>
+</div>
+
+ <app-popup-code [show]="popUp" (close)="closePopUp()" (success)="deleteQuizResult()"></app-popup-code>

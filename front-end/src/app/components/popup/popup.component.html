@@ -1,0 +1,17 @@
+<div class="popup-container" *ngIf="this.visible">
+  <div class="popup" [ngClass]="this.popup?.type">
+    <span>
+      <img *ngIf="popup?.type == 'error'" class="icon" src="assets/icons/error.svg">
+      <img *ngIf="popup?.type == 'success'" class="icon" src="assets/icons/success.svg">
+      <img *ngIf="popup?.type == 'warning'" class="icon" src="assets/icons/warning.svg">
+      <img *ngIf="popup?.type == 'info'" class="icon" src="assets/icons/info.svg">
+
+    </span>
+    <div class="popup-content">
+      {{ popup?.message }}
+    </div>
+    <button class="close-button" (click)="closePopup()">
+      ×
+    </button>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div 
+  (click)="selectedAnswer()" 
+  class="answer-item" 
+  [ngClass]="selected ? 'selected' : 'not-selected'">
+  {{ answer.answerContent }}
+</div>

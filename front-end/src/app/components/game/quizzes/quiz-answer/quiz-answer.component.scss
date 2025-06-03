@@ -1,0 +1,52 @@
+@import '/src/app/color-palette.scss';
+
+.answer-item {
+    background-color: $primary-blue-btn;
+    color: $primary-btn-white-text;
+    border-radius: 10px;
+    height: 15vh;
+    transition: all 0.2s ease-in-out;
+    font-size: 2vw;
+    font-family: monospace;
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.not-selected:hover {
+    background-color: $primary-btn-blue-hover;
+    transform: scale(1.06);
+}
+
+.percent-item {
+    position: relative;
+    background-color: $primary-blue-bg-faded;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 12.5px 10px 20px;
+    font-family: monospace;
+    font-size: 2vw;
+}
+
+.percent-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $primary-blue-btn;
+    z-index: 1; /* PLUS BAS que le texte */
+    transition: width 0.5s ease-in-out;
+}
+
+
+.percent-text {
+    position: relative;
+    z-index: 2;
+    color: $primary-white-text;
+}
+
+.selected {
+    background-color: $secondary-success;
+}

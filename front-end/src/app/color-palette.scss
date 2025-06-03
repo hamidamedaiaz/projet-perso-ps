@@ -1,0 +1,71 @@
+$primary-white-bg: #FEFEFE;
+$secondary-white-bg:#f8f9fa;
+$primary-blue-bg: #0099ff;
+$secondary-blue-bg: #0086e0;
+$third-blue-bg:#004D80;
+$fourth-blue-bg: #0073c0;
+$primary-black-bg:#1D1D1D;
+
+$primary-blue-bg-faded: rgb(0,153,255,0.35);
+
+$primary-blue-btn: #0099ff;
+$secondary-blue-btn:#0086e0;
+$third-blue-btn: #0073C0;
+$fourth-blue-btn:#004D80;
+$primary-white-btn: #F0F0F0;
+$primary-delete-btn:#e74c3c;
+
+$primary-btn-white-text:#FFFDF6;
+$primary-btn-blue-text:#0099ff;
+$primary-btn-black-text:#1D1D1D;
+
+$primary-btn-blue-hover: #0073C0;
+$secondary-btn-blue-hover:#004D80;
+$third-btn-blue-hover:#002740;
+$primary-btn-white-hover: #efefef;
+$primary-btn-delete-hover:#c0392b;
+
+$primary-btn-leave:rgba(182, 30, 30, 1);
+$primary-btn-leave-hover:rgb(156, 26, 26);
+
+$primary-white-text:#fefefe;
+$secondary-white-text:#b1b1b1;
+$primary-black-text: #1D1D1D;
+$secondary-black-text:#676767;
+$third-black-text:#b1b1b1;
+
+$primary-blue-text: #0099ff;
+
+$primary-border-white: 1px #ccc solid;
+$primary-border-black:1px  #1c1c1c solid;
+$primary-border-blue:1px $third-blue-bg solid;
+
+$primary-success:rgba(0, 255, 0, 0.3);
+$secondary-success:rgb(0, 170, 0);
+
+
+$primary-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.135);
+
+$font-size-small: clamp(12px, 0.9vw, 18px);
+$font-size-medium: clamp(14px, 1.1vw, 22px); // équivalent à mid
+$font-size-large: clamp(16px, 1.3vw, 26px);  // équivalent à high
+$font-size-xlarge: clamp(20px, 1.5vw, 32px);
+
+// Classes pour les différentes tailles de police
+.font-size {
+  &-small {
+    font-size: $font-size-small;
+  }
+
+  &-medium {
+    font-size: $font-size-medium; // équivalent à mid
+  }
+
+  &-large {
+    font-size: $font-size-large;  // équivalent à high
+  }
+
+  &-xlarge {
+    font-size: $font-size-xlarge;
+  }
+}

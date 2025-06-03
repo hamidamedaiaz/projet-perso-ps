@@ -1,0 +1,102 @@
+<div id="container">
+  <!-- Section de la liste des questions -->
+  <div id="quiz-creation-right-container">
+
+    <div id="quiz-title">
+      <h2 class="title-quiz-template">Titre :</h2>
+      <input type="text" class="question-input" placeholder="Entrez le titre du quiz..."
+        [(ngModel)]="this.quizCopy.title">
+    </div>
+
+    <div id="question-list">
+
+      <section class="question-list-section">
+        <h2 class="title-quiz-template">Liste des questions :</h2>
+        <div *ngFor="let question of quizCopy.questions; let i = index" class="question-row">
+          <button class="sidebar-btn" (click)="selectQuestion(i)">
+            {{ question.question }}
+          </button>
+          <button class="delete-btn" (click)="deleteQuestion(i)"><img src="assets/icons/delete.png" width="24"
+              height="24"></button>
+        </div>
+
+        <button id="add-listQ" class="simple-btn" (click)="addQuestion()">+ Ajouter question</button>
+      </section>
+      <section class="bottom-btn-section">
+        <button id="end-quiz" class="simple-btn" (click)="saveQuiz()">Enregistrer ce quiz</button>
+        <button class="cancel-btn" (click)="cancelQuizEditing()">Annuler</button>
+      </section>
+    </div>
+  </div>
+
+
+  <div class="quiz-creation-left-container" *ngIf="selectedQuestion == undefined">
+    <div id="quiz-empty-message">
+      <h2>Aucune question sélectionnée</h2>
+      <p>Sélectionnez une question dans la liste ou cliquez sur "+ Ajouter question".</p>
+    </div>
+  </div>
+
+
+
+  <!-- Section de création de question et de réponses -->
+  <div class="quiz-creation-left-container" *ngIf="selectedQuestion">
+    <div id="quiz-creation-section">
+      <!-- Section de création de question -->
+      <div id="question-section">
+        <div class="question-header">
+          <h2 class="title-quiz-template">Question :</h2>
+          <section class="question-btn-section">
+            <button class="save-question-btn" (click)="saveQuestion()" title="Sauvegarder cette question">
+              Enregistrer cette question
+            </button>
+            <button (click)="cancelQuestionEditing()" class="cancel-btn">Annuler</button>
+          </section>
+        </div>
+        <div class="question-with-audio" *ngIf="this.selectedQuestion.question != null">
+          <input type="text" class="question-input" placeholder="Entrez la question..."
+            [(ngModel)]="this.selectedQuestion.question">
+
+          <label class="audio-upload-label">
+            + Ajouter une musique
+            <input type="file" id="audio-upload">
+          </label>
+        </div>
+        <span class="button-info" *ngIf="selectedQuestion.audioPath">
+          Fichier musique sélectionné : {{ getSelectedQuestionName(selectedQuestion) }}
+        </span>
+      </div>
+
+      <!-- Section de création de réponses -->
+      <div id="answer-section">
+        <h2 class="title-quiz-template">Réponses :</h2>
+        <div *ngFor="let answer of selectedQuestion.answers; let j = index">
+          <app-answer [answer]="answer.answerContent" [isCorrect]="answer.isCorrect"
+            (answerChange)="updateAnswerText(j, $event)" (deleteEvent)="deleteAnswer(answer)"
+            (correctChange)="answerCorrectChange($event, j)">
+          </app-answer>
+        </div>
+
+        <p class="button-info">Cochez la case à côté de la réponse pour indiquer qu'elle est juste</p>
+        <button id="add-answer" class="simple-btn" (click)="addAnswer()">+ Ajouter réponse</button>
+      </div>
+
+      <!-- Section de création d'indices -->
+      <div id="hint-section">
+        <h2 class="title-quiz-template">Indices :</h2>
+
+        <div class="hint-item" *ngFor="let hint of selectedQuestion.hints; let k = index; trackBy: trackByIndex">
+          <input type="text" [(ngModel)]="selectedQuestion.hints[k]" placeholder="Entrez un indice..."
+            class="hint-input">
+          <button class="delete-btn" (click)="deleteHint(k)">Supprimer</button>
+        </div>
+
+
+
+        <!-- On place le bouton ici, en bas -->
+        <button id="add-hint" class="simple-btn" (click)="addHint()">+ Ajouter indice</button>
+      </div>
+
+    </div>
+  </div>
+</div>

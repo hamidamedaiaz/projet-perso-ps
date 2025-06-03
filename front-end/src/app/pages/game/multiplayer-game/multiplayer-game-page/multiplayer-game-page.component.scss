@@ -1,0 +1,42 @@
+@import '/src/app/color-palette.scss';
+
+.button{
+  width: 16vh;
+  height: 6vh;
+  padding: 1.2vh 2.4vh;
+  background-color: $third-blue-btn;
+  color: $primary-btn-white-text;
+  border: none;
+  border-radius: 1vh;
+  font-size: 1.8vh;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.05vh;
+  transition: all 0.3s ease-in-out;
+  box-shadow: $primary-box-shadow;
+}
+
+.button:hover{
+  background: $secondary-btn-blue-hover;
+  transform: translateY(-0.3vh);
+  box-shadow: $primary-box-shadow;
+}
+
+.leave-btn{
+  position: absolute;
+  left: 5vh;
+  top: 5vh;
+  z-index: 15;
+  background-color: rgba(182, 30, 30, 0.8);
+}
+
+
+.quiz-question{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}

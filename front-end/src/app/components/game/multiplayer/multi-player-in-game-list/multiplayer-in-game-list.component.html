@@ -1,0 +1,18 @@
+<div class="player-list-container">
+    <section class="title">Acceuillis ayant répondu :</section>
+    <section class="player-list-section">
+        <div *ngFor="let player of getPlayers()">
+            <div [ngClass]="{ 'hasAnswered': player.hasAnswered}" class="profile-card-avatar">
+                <div *ngIf="player.profile.profilePicture && player.profile.profilePicture !== 'empty_path'">
+                    <div class="profile-img"
+                        [ngStyle]="{'background-image': 'url(' + player.profile.profilePicture + ')'}">
+                    </div>
+                </div>
+
+                <div *ngIf="player.profile.profilePicture && player.profile.profilePicture === 'empty_path'">
+                    <div class="profile-initials">{{ getInitials(player.profile) }}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

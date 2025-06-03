@@ -1,0 +1,15 @@
+<div class="multiplayer-game-setup-container">
+  <app-multiplayer-game-setup-sidebar (launch_game)="launchGame()"
+    class="multiplayer-game-setup-sidebar left-side"></app-multiplayer-game-setup-sidebar>
+  <section class="right-side">
+    <p class="multiplayer-game-setup-title">Participants</p>
+    <hr class="side-separator">
+    <p class="people-counter">Nombre de joueurs dans la partie : {{ getNumberOfPlayer() }}</p>
+
+    <div class="players-container">
+      <app-multiplayer-profile-list class="profile-list"></app-multiplayer-profile-list>
+      <app-online-players class="online-list"></app-online-players>
+    </div>
+  </section>
+
+</div>

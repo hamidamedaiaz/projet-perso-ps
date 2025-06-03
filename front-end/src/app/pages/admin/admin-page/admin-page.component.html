@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Octave - Admin</title>
+</head>
+
+<body>
+  <div class="admin-container">
+    <nav class="sidebar">
+      <button class="sidebar-btn" (click)="toggleStatsMenu()">
+        <img class="logo" ngSrc="assets/icons/statistics.svg" height="512" width="512">
+        <span>Statistiques</span>
+      </button>
+
+      <!-- Sous-menu des statistiques -->
+      <div class="submenu" [class.open]="showStatsSubmenu">
+        <button class="sidebar-btn submenu-btn" (click)="setSection('selection-stat-acceuilli')">
+          <span>Statistiques Accueillis</span>
+        </button>
+        <button class="sidebar-btn submenu-btn" (click)="setSection('selection-stat-quiz')">
+          <span>Statistiques Quiz</span>
+        </button>
+      </div>
+
+      <button class="sidebar-btn" (click)="setSection('quiz')">
+        <img class="logo" ngSrc="assets/icons/quiz.svg" height="512" width="512">
+        <span>Quiz</span>
+      </button>
+      <button class="sidebar-btn" (click)="setSection('acceuilli')">
+        <img class="logo" ngSrc="assets/icons/user.svg" height="512" width="512">
+        <span>Acceuilli</span>
+      </button>
+      <button class="sidebar-btn home-btn" routerLink="/">
+        <span>Retour</span>
+      </button>
+    </nav>
+
+    <main class="content">
+      <div *ngIf="activeSection === 'home'">
+        <span class="home-page-title">Octave - Panel de Gestion</span>
+
+        <p id="subText">Utilisez la barre latérale pour naviguer</p>
+      </div>
+
+      <div *ngIf="activeSection === 'selection-stat-acceuilli'">
+        <app-selection-list context="acceuilli" (profile_selected)="selectProfileStatistics()"></app-selection-list>
+      </div>
+
+      <div *ngIf="activeSection === 'selection-stat-quiz'">
+        <app-selection-list context="quiz" (quiz_selected)="selectQuizStatistics()"></app-selection-list>
+      </div>
+
+      <div *ngIf="activeSection === 'acceuilli-stats'">
+        <app-player-stats-details></app-player-stats-details>
+      </div>
+      <div *ngIf="activeSection === 'quiz-stats'">
+        <app-quiz-stats></app-quiz-stats>
+      </div>
+
+      <div *ngIf="activeSection === 'quiz'">
+        <app-quiz-app [context]="'admin'"></app-quiz-app>
+      </div>
+
+      <div *ngIf="activeSection === 'acceuilli'" class="acceuilli-section">
+        <div class="profiles-panel" [ngClass]="{'collapsed': selectedProfile}">
+          <h2 class="section-title">Liste des acceuillis</h2>
+          <app-profile-list class="profile-list-container" (profileDeleted)="closeConfigPanel()" (profileSelected)="onProfileSelect()"
+            [context]="'admin'">
+          </app-profile-list>
+        </div>
+
+        <div *ngIf="selectedProfile" class="config-panel">
+          <app-profile-configuration (closeConfigPanel)="closeConfigPanel()">
+          </app-profile-configuration>
+        </div>
+      </div>
+
+      <div *ngIf="activeSection === 'quiz-details'">
+        <app-quiz-details *ngIf="activeQuiz" [quiz]="activeQuiz" (quizSaved)="setSection('quiz')" (leaveQuizEdition)="setSection('quiz')"></app-quiz-details>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

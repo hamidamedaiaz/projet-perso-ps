@@ -1,0 +1,34 @@
+@import '/src/app/color-palette.scss';
+
+.gamemode-name{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: min(12vh,10vw);
+  font-family: monospace;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  color: $primary-white-text;
+}
+
+
+.multiplayer{
+  text-align: center;
+  background-color: $primary-blue-bg;
+}
+
+
+.solo{
+  text-align: center;
+  background-color: $secondary-blue-bg;
+}
+
+
+.gamemode-name:hover{
+  cursor: pointer;
+  background-color: $primary-white-bg;
+  color: $primary-blue-bg;
+  font-size: min(13vh,11vw);
+}

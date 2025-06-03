@@ -1,0 +1,88 @@
+@import '/src/app/color-palette.scss';
+
+.global-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(.4vh);
+}
+
+.pop-up-container {
+    background-color: $primary-white-bg;
+    padding: 6.0vh 4.0vh;
+    border-radius: 1.6vh;
+    box-shadow: 0 1.2vh 3.0vh rgba(0, 106, 113, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    animation: fadeInScale 0.4s ease-out;
+    z-index: 20;
+    max-width: 60.0vh;
+    width: 90%;
+}
+
+.btn-section {
+    display: flex;
+    gap: 2.0vh;
+}
+
+.button {
+    padding: 1.0vh 2.0vh;
+    width: 15vh;
+    border: none;
+    border-radius: 1.0vh;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 2.0vh;
+    box-shadow: $primary-box-shadow;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.cancel-btn{
+    background-color: #ff3a3a;
+    color: white;
+}
+
+.cancel-btn:hover{
+    background-color: red;
+}
+
+.continue-btn{
+    background-color: $secondary-blue-btn;
+    color: $primary-btn-white-text;
+}
+
+.continue-btn:hover{
+    background-color: $primary-btn-blue-hover;
+}
+
+
+.message {
+    color: $primary-blue-bg;
+    font-family: "Unbounded", sans-serif;
+    font-size: 5.5vh;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+@keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }

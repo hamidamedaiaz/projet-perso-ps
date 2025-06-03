@@ -1,0 +1,58 @@
+<section *ngIf="getQuiz().id !== -1">
+  <header class="header">
+    <button class="back-button" (click)="goBack()">Retour</button>
+    <div class="quiz-info">
+      <h1>Statistiques Quiz</h1>
+      <p class="quiz-title">{{ getQuiz().title }}</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">Général</h2>
+  <section class="global-metrics">
+    <div class="card">
+      <h3>{{ totalPlays }}</h3>
+      <p>Parties jouées</p>
+    </div>
+    <div class="card">
+      <h3>{{ averageTime }}s</h3>
+      <p>Temps moyen</p>
+    </div>
+    <div class="card">
+      <h3>{{ averageHints }}</h3>
+      <p>Nombre d'indices moyens</p>
+    </div>
+    <div class="card">
+      <h3>{{ averageAttempts }}</h3>
+      <p>Nombre d'essais moyens</p>
+    </div>
+  </section>
+
+  <h2 class="section-title">Questions</h2>
+
+  <section class="content">
+    <!-- Liste cliquable à gauche -->
+    <aside class="question-list">
+      <div class="question-card" *ngFor="let q of questionsStats; let i = index" [class.active]="i === selectedIndex"
+        (click)="selectQuestion(i)">
+
+        <div class="question-text">{{ q.text }}</div>
+
+        <div class="question-stats">
+          <span>Temps moyen : {{ q.avgTime }}s</span>
+          <span>Indices moyen : {{ q.hintsUsed }}</span>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Graphique groupé à droite -->
+    <main class="chart-area">
+      <h2>{{ questionsStats[selectedIndex].text }}</h2>
+      <canvas #groupChart></canvas>
+    </main>
+  </section>
+</section>
+<section *ngIf="getQuiz().id == -1 || null">
+  <span>SOMETHING WHEN WRONG</span>
+  <span>Try Again</span>
+</section>

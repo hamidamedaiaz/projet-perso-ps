@@ -1,0 +1,17 @@
+@import '/src/app/color-palette.scss';
+
+.gamemodeList {
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+
+.gamemodeList:first-child{
+    flex:1;
+    transition: flex 0.3s ease-in-out;
+}
+
+.gamemodeList:first-child:hover{
+    flex:1.7;
+}
+

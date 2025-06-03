@@ -1,0 +1,3 @@
+<app-quiz-question></app-quiz-question>
+<button *ngIf="getRole() === 'admin'" class="leave-btn button" (click)="showPopUp()" >Quitter</button>
+<app-popup-code [show]="popUp" (close)="closePopUp()" (success)="leaveQuiz()"></app-popup-code>

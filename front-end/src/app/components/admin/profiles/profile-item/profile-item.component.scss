@@ -1,0 +1,86 @@
+@import '/src/app/color-palette.scss';
+
+.result-item {
+  font-size: 2vh;
+  padding: 1.5vh;
+  border: $primary-border-white;
+  background-color: $secondary-white-bg;
+  border-radius: 1vh;
+  margin-top: 1vh;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.multi {
+  width: 85%;
+}
+
+
+.result-item:hover {
+  background-color: $primary-btn-white-hover;
+  transform: scale(1.02);
+  cursor: pointer;
+
+}
+
+.remove-profile-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.remove-profile-icon:hover {
+  cursor: pointer;
+}
+
+.profile-item-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: fit-content;
+}
+
+.delete-user-btn {
+  background: $primary-delete-btn;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 40px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin: 10px auto 0 auto;
+  width: fit-content;
+}
+
+
+
+.delete-user-btn:hover {
+  background-color: $primary-btn-delete-hover;
+}
+
+.profile-picture-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $secondary-blue-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+

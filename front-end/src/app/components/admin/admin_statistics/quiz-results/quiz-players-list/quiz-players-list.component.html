@@ -1,0 +1,26 @@
+<div class="players-list-section">
+  <h3 class="section-title"> Joueurs ayant participé au quiz </h3>
+  <div class="players-list-table-container">
+    <table class="players-list-table">
+
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+        </tr>
+
+      </thead>
+
+      <tbody >
+        <tr *ngFor="let profile of getProfileList()">
+          <td class="player-list-table-row">
+            <span>{{profile.lastName}}</span>
+          </td>
+          <td class="player-list-table-row">
+            <span>{{profile.name}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

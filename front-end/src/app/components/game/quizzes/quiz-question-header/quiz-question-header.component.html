@@ -1,0 +1,10 @@
+<section class="question-header-section">
+    <div class="question-title" [ngClass]="getRole()==='admin' && isQuizRunning() ? 'admin-view': 'user-view'">{{title}}</div>
+    <section class="question-header-multi-container" >
+        <div *ngIf="getRole() === 'admin' && isQuizRunning()" class="answer-counter">Réponses:
+            {{getNumberOfGivenAnswer()}}/{{getNumberOfPlayers()}}</div>
+        <button *ngIf="getRole()==='admin'" (click)="showHints()" class="button">
+            {{showHintButtonContent}}
+        </button>
+    </section>
+</section>

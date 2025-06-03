@@ -1,0 +1,117 @@
+<div class="tutorial-container">
+    <h1>Tutoriel : Comment jouer au Quiz musical </h1>
+    <p class="intro"> Bienvenue dans ce guide pas-à-pas </p>
+    <div *ngIf="currentStep === 1" class="step">
+        <h2> 1.Sélectionner un quiz</h2>
+
+        <div class="step-content">
+            <p>• Vous verrez l'écran de sélection avec tous les quiz disponibles</p>
+            <p>• Utilisez la barre de recherche "Rechercher un quiz..."</p>
+            <p>• Cliquez sur <strong>Démarrer</strong> pour choisir votre quiz</p>
+
+            <div class="example-screen">
+                <div class="search"> Rechercher un quiz...</div>
+                <div class="quiz">
+                    <div class="quiz-title">Quiz Rock des années 70-80</div>
+                    <button class="start-btn"> Démarrer </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentStep === 2" class="step">
+        <h2>2.Lancer le quiz</h2>
+
+        <div class="step-content">
+            <p>• Démarrez la musique </p>
+            <p>• Une question s'affiche : Exemple "Qui a chanté cette chanson ?"</p>
+            <p>• Cliquez sur la bonne réponse parmi les choix proposés</p>
+
+            <div class="example-screen">
+                <div class="question">Qui a chanté "La Vie en Rose" ?</div>
+                <div class="answers">
+                    <button class="answer">Dalida</button>
+                    <button class="answer">Édith Piaf</button>
+                    <button class="answer">Yves Montand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentStep === 3" class="step">
+
+        <h2>3.Contrôles audio</h2>
+
+        <div class="step-content">
+            <p>• Utilisez les boutons pour contrôler la musique :</p>
+
+            <div class="example-screen">
+                <div class="audio-controls">
+                    <button class="control-btn"> Jouer la musique</button>
+                    <button class="control-btn"> Arrêter la musique</button>
+                    <button class="control-btn"> Rejouer la musique</button>
+                </div>
+                <div class="volume-controls">
+                    <button class="control-btn"> Réduire le volume -</button>
+                    <button class="control-btn"> Augmenter le volume +</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="currentStep === 4" class="step">
+        <h2>4.Afficher les indices</h2>
+
+        <div class="step-content">
+            <p>• Un panneau d'indices apparaît sur le côté</p>
+            <p>• De nouveaux indices s'affichent automatiquement</p>
+            <p>• Plus vous attendez, plus vous avez d'aide !</p>
+
+            <div class="example-screen">
+                <div class="hints-panel">
+                    <h3> Indices</h3>
+                    <div class="hint">• Surnommée "la Môme"</div>
+                    <div class="hint">• ........</div>
+                    <div class="next-hint"> Exemple : Prochain indice dans 60s</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="currentStep === 5" class="step">
+        <h2>5.Résultat final</h2>
+
+        <div class="step-content">
+            <p>• À la fin, voir votre score</p>
+            <p>• Choisir de rejouer</p>
+
+            <div class="example-screen">
+                <div class="result-screen">
+                    <h3> Félicitations !</h3>
+                    <p>Vous avez répondu à <strong> 3 questions sur 3 </strong> !</p>
+                    <div class="result-buttons">
+                        <button class="result-btn">Rejouer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tutorial-nav">
+        <button *ngIf="currentStep > 1" class="nav-button" (click)="previousStep()">
+            Précédent
+        </button>
+
+        <span class="step-counter">{{ currentStep }} / {{ totalSteps }}</span>
+
+        <button *ngIf="currentStep < totalSteps" class="nav-button" (click)="nextStep()">
+            Suivant
+        </button>
+
+        <button *ngIf="currentStep === totalSteps && currentPage==='solo-tutorial'" class="start-button" (click)="startQuiz()">
+            Commencer à jouer !
+        </button>
+    </div>
+
+</div>
+<div *ngIf="currentPage==='solo-tutorial'">
+    <button class="skip-button" (click)="startQuiz()">Passer le tutoriel</button>
+</div>

@@ -1,0 +1,368 @@
+@import '/src/app/color-palette.scss';
+
+#container {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  background-color: $secondary-white-bg;
+}
+
+#quiz-creation-right-container {
+  width: 34%;
+  height: 100%;
+  background-color: $primary-white-bg;
+  padding: 2%;
+  box-sizing: border-box;
+  border-right: 1px solid #ababab;
+
+  position: relative;
+}
+
+.quiz-creation-left-container {
+  width: 66%;
+  height: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  background-color: $primary-white-bg;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#quiz-creation-section {
+  width: 100%;
+  height: 100%;
+}
+
+#question-section {
+  margin-bottom: 40px;
+}
+
+#answer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#question-list {
+  margin-top: 5%;
+  width: 100%;
+  height: 80%;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-quiz-template {
+  font-size: 1.5em;
+  color: $primary-black-text;
+  border-bottom: 2px solid $primary-blue-bg;
+  display: inline-block;
+  width: fit-content;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+
+.question-input,
+.answer-input,
+.hint-input {
+  width: 100%;
+  min-height: 40px;
+  border: $primary-border-white;
+  border-radius: 6px;
+  padding: 10px;
+  outline: none;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: $primary-white-bg;
+}
+
+.question-input:focus,
+.answer-input:focus {
+  border-color: $primary-border-white;
+  box-shadow: 0 0 5px $primary-blue-bg;
+}
+
+.answer-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: $primary-border-black;
+  cursor: pointer;
+}
+
+.correct {
+  background: $primary-success;
+}
+
+.incorrect {
+  background: $primary-delete-btn;
+}
+
+
+.question-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  margin-bottom: 1.5vh;
+}
+
+.question-row {
+  display: flex;
+  gap: 10px; // ou moins si tu veux que ce soit plus collé
+  align-items: center;
+
+  .sidebar-btn {
+    flex: 1;
+  }
+}
+
+.delete-btn {
+  padding: 10px;
+  background-color: #e74c3c; // ou une couleur selon ton thème
+  color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: $primary-box-shadow;
+  transition: background-color 0.3s;
+  height: fit-content;
+  width: fit-content;
+
+  &:hover {
+    background-color: darken(#e74c3c, 10%);
+    cursor: pointer;
+  }
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: $primary-white-bg;
+  border: $primary-border-white;
+  border-radius: 6px;
+  font-size: 1.1em;
+  text-align: left;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: $primary-box-shadow;
+}
+
+.sidebar-btn:hover {
+  background-color: $primary-btn-white-hover;
+  cursor: pointer;
+}
+
+.sidebar-btn.selected {
+  background-color: $secondary-blue-btn;
+  color: $primary-white-btn;
+  border-color: $secondary-blue-btn;
+}
+
+#add-listQ {
+  background: $secondary-blue-btn;
+  color: $primary-white-text;
+  font-weight: bold;
+  width: 100%;
+  padding: 15px;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.3s;
+  border: 1px solid $secondary-blue-bg;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question-btn-section {
+  display: flex;
+  gap: 1.5vh;
+}
+
+#add-listQ:hover {
+  background-color: $third-blue-bg;
+  cursor: pointer;
+}
+
+#end-quiz {
+  width: 100%;
+  padding: 15px;
+  background: $primary-blue-bg;
+  color: $primary-white-text;
+  border: $primary-border-white;
+  border-radius: 6px;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+#end-quiz:hover {
+  background-color: $primary-btn-blue-hover;
+  cursor: pointer;
+}
+
+.cancel-btn {
+
+  background-color: #f8f9fa;
+  color: $secondary-white-bg;
+  color: #676767;
+  border: 1px #ccc solid;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.cancel-btn:hover {
+  background-color: $primary-btn-white-hover;
+}
+
+
+
+.bottom-btn-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.simple-btn {
+  background: $secondary-white-bg;
+  border: $primary-border-white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: $primary-btn-black-text;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  box-shadow: $primary-box-shadow
+}
+
+.simple-btn:hover {
+  background-color: $primary-btn-white-hover;
+  cursor: pointer;
+}
+
+.button-info {
+  color: $primary-black-text;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+#add-answer {
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+#add-question {
+  background-color: $secondary-blue-bg;
+  border-color: $secondary-blue-bg;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+#add-question:hover {
+  background-color: $secondary-btn-blue-hover;
+}
+
+
+#hint-section {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  /* empile proprement */
+}
+
+
+.hint-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 1.5vh;
+}
+
+.hint-input:focus {
+  border-color: $primary-blue-bg;
+  box-shadow: 0 0 5px $primary-blue-bg;
+}
+
+
+#add-hint {
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+
+#quiz-empty-message {
+  margin-top: 30%;
+  text-align: center;
+  color: $primary-black-text
+}
+
+#quiz-empty-message h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: $secondary-black-text;
+}
+
+#quiz-empty-message p {
+  font-size: 1rem;
+  color: $third-black-text;
+}
+
+
+.question-with-audio {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.question-with-audio .question-input {
+  width: 70%;
+}
+
+.audio-upload-label {
+  background-color: $secondary-blue-btn;
+  color: $primary-btn-white-text;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.audio-upload-label:hover {
+  cursor: pointer;
+  background-color: $secondary-btn-blue-hover;
+}
+
+.audio-upload-label input[type="file"] {
+  // on enleve le parcourir les fichier qui est moche
+  display: none;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.save-question-btn {
+  background-color: $primary-blue-btn;
+  color: $primary-btn-white-text;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: $primary-box-shadow;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $primary-btn-blue-hover;
+    //    transform: translateY(-1px);
+  }
+}

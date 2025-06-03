@@ -1,0 +1,118 @@
+<div class="profile-configuration">
+    <div class="header">
+<div class="profile-avatar-upload">
+    <div class="avatar-preview" [ngStyle]="{'background-image': getAvatarPreviewStyle()}">
+        <div class="avatar-upload-icon" *ngIf="!avatarPreview">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+    </div>
+    <label for="profile-avatar-upload" class="avatar-upload-button">
+        Changer la photo
+        <input type="file" id="profile-avatar-upload" accept="image/*" (change)="onAvatarSelected($event)" style="display:none;">
+    </label>
+</div>
+        <h2 class="title">Configuration de l'acceuilli</h2>
+        <button class="close-button" (click)="closeConfiguration()" aria-label="Fermer">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="profile-card">
+
+        <div class="profile-info">
+            <div class="input-row">
+                <label class="input-label">Nom :</label>
+                <input class="profile-input" type="text" [(ngModel)]="currentProfileCopy!.lastName">
+            </div>
+            <div class="input-row">
+                <label class="input-label">Prénom :</label>
+                <input class="profile-input" type="text" [(ngModel)]="currentProfileCopy!.name">
+            </div>
+        </div>
+
+    </div>
+
+
+        <div class="configuration-section">
+            <h3 class="section-title">Paramètres de jeu</h3>
+
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label for="show-hint-timer-selector">Temps entre chaque indices</label>
+                        <select id="show-hint-timer-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.SHOW_HINT_TIMER">
+                        <option [value]="30000" selected>30 secondes</option>
+                        <option [value]="15000">15 secondes</option>
+                        <option [value]="10000">10 secondes</option>
+                        <option [value]="5000">5 secondes</option>
+                        <option [value]="0">Afficher directement</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="relaunch-timer-selector">Temps avant de relancer le joueur</label>
+                    <select id="relaunch-timer-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.SHOW_POP_UP_TIMER">
+                        <option [value]="30000" selected>30 secondes</option>
+                        <option [value]="15000">15 secondes</option>
+                        <option [value]="10000">10 secondes</option>
+                        <option [value]="5000">5 secondes</option>
+                        <option [value]="0">Jamais</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="remove-answer-timer-selector">Temps avant d'enlever une réponse</label>
+                    <select id="remove-answer-timer-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.REMOVE_WRONG_ANSWER_INTERVAL">
+                        <option [value]="30000">30 secondes</option>
+                        <option [value]="15000">15 secondes</option>
+                        <option [value]="10000">10 secondes</option>
+                        <option [value]="5000">5 secondes</option>
+                        <option [value]="0">Afficher directement</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="hint-count-selector">Nombre d'indices affichés</label>
+                    <select id="hint-count-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.NUMBER_OF_HINTS_DISPLAYED">
+                        <option [value]="-1">Tous</option>
+                        <option [value]="5">5</option>
+                        <option [value]="4">4</option>
+                        <option [value]="3">3</option>
+                        <option [value]="2">2</option>
+                        <option [value]="1">1</option>
+                        <option [value]="0">Aucun</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="answer-count-selector">Nombre de réponses affichées</label>
+                    <select id="answer-count-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.NUMBER_OF_ANSWERS_DISPLAYED">
+                        <option [value]="-1">Toutes</option>
+                        <option [value]="4">4</option>
+                        <option [value]="3">3</option>
+                        <option [value]="2">2</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 class="section-title">Options d'affichage</h3>
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label>Taille de police</label>
+                    <select class="configuration-select">
+                        <option value="Petit">Petit</option>
+                        <option value="Moyen" selected>Moyen</option>
+                        <option value="Grand">Grand</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="save-button" (click)="saveConfiguration()">Enregistrer</button>
+            <button class="cancel-button" (click)="closeConfiguration()">Annuler</button>
+        </div>
+</div>

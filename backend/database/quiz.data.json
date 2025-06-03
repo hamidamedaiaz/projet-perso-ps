@@ -1,0 +1,688 @@
+[
+  {
+    "id": 1747172294366,
+    "title": "Quiz Rock des années 70-80",
+    "questions": [
+      {
+        "id": 101,
+        "question": "Quel groupe a sorti 'Bohemian Rhapsody' en 1975 ?",
+        "answers": [
+          {
+            "questionId": 101,
+            "id": 2,
+            "answerContent": "The Beatles",
+            "isCorrect": false
+          },
+          {
+            "questionId": 101,
+            "id": 3,
+            "answerContent": "The Rolling Stones",
+            "isCorrect": false
+          },
+          {
+            "questionId": 101,
+            "id": 4,
+            "answerContent": "Genesis",
+            "isCorrect": false
+          },
+          {
+            "questionId": 101,
+            "id": 1,
+            "answerContent": "Queen",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Le leader du groupe était Freddie Mercury"
+        ],
+        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+      },
+      {
+        "id": 102,
+        "question": "Quel album des Pink Floyd est sorti en 1973 ?",
+        "answers": [
+          {
+            "questionId": 102,
+            "id": 5,
+            "answerContent": "The Wall",
+            "isCorrect": false
+          },
+          {
+            "questionId": 102,
+            "id": 6,
+            "answerContent": "Wish You Were Here",
+            "isCorrect": false
+          },
+          {
+            "questionId": 102,
+            "id": 7,
+            "answerContent": "Animals",
+            "isCorrect": false
+          },
+          {
+            "questionId": 102,
+            "id": 4,
+            "answerContent": "Dark Side of the Moon",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "La pochette de l'album représente un prisme"
+        ],
+        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+      },
+      {
+        "id": 103,
+        "question": "Qui a chanté 'Hotel California' en 1976 ?",
+        "answers": [
+          {
+            "questionId": 103,
+            "id": 8,
+            "answerContent": "Fleetwood Mac",
+            "isCorrect": false
+          },
+          {
+            "questionId": 103,
+            "id": 9,
+            "answerContent": "Led Zeppelin",
+            "isCorrect": false
+          },
+          {
+            "questionId": 103,
+            "id": 10,
+            "answerContent": "Creedence Clearwater Revival",
+            "isCorrect": false
+          },
+          {
+            "questionId": 103,
+            "id": 7,
+            "answerContent": "The Eagles",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Le groupe est connu pour son style country rock"
+        ],
+        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294367,
+    "title": "Quiz Disco & Funk des années 70-80",
+    "questions": [
+      {
+        "id": 201,
+        "question": "Qui a chanté 'Stayin' Alive' en 1977 ?",
+        "answers": [
+          {
+            "questionId": 201,
+            "id": 11,
+            "answerContent": "Earth, Wind & Fire",
+            "isCorrect": false
+          },
+          {
+            "questionId": 201,
+            "id": 12,
+            "answerContent": "Kool & The Gang",
+            "isCorrect": false
+          },
+          {
+            "questionId": 201,
+            "id": 13,
+            "answerContent": "Village People",
+            "isCorrect": false
+          },
+          {
+            "questionId": 201,
+            "id": 10,
+            "answerContent": "Bee Gees",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Chanson emblématique du film 'Saturday Night Fever'"
+        ],
+        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+      },
+      {
+        "id": 202,
+        "question": "Quel est le tube le plus célèbre de Michael Jackson en 1983 ?",
+        "answers": [
+          {
+            "questionId": 202,
+            "id": 13,
+            "answerContent": "Beat It",
+            "isCorrect": false
+          },
+          {
+            "questionId": 202,
+            "id": 15,
+            "answerContent": "Thriller",
+            "isCorrect": false
+          },
+          {
+            "questionId": 202,
+            "id": 16,
+            "answerContent": "Wanna Be Startin' Somethin'",
+            "isCorrect": false
+          },
+          {
+            "questionId": 202,
+            "id": 14,
+            "answerContent": "Billie Jean",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Le clip montre le chanteur marcher sur des dalles lumineuses"
+        ],
+        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+      },
+      {
+        "id": 203,
+        "question": "Quel groupe a chanté 'Le Freak' en 1978 ?",
+        "answers": [
+          {
+            "questionId": 203,
+            "id": 17,
+            "answerContent": "Village People",
+            "isCorrect": false
+          },
+          {
+            "questionId": 203,
+            "id": 18,
+            "answerContent": "Boney M.",
+            "isCorrect": false
+          },
+          {
+            "questionId": 203,
+            "id": 19,
+            "answerContent": "KC and the Sunshine Band",
+            "isCorrect": false
+          },
+          {
+            "questionId": 203,
+            "id": 16,
+            "answerContent": "Chic",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Le refrain contient 'Freak out!'"
+        ],
+        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294368,
+    "title": "Chansons Françaises Inoubliables",
+    "questions": [
+      {
+        "id": 301,
+        "question": "Qui chantait 'La Vie en rose' ?",
+        "answers": [
+          {
+            "questionId": 301,
+            "id": 21,
+            "answerContent": "Dalida",
+            "isCorrect": false
+          },
+          {
+            "questionId": 301,
+            "id": 22,
+            "answerContent": "Juliette Gréco",
+            "isCorrect": false
+          },
+          {
+            "questionId": 301,
+            "id": 23,
+            "answerContent": "Yves Montand",
+            "isCorrect": false
+          },
+          {
+            "questionId": 301,
+            "id": 20,
+            "answerContent": "Édith Piaf",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Surnommée la Môme.",
+          "Petite de taille, mais grande voix.",
+          "Elle portait souvent une robe noire et chantait avec émotion dans les cabarets parisiens."
+        ],
+        "audioPath": "assets/musics/edith-piaf-la-vie-en-rose.mp3"
+      },
+      {
+        "id": 302,
+        "question": "Qui chantait 'Je t'aimais, je t'aime et je t'aimerai' ?",
+        "answers": [
+          {
+            "questionId": 302,
+            "id": 24,
+            "answerContent": "Francis Cabrel",
+            "isCorrect": true
+          },
+          {
+            "questionId": 302,
+            "id": 25,
+            "answerContent": "Michel Sardou",
+            "isCorrect": false
+          },
+          {
+            "questionId": 302,
+            "id": 26,
+            "answerContent": "Claude François",
+            "isCorrect": false
+          }
+        ],
+        "hints": [
+          "Chanteur du Sud-Ouest, souvent avec une guitare.",
+          "Sa voix est douce et apaisante.",
+          "Il est aussi l’auteur de 'Petite Marie'."
+        ],
+        "audioPath": "assets/musics/francis-cabrel-je-taimerai.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294369,
+    "title": "Crooners et Voix d'Or",
+    "questions": [
+      {
+        "id": 401,
+        "question": "Quel chanteur a popularisé 'My Way' ?",
+        "answers": [
+          {
+            "questionId": 401,
+            "id": 31,
+            "answerContent": "Elvis Presley",
+            "isCorrect": false
+          },
+          {
+            "questionId": 401,
+            "id": 32,
+            "answerContent": "Tony Bennett",
+            "isCorrect": false
+          },
+          {
+            "questionId": 401,
+            "id": 33,
+            "answerContent": "Dean Martin",
+            "isCorrect": true
+          },
+          {
+            "questionId": 401,
+            "id": 30,
+            "answerContent": "Frank Sinatra",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Surnommé 'The Voice'.",
+          "Portait souvent un chapeau et un costume sombre.",
+          "Sa voix grave est emblématique des soirées jazz à Las Vegas."
+        ],
+        "audioPath": "assets/musics/frank-sinatra-my-way.mp3"
+      },
+      {
+        "id": 402,
+        "question": "Qui chantait 'Only You' avec The Platters ?",
+        "answers": [
+          {
+            "questionId": 402,
+            "id": 34,
+            "answerContent": "Sam Cooke",
+            "isCorrect": false
+          },
+          {
+            "questionId": 402,
+            "id": 35,
+            "answerContent": "Ray Charles",
+            "isCorrect": false
+          },
+          {
+            "questionId": 402,
+            "id": 36,
+            "answerContent": "Otis Redding",
+            "isCorrect": false
+          },
+          {
+            "questionId": 402,
+            "id": 33,
+            "answerContent": "The Platters",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Groupe vocal américain des années 50.",
+          "Chants harmonieux et romantiques.",
+          "Le titre commence par 'Only you... can make this world seem right'."
+        ],
+        "audioPath": "assets/musics/the-platters-only-you.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294370,
+    "title": "Chansons à Refrains Célèbres",
+    "questions": [
+      {
+        "id": 501,
+        "question": "Complétez ce refrain : 'Alexandrie, Alexandra...'",
+        "answers": [
+          {
+            "questionId": 501,
+            "id": 41,
+            "answerContent": "Je t’aime comme ça",
+            "isCorrect": false
+          },
+          {
+            "questionId": 501,
+            "id": 42,
+            "answerContent": "Mon cœur danse avec toi",
+            "isCorrect": false
+          },
+          {
+            "questionId": 501,
+            "id": 43,
+            "answerContent": "Je te veux près de moi",
+            "isCorrect": false
+          },
+          {
+            "questionId": 501,
+            "id": 40,
+            "answerContent": "Mon cœur te dit bonjour",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Chanson de Claude François.",
+          "Rythmée, joyeuse, souvent jouée en fin de soirée.",
+          "Le clip montre des danseurs sur fond de lumière bleue."
+        ],
+        "audioPath": "assets/musics/claude-francois-alexandrie.mp3"
+      },
+      {
+        "id": 502,
+        "question": "Quel chanteur entonnait 'Et maintenant, que vais-je faire ?'",
+        "answers": [
+          {
+            "questionId": 502,
+            "id": 44,
+            "answerContent": "Serge Gainsbourg",
+            "isCorrect": false
+          },
+          {
+            "questionId": 502,
+            "id": 45,
+            "answerContent": "Jacques Brel",
+            "isCorrect": false
+          },
+          {
+            "questionId": 502,
+            "id": 46,
+            "answerContent": "Gilbert Bécaud",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Surnommé 'Monsieur 100 000 volts'.",
+          "Toujours avec un nœud papillon.",
+          "Il frappait parfois son piano en chantant avec passion."
+        ],
+        "audioPath": "assets/musics/gilbert-becaud-et-maintenant.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294371,
+    "title": "Chansons de Bal Populaire",
+    "questions": [
+      {
+        "id": 601,
+        "question": "Qui chantait 'Les Champs-Élysées' ?",
+        "answers": [
+          {
+            "questionId": 601,
+            "id": 51,
+            "answerContent": "Joe Cocker",
+            "isCorrect": false
+          },
+          {
+            "questionId": 601,
+            "id": 52,
+            "answerContent": "Claude François",
+            "isCorrect": false
+          },
+          {
+            "questionId": 601,
+            "id": 53,
+            "answerContent": "Gilbert Bécaud",
+            "isCorrect": false
+          },
+          {
+            "questionId": 601,
+            "id": 50,
+            "answerContent": "Joe Dassin",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Chanteur franco-américain.",
+          "Connue pour ses paroles simples et joyeuses.",
+          "On entend souvent : 'Au soleil, sous la pluie...' "
+        ],
+        "audioPath": "assets/musics/joe-dassin-champs-elysees.mp3"
+      },
+      {
+        "id": 602,
+        "question": "Qui chantait 'Viens boire un p'tit coup à la maison' ?",
+        "answers": [
+          {
+            "questionId": 602,
+            "id": 54,
+            "answerContent": "Les Musclés",
+            "isCorrect": true
+          },
+          {
+            "questionId": 602,
+            "id": 55,
+            "answerContent": "Carlos",
+            "isCorrect": false
+          },
+          {
+            "questionId": 602,
+            "id": 56,
+            "answerContent": "Patrick Sébastien",
+            "isCorrect": false
+          }
+        ],
+        "hints": [
+          "Groupe de variétés associé au Club Dorothée.",
+          "Chansons simples, ambiance fête de village.",
+          "Accordéon, rires et bonne humeur garantis."
+        ],
+        "audioPath": "assets/musics/les-muscles-viens-boire.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294372,
+    "title": "Souvenirs Publicitaires en Chanson",
+    "questions": [
+      {
+        "id": 701,
+        "question": "Quelle marque chantait 'Quand c'est trop, c'est Tropico' ?",
+        "answers": [
+          {
+            "questionId": 701,
+            "id": 61,
+            "answerContent": "Fanta",
+            "isCorrect": false
+          },
+          {
+            "questionId": 701,
+            "id": 62,
+            "answerContent": "Orangina",
+            "isCorrect": false
+          },
+          {
+            "questionId": 701,
+            "id": 63,
+            "answerContent": "Oasis",
+            "isCorrect": false
+          },
+          {
+            "questionId": 701,
+            "id": 60,
+            "answerContent": "Tropico",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Une boisson aux fruits très sucrée.",
+          "Publicité avec des couleurs tropicales.",
+          "Le slogan est devenu culte dans les années 80-90."
+        ],
+        "audioPath": "assets/musics/tropico-jingle.mp3"
+      },
+      {
+        "id": 702,
+        "question": "Quelle pub chantait 'Il est frais mon poisson' ?",
+        "answers": [
+          {
+            "questionId": 702,
+            "id": 64,
+            "answerContent": "Findus",
+            "isCorrect": true
+          },
+          {
+            "questionId": 702,
+            "id": 65,
+            "answerContent": "Petit Navire",
+            "isCorrect": false
+          },
+          {
+            "questionId": 702,
+            "id": 66,
+            "answerContent": "Capitaine Iglo",
+            "isCorrect": false
+          }
+        ],
+        "hints": [
+          "Surgelés très connus.",
+          "Le slogan a été crié dans une pub des années 80.",
+          "L'emballage est souvent bleu et blanc, avec un poisson."
+        ],
+        "audioPath": "assets/musics/findus-jingle.mp3"
+      }
+    ]
+  },
+  {
+    "id": 1747172294373,
+    "title": "Chansons de Films Célèbres",
+    "questions": [
+      {
+        "id": 801,
+        "question": "Dans quel film entend-on 'Singin' in the Rain' ?",
+        "answers": [
+          {
+            "questionId": 801,
+            "id": 71,
+            "answerContent": "West Side Story",
+            "isCorrect": false
+          },
+          {
+            "questionId": 801,
+            "id": 72,
+            "answerContent": "Un Américain à Paris",
+            "isCorrect": false
+          },
+          {
+            "questionId": 801,
+            "id": 73,
+            "answerContent": "My Fair Lady",
+            "isCorrect": false
+          },
+          {
+            "questionId": 801,
+            "id": 70,
+            "answerContent": "Singin' in the Rain",
+            "isCorrect": true
+          }
+        ],
+        "hints": [
+          "Un acteur chante sous un parapluie.",
+          "Comédie musicale en noir et blanc.",
+          "Chanson joyeuse et dansante sur la pluie."
+        ],
+        "audioPath": "assets/musics/singin-in-the-rain.mp3"
+      },
+      {
+        "id": 802,
+        "question": "Quelle chanson entend-on dans 'Les Demoiselles de Rochefort' ?",
+        "answers": [
+          {
+            "questionId": 802,
+            "id": 74,
+            "answerContent": "Chanson des jumelles",
+            "isCorrect": true
+          },
+          {
+            "questionId": 802,
+            "id": 75,
+            "answerContent": "Douliou douliou Saint-Tropez",
+            "isCorrect": false
+          },
+          {
+            "questionId": 802,
+            "id": 76,
+            "answerContent": "Les moulins de mon cœur",
+            "isCorrect": false
+          }
+        ],
+        "hints": [
+          "Deux sœurs chantent ensemble.",
+          "Film de Jacques Demy.",
+          "Avec Catherine Deneuve et Françoise Dorléac."
+        ],
+        "audioPath": "assets/musics/demoielles-de-rochefort.mp3"
+      },
+      {
+        "id": 3,
+        "question": "Nouvelle Question",
+        "answers": [
+          {
+            "questionId": 3,
+            "id": 1,
+            "answerContent": "Réponse A",
+            "isCorrect": false
+          },
+          {
+            "questionId": 3,
+            "id": 2,
+            "answerContent": "Réponse B",
+            "isCorrect": false
+          },
+          {
+            "questionId": 3,
+            "id": 3,
+            "answerContent": "Réponse C",
+            "isCorrect": false
+          },
+          {
+            "questionId": 3,
+            "id": 4,
+            "answerContent": "Réponse D",
+            "isCorrect": false
+          }
+        ],
+        "hints": [],
+        "audioPath": ""
+      }
+    ]
+  }
+]

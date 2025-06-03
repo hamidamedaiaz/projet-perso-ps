@@ -1,0 +1,122 @@
+@import '/src/app/color-palette.scss';
+
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: $secondary-white-bg;
+    box-shadow: $primary-box-shadow;
+  }
+  
+  .quiz-profile-info {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .quiz-title {
+    margin: 0 0 10px 0;
+    color: $primary-black-text;
+    font-size: 1.8rem;
+  }
+  
+  .quiz-date {
+    margin: 0 0 5px 0;
+    color: $secondary-white-text;
+    font-size: 0.95rem;
+  }
+  
+  .profile-name {
+    margin: 0;
+    color: $secondary-black-text;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .score-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .score-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    color: $primary-white-text;
+  }
+  
+  .grande-score { background-color: #2ecc71; }
+  .moyenne-score { background-color: #f39c12; }
+  .petite-score { background-color: #e74c3c; }
+  
+  .score-value {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .score-percentage {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .stats-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .stat-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 14px;
+  }
+  
+  .time-icon {
+    background-color: $primary-blue-bg;
+  }
+  
+  .hint-icon {
+    background-color: #9b59b6;
+    
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: $secondary-white-text;
+  }
+  
+  .stat-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $primary-black-text;
+  }
+  
+  @media (max-width: 768px) {
+    .score-summary {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .score-badge {
+      width: 100px;
+      height: 100px;
+    }
+  }

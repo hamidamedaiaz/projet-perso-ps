@@ -1,0 +1,8 @@
+<section class="hint-section">
+    <span class="hint-title">Indices</span>
+    <hr class="right-side-separator">
+    <div class="hints-container" *ngFor="let hint of getDisplayedHints()">
+        <app-quiz-hint [hint]="hint" class="hint-item"></app-quiz-hint>
+    </div>
+    <p *ngIf="nextHints" class="hint-item">Prochain indice dans {{value}} s</p>
+</section>

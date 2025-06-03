@@ -1,0 +1,40 @@
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.question:hover {
+    background-color: #e9ecef;
+}
+
+#Title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pousse les boutons complètement à droite */
+}
+
+#edit, #delete {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 5px; /* Petit espace entre les boutons */
+    transition: transform 0.2s ease-in-out;
+}
+
+#edit:hover, #delete:hover {
+    transform: scale(1.1); /* Zoom léger au survol */
+}

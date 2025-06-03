@@ -1,0 +1,16 @@
+<section class="home-container">
+  <app-popup-code [show]="popUp" (close)="closePopUp()" (success)="goToAdminPanel()"></app-popup-code>
+
+
+  <button class="admin-button" (click)="showPopUp()">Panel de Gestion</button>
+
+  <span class="home-page-title">Octave</span>
+  <app-profile-list class="profile-list-container" [context]="context"></app-profile-list>
+
+
+  <svg id="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#0099ff" fill-opacity="1"
+      d="M0,160L120,176C240,192,480,224,720,213.3C960,203,1200,149,1320,122.7L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+    </path>
+  </svg>
+</section>

@@ -1,0 +1,32 @@
+/* Élément joueur */
+.joueur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol de l'élément */
+.joueur:hover {
+    transform: scale(1.05);
+}
+
+/* Nom du joueur */
+.nom-joueur {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+#usr{
+    margin-right: 20px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 5px; /* Petit espace entre les boutons */
+    transition: transform 0.2s ease-in-out;
+}

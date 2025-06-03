@@ -1,0 +1,20 @@
+<div *ngIf="show" class="admin-log-container">
+    <div class="frallo" (click)="closePopup()">
+        <div class="code-page-container" (click)="$event.stopPropagation()">
+            <div *ngIf="codeError" class="error-message">
+                Code incorrect. Veuillez réessayer.
+            </div>
+            <h2>Entrez votre code</h2>
+            <div class="code-inputs">
+                <input type="text" maxlength="1" [(ngModel)]="code[0]" (input)="onInput(0, $event)"
+                    (keydown)="keyPressed(0, $event)" autofocus>
+                <input type="text" maxlength="1" [(ngModel)]="code[1]" (input)="onInput(1, $event)"
+                    (keydown)="keyPressed(1, $event)">
+                <input type="text" maxlength="1" [(ngModel)]="code[2]" (input)="onInput(2, $event)"
+                    (keydown)="keyPressed(2, $event)">
+                <input type="text" maxlength="1" [(ngModel)]="code[3]" (input)="onInput(3, $event)"
+                    (keydown)="keyPressed(3, $event)">
+            </div>
+        </div>
+    </div>
+</div>

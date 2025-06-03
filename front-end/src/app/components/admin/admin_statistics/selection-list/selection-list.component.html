@@ -1,0 +1,36 @@
+<div class="stats-container">
+  <div class="stats-content">
+    <h2 *ngIf="context === 'acceuilli'">Statistiques des Accueillis</h2>
+    <h2 *ngIf="context === 'quiz'">Statistiques des Quiz</h2>
+
+    <div class="stats-header">
+      <div class="stats-search">
+        <input *ngIf="context === 'acceuilli'"
+          type="text"
+          placeholder="Rechercher un accueilli..."
+          [(ngModel)]="searchQuery"
+          class="search-input"
+        />
+        <input *ngIf="context === 'quiz'"
+          type="text"
+          placeholder="Rechercher un quiz..."
+          [(ngModel)]="searchQuery"
+          class="search-input"
+        />
+      </div>
+    </div>
+
+    <div class="card-list" *ngIf="context === 'acceuilli'">
+      <div class="card" *ngFor="let profile of filteredProfiles()" [class.highlighted]="selectedProfile?.id === profile.id" (click)="getProfileStats(profile.id)">
+        <div class="card-title">{{ profile.lastName }} {{ profile.name }}</div>
+      </div>
+    </div>
+
+
+    <div class="card-list" *ngIf="context === 'quiz'">
+      <div class="card" *ngFor="let quiz of filteredQuizzes()" [class.highlighted]="selectedProfile?.id === quiz.id" (click)="getQuizStat(quiz.id)">
+        <div class="card-title">{{ quiz.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>

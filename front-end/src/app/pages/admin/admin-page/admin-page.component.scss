@@ -1,0 +1,265 @@
+@import '/src/app/color-palette.scss';
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: $primary-white-bg;
+}
+
+.admin-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 14%;
+  background-color: $secondary-blue-bg;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 10;
+  width: 300px;
+  min-width: 300px; 
+  max-width: 300px;
+  transition: none; 
+}
+
+.home-btn {
+  margin-top: auto;
+}
+
+.sidebar-btn {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background-color: $third-blue-btn;
+  border: none;
+  color: $primary-btn-white-text;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $secondary-btn-blue-hover;
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(1.02);
+  }
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Styles pour le sous-menu
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  margin-left: 15px;
+  margin-bottom: 10px;
+
+  &.open {
+    max-height: 200px; // Hauteur suffisante pour contenir tous les sous-éléments
+  }
+
+  .submenu-btn {
+    background-color: $third-blue-btn;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 8px;
+
+    &:hover {
+      background-color: $secondary-btn-blue-hover;
+    }
+  }
+}
+
+.logo {
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: $primary-white-bg;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  position: relative;
+}
+
+.section-title {
+  color: $primary-black-text;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background-color: $primary-white-bg;
+    margin-left: 15px;
+  }
+}
+
+.acceuilli-section {
+  display: flex;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.profiles-panel {
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+  padding-right: 20px;
+
+  &.collapsed {
+    max-width: 35%;
+    min-width: 300px;
+  }
+}
+
+.config-panel {
+  flex: 2;
+  position: relative;
+  height: 100%;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+  border-left: 1px solid $primary-border-white;
+  animation: slideIn 0.3s ease-in-out;
+  background-color: $primary-white-bg;
+  scroll-behavior: smooth;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.profile-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary-white-bg;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-white-bg;
+}
+
+@media (max-width: 1024px) {
+  .profiles-panel.collapsed {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: auto;
+    padding: 10px;
+  }
+
+  .content {
+    margin: 10px;
+  }
+
+  .acceuilli-section {
+    flex-direction: column;
+  }
+
+  .profiles-panel {
+    max-width: 100%;
+
+    &.collapsed {
+      max-width: 100%;
+      min-width: auto;
+    }
+  }
+
+  .config-panel {
+    margin-top: 20px;
+  }
+}
+
+.home-page-title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  /* centre horizontalement */
+  align-items: center;
+  /* centre verticalement */
+  height: 80%;
+  width: 100%;
+  color: $primary-blue-text;
+  user-select: none;
+  font-family: "Unbounded", sans-serif;
+
+}
+
+
+#subText {
+  position: absolute;
+  top: 45%;
+  left: 38%;
+  font-size: 3vh;
+  color: $secondary-white-text;
+  user-select: none;
+}
+
+
+.select-quiz-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

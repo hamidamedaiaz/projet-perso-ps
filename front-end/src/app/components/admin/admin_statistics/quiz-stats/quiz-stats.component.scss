@@ -1,0 +1,119 @@
+@import '/src/app/color-palette.scss';
+
+/* Header */
+.section-title {
+  display: inline-block;
+  font-size: 25px;
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+  color: #007BFF;
+}
+
+.back-button {
+  background-color: $primary-blue-btn;
+  color: $primary-white-bg;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  margin-right: 20px;
+  
+  &:hover {
+    background-color: $primary-btn-blue-hover;
+    cursor: pointer;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.quiz-info h1 { margin: 0; font-size: 1.6rem; }
+.quiz-info .quiz-title {
+  margin: 4px 0 0; color: #666;
+}
+
+/* Global metrics */
+.global-metrics {
+  display: flex; gap: 16px; margin-bottom: 32px;
+  .card {
+    flex: 1;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    text-align: center; padding: 16px;
+    h3 { margin: 0; font-size: 1.4rem; color: #007bff; }
+    p  { margin: 8px 0 0; color: #555; }
+  }
+}
+
+/* Content layout */
+.content {
+  display: flex; gap: 24px;
+}
+
+/* Question list */
+.question-list {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.question-card {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+
+  .question-text {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .question-stats {
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &.active {
+    border-color: #007bff;
+    background: #e7f1ff;
+  }
+  &:hover {
+    background: #f0f8ff;
+  }
+}
+
+/* Chart area */
+.chart-area {
+  flex: 2;
+  background: transparent;
+  position: relative;
+  height: 320px;
+}
+.chart-area h2 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+  color: #007bff;
+}
+.chart-area canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content { flex-direction: column; }
+  .chart-area { height: 240px; }
+}

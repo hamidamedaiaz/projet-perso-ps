@@ -1,0 +1,167 @@
+@import '/src/app/color-palette.scss';
+
+.global-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.left-container{
+    background-color: $primary-blue-bg;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding-top: 10vh;
+    gap: 100px;
+}
+
+.left-container-admin-view{
+    width: 30%;
+}
+
+.left-container-user-view{
+    display: none;
+}
+
+.right-container-admin-view{
+    width: 70%;
+}
+
+.right-container-user-view{
+    width: 100%;
+}
+
+.right-container{
+    background-color: $primary-white-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5vw;
+}
+
+.congrats-message{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color: $primary-btn-blue-text;
+}
+
+.multi-profile-list{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.question-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    gap: 20px;
+    padding: 2vh 0px;
+    background-color: $secondary-blue-bg;
+    box-shadow: $primary-box-shadow;
+    border-radius: 10px;
+    width: 95%;
+    overflow-y: auto;
+}
+
+.question-item {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: $primary-white-bg;
+    border: $primary-border-white;
+    border-radius: 6px;
+    font-size: 1.1em;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: $primary-box-shadow;
+  }
+  
+  .question-item:hover {
+    background-color: $primary-btn-white-hover;
+    cursor: pointer;
+  }
+  
+  .question-item.selected {
+    background-color: $secondary-blue-btn;
+    color: $primary-white-btn;
+    border-color: $secondary-blue-btn;
+  }
+
+.button-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Buttons --- */
+.button {
+    padding: 10px 20px;
+    width: 8vw;
+    background-color: $third-blue-bg;
+    color: $primary-white-btn;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 20px;
+    box-shadow: $primary-box-shadow;
+    
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: $third-btn-blue-hover;
+}
+
+
+.multi-profile-list-container{
+    width: 80%;
+}
+
+.quiz-title {
+    font-size: 50px;
+    font-weight: 600;
+    color: $primary-white-text;
+    font-family: monospace;
+    text-align: center;
+}
+
+.question-item:hover{
+    cursor: pointer;
+}
+
+.quiz-question-container{
+    height: 100%;
+}
+
+#leave-btn{
+    background-color: $primary-white-btn;
+    color: $primary-black-text
+}
+
+#leave-btn:hover{
+    background-color: $primary-btn-white-hover;
+}
+
+.leave-btn-user-view{
+    display: flex;
+    justify-content: center;
+}
+
+.button-section-user-view{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.wave{
+    position: fixed;
+    z-index: 0;
+    bottom: 0px;
+    left: 0px;
+}

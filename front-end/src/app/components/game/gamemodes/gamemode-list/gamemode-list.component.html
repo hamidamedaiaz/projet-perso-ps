@@ -1,0 +1,6 @@
+<div class="gamemodeList">
+    <div class="gamemode-container" *ngFor="let gamemode of gamemodeList">
+        <app-gamemode [gamemode]="gamemode" (gamemodeSelected)="gamemodeSelected(gamemode.id)"></app-gamemode>
+    </div>
+</div>
+

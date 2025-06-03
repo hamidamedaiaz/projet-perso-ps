@@ -1,0 +1,123 @@
+@import '/src/app/color-palette.scss';
+
+.progression-section {
+  margin-bottom: 40px;
+
+  h3 {
+    color: $primary-black-text;
+    margin: 0 0 15px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+
+.tabs-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.year-section{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tab-btn {
+  padding: 8px 15px;
+  background-color: $secondary-white-bg;
+  border: $primary-border-white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: $primary-black-text;
+  transition: all 0.2s;
+
+
+  &:hover {
+    background-color: $primary-btn-white-hover;
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: $fourth-blue-btn;
+    color: $primary-btn-white-text;
+    border-color: $primary-border-black;
+  }
+}
+
+.chart-container{
+  display: flex;
+  gap: 2vw;
+  width: 100%; 
+  align-items: center;
+}
+
+.metrics-section{
+  flex:3
+}
+
+.progress-chart {
+  display: flex;
+  align-items: flex-end;
+  height: 200px;
+  gap: 10px;
+  background-color: $secondary-white-bg;
+  border-radius: 5px;
+  padding: 40px;
+  margin-top: 15px;
+  box-shadow: $primary-box-shadow;
+
+
+  .progress-bar {
+    flex: 1;
+    background-color: $primary-blue-bg;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 40px;
+
+
+    .progress-label {
+      position: absolute;
+      top: -25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $primary-black-text;
+    }
+
+
+    .month-label {
+      position: absolute;
+      bottom: -25px;
+      font-size: 0.8rem;
+      color: $secondary-white-text;
+      white-space: nowrap;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    overflow-x: auto;
+    padding-bottom: 5px;
+
+    .tab-btn {
+      white-space: nowrap;
+    }
+  }
+
+}
+
+.chart-wrapper {
+  height: 450px;
+  background-color: $secondary-white-bg;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: $primary-box-shadow;
+  margin-top: 15px;
+}

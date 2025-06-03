@@ -1,0 +1,43 @@
+.reponses {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0px;
+}
+
+#quiz-answer {
+    width: 50%;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    margin-left: 10%;
+}
+
+#quiz-answer:focus {
+    border-bottom: 3px solid #888;
+}
+
+.toggle {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+.toggle:checked {
+    background-color: green;
+}
+
+ #delete-answer{
+     width: 24px;
+     height: 24px;
+     cursor: pointer;
+     margin-left: 5px; /* Petit espace entre les boutons */
+     transition: transform 0.2s ease-in-out;
+ }

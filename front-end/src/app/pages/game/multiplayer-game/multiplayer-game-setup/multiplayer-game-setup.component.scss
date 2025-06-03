@@ -1,0 +1,80 @@
+@import '/src/app/color-palette.scss';
+
+.multiplayer-game-setup-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
+}
+
+.multiplayer-game-setup-sidebar {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+/* Partie droite de l'écran */
+.right-side {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Titre principal */
+.multiplayer-game-setup-title {
+  font-size: 2.5vw;
+  margin-bottom: 0;
+  font-family: "Arial", sans-serif;
+}
+
+/* Ligne séparatrice */
+.side-separator {
+  height: 1px;
+  background-color: $primary-black-text;
+  width: 85%;
+  margin: 2rem 0;
+}
+
+/* Texte pour nombre de joueurs */
+.people-counter {
+  align-self: flex-start;
+  width: 80%;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
+}
+
+/* Conteneur horizontal : profils + joueurs en ligne */
+.players-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+/* Liste de sélection de joueurs */
+.profile-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+/* Liste des joueurs en ligne */
+.online-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: $primary-black-text;
+  max-height: 100%;
+  overflow-y: auto;
+}

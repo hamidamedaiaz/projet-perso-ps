@@ -1,0 +1,33 @@
+<div class="quiz-container">
+  <!-- Le NgModel permet de faire en sorte que si on modifie la valeur alors la variable dans le ts soit instant mise a jour comme
+   ça on a un affiche de la liste qui est en direct et pas quand on presse Enter-->
+  <input type="text" placeholder="Rechercher un quiz..." [(ngModel)]="searchQuery" class="search-bar">
+
+  <div class="quiz-list" *ngIf="context==='admin'">
+    <!-- Le ngFor permet de boucler dans chaque quizz en fonction de la barre de search-->
+    <!-- le [quiz]= ... permet de rentrer l'input que le quizz-item demande-->
+
+    <div class="quiz-item create-quiz-item" (click)="createQuiz()">
+      <h3>+ Créer un quiz</h3>
+    </div>
+
+    <app-quiz-item *ngFor="let quiz of filteredQuizzes()" [quiz]="quiz" (launchMultiGameEmitter)="launchMultiGame(quiz)"
+      (deleteQuiz)="deleteQuiz(quiz)">
+    </app-quiz-item>
+  </div>
+  <div class="quiz-list" *ngIf="context==='solo'">
+    <app-quiz-item [context]="'solo'" *ngFor="let quiz of filteredQuizzes()" [quiz]="quiz"
+      (click)="launchSoloGame(quiz)" class="solo-selection-quiz-item">
+    </app-quiz-item>
+  </div>
+
+  <div *ngIf="showDeleteConfirm" class="delete-confirm">
+    <div class="delete-confirm-content">
+      <p>Êtes-vous sûr de vouloir supprimer {{quizToDelete?.title}} ?</p>
+      <div class="delete-buttons">
+        <button class="confirm-delete-btn" (click)="confirmDelete()">Confirmer</button>
+        <button class="cancel-delete-btn" (click)="cancelDelete()">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

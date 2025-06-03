@@ -1,0 +1,14 @@
+<div class="quiz-item">
+  <section class="header-card-section">
+    <h3 class="quiz-item-title">{{ quiz.title }}</h3>
+    <section *ngIf="currentPage==='admin'">
+      <button class="button"><img ngSrc="assets/icons/edit.svg" height="30" width="30" (click)="onEditClick()"></button>
+      <button class="button"><img ngSrc="assets/icons/xmark.svg" height="30" width="30"
+          (click)="onDeleteClick()"></button>
+    </section>
+  </section>
+  
+  <button *ngIf="currentPage==='admin'" class="launch-game-btn" (click)="launchMultiGame()">Lancer en
+    groupe</button>
+  <button *ngIf="context==='solo'" class="launch-game-btn" (click)="launchSoloGame()">Démarrer</button>
+</div>

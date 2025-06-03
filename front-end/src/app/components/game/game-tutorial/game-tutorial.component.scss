@@ -1,0 +1,330 @@
+@import '/src/app/color-palette.scss';
+
+.skip-button {
+  background-color: $primary-blue-bg;
+  color: white;
+  padding: 1.2vh 2.4vh;
+  font-size: 2.3vh;
+  font-weight: bold;
+  border: none;
+  border-radius: 1.2vh;
+  cursor: pointer;
+  box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.skip-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.skip-button:active {
+  transform: scale(0.98);
+  background-color: #3e8e41;
+}
+
+.skip-button:focus {
+  outline: 0.3vh solid #ffffff;
+  outline-offset: 0.2vh;
+}
+
+
+.tutorial-container {
+  background-color: $primary-white-bg;
+  border: .2vh solid $primary-blue-bg;
+  border-radius: 1.5vh;
+  padding: 3.0vh;
+  width: 90%;
+  max-width: 80.0vh;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: $primary-box-shadow;
+}
+
+.intro {
+  text-align: center;
+  color: $secondary-black-text;
+  margin-bottom: 3.0vh;
+  font-size: 2.4vh;
+}
+
+.bottom-actions {
+  text-align: center;
+  margin-top: 2.0vh;
+}
+
+.back-button {
+  background-color: $primary-white-btn;
+  color: $primary-black-text;
+  border: .1vh solid $primary-border-white;
+  padding: .8vh 1.5vh;
+  border-radius: .5vh;
+  cursor: pointer;
+}
+
+.start-button {
+  background-color: #3e8e41;
+  color: white;
+  border: none;
+  padding: 1.2vh 2.5vh;
+  border-radius: .8vh;
+  cursor: pointer;
+  font-size: 2.4vh;
+  font-weight: bold;
+}
+
+.start-button:hover{
+  background-color: #45a049;
+}
+
+.example-screen {
+  background-color: $secondary-white-bg;
+  border: .1vh solid $primary-border-white;
+  border-radius: .8vh;
+  padding: 2.0vh;
+  margin: 1.5vh 0;
+  user-select: none;
+}
+
+.search {
+  background-color: white;
+  border: .1vh solid #ccc;
+  padding: 1.0vh;
+  border-radius: .5vh;
+  margin-bottom: 1.5vh;
+  color: #999;
+}
+
+.quiz {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1.5vh;
+  border-radius: .8vh;
+  border: .1vh solid #ddd;
+}
+
+.quiz-title {
+  font-weight: bold;
+  color: $primary-black-text;
+}
+
+.step-counter {
+  color: $secondary-black-text;
+  font-weight: bold;
+}
+
+.tutorial-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.0vh;
+  padding-top: 2.0vh;
+  border-top: .1vh solid $primary-border-white;
+}
+
+.nav-button {
+  background-color: $primary-blue-btn;
+  color: white;
+  border: none;
+  padding: 1.0vh 2.0vh;
+  border-radius: .8vh;
+  cursor: pointer;
+  font-size: 2.1vh;
+}
+
+.nav-button:hover {
+  background-color: $primary-btn-blue-hover;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 1.0vh;
+  margin-bottom: 1.0vh;
+  flex-wrap: wrap;
+}
+
+.volume-controls {
+  display: flex;
+  gap: 1.0vh;
+  margin-bottom: 1.0vh;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  background-color: $third-blue-bg;
+  color: white;
+  border: none;
+  padding: .8vh 1.2vh;
+  border-radius: .5vh;
+  font-size: 2.0vh;
+
+}
+
+h1 {
+  text-align: center;
+  color: $primary-blue-bg;
+  font-size: 4.0vh;
+  margin-bottom: 1.0vh;
+}
+
+h2 {
+  color: $primary-black-text;
+  font-size: 3.2vh;
+  margin-bottom: 1.5vh;
+  border-bottom: .2vh solid $primary-blue-bg;
+  padding-bottom: .5vh;
+}
+
+.step {
+  margin-bottom: 3.0vh;
+}
+
+.step-content p {
+  color: $primary-black-text;
+  margin-bottom: .8vh;
+  font-size: 2.2vh;
+  line-height: 1.4;
+}
+
+.question {
+  font-size: 2.6vh;
+  font-weight: bold;
+  color: $primary-black-text;
+  margin-bottom: 1.5vh;
+  text-align: center;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.0vh, 1fr));
+  gap: 1.0vh;
+}
+
+.answer {
+  background-color: $primary-blue-btn;
+  color: white;
+  border: none;
+  padding: 1.0vh;
+  border-radius: .5vh;
+
+  font-size: 2.0vh;
+}
+
+.hints-panel {
+  background-color: $third-blue-bg;
+  color: white;
+  padding: 1.5vh;
+  border-radius: .8vh;
+  max-width: 25.0vh;
+}
+
+.hints-panel h3 {
+  margin-top: 0;
+  margin-bottom: 1.0vh;
+  color: white;
+  font-size: 2.0vh;
+}
+
+.hint {
+  margin-bottom: .5vh;
+  font-size: 2.0vh;
+}
+
+.next-hint {
+  margin-top: 1.0vh;
+  font-style: italic;
+  color: #ccc;
+  font-size: 1.9vh;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.0vh;
+}
+
+.nav-btn {
+  background-color: $fourth-blue-bg;
+  color: white;
+  border: none;
+  padding: 1.0vh 1.5vh;
+  border-radius: .5vh;
+
+}
+
+.result-screen {
+  text-align: center;
+  padding: 2.0vh;
+}
+
+.result-screen h3 {
+  color: $primary-blue-bg;
+  margin-bottom: 1.5vh;
+}
+
+.result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5vh;
+  margin-top: 1.5vh;
+}
+
+.result-btn {
+  background-color: $secondary-blue-btn;
+  color: white;
+  border: none;
+  padding: 1.0vh 2.0vh;
+  border-radius: .5vh;
+
+}
+
+.nav-button:hover {
+  background-color: $primary-btn-blue-hover;
+}
+
+.back-button:hover {
+  background-color: $primary-btn-white-hover;
+}
+
+.start-btn {
+  background-color: $primary-blue-btn;
+  color: white;
+  border: none;
+  padding: 1.2vh 2.5vh;
+  border-radius: .8vh;
+
+  font-size: 2.4vh;
+  font-weight: bold;
+}
+
+.skip-button {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+
+@media (max-width: 60.0vh) {
+  .tutorial-container {
+    padding: 2.0vh;
+    width: 95%;
+  }
+
+  .answers {
+    grid-template-columns: 1fr;
+  }
+
+  .audio-controls {
+    flex-direction: column;
+  }
+
+  .navigation {
+    flex-direction: column;
+  }
+
+  .tutorial-nav {
+    flex-direction: column;
+    gap: 1.0vh;
+  }
+}

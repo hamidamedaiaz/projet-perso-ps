@@ -1,0 +1,112 @@
+@import '/src/app/color-palette.scss';
+
+.waiting-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2.0vh;
+    border-radius: 1.0vh;
+    width: min(60vh, 80vw);
+    background-color: $primary-blue-bg;
+    padding: 3.6vh;
+    text-align: center;
+    user-select: none;
+}
+
+.wave{
+    position: absolute;
+    bottom: .0vh;
+    left: .0vh;
+    z-index: 0;
+}
+
+#leave-btn{
+    background-color: $primary-white-btn;
+    color: $primary-black-text;
+    z-index: 3;
+}
+
+#leave-btn:hover{
+    background-color: $primary-btn-white-hover;
+}
+
+.button {
+    padding: 1.0vh 2.0vh;
+    color: $primary-white-btn;
+    border: none;
+    border-radius: 1.0vh;
+    font-size: 3.0vh;
+    width: 24vh;
+    height:8vh;
+    transition: all 0.2s ease-in-out;
+}
+
+.button:hover{
+    transform: scale(1.03);
+    width: 26vh;
+    cursor: pointer;
+}
+
+.global-container {
+    background-color: $primary-white-bg;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+
+}
+
+.tutorial-section {
+  z-index: 1000;
+}
+
+.waiting-message {
+    font-size: 6vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color:$primary-white-text;
+    font-weight: bold;
+}
+
+.dot-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+}
+
+.dot {
+    font-size: 3vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $primary-white-text;
+    opacity: 0;
+    animation: dotAnimation 1.5s infinite ease-in-out;
+    margin: 0 .5vh;
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes dotAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+

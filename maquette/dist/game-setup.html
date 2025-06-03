@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link href="game-setup.css" rel="stylesheet"/>
+<link href="./style.css" rel="stylesheet"/>
+<title>Game Setup</title>
+</head>
+<script defer="">
+    function updateSelection() {
+        const selectElement = document.getElementById("quiz-select");
+    }
+</script>
+<body>
+<div class="navbar">
+<div class="navbar-container">
+<div>
+<a href="/">Octave</a>
+<a href="/games.html">Jeux</a>
+<a href="/statistics.html">Statistiques</a>
+<!--<a href="/configuration.html">Configuration</a>-->
+</div>
+<div>
+<a class="button" href="/">Se Connecter</a>
+</div>
+</div>
+</div>
+
+<div id="container">
+<div id="left-container">
+<h2 class="title">
+                Création d'une partie
+            </h2>
+<div id="game-config">
+<label for="quiz-select">Choisissez un quiz :</label>
+<div class="dropdown">
+<select id="quiz-select" onchange="updateSelection()">
+<option disabled="" selected="" value="">Sélectionnez un quiz </option>
+<option value="Quiz Histoire">Quiz A</option>
+<option value="Quiz Science">Quiz B</option>
+<option value="Quiz Musique">Quiz C</option>
+</select>
+</div>
+<h2 id="code">
+                    Code : 9102
+                </h2>
+<button class="start-button" id="start-button">Démarrer</button>
+</div>
+</div>
+<div id="middle-container">
+<h2 class="title">Paramètres du Jeu</h2>
+<p id="button-info"> Les settings proposé sont juste des exemple pas les vrai settings</p>
+<div class="settings-group">
+<label for="question-time">Durée par question :</label>
+<input id="question-time" max="60" min="10" step="10" type="range" value="30"/>
+<span id="time-display">30s</span>
+</div>
+<div class="settings-group">
+<label for="question-count">Nombre de questions :</label>
+<select id="question-count">
+<option value="5">1</option>
+<option value="10">2</option>
+<option value="15">3</option>
+</select>
+</div>
+<div class="settings-group">
+<label for="text-size">Taille du texte :</label>
+<select id="text-size">
+<option value="small">Petit</option>
+<option selected="" value="medium">Moyen</option>
+<option value="large">Grand</option>
+</select>
+</div>
+<div class="checkbox-group">
+<input id="high-contrast" type="checkbox"/>
+<label for="high-contrast">Mode contraste élevé</label>
+</div>
+<div class="checkbox-group">
+<input checked="" id="voice-assist" type="checkbox"/>
+<label for="voice-assist">Activer la synthèse vocale</label>
+</div>
+<div class="checkbox-group">
+<input checked="" id="enable-hints" type="checkbox"/>
+<label for="enable-hints">Activer les indices</label>
+</div>
+<div class="checkbox-group">
+<input id="settings-toggle" type="checkbox"/>
+<label for="settings-toggle">Ainsi de suite ..</label>
+</div>
+</div>
+<div id="right-container">
+<h2 class="title">Liste des joueurs dans la partie : </h2>
+<div id="player-list">
+<div class="joueur">
+<img id="usr" src="assets/icons/user.png"/>
+<div class="nom-joueur">Jean Dupont</div>
+</div>
+
+<div class="joueur">
+<img id="usr" src="assets/icons/user.png"/>
+<div class="nom-joueur">Jean Dupont</div>
+</div>
+
+<div class="joueur">
+<img id="usr" src="assets/icons/user.png"/>
+<div class="nom-joueur">Jean Dupont</div>
+</div>
+
+<div class="joueur">
+<img id="usr" src="assets/icons/user.png"/>
+<div class="nom-joueur">Jean Dupont</div>
+</div>
+
+<div class="joueur">
+<img id="usr" src="assets/icons/user.png"/>
+<div class="nom-joueur">Jean Dupont</div>
+</div>
+
+</div>
+</div>
+</div>
+<script src="scripts/websockets.js"></script></body>
+</html>

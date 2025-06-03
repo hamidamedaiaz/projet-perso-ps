@@ -1,0 +1,95 @@
+@import '/src/app/color-palette.scss';
+
+.scoreboard-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20vh;
+    gap: 10vh;
+}
+
+.scoreboard-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    padding: 4vh 10vh;
+    border-radius: 1vh;
+    background-color: $primary-blue-bg;
+}
+
+.scoreboard-title{
+    font-size: min(6vh, 3vw);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:$primary-black-text;
+    font-weight: bold;
+}
+
+.button{
+    padding: min(1vh, 0.5vw) min(2vh, 1vw);
+    width: min(15vh, 7.5vw);
+    height: min(5vh, 2.5vw);
+    border: none;
+    border-radius: min(1vh, 0.5vw);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: min(2vh, 1vw);
+    font-weight: bold;
+}
+
+.button-section{
+    display: flex;
+    gap: 4vh;
+}
+
+.congrats-message{
+    color: $primary-white-text;
+    font-size: min(4vh, 2vw);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#replay-btn{
+    background-color:$primary-btn-white-text;
+    color: $secondary-blue-btn;
+    transition: all 0.2s ease-in-out;
+}
+
+#replay-btn:hover{
+    transform: scale(1.03);
+    background-color:$primary-btn-white-hover;
+}
+
+#leave-btn{
+    position: fixed;
+    top: 5vh;
+    right: 5vh;
+    background-color: $primary-white-btn;
+    color: $primary-btn-black-text;
+    transition: all 0.2s ease-in-out;
+}
+
+#leave-btn:hover{
+    transform: scale(1.03);
+    background-color: $primary-btn-white-hover;
+}
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.wave {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: $primary-blue-bg;
+}

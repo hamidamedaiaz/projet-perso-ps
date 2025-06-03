@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Quiz Creation</title>
+<meta charset="utf-8"/>
+<link href="quiz-creation.css" rel="stylesheet"/>
+<link href="./style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+<div class="navbar-container">
+<div>
+<a href="/">Octave</a>
+<a href="/games.html">Jeux</a>
+<a href="/statistics.html">Statistiques</a>
+<!--<a href="/configuration.html">Configuration</a>-->
+</div>
+<div>
+<a class="button" href="/">Se Connecter</a>
+</div>
+</div>
+</div>
+
+<div id="container">
+<div id="quiz-creation-left-container">
+<div id="quiz-create">
+<h2 class="title-quiz-template">Question :</h2>
+<input class="question-input" placeholder="Entrez la question..." type="text"/>
+<select class="question-input" id="question-music-select" name="music-select">
+<option selected="" value="empty">Choisissez une musique</option>
+<option value="empty">September - Earth, Wind &amp; Fire</option>
+<option value="empty">Take It Easy - Eagles</option>
+<option value="empty">The Passenger - Iggy Pop</option>
+<option value="empty">Don’t Stop ’Til You Get Enough - Michael Jackson</option>
+<option value="empty">Bohemian Rhapsody - Queen</option>
+</select>
+<h2 class="title-quiz-template">Reponses :</h2>
+<p id="button-info">Cochez la case à côté de la réponse pour indiquer qu'elle est juste </p>
+<div class="reponses">
+<input id="quiz-answer" placeholder="Saisisez une réponse" type="text"/>
+<input class="toggle" type="checkbox"/>
+<img alt="Supprimer" id="delete-answer" src="/assets/icons/delete.png"/>
+</div>
+
+<div class="reponses">
+<input id="quiz-answer" placeholder="Saisisez une réponse" type="text"/>
+<input class="toggle" type="checkbox"/>
+<img alt="Supprimer" id="delete-answer" src="/assets/icons/delete.png"/>
+</div>
+
+<div class="reponses">
+<input id="quiz-answer" placeholder="Saisisez une réponse" type="text"/>
+<input class="toggle" type="checkbox"/>
+<img alt="Supprimer" id="delete-answer" src="/assets/icons/delete.png"/>
+</div>
+
+<button class="simple-btn" id="add-answer">+ Ajouter réponse</button>
+<button class="simple-btn" id="add-question">Ajouter la question au quiz</button>
+</div>
+</div>
+<div id="quiz-creation-right-container">
+<div id="question-list">
+<h2 class="title-quiz-template">Liste des questions :</h2>
+<div class="question">
+<p id="Title">Titre de la question</p>
+<div class="actions">
+<img alt="Modifier" id="edit" src="/assets/icons/edit.png"/>
+<img alt="Supprimer" id="delete" src="/assets/icons/delete.png"/>
+</div>
+</div>
+
+<div class="question">
+<p id="Title">Titre de la question</p>
+<div class="actions">
+<img alt="Modifier" id="edit" src="/assets/icons/edit.png"/>
+<img alt="Supprimer" id="delete" src="/assets/icons/delete.png"/>
+</div>
+</div>
+
+<div class="question">
+<p id="Title">Titre de la question</p>
+<div class="actions">
+<img alt="Modifier" id="edit" src="/assets/icons/edit.png"/>
+<img alt="Supprimer" id="delete" src="/assets/icons/delete.png"/>
+</div>
+</div>
+
+<div class="question">
+<p id="Title">Titre de la question</p>
+<div class="actions">
+<img alt="Modifier" id="edit" src="/assets/icons/edit.png"/>
+<img alt="Supprimer" id="delete" src="/assets/icons/delete.png"/>
+</div>
+</div>
+
+<button class="simple-btn" id="add-listQ">+ Ajouter questions</button>
+<button class="simple-btn" id="end-quiz">Enregistrer ce quiz</button>
+</div>
+</div>
+</div>
+<script src="scripts/websockets.js"></script></body>
+</html>

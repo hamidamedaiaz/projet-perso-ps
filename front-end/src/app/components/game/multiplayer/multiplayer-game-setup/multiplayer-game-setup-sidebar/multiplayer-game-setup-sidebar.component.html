@@ -1,0 +1,15 @@
+<div class="quiz-container">
+    <section class="quiz-information-section">
+        <div class="quiz-title">
+            {{quiz.title}}
+        </div>
+    </section>
+    <section class="game-code-section">
+        <label for="game-code" class="game-code-label">Code de la partie: </label>
+        <span id="game-code">{{sessionId}}</span>
+    </section>
+    <section class="button-section">
+        <button (click)="launchGame()" class="button" id="launch-game-btn">Démarrer</button>
+        <button (click)="leaveSetup()" class="button" id="back-btn">Retour</button>
+    </section>
+</div>

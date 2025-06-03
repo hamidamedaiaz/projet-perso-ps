@@ -1,0 +1,61 @@
+<div class="therapy-metrics-section">
+    <h3>Métriques Thérapeutiques</h3>
+    <div class="therapy-stats">
+      <div class="therapy-stat-item">
+        <div class="stat-icon hints-icon">
+
+          <i class="fa fa-lightbulb-o"></i>
+
+        </div>
+        <div class="stat-details">
+          <span class="stat-value">{{ getTotalHints() }}</span>
+          <span class="stat-label">Indices utilisés en moyenne</span>
+          <div class="stat-trend" [ngClass]="isHintTrendPositive() ? 'positive' : 'negative'">
+            <span>{{ getHintTrend() }}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="therapy-stat-item">
+        <div class="stat-icon time-icon">
+          <i class="fa fa-clock-o"></i>
+        </div>
+        <div class="stat-details">
+          <span class="stat-value">{{ getAverageTimeSpent().toFixed(1) }}s</span>
+          <span class="stat-label">Temps moyen entre réponses</span>
+          <div class="stat-trend" [ngClass]="isTimeTrendPositive() ? 'positive' : 'negative'">
+            <span>{{ getTimeTrend() }}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="therapy-stat-item">
+        <div class="stat-icon correct-icon">
+          <i class="fa fa-check"></i>
+        </div>
+        <div class="stat-details">
+          <span class="stat-value">{{ getCorrectAnswerPercent() }}%</span>
+          <span class="stat-label">Réponses correctes</span>
+         <div class="stat-trend" [ngClass]="isCorrectTrendPositive() ? 'positive' : 'negative'">
+            <span>{{ getCorrectTrend() }}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="therapy-stat-item">
+        <div class="stat-icon incorrect-icon">
+          <i class="fa fa-times"></i>
+        </div>
+        <div class="stat-details">
+          <span class="stat-value">{{ getIncorrectAnswerPercent() }}%</span>
+          <span class="stat-label">Réponses incorrectes</span>
+         <div class="stat-trend" [ngClass]="isIncorrectTrendPositive() ? 'positive' : 'negative'">
+            <span>{{ getIncorrectTrend() }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

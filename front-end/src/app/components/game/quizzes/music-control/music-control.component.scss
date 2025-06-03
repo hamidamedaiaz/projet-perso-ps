@@ -1,0 +1,344 @@
+@import '/src/app/color-palette.scss';
+
+.global-question-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- Buttons --- */
+.button {
+    padding: 1.0vh 2.0vh;
+    width: 20vh;
+    background-color: $third-blue-bg;
+    color: $primary-white-btn;
+    border: none;
+    border-radius: 1.0vh;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 2.5vh;
+    box-shadow: $primary-box-shadow;
+
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: $third-btn-blue-hover;
+}
+
+.previous-question-btn {
+    position: absolute;
+    background-color: $fourth-blue-bg;
+    left: 5%;
+    bottom: 5%;
+}
+
+.next-question-btn {
+    position: absolute;
+    background-color: $fourth-blue-bg;
+    right: 5%;
+    bottom: 5%;
+}
+
+
+.question-admin-container {
+    width: 80%;
+}
+
+
+.question-right-side {
+    background-color: $third-blue-bg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5vh;
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.7s ease-out, opacity 0.3s ease-out;
+}
+
+.question-right-side.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.hint-section {
+    height: 90%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hint-title {
+    color: $primary-white-text;
+    font-family: Arial, sans-serif;
+    font-size: 2.0vh;
+    font-weight: 400;
+    margin-top: 2.0vh;
+}
+
+.right-side-separator {
+    width: 100%;
+    height: .2vh;
+    background-color: $primary-white-text;
+    border: none;
+}
+
+/* --- Left Side (question) --- */
+.question-left-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: width 0.7s ease-out, padding 0.7s ease-out;
+}
+
+/* Réduire la largeur du côté gauche quand les indices sont actifs */
+.global-question-container:has(.question-right-side.active) .question-left-side {
+    width: 80%;
+}
+
+/* Fallback pour les navigateurs qui ne supportent pas :has */
+@supports not (selector(:has(*))) {
+    .question-right-side.active~.question-left-side {
+        width: 80%;
+    }
+}
+
+/* --- Flash animation --- */
+.correct-flash {
+    animation: flashGreen 2s;
+}
+
+@keyframes flashGreen {
+    0% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: rgba(0, 255, 0, 0.3);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* --- Header and buttons --- */
+.question-header-section,
+.button-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.answer-counter {
+    font-size: 3.0vh;
+    font-family: monospace;
+}
+
+.button-section {
+    gap: 2.0vh;
+    margin-bottom: 2vh;
+    flex-wrap: wrap;
+}
+
+/* --- Answers section --- */
+.answers-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5.0vh;
+    margin-top: 5.0vh;
+
+}
+
+.answers-section-admin-view {
+    display: flex;
+    flex-direction: column;
+    gap: 2.0vh;
+    margin-top: 2.0vh;
+}
+
+.answers-container {
+    position: relative;
+    transition: opacity 0.3s ease-out;
+}
+
+.answers-container.wrong-answer {
+    pointer-events: none;
+}
+
+.hidden-answer {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+/* --- Volume Controls --- */
+.volume-control-btn-section {
+    display: flex;
+    align-items: center;
+}
+
+#decreaseVolumeBtn,
+#increaseVolumeBtn {
+    font-size: 2em;
+    width: 5.0vh;
+    height: 5.0vh;
+    background-color: $fourth-blue-btn;
+    color: $primary-btn-white-text;
+    border: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+#decreaseVolumeBtn {
+    border-radius: .3vh 0 0 .3vh;
+}
+
+#increaseVolumeBtn {
+    border-radius: 0 .3vh .3vh 0;
+}
+
+#decreaseVolumeBtn:hover,
+#increaseVolumeBtn:hover {
+    background-color: $secondary-btn-blue-hover;
+}
+
+#volume-input {
+    width: 7.0vh;
+    height: 5.0vh;
+    font-size: 1.5em;
+    border: $primary-border-blue;
+    border-radius: 0;
+    text-align: center;
+}
+
+.volume-section {
+    display: flex;
+    gap: 4vh;
+    align-items: center;
+    height: 9.5vh;
+}
+
+#volume {
+    font-family: monospace;
+    font-size: 2em;
+    margin: 0;
+}
+
+/* --- Others --- */
+.left-side-separator {
+    background-color: $primary-black-bg;
+    color: $primary-blue-btn;
+    width: 100%;
+}
+
+.question-title {
+    font-size: 3.0vh;
+    font-family: monospace;
+    width: 70%;
+}
+
+#audio {
+    width: 100%;
+    margin-bottom: 5vh;
+    border-radius: 1.0vh;
+}
+
+.next-hint-in {
+    color: $primary-white-text;
+    font-size: 1.5vh;
+    font-family: monospace;
+}
+
+.play-control-btn-section {
+    display: flex;
+    gap: 4vh;
+    flex-wrap: wrap;
+}
+
+.button-right-side-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.0vh;
+    transition: transform 0.5s ease-in-out;
+}
+
+.hints-container{
+    overflow-y: auto;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.music-volume-control-section{
+    display: flex;
+    gap: 4vh;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 99.2vh) {
+
+    .global-question-container:has(.question-right-side.active) .question-left-side,
+    .question-right-side.active~.question-left-side {
+        width: 75%;
+    }
+
+    .question-right-side {
+        width: 25%;
+    }
+
+    .play-control-btn-section {
+        flex-direction: column;
+        gap: 1.0vh;
+    }
+
+    .button {
+        width: auto;
+    }
+
+    .answers-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 76.8vh) {
+
+    .global-question-container:has(.question-right-side.active) .question-left-side,
+    .question-right-side.active~.question-left-side {
+        width: 70%;
+    }
+
+    .question-right-side {
+        width: 30%;
+    }
+
+    .button-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.music-control-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.0vh;
+}
+
+.music-control-section{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

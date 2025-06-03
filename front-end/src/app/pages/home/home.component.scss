@@ -1,0 +1,124 @@
+@import '/src/app/color-palette.scss';
+
+.home-container {
+  background: $primary-white-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+.hidden{
+  display:none;
+}
+
+
+.admin-button {
+  position: fixed;
+  top: 2vh;
+  left: 2vh;
+  padding: 1.2vh 2.4vh;
+  background-color: $primary-blue-bg;
+  color: $primary-btn-white-text;
+  border: none;
+  border-radius: 1vh;
+  font-size: 2vh;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: $primary-box-shadow;
+  letter-spacing: 0.05vh;
+}
+
+.admin-button:hover {
+  background-color: $primary-btn-blue-hover;
+  transform: translateY(-0.3vh);
+  box-shadow: $primary-box-shadow;
+}
+
+
+.results-list {
+  list-style-type: none;
+  padding: 0;
+
+  a {
+    text-decoration: none;
+    color: $primary-black-text;
+  }
+}
+
+.profile-list-container {
+  width: 71vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 2vh;
+  padding: 2vh 2vh;
+  gap: 2vh;
+  top: calc(min(18vh,12vw) + 5vh);
+  animation: slideInUp 0.5s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(-3vh);
+  z-index: 3;
+
+  min-height: 50vh;
+  overflow: hidden;
+
+  max-height: 70vh;
+}
+
+
+
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-page-title {
+  font-size: min(15vh,10vw);
+  font-weight: bold;
+  color: $primary-blue-text;
+  font-family: "Unbounded", sans-serif;
+  position: absolute;
+  top: calc(min(3vh,2vw) + 5vh);
+  text-align: center;
+  animation: slideOutDown 0.4s ease-in-out forwards;
+  transform: translateY(0);
+  user-select: none;
+}
+
+@keyframes slideOutDown {
+  to {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+}
+
+#wave-svg{
+  position: fixed;
+  bottom: 0%;
+  transform: translateY(10vh);
+}

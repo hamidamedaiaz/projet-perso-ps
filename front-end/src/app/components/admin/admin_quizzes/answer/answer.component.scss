@@ -1,0 +1,57 @@
+@import '/src/app/color-palette.scss';
+
+.answer-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.answer-input {
+  flex-grow: 1;
+  height: 40px;
+  border: $primary-border-white;
+  border-radius: 6px;
+  padding: 10px;
+  outline: none;
+  font-size: 1.1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-right: 10px;
+  background-color: $primary-white-bg;
+}
+
+.answer-input:focus {
+  border-color: $primary-border-white;
+  box-shadow: 0 0 5px $primary-blue-bg;
+}
+
+.answer-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  appearance: none;
+  border: $primary-border-white;
+  border-radius: 4px;
+  background-color: $primary-white-bg;
+  cursor: pointer;
+}
+
+.answer-checkbox:checked {
+  background-color: #65d100;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: $primary-delete-btn;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: $primary-btn-white-text;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  box-shadow: $primary-box-shadow
+}
+
+.delete-btn:hover {
+  background-color: $primary-btn-delete-hover;
+}

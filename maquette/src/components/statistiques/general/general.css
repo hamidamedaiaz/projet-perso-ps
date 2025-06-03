@@ -1,0 +1,97 @@
+.user-stats-container {
+    background-color: #2c3e50;
+}
+
+.user-stats-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.stats-details {
+    grid-area: 1 / 1 / 2 / 2;
+    
+}
+
+#user-stats-circular {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+#user-stats-graph {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+#user-stats-histogram {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+
+.user-stats-title {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 5vw;
+    text-decoration: underline;
+}
+
+.user-stats-item {
+    color: white;
+    font-size: 20px;
+}
+
+.graph-section {
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+}
+
+.stats-section {
+    display: flex;
+}
+
+#user-stats-graph, #user-stats-histogram{
+    max-width: 80%;
+    height: auto;
+    border-radius: 15px;
+}
+#user-stats-circular{
+    height: 40vh;
+    width: 20vw;
+    border-radius: 15px;
+}
+
+.stats-details, .graph-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.graph-container{
+    align-items: center;
+    gap: 10px;
+}
+
+.stats-details{
+    margin: 10vh 0px 10vh 25%;
+    margin-top: 10vh;
+    margin-left: 25%;
+    gap: 50px;
+}
+
+.graph-title{
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.general-stats-icon{
+    height: 40px;
+    width: 40px;
+}
+
+.general-stats-content{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

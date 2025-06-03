@@ -1,0 +1,89 @@
+@import '/src/app/color-palette.scss';
+
+.sidebar-separator {
+    width: 80%;
+    color: $primary-white-bg;
+}
+
+.quiz-title {
+    font-size: 50px;
+    font-weight: 600;
+    width: 90%;
+    color: $primary-white-text;
+    font-family: monospace;
+    text-align: center;
+}
+
+.quiz-container {
+    padding: 5vh 0px;
+    background-color: $primary-blue-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.button{
+    width: 60%;
+    height: 60px;
+    color: $primary-white-btn;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out ;
+    font-size: 20px;
+}
+
+.button:hover{
+    transform: scale(1.03)
+}
+
+#launch-game-btn{
+    background-color: $third-blue-btn;
+}
+
+#launch-game-btn:hover{
+    background-color:$secondary-btn-blue-hover;
+}
+
+#back-btn{
+    background-color: $primary-white-bg;
+    color: $primary-btn-black-text;
+}
+
+#back-btn:hover{
+    background-color: $primary-btn-white-hover;
+}
+
+.button-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.game-code-label, #game-code{
+    font-size: 40px;
+    color: #ecf0f1;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+}
+
+.quiz-information-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.game-code-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}

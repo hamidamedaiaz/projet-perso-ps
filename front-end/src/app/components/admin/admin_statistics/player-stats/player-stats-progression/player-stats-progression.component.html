@@ -1,0 +1,31 @@
+<div class="progression-section">
+  <h3>Evolution</h3>
+
+  <div class="chart-container">
+    <section class="metrics-section">
+      <div class="tabs-container">
+        <button class="tab-btn" [class.active]="activeTab === 'score'" (click)="setActiveTab('score')">
+          % De bonne réponse moyen
+        </button>
+        <button class="tab-btn" [class.active]="activeTab === 'time'" (click)="setActiveTab('time')">
+          Temps de réponse moyen
+        </button>
+        <button class="tab-btn" [class.active]="activeTab === 'hints'" (click)="setActiveTab('hints')">
+          Nombre d'indice moyen
+        </button>
+        <!-- Ajoute d'autres onglets si besoin -->
+      </div>
+
+      <div class="chart-wrapper">
+        <canvas #progressChartCanvas></canvas>
+      </div>
+    </section>
+    <section class="year-section">
+      <section *ngFor="let year of yearsPlayed">
+        <button class="tab-btn" [class.active]="activeYear === year" (click)="setActiveYear(year)">
+          {{ year }}
+        </button>
+      </section>
+    </section>
+  </div>
+</div>

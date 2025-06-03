@@ -1,0 +1,23 @@
+<div class="header-section">
+  <button class="back-button" (click)="navigateBack()">
+    <span class="fa fa-arrow-left">Retour</span>
+  </button>
+  <h1 class="page-title">Statistiques de l'Accueilli</h1>
+</div>
+
+
+
+<div class="profile-section" *ngIf="getProfile()">
+  <div class="profile-card">
+    
+<ng-container *ngIf="getProfile().profilePicture && getProfile().profilePicture !== 'empty_path'; else initialsTemplate">
+    <div class="profile-avatar" [style.background-image]="'url(' + getProfile().profilePicture + ')'"></div>
+</ng-container>
+<ng-template #initialsTemplate>
+    <div class="profile-avatar">{{ getInitials() }}</div>
+
+</ng-template>    <div class="profile-info">
+      <h2 class="profile-name">{{ getProfile().name }} {{ getProfile().lastName }}</h2>
+    </div>
+  </div>
+</div>

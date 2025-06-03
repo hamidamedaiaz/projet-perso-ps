@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="game-setup.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Game Setup</title>
+</head>
+
+
+<script defer>
+    function updateSelection() {
+        const selectElement = document.getElementById("quiz-select");
+    }
+</script>
+
+
+<body>
+    <matrio path="/components/navbar/navbar"></matrio>
+    <div id="container">
+
+        <div id="left-container">
+            <h2 class="title">
+                Création d'une partie
+            </h2>
+            <div id="game-config">
+                <label for="quiz-select">Choisissez un quiz :</label>
+                <div class="dropdown">
+                    <select id="quiz-select" onchange="updateSelection()">
+                        <option value="" disabled selected>Sélectionnez un quiz </option>
+                        <option value="Quiz Histoire">Quiz A</option>
+                        <option value="Quiz Science">Quiz B</option>
+                        <option value="Quiz Musique">Quiz C</option>
+                    </select>
+                </div>
+                <h2 id = "code">
+                    Code : 9102
+                </h2>
+                <button id="start-button" class="start-button">Démarrer</button>
+            </div>
+
+        </div>
+
+        <div id="middle-container">
+            <h2 class="title">Paramètres du Jeu</h2>
+            <p id="button-info"> Les settings proposé sont juste des exemple pas les vrai settings</p>
+            <div class="settings-group">
+                <label for="question-time">Durée par question :</label>
+                <input type="range" id="question-time" min="10" max="60" step="10" value="30">
+                <span id="time-display">30s</span>
+            </div>
+            <div class="settings-group">
+                <label for="question-count">Nombre de questions :</label>
+                <select id="question-count">
+                    <option value="5">1</option>
+                    <option value="10">2</option>
+                    <option value="15">3</option>
+                </select>
+            </div>
+            <div class="settings-group">
+                <label for="text-size">Taille du texte :</label>
+                <select id="text-size">
+                    <option value="small">Petit</option>
+                    <option value="medium" selected>Moyen</option>
+                    <option value="large">Grand</option>
+                </select>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="high-contrast">
+                <label for="high-contrast">Mode contraste élevé</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="voice-assist" checked>
+                <label for="voice-assist">Activer la synthèse vocale</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="enable-hints" checked>
+                <label for="enable-hints">Activer les indices</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="settings-toggle" >
+                <label for="settings-toggle">Ainsi de suite ..</label>
+            </div>
+        </div>
+
+        <div id="right-container">
+            <h2 class="title">Liste des joueurs dans la partie : </h2>
+            <div id="player-list">
+                <matrio path="components/game-setup/player-element"></matrio>
+                <matrio path="components/game-setup/player-element"></matrio>
+                <matrio path="components/game-setup/player-element"></matrio>
+                <matrio path="components/game-setup/player-element"></matrio>
+                <matrio path="components/game-setup/player-element"></matrio>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

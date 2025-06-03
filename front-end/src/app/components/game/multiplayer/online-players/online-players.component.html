@@ -1,0 +1,9 @@
+<div class="online-players">
+  <h3>Joueurs en ligne ({{ playerList.length }})</h3>
+  <ul>
+    <li *ngFor="let player of playerList">
+      <div>{{ player.name }}</div>
+      <button (click)="addToGame(player)">+ Ajouter a la partie</button>
+    </li>
+  </ul>
+</div>

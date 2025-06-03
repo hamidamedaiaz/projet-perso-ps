@@ -1,0 +1,60 @@
+@import '/src/app/color-palette.scss';
+
+.question-header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-title {
+    font-size: 30px;
+    font-family: monospace;
+    
+}
+
+.user-view{
+    width: 100%;
+}
+
+.admin-view{
+    width: 65%;
+}
+
+.answer-counter {
+    font-size: 30px;
+    font-family: monospace;
+}
+
+.button {
+    padding: 10px 20px;
+    width: 8vw;
+    background-color: $third-blue-bg;
+    color: $primary-white-btn;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 20px;
+    box-shadow: $primary-box-shadow;
+    
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: $third-btn-blue-hover;
+}
+
+@media (max-width: 992px) {
+
+    .button {
+        width: auto;
+    }
+
+}
+
+.question-header-multi-container{
+    display: flex;
+    gap: 20px;
+    width: 35%;
+    align-items: center;
+    justify-content: flex-end;
+}

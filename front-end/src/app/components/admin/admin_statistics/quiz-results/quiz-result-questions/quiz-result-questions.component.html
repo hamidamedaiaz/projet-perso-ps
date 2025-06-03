@@ -1,0 +1,49 @@
+<div class="questions-section">
+    <h2 class="section-title">Détail des Réponses</h2>
+
+    <div class="questions-list">
+      <div class="question-item" *ngFor="let result of getQuestionResults(); let questionIndex = index" [ngClass]="getScoreClass(isQuestionCorrect(result))">
+        <div class="question-header">
+          <span class="question-number">Question {{ questionIndex + 1 }}</span>
+          <span class="question-result-badge incorrect" *ngIf="!isQuestionCorrect(result)" >
+            {{ 'Abandon' }}
+          </span>
+        </div>
+
+        <div class="question-content">
+          <p class="question-text">{{ getQuestion(questionIndex).question }}</p>
+
+          <div class="answers-container">
+            <div *ngFor="let answer of getQuizAnswers(questionIndex)" class="answer-item"
+                 [ngClass]="{
+                   'selected-answer': isUserAnswer(answer, questionIndex),
+                   'correct-answer': isCorrectAnswer(answer)
+                 }">
+              <div class="answer-content">
+                <span class="answer-text">{{ answer.answerContent }}</span>
+                <span class="try-count" *ngIf="getTryIndex(answer, questionIndex) >= 0">Essai {{getTryIndex(answer, questionIndex) + 1}}</span>
+              </div>
+              <div class="answer-indicator">
+                <i *ngIf="isUserAnswer(answer, questionIndex)" class="fa fa-check correct-icon"></i>
+                <i *ngIf="isCorrectAnswer(answer)" class="fa fa-check-circle correct-answer-icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-metrics">
+            <div class="metric-item">
+              <span class="metric-icon time-small"></span>
+              <span class="metric-label">Temps:</span>
+              <span class="metric-value">{{ getTimeSpent(result) }}s</span>
+            </div>
+
+            <div class="metric-item">
+              <span class="metric-icon hint-small"></span>
+              <span class="metric-label">Indices:</span>
+              <span class="metric-value">{{ getHintsUsed(result) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

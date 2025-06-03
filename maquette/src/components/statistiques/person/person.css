@@ -1,0 +1,47 @@
+.profile-picture{
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.person-infos-container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr;
+    margin: 13vh 0px
+}
+    
+.person-infos-content { grid-area: 1 / 1 / 2 / 2; }
+.profile-picture-container { 
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+}
+
+.person-infos-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50%;
+    gap: 10px;
+}
+
+.name {
+    font-size:60px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.person-info-item{
+    margin: 0px;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p{margin: 0px;}
+}
+
+.profile-icon{
+    width: 25px;
+    height: 25px;
+}

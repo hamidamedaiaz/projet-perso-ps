@@ -1,0 +1,73 @@
+@import '/src/app/color-palette.scss';
+
+.players-list-section {
+    margin-bottom: 40px;
+
+    h3.section-title {
+      color: $primary-black-text;
+      margin: 0 0 15px 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+
+    .players-list-table-container {
+      overflow-x: auto;
+      box-shadow: $primary-box-shadow;
+
+      .players-list-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: $secondary-white-bg;
+
+        border-radius: 10px;
+        overflow: hidden;
+
+        thead {
+          background-color:$secondary-blue-bg;
+          color: $primary-white-text;
+
+          th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+          }
+        }
+
+
+        tbody {
+          tr {
+            border-bottom: 1px solid $secondary-white-bg;
+            transition: background-color 0.2s;
+
+            &:hover {
+              background-color: $primary-btn-white-hover;
+              cursor: pointer;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            td {
+              padding: 15px;
+              font-size: 0.95rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .players-list-table-container {
+      font-size: 0.9rem;
+
+      th, td {
+        padding: 10px !important;
+      }
+    }
+  }

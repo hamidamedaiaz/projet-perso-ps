@@ -1,0 +1,26 @@
+<div class="global-question-container" [ngClass]="{'correct-flash': showCorrectEffect}">
+    <div class="question-left-side">
+        <div class="game-section" [ngClass]="getRole() === 'admin' ? 'question-admin-container': ''">
+            <div class="button-section" *ngIf="getGamemode().id === 0 || getRole() === 'admin'">
+                <app-music-control [role]="getRole()" [volume]="getVolume()" [audio_path]="getAudioPath()"></app-music-control>
+            </div>
+            <div *ngIf="getGamemode().id === 1 && isQuizRunning()" class="multiplayer-list">
+                <app-multiplayer-in-game-list></app-multiplayer-in-game-list>
+            </div>
+
+            <app-quiz-question-header [title]="getTitle()" (show_hints)="showHints()"></app-quiz-question-header>
+
+            <hr class="left-side-separator">
+
+            <app-quiz-answers [isInteractionDisabled]="isInteractionDisabled" (correct_answer)="submitCorrectAnswer()" (next_question)="validateQuestion()"></app-quiz-answers>
+        </div>
+    </div>
+
+    <app-quiz-hints class="question-right-side" [class.active]="hintsActive"></app-quiz-hints>
+
+
+    <button *ngIf="(getGamemode().id === 0 || getRole() ==='admin') && isQuizRunning()" (click)="nextQuestion()"
+        class="next-question-btn button">Question suivante</button>
+
+    <app-quiz-question-pop-up *ngIf="showQuestionPopUp" (cancel_pop_pup)="CancelPopPup()" (continue_pop_pup)="nextQuestion()"></app-quiz-question-pop-up>
+</div>

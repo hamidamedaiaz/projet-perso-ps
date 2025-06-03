@@ -1,0 +1,21 @@
+<div class="player-stats-container" *ngIf="getProfile() && !isQuizSelected">
+
+  <app-player-stats-header [profile]="getProfile()">
+  </app-player-stats-header>
+
+
+  <app-player-stats-therapy-metrics [quizResults]="getQuizResults()">
+  </app-player-stats-therapy-metrics>
+
+  <app-player-stats-progression [quizResultsOfTheYear]="quizResultsOfTheYear" [activeTab]="activeTab" [activeYear]="activeYear"
+    (tabChange)="setActiveTab($event)" (yearChange)="setYearData($event)" [yearsPlayed]="getYearsPlayed()">
+  </app-player-stats-progression>
+
+
+  <app-player-stats-quiz-history [quizResults]="getQuizResults()" (viewDetailsEvent)="viewQuizDetails($event)">
+  </app-player-stats-quiz-history>
+</div>
+
+<div *ngIf="getProfile() && isQuizSelected">
+  <app-quiz-result-details (go_back)="hideResultDetails()"></app-quiz-result-details>
+</div>
