@@ -3,6 +3,7 @@
   <ul>
     <li *ngFor="let player of playerList">
       <div>{{ player.name }}</div>
+      <div>{{ player.lastName }}</div>
       <button (click)="addToGame(player)">+ Ajouter a la partie</button>
     </li>
   </ul>

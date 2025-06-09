@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MultiPlayerQuizService } from 'src/services/multiplayer-quiz.service';
+import { Component } from '@angular/core';
 import { ProfileItemComponent } from 'src/app/components/admin/profiles/profile-item/profile-item.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Profile } from 'src/models/profile.model';
 import { SocketService } from 'src/services/socket.service';
-import { QuizService } from 'src/services/quiz.service';
 import { Player } from 'src/models/player.model';
 import { SessionService } from 'src/services/session.service';
 

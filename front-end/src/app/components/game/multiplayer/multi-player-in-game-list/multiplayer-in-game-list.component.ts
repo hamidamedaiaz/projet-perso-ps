@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Player } from 'src/models/player.model';
 import { Profile } from 'src/models/profile.model';
-import { MultiPlayerQuizService } from 'src/services/multiplayer-quiz.service';
 import { CommonModule } from '@angular/common';
-import { interval } from 'rxjs';
 import { SessionService } from 'src/services/session.service';
+import { CurrentProfileService } from 'src/services/currentProfile.service';
 
 @Component({
   selector: 'app-multiplayer-in-game-list',
@@ -15,16 +14,16 @@ import { SessionService } from 'src/services/session.service';
 })
 export class MultiPlayerInGameListComponent {
 
-  private players: Player[] = [];
+  private playersHasAnswered: Profile[] = [];
 
-  constructor(private sessionService: SessionService) {
-    this.sessionService.players$.subscribe((players) => {
-      this.players = players;
+  constructor(private sessionService: SessionService, private currentProfileService: CurrentProfileService) {
+    this.sessionService.playersHasAnswered$.subscribe((playersHasAnswered) => {
+      this.playersHasAnswered = playersHasAnswered;
     })
   }
 
-  public getPlayers(): Player[] {
-    return this.players;
+  public getPlayers(): Profile[] {
+    return this.playersHasAnswered;
   }
 
   getInitials(profile: Profile): string {

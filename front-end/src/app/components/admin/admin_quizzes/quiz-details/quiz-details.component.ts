@@ -11,6 +11,7 @@ import { EMPTY_QUIZ } from "../../../../../mocks/quiz.mock";
 import { PopUpService } from "../../../../../services/pop-up.service";
 import { EMPTY_QUESTION } from 'src/mocks/question.mock';
 import { Router } from '@angular/router';
+import {FileUploadService} from "../../../../../services/file-upload.service";
 
 @Component({
   selector: 'app-quiz-details',
@@ -30,6 +31,9 @@ export class QuizDetailsComponent implements OnChanges {
   private currentQuestionIndex = 0;
 
   quizCopy: Quiz = EMPTY_QUIZ;
+
+  private tempAudioFile: File | null = null;
+
 
   errorPopup: Popup = {
     message: "Erreur d'enregistrement",
@@ -55,7 +59,11 @@ export class QuizDetailsComponent implements OnChanges {
     duration: 5000
   }
 
-  constructor(private quizService: QuizListService, private popUpService: PopUpService, private router:Router) { }
+  constructor(private quizService: QuizListService,
+              private popUpService: PopUpService,
+              private router:Router,
+              private fileUploadService: FileUploadService,
+  ) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['quiz']) {
@@ -166,23 +174,42 @@ export class QuizDetailsComponent implements OnChanges {
       return;
     }
 
-    try {
-      //on  Mettre à jour la question dans le quiz
-      this.quizCopy.questions[this.currentQuestionIndex] = { ...this.selectedQuestion };
+    const finalizeSave = () => {
+      try {
+        this.quizCopy.questions[this.currentQuestionIndex] = { ...this.selectedQuestion! };
+        this.quizService.isQuizCorrect(this.quizCopy);
+        this.quizService.RequestEditQuizzes(this.quizCopy);
+        this.popUpService.sendPopup(this.questionSavedPopup);
+        console.log("Question sauvegardée :", this.selectedQuestion);
+      } catch (err) {
+        this.popUpService.sendPopup(this.questionErrorPopup);
+        console.error("ERROR SAVING QUESTION:", err);
+      }
+    };
 
-      // on Utiliser la validation existante du service
-      this.quizService.isQuizCorrect(this.quizCopy);
-
-      // laors Sauvegarder le quiz complet
-      this.quizService.RequestEditQuizzes(this.quizCopy);
-      this.popUpService.sendPopup(this.questionSavedPopup);
-      console.log("Question sauvegardée :", this.selectedQuestion);
-    }
-    catch (err) {
-      this.popUpService.sendPopup(this.questionErrorPopup);
-      console.log("ERROR SAVING QUESTION:", err);
+    if (this.tempAudioFile) {
+      this.fileUploadService.upload(this.tempAudioFile).subscribe({
+        next: (res) => {
+          if (this.selectedQuestion) {
+            this.selectedQuestion.audioPath = res.filename;
+          }
+          this.tempAudioFile = null;
+          finalizeSave();
+        },
+        error: (err) => {
+          console.error('Erreur lors de l\'upload du fichier audio', err);
+          this.popUpService.sendPopup({
+            message: 'Erreur lors de l\'upload du fichier audio',
+            type: 'error',
+            duration: 3000
+          });
+        }
+      });
+    } else {
+      finalizeSave();
     }
   }
+
 
   cancelQuizEditing(){
     this.quizCopy = JSON.parse(JSON.stringify(this.quiz));
@@ -196,4 +223,25 @@ export class QuizDetailsComponent implements OnChanges {
     this.selectedQuestion = this.quiz.questions[this.currentQuestionIndex];
     this.quizCopy.questions[this.currentQuestionIndex] = this.quiz.questions[this.currentQuestionIndex];
   }
+
+  onAudioSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files || input.files.length === 0) return;
+
+    const file = input.files[0];
+
+    if (!file.type.startsWith('audio/')) {
+      this.popUpService.sendPopup({
+        message: 'Seuls les fichiers audio sont autorisés',
+        type: 'warning',
+        duration: 3000
+      });
+      return;
+    }
+
+    this.tempAudioFile = file;
+  }
+
+
 }

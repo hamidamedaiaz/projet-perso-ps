@@ -1,4 +1,4 @@
-<div class="global-container" [ngClass]="{'correct-flash' : correctAnswer}">
+<div class="global-container" [ngClass]="{'correct-flash' : correctAnswer && show_result}">
     <section>
         <section [ngClass]="{ 'hidden': show_result }" class="section">
             <p class="message">Réponse Enregistrée</p>

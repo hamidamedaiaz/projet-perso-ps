@@ -35,7 +35,7 @@
         "hints": [
           "Le leader du groupe était Freddie Mercury"
         ],
-        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+        "audioPath": "1749038821531-file_example_MP3_5MG.mp3"
       },
       {
         "id": 102,
@@ -69,7 +69,7 @@
         "hints": [
           "La pochette de l'album représente un prisme"
         ],
-        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+        "audioPath": ""
       },
       {
         "id": 103,
@@ -103,7 +103,27 @@
         "hints": [
           "Le groupe est connu pour son style country rock"
         ],
-        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+        "audioPath": ""
+      },
+      {
+        "id": 4,
+        "question": "jean",
+        "answers": [
+          {
+            "questionId": 4,
+            "id": 1,
+            "answerContent": "a",
+            "isCorrect": false
+          },
+          {
+            "questionId": 4,
+            "id": 2,
+            "answerContent": "a",
+            "isCorrect": true
+          }
+        ],
+        "hints": [],
+        "audioPath": ""
       }
     ]
   },
@@ -143,7 +163,7 @@
         "hints": [
           "Chanson emblématique du film 'Saturday Night Fever'"
         ],
-        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+        "audioPath": ""
       },
       {
         "id": 202,
@@ -177,7 +197,7 @@
         "hints": [
           "Le clip montre le chanteur marcher sur des dalles lumineuses"
         ],
-        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+        "audioPath": ""
       },
       {
         "id": 203,
@@ -211,7 +231,7 @@
         "hints": [
           "Le refrain contient 'Freak out!'"
         ],
-        "audioPath": "assets/musics/Michael Jackson - Billie Jean.mp3"
+        "audioPath": ""
       }
     ]
   },
@@ -320,11 +340,7 @@
             "isCorrect": true
           }
         ],
-        "hints": [
-          "Surnommé 'The Voice'.",
-          "Portait souvent un chapeau et un costume sombre.",
-          "Sa voix grave est emblématique des soirées jazz à Las Vegas."
-        ],
+        "hints": [],
         "audioPath": "assets/musics/frank-sinatra-my-way.mp3"
       },
       {
@@ -356,11 +372,7 @@
             "isCorrect": true
           }
         ],
-        "hints": [
-          "Groupe vocal américain des années 50.",
-          "Chants harmonieux et romantiques.",
-          "Le titre commence par 'Only you... can make this world seem right'."
-        ],
+        "hints": [],
         "audioPath": "assets/musics/the-platters-only-you.mp3"
       }
     ]
@@ -682,6 +694,32 @@
         ],
         "hints": [],
         "audioPath": ""
+      }
+    ]
+  },
+  {
+    "id": 1749038290592,
+    "title": "A",
+    "questions": [
+      {
+        "id": 1,
+        "question": "a",
+        "answers": [
+          {
+            "questionId": 1,
+            "id": 1,
+            "answerContent": "a",
+            "isCorrect": false
+          },
+          {
+            "questionId": 1,
+            "id": 2,
+            "answerContent": "a",
+            "isCorrect": true
+          }
+        ],
+        "hints": [],
+        "audioPath": "1749039407676-file_example_MP3_5MG.mp3"
       }
     ]
   }

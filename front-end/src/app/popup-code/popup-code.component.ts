@@ -83,7 +83,6 @@ export class PopUpCodeComponent {
     // Vérification si tous les chiffres sont remplis
     if (this.code.every(digit => digit !== '')) {
       const finalCode = this.code.join('');
-      console.log("Code saisi :", finalCode);
       if (finalCode === this.CORRECT_CODE) {
         this.success.emit(true)
       }
@@ -101,7 +100,6 @@ export class PopUpCodeComponent {
 
 
   keyPressed(i: number, event: KeyboardEvent) {
-    console.log("keyPressed" + event.key);
     const inputs = document.querySelectorAll('.code-inputs input') as NodeListOf<HTMLInputElement>;
 
     if (event.key === 'Backspace') {

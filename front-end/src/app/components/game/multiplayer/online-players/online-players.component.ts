@@ -4,6 +4,8 @@ import { Profile } from '../../../../../models/profile.model';
 import { NgForOf } from '@angular/common';
 import { QuizService } from "../../../../../services/quiz.service";
 import { SessionService } from 'src/services/session.service';
+import { PopUpService } from 'src/services/pop-up.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-online-players',
@@ -18,7 +20,7 @@ export class OnlinePlayersComponent implements OnInit {
 
   public sessionId: string = "None";
 
-  constructor(private socketService: SocketService, private sessionService: SessionService) {
+  constructor(private socketService: SocketService, private sessionService: SessionService, private popUpService: PopUpService) {
     this.sessionId = this.sessionService.getSessionId();
     this.socketService.emit('request-for-online-players', {});
 
@@ -60,6 +62,12 @@ export class OnlinePlayersComponent implements OnInit {
   addToGame(profile: Profile) {
     console.log("[ONLINE PLAYER] - lobby-admin-move-player EMIT SOCKET , ID : " + this.sessionId)
     this.socketService.emit("lobby-admin-move-player", { sessionId: this.sessionId, profile: profile })
+
+    this.popUpService.sendPopup({
+      message: "Invitation envoyée",
+      type: "success",
+      duration: 3000
+    })
   }
 
 }

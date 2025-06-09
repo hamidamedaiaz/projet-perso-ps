@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { QuizItemComponent } from "../quiz-item/quiz-item.component";
 import { FormsModule } from '@angular/forms';
@@ -7,7 +7,6 @@ import { QuizListService } from "src/services/quiz-list.service";
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { QuizService } from 'src/services/quiz.service';
-import { MultiPlayerQuizService } from 'src/services/multiplayer-quiz.service';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
 
@@ -58,7 +57,7 @@ export class QuizAppComponent {
     console.log("Launching this quiz in multiplayer mode ", quiz);
     this.socketService.emit('generate-new-session', quiz);
     const data = await this.socketService.listenOnce('session-created');
-    this.sessionService.setSessionId(data.id);
+    this.sessionService.setSessionId(data.id);  
     this.quizService.setQuiz(quiz);
     this.router.navigate(['/multiplayer-game-setup'])
   }

@@ -20,6 +20,8 @@
   background-color: $secondary-white-bg;
   transition: all 0.2s ease-in-out;
   box-shadow: $primary-box-shadow;
+  position: relative;
+  overflow: hidden;
 }
 
 .quiz-item-title{
@@ -28,6 +30,8 @@
   text-align: center;
   font-size: 2vh;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: $primary-black-text;
 }
 
 .button-section{
@@ -37,26 +41,52 @@
 .button{
   border: none;
   background: none;
-  padding: 1vh;
-  border-radius: 1vh;
+  padding: 0.8vh;
+  border-radius: 0.6vh;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
 }
 
 
 .button:hover{
   background: $primary-btn-white-hover;
-  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.button:last-child {
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 0.6vh;
+  padding: 0.6vh;
+  transition: all 0.3s ease;
+}
+
+.button:last-child:hover {
+  background-color: rgba(231, 76, 60, 0.15);
+  border-color: rgba(231, 76, 60, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0.2vh 0.8vh rgba(231, 76, 60, 0.3);
 }
 
 .launch-game-btn{
-  background-color: $secondary-blue-bg;
+  background: linear-gradient(135deg, $secondary-blue-bg 0%, $third-blue-bg 100%);
   border: none;
   color: $primary-white-text;
   padding: 1vh 4vh;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.3s ease;
   border-radius: 1vh;
   font-size: 2vh;
-  font-weight: bold;
+  font-weight: 600;
   height: 6vh;
+  box-shadow: 0 0.3vh 1vh rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .launch-game-btn:hover{

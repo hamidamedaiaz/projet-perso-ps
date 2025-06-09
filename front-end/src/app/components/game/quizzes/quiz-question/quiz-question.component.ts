@@ -1,6 +1,4 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { QuizAnswerComponent } from '../quiz-answer/quiz-answer.component';
-import { QuizHintComponent } from '../quiz-hint/quiz-hint.component';
 import { QuizHintsComponent } from '../quiz-hints/quiz-hints.component';
 import { CommonModule } from '@angular/common';
 import { Question } from 'src/models/question.model';
@@ -15,7 +13,6 @@ import { QuizQuestionPopUpComponent } from '../quiz-question-pop-up/quiz-questio
 import { QuizAnswersComponent } from '../quiz-answers/quiz-answers.component';
 import { RecordResultService } from 'src/services/record-result.service';
 import { MultiPlayerInGameListComponent } from '../../multiplayer/multi-player-in-game-list/multiplayer-in-game-list.component';
-import { MultiPlayerQuizService } from 'src/services/multiplayer-quiz.service';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
 
@@ -89,9 +86,8 @@ export class QuizQuestionComponent {
     this.quizService.question$.subscribe((question) => {
       this.question = question;
 
-
       this.hintsActive = false;
-      
+
       this.startTimeDate = Date.now();
 
       if (this.getRole() === 'user') {
@@ -110,6 +106,9 @@ export class QuizQuestionComponent {
         }
       }
     })
+
+    this.socketService.emit('login', { sessionId: this.sessionService.getSessionId(), 
+      profile: this.currentProfileService.getCurrentProfile() })
   }
 
   public getGamemode() {
@@ -208,7 +207,7 @@ export class QuizQuestionComponent {
   }
 
   public getAudioPath(): string {
-    return this.question.audioPath;
+    return "http://localhost:9428/upload/" + this.question.audioPath;
 
   }
 

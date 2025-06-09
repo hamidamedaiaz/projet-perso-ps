@@ -30,6 +30,7 @@
     "express": "^4.17.1",
     "joi": "^13.7.0",
     "morgan": "1.9.1",
+    "multer": "^2.0.1",
     "socket.io": "^4.8.1"
   },
   "devDependencies": {

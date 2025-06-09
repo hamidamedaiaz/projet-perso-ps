@@ -31,6 +31,9 @@
   background-color: rgba(182, 30, 30, 0.8);
 }
 
+.leave-btn:hover{
+  background-color: $primary-btn-leave-hover;
+}
 
 .quiz-question{
     display: flex;

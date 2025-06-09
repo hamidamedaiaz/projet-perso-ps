@@ -1,11 +1,16 @@
 <div *ngIf="profile" class="result-item" (click)="selectProfile()" >
 
   <div class="profile-picture-container">
-    <img [src]="profile.profilePicture" class="profile-picture" *ngIf="profile.profilePicture !== 'empty_path'">
+    <div
+      class="profile-picture"
+      *ngIf="profile.profilePicture !== 'empty_path'"
+      [ngStyle]="{'background-image': 'url(http://localhost:9428/upload/' + profile.profilePicture + ')'}">
+    </div>
     <div class="profile-picture initials" *ngIf="profile.profilePicture === 'empty_path'">
       {{ getInitials() }}
     </div>
   </div>
+
   <div class="profile-name">{{profile.name }} {{ profile.lastName }}</div>
   <div class="delete-user-btn" (click)="deletePlayer()" *ngIf="context === 'multi'">Retirer</div>
 </div>

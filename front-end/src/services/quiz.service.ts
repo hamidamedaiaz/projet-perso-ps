@@ -31,7 +31,7 @@ export class QuizService {
 
   private readonly QUIZ_KEY = 'current_quiz';
   private readonly GIVEN_ANSWERS_KEY = 'current_score';
-  private readonly QUESTION_ID_KEY = '0';
+  private readonly QUESTION_ID_KEY = 'QUESTION_ID_kEY';
   private readonly IS_QUIZ_RUNNING_KEY = "is_quiz_running"
 
 
@@ -50,9 +50,16 @@ export class QuizService {
 
     this.loadFromStorage();
 
-    this.question = this.quiz.questions?.[this.questionId];
 
-    if (this.question) this.question$.next(this.question);
+
+    this.question = this.quiz.questions[this.questionId];
+
+      console.log("questionId ",this.questionId)
+
+    if (this.question) {
+      this.question$.next(this.question);
+    }
+
   }
 
 
@@ -69,7 +76,9 @@ export class QuizService {
 
     if (savedGivenAnswers !== null) this.givenCorrectAnswers = savedGivenAnswers;
 
-    if (savedQuestionId) this.questionId = savedQuestionId;
+    if (savedQuestionId) {
+      this.questionId = savedQuestionId;
+    }
 
     if (savedIsQuizRunning) this.isQuizRunning = savedIsQuizRunning;
   }
@@ -125,10 +134,10 @@ export class QuizService {
   }
 
   public getScore(): number {
-    let questionIdSeen:number[] = [];
-    let score:number = 0;
+    let questionIdSeen: number[] = [];
+    let score: number = 0;
     this.givenCorrectAnswers.forEach((answer) => {
-      if(!questionIdSeen.includes(answer.questionId)) {
+      if (!questionIdSeen.includes(answer.questionId)) {
         score++;
         questionIdSeen.push(answer.questionId);
       }
@@ -201,8 +210,13 @@ export class QuizService {
       } else if (this.questionId < this.quiz.questions.length - 1) {
         // If the quiz is still runinng, then we change the current question and all params that belongs to her
         this.questionId++;
+        console.log("questionId++ called", this.questionId)
         this.question = this.quiz.questions[this.questionId];
         this.question$.next(this.question);
+
+        this.localStorageService.removeItem(this.QUESTION_ID_KEY);
+        this.localStorageService.storeItem(this.QUESTION_ID_KEY, JSON.stringify(this.questionId));
+
         if (this.gamemodeService.getCurrentGamemode().id === 1) {
           this.router.navigate(['/multiplayer-game'])
         }
@@ -243,6 +257,7 @@ export class QuizService {
 
     this.localStorageService.storeItem(this.IS_QUIZ_RUNNING_KEY, JSON.stringify(this.isQuizRunning));
     this.localStorageService.storeItem(this.QUIZ_KEY, JSON.stringify(this.quiz));
+    this.localStorageService.storeItem(this.QUESTION_ID_KEY, JSON.stringify(this.questionId))
   }
 
   public previousQuestion() {

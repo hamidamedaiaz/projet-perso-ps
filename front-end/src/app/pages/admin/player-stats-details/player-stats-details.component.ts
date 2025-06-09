@@ -97,43 +97,12 @@ export class PlayerStatsDetailsComponent {
 
   setActiveTab(tab: 'score' | 'hints' | 'time' | 'accuracy') {
     this.activeTab = tab;
-
-    const monthlyData = this.quizResultService.getPlayerMonthlyStats(this.profileId);
-
-    switch (tab) {
-      case 'score':
-        this.monthlyPerformance = monthlyData.map((data: any) => ({
-          month: data.month,
-          score: data.score
-        }));
-        break;
-      case 'hints':
-        this.monthlyPerformance = monthlyData.map((data: any) => ({
-          month: data.month,
-          score: data.hintUsage
-        }));
-        break;
-      case 'time':
-        this.monthlyPerformance = monthlyData.map((data: any) => ({
-          month: data.month,
-          score: data.responseTime
-        }));
-        break;
-      case 'accuracy':
-        this.monthlyPerformance = monthlyData.map((data: any) => ({
-          month: data.month,
-          score: data.accuracy
-        }));
-        break;
-    }
   }
 
   setYearData(year: number) {
     this.activeYear = year;
     this.quizResultsOfTheYear = this.computeStatisticService.getDataPerMonth(this.quizResults, this.activeYear);
   }
-
-
 
   viewQuizDetails(quizResultId: number) {
     this.isQuizSelected = true;
@@ -142,7 +111,6 @@ export class PlayerStatsDetailsComponent {
   }
 
   hideResultDetails() { this.isQuizSelected = false }
-
 
   navigateBack() {
     this.isQuizSelected = false;

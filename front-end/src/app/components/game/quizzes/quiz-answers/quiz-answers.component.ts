@@ -6,7 +6,6 @@ import { Answer } from 'src/models/answer.model';
 import { QuizAnswerComponent } from '../quiz-answer/quiz-answer.component';
 import { QuizAnswerMultiplayerComponent } from '../quiz-answer-multiplayer/quiz-answer-multiplayer.component';
 import { RecordResultService } from 'src/services/record-result.service';
-import { MultiPlayerQuizService } from 'src/services/multiplayer-quiz.service';
 import { GamemodeService } from 'src/services/gamemode.service';
 import { SocketService } from 'src/services/socket.service';
 import { Router } from '@angular/router';
@@ -59,7 +58,6 @@ export class QuizAnswersComponent {
     })
 
     this.quizService.retrieveData$.subscribe((data) => {
-      console.log("retreiving the data ", data)
       if (data) {
         let userAnswersIds = this.selectedAnswers.map(r => r.id);
         this.recordResultService.setUserAnswersIds(this.quizService.questionId, userAnswersIds)
@@ -67,7 +65,6 @@ export class QuizAnswersComponent {
     })
 
     this.quizService.question$.subscribe((question) => {
-      console.log("depuis answers : ", question)
       this.answers = this.shuffle(question.answers);
       this.selectedAnswers = [];
 
@@ -122,7 +119,7 @@ export class QuizAnswersComponent {
         this.socketService.emit('submit-answer',
           {
             sessionId: this.sessionService.getSessionId(),
-            playerId: this.currentProfileService.getCurrentProfile().id,
+            profile: this.currentProfileService.getCurrentProfile(),
             answer: answer
           });
         this.router.navigate(['/answer-submitted'])

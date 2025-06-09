@@ -3,6 +3,7 @@ const QuizzesRouter = require('./quizzes')
 const ProfileRouter = require('./profiles')
 const GamemodeRouter = require('./gamemodes')
 const quizResultRouter = require('./quiz-results')
+const fileRouter = require('./file')
 
 const router = new Router()
 
@@ -15,5 +16,7 @@ router.use('/profiles', ProfileRouter)
 router.use('/gamemodes', GamemodeRouter)
 
 router.use('/quiz-results/', quizResultRouter)
+
+router.use('/file', fileRouter)
 
 module.exports = router

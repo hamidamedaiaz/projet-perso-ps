@@ -19,7 +19,6 @@ export class QuizListService {
 
   public getQuizzes(): void {
     this.http.get<Quiz[]>(this.apiUrl).subscribe((quizzes: Quiz[]) => {
-      console.log("Quizzes récupérés :", quizzes);
       this.quizzes = quizzes;
       this.quizzes$.next(quizzes)
     });
@@ -80,14 +79,13 @@ export class QuizListService {
 
   public selectQuizForEdition(quiz: Quiz): void {
     this.selectedEditQuiz$.next(quiz);
-    console.log("Edit Quiz Pressed : " + quiz.id + ", " + quiz.title);
   }
 
   public deleteQuiz(quizId: number): void {
     try {
       this.http.delete(this.apiUrl + "/" + quizId).subscribe({
         next: () => {
-          this.getQuizzes(); console.log(this.quizzes$)
+          this.getQuizzes();
         },
         error: (err) => console.error("SERVER ERROR - ", err)
       });

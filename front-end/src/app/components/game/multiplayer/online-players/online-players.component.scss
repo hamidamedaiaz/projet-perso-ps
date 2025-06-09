@@ -1,26 +1,87 @@
+@import '/src/app/color-palette.scss';
 .online-players {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #fafafa;
+  padding: 2vh;
+  border: $primary-border-white;
+  border-radius: 1vh;
+  background-color: $secondary-white-bg;
   font-family: Arial, sans-serif;
   width: 100%;
-  max-width: 400px;
+  max-width: 50vh;
+  box-shadow: $primary-box-shadow;
+  transition: all 0.3s ease;
 }
+.online-players:hover {
+  transform: translateY(-0.2vh);
+  box-shadow: 0 0.6vh 1.5vh rgba(0, 0, 0, 0.15);
+}
+
 
 .online-players h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 2.2vh;
   color: #333;
+  margin-bottom: 1.5vh;
+  color: $primary-black-text;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 0.2vh solid $primary-blue-bg;
+  padding-bottom: 1vh;
 }
+
 
 .online-players ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
 }
 
 .online-players li {
-  padding: 0.5rem 0;
+  padding: 1.5vh;
   border-bottom: 1px solid #ddd;
+  border: $primary-border-white;
+  border-radius: 0.8vh;
+  background-color: $primary-white-bg;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 0.2vh 0.4vh rgba(0, 0, 0, 0.05);
+
+
+
+
+
+
+
+}
+.online-players li div {
+  font-size: 1.9vh;
+  font-weight: 500;
+  color: $primary-black-text;
+  flex: 1;
+}
+
+.online-players li button {
+  background-color: $primary-blue-btn;
+  color: $primary-btn-white-text;
+  border: none;
+  padding: 0.8vh 1.5vh;
+  border-radius: 0.6vh;
+  font-size: 1.6vh;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: $primary-box-shadow;
+}
+.online-players li button:hover {
+  background-color: $primary-btn-blue-hover;
+  transform: scale(1.05);
+  box-shadow: 0 0.4vh 0.8vh rgba(0, 153, 255, 0.3);
+}
+.online-players li button:active {
+  transform: scale(0.98);
+  background-color: $secondary-btn-blue-hover;
 }

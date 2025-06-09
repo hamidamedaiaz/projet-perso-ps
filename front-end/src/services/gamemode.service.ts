@@ -29,16 +29,13 @@ export class GamemodeService {
 
     private getGamemodes():void{
        this.http.get<Gamemode[]>(this.apiUrl).subscribe((gamemodes: Gamemode[]) => {
-            console.log("Gamemodes récupérés :", gamemodes);
             this.gamemodes = gamemodes
             this.gamemodes$.next(gamemodes)
-
       });
     }
 
     private loadFromStorage(): void {
       const savedGamemode = this.localStorageService.getItem('Gamemode');
-
       if (savedGamemode) {
         this.current_gamemode = savedGamemode;
       }
@@ -64,15 +61,12 @@ export class GamemodeService {
     public setCurrentGamemode(gamemode_id : number): void {
       const foundGamemode = this.gamemodes.find(gamemode => gamemode.id === gamemode_id);
 
-      console.log("gamemode Id ", this.gamemodes)
 
       if (foundGamemode) {
         this.current_gamemode = foundGamemode;
-        console.log("Gamemode Select: ", foundGamemode.name)
         this.localStorageService.storeItem("Gamemode",JSON.stringify(foundGamemode))
       } else {
         this.current_gamemode = GAMEMODE_UNDEFINED;
-        console.log("No gamemode found with name: ", gamemode_id);
         this.localStorageService.storeItem("Gamemode",JSON.stringify(GAMEMODE_UNDEFINED))
       }
 

@@ -70,28 +70,50 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  z-index: 10;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.3s ease-out;
+
 }
 
 .delete-confirm-content {
   background-color: $primary-white-bg;
-  border-radius: 10px;
-  padding: 20px;
-  width: 400px;
-  max-width: 90%;
+  border-radius: 1.5vh;
+  padding: 3.5vh 4vh;
+  min-width: 45vh;
+  max-width: 90vw;
   text-align: center;
-  box-shadow: $primary-box-shadow;
+  box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+}
+.delete-confirm-content::before {
+  content: '!!';
+  font-size: 5vh;
+  display: block;
+  margin-bottom: 2vh;
+  color: $primary-delete-btn;
+}
+.delete-confirm-content p {
+  font-size: 2.2vh;
+  color: $primary-black-text;
+  margin: 0 0 3vh 0;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .delete-buttons{
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 2vh;
+  margin-top: 3vh;
 }
 
 
@@ -99,24 +121,37 @@
   background-color: $primary-delete-btn;
   color: $primary-white-text;
   border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
+  border-radius: 1vh;
+  padding: 1.5vh 3vh;
   cursor: pointer;
+  font-size: 1.8vh;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.3vh 1vh rgba(231, 76, 60, 0.3);
+  min-width: 12vh;
 }
 
 .confirm-delete-btn:hover {
   background-color: $primary-btn-delete-hover;
+  transform: translateY(-0.2vh);
+  box-shadow: 0 0.5vh 1.5vh rgba(231, 76, 60, 0.4);
 }
 
 .cancel-delete-btn {
   background-color: $primary-white-btn;
   color: $primary-black-text;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 1vh;
+  padding: 1.5vh 3vh;
   cursor: pointer;
+  font-size: 1.8vh;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 12vh;
 }
 
 .cancel-delete-btn:hover {
   background-color: $primary-btn-white-hover;
+  transform: translateY(-0.2vh);
+  border-color: #ccc;
 }

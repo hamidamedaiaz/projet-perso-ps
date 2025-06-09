@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-not-found-page',
@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class NotFoundPageComponent {
 
-  constructor(private router:Router){}
+  constructor(private location: Location){}
 
   public redirectToHomePage(){
-    this.router.navigate(['/']);
+    this.location.back();
   }
 }

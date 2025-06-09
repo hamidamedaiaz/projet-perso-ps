@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from "@angular/router";
+import { RouterLink, RouterOutlet } from "@angular/router";
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ProfileListComponent } from 'src/app/components/admin/profiles/profile-list/profile-list.component';
 import { QuizAppComponent } from "../../../components/admin/admin_quizzes/quiz-app/quiz-app.component";
@@ -7,18 +7,13 @@ import { ProfileConfigurationComponent } from 'src/app/components/admin/profiles
 import { QuizListService } from "../../../../services/quiz-list.service";
 import { Quiz } from "../../../../models/quiz.model";
 import { QuizDetailsComponent } from "../../../components/admin/admin_quizzes/quiz-details/quiz-details.component";
-import { Profile } from 'src/models/profile.model';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { SelectionListComponent } from "../../../components/admin/admin_statistics/selection-list/selection-list.component";
 import { StatsService } from "../../../../services/stats.service";
 import { QuizStatsComponent } from "../../../components/admin/admin_statistics/quiz-stats/quiz-stats.component";
 import { ActivatedRoute } from "@angular/router";
 import { PlayerStatsDetailsComponent } from "../player-stats-details/player-stats-details.component";
-import { QuizResultService } from 'src/services/quiz-result.service';
 import {PopupComponent} from "../../../components/popup/popup.component";
-//import {QuizSectionComponent} from "src/app/components/admin/admin_quizzes/q"
-//
-
 
 @Component({
   selector: 'app-admin',
@@ -91,7 +86,6 @@ export class AdminPageComponent implements OnInit {
 
   setSection(section: string) {
     this.activeSection = section;
-    console.log('admin - setSection() :', this.activeSection);
     if (section !== 'acceuilli') {
       this.selectedProfile = false;
     }

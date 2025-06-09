@@ -22,42 +22,45 @@ export class ProfileConfigurationComponent implements OnChanges {
   public currentProfileCopy: Profile | null = null;
   public avatarPreview: string | null = null;
 
+  // Stocker l'image en tant que fichier
+  public selectedAvatarFile: File | null = null;
+
 
   constructor(private cdr: ChangeDetectorRef, private profileService:ProfileService) {
     this.profileService.profileToEdit$.subscribe((profile) => {
       this.currentProfileCopy = JSON.parse(JSON.stringify(profile));
 
-       if (profile.profilePicture && profile.profilePicture !== "empty_path") {
-      this.avatarPreview = profile.profilePicture;
-    } else {
-      this.avatarPreview = null;
-    }
+      if (profile.profilePicture && profile.profilePicture !== "empty_path") {
+        this.avatarPreview = profile.profilePicture;
+      } else {
+        this.avatarPreview = null;
+      }
 
     })
+
+
   }
 
+  onAvatarSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedAvatarFile = input.files[0];
 
-  public onAvatarSelected(event: any) {
-  const file = event.target.files[0];
-  if (file) {
-    if (!file.type.match('image.*')) {
-      console.error('Le fichier sélectionné n\'est pas une image');
-      return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.avatarPreview = reader.result as string;
+
+        if (this.currentProfileCopy) {
+          this.currentProfileCopy.profilePicture = this.avatarPreview;
+        }
+      };
+      reader.readAsDataURL(this.selectedAvatarFile);
     }
-
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.avatarPreview = e.target.result;
-      if (this.currentProfileCopy) {
-        this.currentProfileCopy.profilePicture = e.target.result;
-      }
-    };
-    reader.readAsDataURL(file);
   }
-}
 
-public getAvatarPreviewStyle() {
-  return this.avatarPreview ? `url(${this.avatarPreview})` : 'none';
+
+  public getAvatarPreviewStyle() {
+  return this.avatarPreview ? `url(http://localhost:9428/upload/${this.avatarPreview})` : 'none';
 }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -68,8 +71,6 @@ public getAvatarPreviewStyle() {
       }, 0);
     }
   }
-
-  //resetEmptyProfile():void{ this.profileTemplate = JSON.parse(JSON.stringify("j")); }
 
   closeConfiguration() {
     console.log('Fermeture du panneau de configuration');

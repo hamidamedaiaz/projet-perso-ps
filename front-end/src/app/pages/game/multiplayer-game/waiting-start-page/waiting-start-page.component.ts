@@ -21,23 +21,23 @@ export class WaitingStartPageComponent {
 
   private redirectionTimer: any = null;
 
-  private gamefoundTimer: any = null;
-
   public gameIsReady: boolean = false;
 
   public waiting_message: string = "En attente du début de la partie";
 
-  private sessionId:string = "None"
+  private sessionId: string = "None"
 
   constructor(private router: Router,
-    private quizService: QuizService,
-    private quizListService: QuizListService,
     private currentPageService: CurrentPageService,
     private socketService: SocketService,
     private currentProfileService: CurrentProfileService,
     private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("waiting-start-page")
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId);
+    this.socketService.emit('login', {
+      sessionId: this.sessionService.getSessionId(),
+      profile: this.currentProfileService.getCurrentProfile()
+    })
   }
 
   public setWaitingMessage(message: string) {
@@ -45,13 +45,6 @@ export class WaitingStartPageComponent {
   }
 
   public setGameReady() { this.gameIsReady = true; }
-
-  public redirectToOnlineGame() {
-    //On set un quiz par defaut pour la demo
-    this.quizService.setQuiz(this.quizListService.quizzes$.getValue()[0]);
-    this.quizService.startQuiz();
-    this.router.navigate(['/multiplayer-game']);
-  }
 
   public leaveQueue() {
     if (this.redirectionTimer) clearTimeout(this.redirectionTimer)

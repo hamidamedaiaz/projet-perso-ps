@@ -59,11 +59,12 @@
 
           <label class="audio-upload-label">
             + Ajouter une musique
-            <input type="file" id="audio-upload">
+            <input type="file" id="audio-upload" (change)="onAudioSelected($event)">
           </label>
+
         </div>
         <span class="button-info" *ngIf="selectedQuestion.audioPath">
-          Fichier musique sélectionné : {{ getSelectedQuestionName(selectedQuestion) }}
+          Fichier musique sélectionné : {{ getSelectedQuestionName(selectedQuestion).split("-")[1] }}
         </span>
       </div>
 

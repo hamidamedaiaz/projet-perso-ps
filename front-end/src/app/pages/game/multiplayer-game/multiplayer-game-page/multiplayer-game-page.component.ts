@@ -7,6 +7,7 @@ import { QuizQuestionComponent } from 'src/app/components/game/quizzes/quiz-ques
 import { CommonModule } from '@angular/common';
 import { PopUpCodeComponent } from 'src/app/popup-code/popup-code.component';
 import { SessionService } from 'src/services/session.service';
+import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-multiplayer-game-page',
@@ -24,11 +25,16 @@ export class MultiplayerGamePageComponent {
   constructor(private router: Router,
     private currentProfileService: CurrentProfileService,
     private currentPageService: CurrentPageService,
-    private sessionService: SessionService) {
+    private sessionService: SessionService,
+    private socketService: SocketService) {
     this.currentProfileService.current_profile$.subscribe((currentProfile) => {
       this.currentProfile = currentProfile;
     })
     this.currentPageService.setCurrentPage("multiplayer-game-page")
+    this.socketService.emit('login', {
+      sessionId: this.sessionService.getSessionId(),
+      profile: this.currentProfileService.getCurrentProfile()
+    })
   }
 
   public leaveQuiz() {

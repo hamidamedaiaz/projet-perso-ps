@@ -54,7 +54,7 @@ export const QUESTIONS: Question[] = [{
   }]
 
   export const EMPTY_QUESTION: Question = {
-    id: 0,
+    id: -1,
     question: '',
     answers: [],
     hints: [],

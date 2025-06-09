@@ -6,6 +6,7 @@ import { QuestionResult } from 'src/models/question-result.model';
 import { EMPTY_QUIZ } from 'src/mocks/quiz.mock';
 import { Quiz } from 'src/models/quiz.model';
 import { QUIZ_RESULT_EMPTY } from 'src/mocks/quiz-results.mock';
+import { LocalStorageService } from './localstorage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,21 +16,32 @@ export class RecordResultService {
   private quizResult: QuizResult = QUIZ_RESULT_EMPTY;
   private sessionId: number = -1;
 
-  public currentStartTime:number = -1;
-  public currentEndTime:number = -1;
-  public currentAnswerIds:number[] = [];
-  public currentNumberOfHintsUsed:number = 0;
-  private quiz:Quiz = EMPTY_QUIZ;
+  private readonly QUIZ_RESULT_KEY: string = "QUIZ_RESULT_KEY";
+
+  public currentStartTime: number = -1;
+  public currentEndTime: number = -1;
+  public currentAnswerIds: number[] = [];
+  public currentNumberOfHintsUsed: number = 0;
+  private quiz: Quiz = EMPTY_QUIZ;
 
 
   constructor(
     private currentProfileService: CurrentProfileService,
-    private gamemodeService: GamemodeService) {}
+    private gamemodeService: GamemodeService, private localStorageService: LocalStorageService) {
+    this.loadLocalStorage();
+  }
 
 
   public startRecording() {
     this.resetQuizResult();
     this.fillEmptyQuestionResult();
+    this.localStorageService.removeItem(this.QUIZ_RESULT_KEY)
+    this.localStorageService.storeItem(this.QUIZ_RESULT_KEY, JSON.stringify(this.quizResult));
+  }
+
+  private loadLocalStorage() {
+    const savedQuizResult = this.localStorageService.getItem(this.QUIZ_RESULT_KEY)
+    if (savedQuizResult) this.quizResult = savedQuizResult;
   }
 
   public getQuizResult() { return this.quizResult; }
@@ -42,21 +54,20 @@ export class RecordResultService {
   }
 
   public setTimeSpent(questionId: number, timeSpent: number) {
-    console.log(questionId," - ", timeSpent)
+    console.log("RESULT QuestionId ", questionId)
+    console.log(this.quizResult.questionResults)
     if (questionId !== -1) {
       this.quizResult.questionResults[questionId].timeSpent += timeSpent;
     }
   }
 
   public setUserAnswersIds(questionId: number, userAnswersIds: number[]) {
-    console.log(questionId," - ", userAnswersIds)
     if (questionId !== -1) {
       this.quizResult.questionResults[questionId].answerIds = userAnswersIds;
     }
   }
 
   public setNumberOfHintsUsed(questionId: number, numberOfHintsUsed: number) {
-    console.log(questionId," - ", numberOfHintsUsed)
     if (questionId !== -1 && numberOfHintsUsed > this.quizResult.questionResults[questionId].numberOfHintsUsed) {
       this.quizResult.questionResults[questionId].numberOfHintsUsed = numberOfHintsUsed;
     }
@@ -66,7 +77,7 @@ export class RecordResultService {
     this.quizResult = this.getEmptyQuizResult();
   }
 
-  public stopRecording(){
+  public stopRecording() {
     this.quizResult.dateFin = Date.now();
   }
 
@@ -108,8 +119,8 @@ export class RecordResultService {
     });
   }
 
-  public setQuiz(quiz:Quiz){
-    if(quiz.id !== -1) this.quiz = quiz; 
+  public setQuiz(quiz: Quiz) {
+    if (quiz.id !== -1) this.quiz = quiz;
   }
 
 }

@@ -72,7 +72,7 @@
       <div class="profile-details">
 
         <ng-container *ngIf="profile.profilePicture && profile.profilePicture !== 'empty_path'; else initialsTemplate">
-          <div class="profile-avatar" [ngStyle]="{'background-image': 'url(' + profile.profilePicture + ')'}"></div>
+          <div class="profile-avatar" [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
         </ng-container>
         <ng-template #initialsTemplate>
           <div class="profile-avatar-text">{{ getInitials(profile) }}</div>
@@ -98,7 +98,7 @@
     <div class="profile-card" *ngFor="let profile of filteredProfiles()" (click)="profileSelectedHandler(profile)">
       <div class="profile-card-avatar">
         <div *ngIf="profile.profilePicture && profile.profilePicture !== 'empty_path'">
-          <div class="profile-img" [ngStyle]="{'background-image': 'url(' + profile.profilePicture + ')'}"></div>
+          <div class="profile-img" [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
         </div>
 
         <div *ngIf="profile.profilePicture && profile.profilePicture === 'empty_path'">

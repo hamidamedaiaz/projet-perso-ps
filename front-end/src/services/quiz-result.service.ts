@@ -4,7 +4,6 @@ import { QuizResult } from '../models/quiz-result.model';
 import { HttpClient } from '@angular/common/http';
 import { QUIZ_RESULT_EMPTY } from 'src/mocks/quiz-results.mock';
 import { ProfileService } from './profile.service';
-import { Profile } from 'src/models/profile.model';
 import { firstValueFrom } from 'rxjs';
 
 
@@ -32,6 +31,7 @@ export class QuizResultService implements OnInit {
     private http: HttpClient, private profileService: ProfileService) {
     this.requestResult();
   }
+
   ngOnInit(): void {
     this.requestResult();
   }
@@ -42,19 +42,7 @@ export class QuizResultService implements OnInit {
     const quizResults = await firstValueFrom(this.http.get<QuizResult[]>(this.apiUrl));
     this.allResults = quizResults;
     this.results$.next(this.allResults);
-    console.log(this.allResults);
-  }
-
-
-  //   private requestResult() {
-  //   this.http.get<QuizResult[]>(this.apiUrl).subscribe((quizResults) => {
-  //     this.allResults = quizResults;
-  //     this.results$.next(this.allResults);
-  //     console.log(this.allResults);
-  //   })
-  // }
-
-  getPlayerMonthlyStats(profileId: number): MonthlyStatsData[] { return []; }
+  } 
 
   getQuizResultsByProfile(profileId: number) {
     const quizResults = this.allResults.filter(
@@ -79,7 +67,6 @@ export class QuizResultService implements OnInit {
   sendQuizResult(quizResult: QuizResult) {
     this.http.post(this.apiUrl, quizResult).subscribe({
       next: () => {
-        console.log(`New Quiz Result sent: ${quizResult.id}`);
         this.requestResult();
       },
       error: (err) => {

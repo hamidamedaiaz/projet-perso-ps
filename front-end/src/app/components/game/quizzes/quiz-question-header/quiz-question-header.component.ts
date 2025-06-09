@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuizService } from 'src/services/quiz.service';
-import { MultiPlayerQuizService } from 'src/services/multiplayer-quiz.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { GamemodeService } from 'src/services/gamemode.service';
 import { SessionService } from 'src/services/session.service';

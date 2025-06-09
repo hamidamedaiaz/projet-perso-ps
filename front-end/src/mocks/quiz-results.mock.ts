@@ -4,13 +4,13 @@ import { QUESTION_RESULT, QUESTION_RESULT2 } from "./question-result.mock"
 import { GAMEMODE_SOLO } from "./gamemode-list.mock"
 
 export const QUIZ_RESULT_EMPTY :QuizResult = {
-    id: 0,
-    sessionId:0,
-    quizId: QUIZ_EXAMPLE.id,
+    id: -1,
+    sessionId:-1,
+    quizId: -1,
     profileId: 1,
     dateDebut: Date.now(),
     dateFin: Date.now(),
-    questionResults: QUESTION_RESULT,
+    questionResults: [],
     gamemode:GAMEMODE_SOLO
 }
 

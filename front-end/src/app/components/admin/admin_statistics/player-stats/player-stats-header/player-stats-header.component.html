@@ -9,9 +9,9 @@
 
 <div class="profile-section" *ngIf="getProfile()">
   <div class="profile-card">
-    
+
 <ng-container *ngIf="getProfile().profilePicture && getProfile().profilePicture !== 'empty_path'; else initialsTemplate">
-    <div class="profile-avatar" [style.background-image]="'url(' + getProfile().profilePicture + ')'"></div>
+    <div class="profile-avatar" [style.background-image]="'url(http://localhost:9428/upload/' + getProfile().profilePicture + ')'"></div>
 </ng-container>
 <ng-template #initialsTemplate>
     <div class="profile-avatar">{{ getInitials() }}</div>

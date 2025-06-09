@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { EMPTY_QUIZ } from 'src/mocks/quiz.mock';
 import { QuizService } from 'src/services/quiz.service';
 import { SessionService } from 'src/services/session.service';
+import { CurrentPageService } from 'src/services/currentPage.service';
+
+
 
 @Component({
   selector: 'app-multiplayer-game-setup-sidebar',
@@ -22,7 +25,7 @@ export class MultiplayerGameSetupSidebarComponent {
 
   public sessionId: String = "None";
 
-  constructor(private router: Router, private sessionService: SessionService, private quizService: QuizService) {
+  constructor(private router: Router, private sessionService: SessionService, private quizService: QuizService,private currentPageService: CurrentPageService) {
     this.quizService.quiz$.subscribe((quiz) => {
       this.quiz = quiz;
     })
@@ -34,6 +37,6 @@ export class MultiplayerGameSetupSidebarComponent {
   public leaveSetup() {
     console.log("Leaving Setup");
     this.sessionService.leaveSetup();
-    this.router.navigate(["/admin"])
-  }
+    this.currentPageService.adminNav('quiz');
+    this.router.navigate(["/admin"]);  }
 }
