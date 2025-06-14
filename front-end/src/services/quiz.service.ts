@@ -54,7 +54,7 @@ export class QuizService {
 
     this.question = this.quiz.questions[this.questionId];
 
-      console.log("questionId ",this.questionId)
+    console.log("questionId ", this.questionId)
 
     if (this.question) {
       this.question$.next(this.question);
@@ -108,6 +108,7 @@ export class QuizService {
       this.question = this.quiz.questions[0];
     }
 
+    // if (this.currentProfileService.getCurrentProfile().role !== 'admin') 
     this.recordResultService.setQuiz(this.quiz);
 
     // CHANGE OBSERVABLE VALUES
@@ -193,14 +194,18 @@ export class QuizService {
           this.recordResultService.stopRecording();
           this.quizResultService.sendQuizResult(this.recordResultService.getQuizResult())
 
+
           // Then navigate to the scoreboard
 
           this.router.navigate(["/quiz-scoreboard"]);
 
         } else if (this.gamemodeService.getCurrentGamemode().id === 1) {
 
+
           this.recordResultService.stopRecording();
+
           this.quizResultService.sendQuizResult(this.recordResultService.getQuizResult())
+
 
           this.router.navigate(['/quiz-multiplayer-scoreboard']);
 
@@ -210,8 +215,8 @@ export class QuizService {
       } else if (this.questionId < this.quiz.questions.length - 1) {
         // If the quiz is still runinng, then we change the current question and all params that belongs to her
         this.questionId++;
-        console.log("questionId++ called", this.questionId)
         this.question = this.quiz.questions[this.questionId];
+        this.question.answers = this.shuffle(this.question.answers);
         this.question$.next(this.question);
 
         this.localStorageService.removeItem(this.QUESTION_ID_KEY);
@@ -238,6 +243,8 @@ export class QuizService {
 
     this.resetCurrentQuiz();
 
+    // if (this.currentProfileService.getCurrentProfile().role !== 'admin') 
+    console.log("STARTED RECORDING")
     this.recordResultService.startRecording()
 
     this.socketService.emit("lobby-disconnect", this.currentProfileService.getCurrentProfile());
@@ -253,11 +260,21 @@ export class QuizService {
     this.isQuizRunning = true;
 
     this.question = this.quiz.questions[this.questionId];
+    this.question.answers = this.shuffle(this.question.answers);
     this.question$.next(this.question);
 
     this.localStorageService.storeItem(this.IS_QUIZ_RUNNING_KEY, JSON.stringify(this.isQuizRunning));
     this.localStorageService.storeItem(this.QUIZ_KEY, JSON.stringify(this.quiz));
     this.localStorageService.storeItem(this.QUESTION_ID_KEY, JSON.stringify(this.questionId))
+  }
+
+  private shuffle(answers: Answer[]): Answer[] {
+    const shuffled = answers.slice();
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
   }
 
   public previousQuestion() {

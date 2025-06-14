@@ -36,6 +36,11 @@
     gap: 3vh;
 
 }
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .message {
     font-size: 3vw;

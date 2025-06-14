@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { QuizItemComponent } from "../quiz-item/quiz-item.component";
 import { FormsModule } from '@angular/forms';
@@ -34,12 +34,12 @@ export class QuizAppComponent {
 
   public quizToDelete: Quiz | undefined;
 
-  constructor(private quizListService: QuizListService, 
-              private quizService: QuizService, 
-              private router: Router, 
-              private currentPageService: CurrentPageService,
-              private socketService: SocketService,
-            private sessionService:SessionService) {
+  constructor(private quizListService: QuizListService,
+    private quizService: QuizService,
+    private router: Router,
+    private currentPageService: CurrentPageService,
+    private socketService: SocketService,
+    private sessionService: SessionService) {
     this.quizListService.quizzes$.subscribe((quizzes: Quiz[]) => {
       console.log("Nouveaux quizzes reçus :", quizzes);
       this.quizzes = quizzes;
@@ -55,9 +55,11 @@ export class QuizAppComponent {
 
   public async launchMultiGame(quiz: Quiz) {
     console.log("Launching this quiz in multiplayer mode ", quiz);
-    this.socketService.emit('generate-new-session', quiz);
+    this.sessionService.generateAdminSessionId();
+    this.socketService.emit('generate-new-session', { quiz: quiz, adminSessionId: this.sessionService.getAdminSessionId() });
     const data = await this.socketService.listenOnce('session-created');
-    this.sessionService.setSessionId(data.id);  
+    this.sessionService.resetSession();
+    this.sessionService.setSessionId(data.id);
     this.quizService.setQuiz(quiz);
     this.router.navigate(['/multiplayer-game-setup'])
   }

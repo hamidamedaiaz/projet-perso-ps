@@ -77,6 +77,7 @@ export class QuizDetailsComponent implements OnChanges {
     this.currentQuestionIndex = index;
   }
 
+
   addQuestion() {
     const newQuestion: Question = {
       id: this.quizCopy.questions.length + 1,
@@ -85,7 +86,17 @@ export class QuizDetailsComponent implements OnChanges {
       hints: [],
       audioPath: ''
     };
+
     this.quizCopy.questions.push(newQuestion);
+    this.selectQuestion(this.quizCopy.questions.length-1);
+    
+  }
+
+  public isQuestionSelected(index:number){
+    if(this.selectedQuestion && this.quizCopy.questions.indexOf(this.selectedQuestion) === index){
+      return true;
+    }
+    return false;
   }
 
   addAnswer() {
@@ -148,7 +159,7 @@ export class QuizDetailsComponent implements OnChanges {
 
     //Si l'utilisateur supprime la question actuellement séléctionné
     if (this.selectedQuestion == this.quizCopy.questions[index]) {
-      this.selectedQuestion = EMPTY_QUESTION;
+      this.selectedQuestion = null;
     }
 
     this.quizCopy.questions.splice(index, 1);

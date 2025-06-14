@@ -6,7 +6,8 @@ export interface Profile {
     SHOW_POP_UP_TIMER: number,
     SHOW_HINT_TIMER:number,
     REMOVE_WRONG_ANSWER_INTERVAL: number,
-    NUMBER_OF_ANSWERS_DISPLAYED:number,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED:number,
     NUMBER_OF_HINTS_DISPLAYED:number,
+    FONT_SIZE:number,
     profilePicture:string
 }

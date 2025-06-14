@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SocketService } from '../../../../../services/socket.service';
 import { Profile } from '../../../../../models/profile.model';
-import { NgForOf } from '@angular/common';
+import {NgForOf, NgIf, NgStyle} from '@angular/common';
 import { QuizService } from "../../../../../services/quiz.service";
 import { SessionService } from 'src/services/session.service';
 import { PopUpService } from 'src/services/pop-up.service';
@@ -10,7 +10,7 @@ import { interval } from 'rxjs';
 @Component({
   selector: 'app-online-players',
   standalone: true,
-  imports: [NgForOf],
+  imports: [NgForOf, NgIf, NgStyle],
   templateUrl: './online-players.component.html',
   styleUrl: './online-players.component.scss'
 })
@@ -64,10 +64,19 @@ export class OnlinePlayersComponent implements OnInit {
     this.socketService.emit("lobby-admin-move-player", { sessionId: this.sessionId, profile: profile })
 
     this.popUpService.sendPopup({
-      message: "Invitation envoyée",
+      message: "Le joueur va être déplacé dans un instant ...",
       type: "success",
       duration: 3000
     })
   }
+
+  getInitials(profile : Profile): string {
+
+    const firstName = profile.name.charAt(0).toUpperCase();
+    const lastName = profile.lastName.charAt(0).toUpperCase();
+
+    return firstName + lastName;
+  }
+
 
 }

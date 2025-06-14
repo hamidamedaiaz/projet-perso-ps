@@ -3,5 +3,6 @@
 node_modules/
 
 !database/.gitkeep
+database/
 
 ./package.json

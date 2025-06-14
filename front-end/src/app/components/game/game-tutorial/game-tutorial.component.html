@@ -106,12 +106,15 @@
             Suivant
         </button>
 
-        <button *ngIf="currentStep === totalSteps && currentPage==='solo-tutorial'" class="start-button" (click)="startQuiz()">
+        <button *ngIf="currentStep === totalSteps && currentPage==='solo-tutorial' && getCurrentGamemodeId() === 0" class="start-button"
+            (click)="leaveToQuizSelection()">
+            Commencer à jouer !
+        </button>
+
+         <button *ngIf="currentStep === totalSteps && currentPage==='solo-tutorial' && getCurrentGamemodeId() === 1" class="start-button"
+            (click)="leaveToMulti()">
             Commencer à jouer !
         </button>
     </div>
 
-</div>
-<div *ngIf="currentPage==='solo-tutorial'">
-    <button class="skip-button" (click)="startQuiz()">Passer le tutoriel</button>
 </div>

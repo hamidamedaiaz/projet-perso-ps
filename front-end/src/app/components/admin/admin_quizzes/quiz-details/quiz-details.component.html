@@ -13,7 +13,7 @@
       <section class="question-list-section">
         <h2 class="title-quiz-template">Liste des questions :</h2>
         <div *ngFor="let question of quizCopy.questions; let i = index" class="question-row">
-          <button class="sidebar-btn" (click)="selectQuestion(i)">
+          <button class="sidebar-btn" (click)="selectQuestion(i)" [ngClass]="{ 'selected': isQuestionSelected(i) }" >
             {{ question.question }}
           </button>
           <button class="delete-btn" (click)="deleteQuestion(i)"><img src="assets/icons/delete.png" width="24"

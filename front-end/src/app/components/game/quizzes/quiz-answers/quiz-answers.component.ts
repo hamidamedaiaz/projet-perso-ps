@@ -11,6 +11,7 @@ import { SocketService } from 'src/services/socket.service';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/services/session.service';
 import { RealTimeStatsService } from 'src/services/real-time-stats.service';
+import { LocalStorageService } from 'src/services/localstorage.service';
 
 
 @Component({
@@ -32,10 +33,15 @@ export class QuizAnswersComponent {
 
   private removeWrongAnswerInterval: any;
 
-  public numberOfCorrectAnswer:number = -1;
+  public numberOfCorrectAnswer: number = -1;
+
+  private ANSWERS_KEY:string = "ANSWERS_KEY";
 
   @Input()
   isInteractionDisabled: boolean = false;
+
+  @Input()
+  characterSize : string = "";
 
   @Output()
   correct_answer: EventEmitter<Boolean> = new EventEmitter<Boolean>();
@@ -51,7 +57,8 @@ export class QuizAnswersComponent {
     private socketService: SocketService,
     private router: Router,
     private sessionService: SessionService,
-  private realTimeStatsService: RealTimeStatsService) {
+    private realTimeStatsService: RealTimeStatsService,
+    private localStorageService: LocalStorageService) {
 
     this.currentProfileService.current_profile$.subscribe((profile) => {
       this.REMOVE_WRONG_ANSWER_INTERVAL = profile.REMOVE_WRONG_ANSWER_INTERVAL;
@@ -65,7 +72,8 @@ export class QuizAnswersComponent {
     })
 
     this.quizService.question$.subscribe((question) => {
-      this.answers = this.shuffle(question.answers);
+      this.answers = question.answers;
+
       this.selectedAnswers = [];
 
       this.numberOfCorrectAnswer = this.getNumberOfCorrentAnswers(question.answers);
@@ -74,6 +82,9 @@ export class QuizAnswersComponent {
       if (this.removeWrongAnswerInterval) {
         clearInterval(this.removeWrongAnswerInterval);
       }
+
+      this.localStorageService.removeItem(this.ANSWERS_KEY)
+      this.localStorageService.storeItem(this.ANSWERS_KEY, JSON.stringify(this.answers))
 
       this.removeWrongAnswerInterval = setInterval(() => {
         const wrongAnswers = (this.answers.filter((answer => !answer.isCorrect)))
@@ -87,6 +98,14 @@ export class QuizAnswersComponent {
         }
       }, this.REMOVE_WRONG_ANSWER_INTERVAL);
     });
+
+    this.loadLocalStorage();
+  }
+
+
+  private loadLocalStorage(){
+    const savedAnswers = this.localStorageService.getItem(this.ANSWERS_KEY);
+    if(savedAnswers) this.answers = savedAnswers;
   }
 
   public getRole() {
@@ -101,15 +120,6 @@ export class QuizAnswersComponent {
 
   public isWrongAnswer(answer: Answer) {
     return answer.isCorrect;
-  }
-
-  private shuffle(answers: Answer[]): Answer[] {
-    const shuffled = answers.slice();
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
   }
 
   public answerSelected(answer: Answer) {
@@ -149,31 +159,31 @@ export class QuizAnswersComponent {
   public getMultiplayerAnswers() {
     // on  Recuperee la question courante
     const currentQuestion = this.quizService.question$.getValue();
-    
-    if (currentQuestion && currentQuestion.id !== -1) {
-        const questionStats = this.realTimeStatsService.getQuestionStats(currentQuestion.id);
-        
-        if (questionStats) {
-            // on  Applique les pourcentages reeels
-          this.answers.forEach(answer => {
-                const percentage = questionStats.percentages.get(answer.id) || 0;
-                answer.stats = percentage;
-            });
-               } else {
-            //  si  Pas encore de reponses, tout ===> 0%
-            this.answers.forEach(answer => {
-                answer.stats = 0;
-            });
-        }
-    }
-    
-    return this.answers;
-}
 
-  private getNumberOfCorrentAnswers(answers:Answer[]){
+    if (currentQuestion && currentQuestion.id !== -1) {
+      const questionStats = this.realTimeStatsService.getQuestionStats(currentQuestion.id);
+
+      if (questionStats) {
+        // on  Applique les pourcentages reeels
+        this.answers.forEach(answer => {
+          const percentage = questionStats.percentages.get(answer.id) || 0;
+          answer.stats = percentage;
+        });
+      } else {
+        //  si  Pas encore de reponses, tout ===> 0%
+        this.answers.forEach(answer => {
+          answer.stats = 0;
+        });
+      }
+    }
+
+    return this.answers;
+  }
+
+  private getNumberOfCorrentAnswers(answers: Answer[]) {
     let counter = 0;
     answers.forEach((answer) => {
-      if(answer.isCorrect) counter++;
+      if (answer.isCorrect) counter++;
     })
     return counter;
   }

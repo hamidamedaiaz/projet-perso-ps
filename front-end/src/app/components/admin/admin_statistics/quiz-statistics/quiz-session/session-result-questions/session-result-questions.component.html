@@ -1,0 +1,41 @@
+<div class="questions-section">
+    <h2 class="section-title">Détail des Réponses</h2>
+    <div class="questions-list">
+      <div class="question-item" *ngFor="let session of getSessionResults(); let questionIndex = index">
+        <div class="question-header">
+          <span class="question-number">Question {{ questionIndex + 1 }}</span>
+        </div>
+
+        <div class="question-content">
+          <p class="question-text">{{ getQuestion(questionIndex).question }}</p>
+
+          <div class="answers-container">
+            <div *ngFor="let answer of getQuestion(questionIndex).answers" class="answer-item"
+                 [ngClass]="{ 'correct-answer': answer.isCorrect }">
+              <div class="answer-content">
+                <span class="answer-text">{{ answer.answerContent }}</span>
+                <span> Selectionnée {{ getNumberOfTimesSelected(session,answer.id) }} fois</span>
+              </div>
+              <div class="answer-indicator">
+                <i *ngIf="answer.isCorrect" class="fa fa-check-circle correct-answer-icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-metrics">
+            <div class="metric-item">
+              <span class="metric-icon time-small"></span>
+              <span class="metric-label">Temps moyen:</span>
+              <span class="metric-value">{{ getAverageTimeSpent(session.questionResults) }}s</span>
+            </div>
+
+            <div class="metric-item">
+              <span class="metric-icon hint-small"></span>
+              <span class="metric-label">Nombre moyen d'indices:</span>
+              <span class="metric-value">{{ getAverageHintsUsed(session.questionResults) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

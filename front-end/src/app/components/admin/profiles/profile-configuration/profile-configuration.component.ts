@@ -78,6 +78,7 @@ export class ProfileConfigurationComponent implements OnChanges {
   }
 
   saveConfiguration() {
+    console.log(this.currentProfileCopy)
     this.profileService.updateProfile(this.currentProfileCopy!);
     this.closeConfiguration();
   }

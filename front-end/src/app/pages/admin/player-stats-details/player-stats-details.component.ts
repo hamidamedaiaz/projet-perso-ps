@@ -54,7 +54,6 @@ export class PlayerStatsDetailsComponent {
 
   public selectedQuizId: number = -1;
 
-
   private profileId: number = -1;
 
   public activeYear: number = -1

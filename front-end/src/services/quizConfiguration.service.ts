@@ -41,23 +41,35 @@ export class QuizConfigurationService {
 
     public applyNumberOfDisplayedAnswersConfiguration(question: Question): Question {
 
+        if(this.profile.NUMBER_OF_WRONG_ANSWERS_DISPLAYED == -1) return question
+
         const originalAnswers = [...question.answers];
-        const answers = originalAnswers.filter((answer) => answer.isCorrect);
+        const correctAnswers = originalAnswers.filter(answer => answer.isCorrect);
+        const wrongAnswers = originalAnswers.filter(answer => !answer.isCorrect);
 
-        const numberOfAnswersToDisplay = Math.min(this.profile.NUMBER_OF_ANSWERS_DISPLAYED - 1, (originalAnswers.length - answers.length));
 
-        while (answers.length != numberOfAnswersToDisplay) {
-            const random_answer_index = Math.floor(Math.random() * originalAnswers.length);
-            if (originalAnswers[random_answer_index].isCorrect) continue;
-            answers.push(originalAnswers[random_answer_index]);
-            originalAnswers.splice(random_answer_index, 1);
+        const numberOfWrongToDisplay = Math.min(
+            this.profile.NUMBER_OF_WRONG_ANSWERS_DISPLAYED,
+            wrongAnswers.length
+        );
+
+        const selectedWrongAnswers = [];
+
+        for (let i = 0; i < numberOfWrongToDisplay; i++) {
+            const randomIndex = Math.floor(Math.random() * wrongAnswers.length);
+            selectedWrongAnswers.push(wrongAnswers[randomIndex]);
+            wrongAnswers.splice(randomIndex, 1);
         }
 
-        question.answers = answers;
+        question.answers = [...correctAnswers, ...selectedWrongAnswers];
         return question;
     }
 
+
     public applyNumberOfDisplayedHintsConfiguration(question: Question): Question {
+
+        if(this.profile.NUMBER_OF_HINTS_DISPLAYED == -1) return question;
+
         const hints: string[] = [];
         const originalHints = [...question.hints];
 

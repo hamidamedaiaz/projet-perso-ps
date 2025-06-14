@@ -66,11 +66,9 @@ export class QuizResultDetailsComponent {
   }
 
   public getProfileListFromQuizResult() {
-    if (this.quizResult) return this.quizResultService.getProfilesInSession(this.quizResult.sessionId)
+    if (this.quizResult) return this.quizResult.players;
     return [];
   }
-
-
 
   getProfile() { return this.profile }
 

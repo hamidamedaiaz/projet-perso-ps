@@ -60,7 +60,6 @@ app-profile-list {
 }
 
 .setup {
-  padding: 2em;
   border-radius: 1.0vh;
   box-shadow: $primary-box-shadow;
 }
@@ -93,6 +92,7 @@ app-profile-list {
   position: relative;
 
 }
+
 .form-group label::after {
   content: '*';
   color: var(--primary-delete-btn);
@@ -103,7 +103,8 @@ app-profile-list {
 
 .form-input {
   width: 100%;
-  padding: 1.5vh 2vh;;
+  padding: 1.5vh 2vh;
+  ;
   border: $primary-border-white;
   border-radius: .6vh;
   font-size: 1.8vh;
@@ -137,7 +138,7 @@ app-profile-list {
 }
 
 .save-btn:hover {
- transform: translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.2);
 }
 
@@ -150,8 +151,8 @@ app-profile-list {
 }
 
 .cancel-btn:hover {
- transform: translateY(-2px);
- box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.1);
 }
 
 .enhanced-profile-item {
@@ -179,7 +180,7 @@ app-profile-list {
 }
 
 .profile-name {
-  margin-left: 0.5vh ;
+  margin-left: 0.5vh;
   font-size: 2.5vh;
   font-weight: 500;
   color: $primary-black-text;
@@ -270,7 +271,7 @@ app-profile-list {
 
 .confirm-delete-btn:hover {
   background-color: $primary-btn-delete-hover;
-   transform: translateY(-0.2vh);
+  transform: translateY(-0.2vh);
   box-shadow: 0 0.5vh 1.5vh rgba(231, 76, 60, 0.4);
 }
 
@@ -483,13 +484,25 @@ app-profile-list {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateY(-5.0vh); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-5.0vh);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 
@@ -534,6 +547,16 @@ app-profile-list {
   border-radius: 1vh;
 }
 
+.card-grid-multi {
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30vh);
+  grid-template-rows: repeat(auto-fit, 16vh);
+  gap: 2vh;
+  padding: 2vh;
+  border-radius: 1vh;
+}
+
 
 .profile-card {
   background-color: $primary-white-bg;
@@ -552,9 +575,39 @@ app-profile-list {
   background-color: $primary-btn-white-hover;
 }
 
+
+.profile-card-multi {
+  background-color: $primary-white-bg;
+  border-radius: 1vh;
+  padding: 0.5vh;
+  box-shadow: $primary-box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background-color 0.3s;
+  user-select: none;
+}
+
+.profile-card-content {
+  display: flex;
+  margin-bottom: 1.5vh;
+}
+
 .profile-card-avatar {
   padding-left: 2vh;
   padding-right: 3vh;
+}
+
+.kick-btn {
+  background: $primary-delete-btn;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 40px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 .profile-img {
@@ -600,5 +653,3 @@ app-profile-list {
   font-weight: 700;
   line-height: 1.4;
 }
-
-

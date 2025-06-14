@@ -1,9 +1,8 @@
-import { Component, Input, OnDestroy, SimpleChanges } from '@angular/core';
+import {Component, Input, OnDestroy} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuizHintComponent } from '../quiz-hint/quiz-hint.component';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { QuizService } from 'src/services/quiz.service';
-import { GamemodeService } from 'src/services/gamemode.service';
 import { Subscription, interval } from 'rxjs';
 import { Question } from 'src/models/question.model';
 import { RecordResultService } from 'src/services/record-result.service';
@@ -18,21 +17,24 @@ import { RecordResultService } from 'src/services/record-result.service';
 export class QuizHintsComponent implements OnDestroy {
   private hints: string[] = []
   private displayedHints: string[] = [];
-  public value: number = 10;
+  public timer: number = 10;
   private timerSubscription: Subscription | null = null;
   private currentHintIndex: number = 0;
   public nextHints: Boolean = false;
 
   private SHOW_HINT_TIMER: number = 5;
 
+  @Input()
+  font_size! : number;
+
   constructor(private quizService: QuizService, private currentProfileService: CurrentProfileService, private recordResultService: RecordResultService) {
     this.currentProfileService.current_profile$.subscribe((profile) => {
       // On divise par 1000 pour passer de MS en S
-      this.SHOW_HINT_TIMER = profile.SHOW_HINT_TIMER/1000;
+      this.SHOW_HINT_TIMER = profile.SHOW_HINT_TIMER / 1000;
     })
 
     this.quizService.retrieveData$.subscribe((data) => {
-      if(data) this.recordResultService.setNumberOfHintsUsed(this.quizService.questionId, this.displayedHints.length);
+      if (data) this.recordResultService.setNumberOfHintsUsed(this.quizService.questionId, this.displayedHints.length);
     })
 
     this.quizService.question$.subscribe((question) => {
@@ -60,19 +62,22 @@ export class QuizHintsComponent implements OnDestroy {
 
   private startTimer(): void {
 
-    this.value = Math.floor(this.SHOW_HINT_TIMER);
+    this.timer = Math.floor(this.SHOW_HINT_TIMER);
 
     this.timerSubscription = interval(1000).subscribe(() => {
-      this.value--;
 
-      if (this.value <= 0 && this.currentHintIndex < this.hints.length) {
+      this.timer--;
+
+      console.log(this.timer, this.displayedHints, this.hints)
+
+      if (this.timer <= 0 && this.displayedHints.length < this.hints.length) {
 
         this.displayedHints.push(this.hints[this.currentHintIndex]);
         this.currentHintIndex++;
 
         // If there are more hints, reset the timer
         if (this.currentHintIndex < this.hints.length) {
-          this.value = this.SHOW_HINT_TIMER;
+          this.timer = this.SHOW_HINT_TIMER;
         } else {
           // No more hints, stop the timer
           this.stopTimer();

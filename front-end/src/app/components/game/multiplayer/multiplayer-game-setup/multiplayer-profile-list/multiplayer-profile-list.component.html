@@ -1,10 +1,30 @@
 <section>
-    <input type="text" id="search-bar" class="search-input" [(ngModel)]="searchQuery"
-        placeholder="Rechercher un joueur...">
-    <section class="profile-list-section setup">
-        <div class="profile-list-container" *ngFor="let player of filteredPlayers()">
-            <app-profile-item [profile]="player.profile" [context]="'multi'" (delete_profile)="removePlayer(player.profile)" class="item">
-            </app-profile-item>
+  <!--<input type="text" id="search-bar" class="search-input" [(ngModel)]="searchQuery"
+         placeholder="Rechercher un joueur...">-->
+
+  <h2>Joueurs dans la partie <span id="player-count">({{ players.length }})</span></h2>
+
+
+  <section class="profile-grid">
+    <div class="player-card" *ngFor="let player of filteredPlayers()">
+
+      <div class="player-avatar">
+        <div *ngIf="player.profile.profilePicture !== 'empty_path'" class="avatar-img"
+             [ngStyle]="{'background-image': 'url(http://localhost:9428/upload/' + player.profile.profilePicture + ')'}">
         </div>
-    </section>
+        <div *ngIf="player.profile.profilePicture === 'empty_path'" class="avatar-initials">
+          {{ getInitials(player.profile) }}
+        </div>
+      </div>
+
+      <div class="player-name">
+        {{ player.profile.name }} {{ player.profile.lastName }}
+      </div>
+
+      <button class="add-button" (click)="removePlayer(player.profile)">
+        Expulser
+      </button>
+
+    </div>
+  </section>
 </section>

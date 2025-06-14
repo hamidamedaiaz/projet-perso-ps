@@ -1,0 +1,30 @@
+<div class="quiz-result-container" *ngIf="sessionHistory.sessionId !== 'None'">
+    <app-session-result-header (go_back)="navigateBack()" (show_pop_up)="showPopUp()"></app-session-result-header>
+
+    <app-session-result-info [dateDebut]="getDateDebut()" [quizTitle]="getQuizTitle()"
+        [numberOfPlayers]="getNumberOfPlayers()" [averageScore]="getAverageScore()"
+        [numberOfQuestions]="getNumberOfQuestions()" [quizResults]="getQuizResults()">
+    </app-session-result-info>
+
+    <div class="quiz-details-section">
+        <div class="tabs-container">
+            <button class="tab-btn" [class.active]="activeTab === 'questions'" (click)="setActiveTab('questions')">
+                Details des réponses
+            </button>
+            <button class="tab-btn" [class.active]="activeTab === 'rank'" (click)="setActiveTab('rank')">
+                Classement
+            </button>
+        </div>
+    </div>
+
+    <app-session-result-questions [sessionHistory]="sessionHistory" class="quiz-result-questions"
+        *ngIf="activeTab === 'questions'"></app-session-result-questions>
+    <app-ranking [rank]=rankList class="ranking" *ngIf="activeTab === 'rank'"></app-ranking>
+
+</div>
+
+<!-- <div class="loading-container" *ngIf="!getQuiz() || !getProfile()">
+    <div class="spinner"></div>
+</div> -->
+<!-- 
+<app-popup-code [show]="popUp" (close)="closePopUp()" (success)="deleteQuizResult()"></app-popup-code> -->

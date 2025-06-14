@@ -12,4 +12,7 @@ export class QuizHintComponent {
   @Input()
   hint!: String;
 
+  @Input()
+  font_size!: number;
+
 }

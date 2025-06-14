@@ -26,8 +26,8 @@ export function getSocketIdFromPlayerId(playerId) {
   return playerSocketMap.get(playerId)
 }
 
-export function createNewSession(quiz, socketId) {
-  const session = createEmptySession(quiz, socketId)
+export function createNewSession(quiz, adminSessionId, socketId) {
+  const session = createEmptySession(quiz, adminSessionId, socketId)
   sessions.push(session)
   return session
 }
@@ -80,7 +80,7 @@ export function getPlayersFromSession(sessionId) {
   if (session) return session.players
 }
 
-function createEmptySession(quiz, socketId) {
+function createEmptySession(quiz, adminSessionId, socketId) {
   try {
     const sessionId = [...crypto.getRandomValues(new Uint8Array(3))]
       .map(b => b.toString(16).padStart(2, '0'))
@@ -92,7 +92,10 @@ function createEmptySession(quiz, socketId) {
       quiz,
       currentQuestionId: -1,
       isRunning: false,
-      adminSocketId: socketId,
+      admin: {
+        adminSessionId: adminSessionId,
+        adminSocketId: socketId
+      },
     }
   } catch (err) { console.log(err) }
 }
@@ -205,8 +208,7 @@ export function checkDataValidity(sessionId, playerId, answer) {
 // TO DO FIND PLAYER 
 
 export function getAdminSocketId(sessionId) {
-  const session = sessions.find((session) => session.id === sessionId)
-  return session.adminSocketId
+  return sessions.find((session) => session.id === sessionId).admin.adminSocketId
 }
 
 export function disconnectPlayer(playerId) {
@@ -219,7 +221,7 @@ export function disconnectPlayer(playerId) {
 
 export function isSessionAdmin(socketId) {
   const result = { isAdmin: false, sessionId: "None" }
-  const session = sessions.find(session => session.adminSocketId === socketId)
+  const session = sessions.find(session => session.admin.adminSocketId === socketId)
   if (session) {
     result.isAdmin = true
     result.sessionId = session.id
@@ -241,4 +243,19 @@ export function handleReconnection(sessionId, profile, socketId) {
     }
   })
   return connected;
+}
+
+export function handleAdminReconnection(sessionId, adminSessionId, socketId) {
+  let connect = false;
+  sessions.forEach(session => {
+    if (session.id === sessionId) {
+      console.log("[SERVER] - SESSION FOUND - ", session.admin, adminSessionId)
+      if (session.admin.adminSessionId === adminSessionId) {
+        console.log("[SERVER] - ADMIN RECONNECTED")
+        session.admin.adminSocketId = socketId;
+        connect = true
+      }
+    }
+  })
+  return connect;
 }

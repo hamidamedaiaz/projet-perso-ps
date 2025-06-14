@@ -41,10 +41,10 @@ buildServer((server) => {
       socket.emit('online-players', { players })
     })
 
-    socket.on('generate-new-session', (quiz) => {
+    socket.on('generate-new-session', (data) => {
       console.log('[SERVER] generate-new-session received')
 
-      const session = multiplayerQuizManager.createNewSession(quiz, socket.id)
+      const session = multiplayerQuizManager.createNewSession(data.quiz, data.adminSessionId, socket.id)
 
       console.log('[SERVER] session-created emitted')
       socket.emit('session-created', session)
@@ -107,6 +107,7 @@ buildServer((server) => {
         multiCast('player-has-leaved-session', data.sessionId, data)
 
         const adminSocket = multiplayerQuizManager.getAdminSocketId(data.sessionId)
+        console.log("[SERVER] admin socket ", adminSocket)
         io.to(adminSocket).emit('player-has-leaved-session', data)
       } else {
         console.log('[SERVER] leave-session-error emitted')
@@ -197,6 +198,11 @@ buildServer((server) => {
       this.reconnected = multiplayerQuizManager.handleReconnection(data.sessionId, data.profile, socket.id)
     })
 
+    socket.on('admin-login', (data) => {
+      console.log('[SERVER] admin login received')
+      this.reconnected = multiplayerQuizManager.handleAdminReconnection(data.sessionId, data.adminSessionId, socket.id)
+    })
+
     socket.on('disconnect', () => {
       console.log(`[SERVER] socket ${socket.id} disconnected, waiting 5 seconds before final handling...`);
 
@@ -232,7 +238,6 @@ buildServer((server) => {
             // Vérifier si le joueur était admin
             onlineManager.removePlayerBySocketId(socket.id);
           }
-
         } else {
           console.log(`[SERVER] socket ${socket.id} reconnected in time — no action taken.`);
         }
@@ -249,7 +254,7 @@ buildServer((server) => {
         players.forEach((player) => {
           const socketId = multiplayerQuizManager.getSocketIdFromPlayerId(player.id)
           if (socketId) {
-            console.log('[SERVER]', event, 'emitted', data)
+            console.log('[SERVER]', event, 'emitted')
             io.to(socketId).emit(event, data)
           }
         })

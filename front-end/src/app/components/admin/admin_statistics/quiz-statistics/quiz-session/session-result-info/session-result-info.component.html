@@ -1,0 +1,31 @@
+<div class="info-section">
+  <div class="quiz-profile-info">
+    <h2 class="quiz-title">{{ getQuizTitle() }}</h2>
+    <p class="quiz-date">{{ getDate() }}</p>
+    <span> Nombre de joueurs dans la partie {{ getNumberOfPlayers() }}</span>
+  </div>
+
+  <div class="score-summary">
+    <section class="score-badge-section">
+      <h3>Score Moyen : </h3>
+      <div class="score-badge" [ngClass]="getScoreClass()">
+        <span class="score-value">{{ getScore() }}/{{ getTotalQuestions() }}</span>
+        <span class="score-percentage">{{ getPercentages() }}%</span>
+      </div>
+    </section>
+
+    <div class="stats-details">
+      <div class="stat-item">
+        <span class="stat-icon time-icon"></span>
+        <span class="stat-label">Temps moyen:</span>
+        <span class="stat-value">{{ getAverageTimePerQuestions() }}s par question</span>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-icon hint-icon"></span>
+        <span class="stat-label">Indices utilisés:</span>
+        <span class="stat-value">{{ getTotalHintsUsed() }} en moyenne</span>
+      </div>
+    </div>
+  </div>
+</div>

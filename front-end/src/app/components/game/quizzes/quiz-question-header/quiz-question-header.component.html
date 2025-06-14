@@ -1,5 +1,10 @@
 <section class="question-header-section">
-    <div class="question-title" [ngClass]="getRole()==='admin' && isQuizRunning() ? 'admin-view': 'user-view'">{{title}}</div>
+    <div class="question-title"
+         [ngClass]="getRole()==='admin' && isQuizRunning() ? 'admin-view': 'user-view'"
+         [style.font-size]="30 * font_size">
+
+          {{title}}
+    </div>
     <section class="question-header-multi-container" >
         <div *ngIf="getRole() === 'admin' && isQuizRunning()" class="answer-counter">Réponses:
             {{getNumberOfGivenAnswer()}}/{{getNumberOfPlayers()}}</div>

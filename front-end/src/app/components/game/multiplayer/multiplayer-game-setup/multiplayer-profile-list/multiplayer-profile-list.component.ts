@@ -18,7 +18,7 @@ export class MultiplayerProfileListComponent {
 
   public searchQuery: string = '';
 
-  private players: Player[] = [];
+  protected players: Player[] = [];
 
   private sessionId: string = "None";
 
@@ -33,11 +33,6 @@ export class MultiplayerProfileListComponent {
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId)
   }
 
-
-  public getPlayers() {
-    return this.players;
-  }
-
   public filteredPlayers() {
     return this.players.filter(player =>
       player.profile.name.toLowerCase().concat(' ').concat(player.profile.lastName.toLowerCase()).includes(this.searchQuery.toLowerCase())
@@ -48,4 +43,14 @@ export class MultiplayerProfileListComponent {
     this.socketService.emit("kick-player", { profile: profile, sessionId: this.sessionId });
     this.sessionService.removePlayerById(this.sessionId, profile.id);
   }
+
+  getInitials(profile : Profile): string {
+
+    const firstName = profile.name.charAt(0).toUpperCase();
+    const lastName = profile.lastName.charAt(0).toUpperCase();
+
+    return firstName + lastName;
+  }
+
 }
+

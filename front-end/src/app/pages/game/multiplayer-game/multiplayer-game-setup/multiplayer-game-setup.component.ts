@@ -17,7 +17,8 @@ import { SessionService } from 'src/services/session.service';
     ProfileListComponent,
     MultiplayerGameSetupSidebarComponent,
     MultiplayerProfileListComponent,
-    OnlinePlayersComponent
+    OnlinePlayersComponent,
+    ProfileListComponent
   ],
   templateUrl: './multiplayer-game-setup.component.html',
   styleUrl: './multiplayer-game-setup.component.scss'
@@ -32,6 +33,7 @@ export class MultiplayerGameSetupComponent {
     private router: Router,
     private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("multiplayer-setup");
+    this.sessionService.connect();
   }
 
   public getNumberOfPlayer() {
@@ -41,8 +43,8 @@ export class MultiplayerGameSetupComponent {
   public launchGame() {
     this.gamemodeService.setCurrentGamemode(1);
     this.sessionService.initializeStatsForSession();
-
-    this.socketService.emit('start-session', { sessionId: this.sessionService.getSessionId() })
+    this.sessionService.resetPlayersAnswers();
+    this.socketService.emit('start-session', { sessionId: this.sessionService.getSessionId(), adminId: this.sessionService.getAdminSessionId()})
     this.quizService.startQuiz()
     this.router.navigate(['/multiplayer-game'])
   }

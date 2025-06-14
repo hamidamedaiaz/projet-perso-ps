@@ -1,38 +1,38 @@
 @import '/src/app/color-palette.scss';
 
-.global-container{
+.global-container {
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-.left-container{
+.left-container {
     background-color: $primary-blue-bg;
     width: 30%;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     padding-top: 10vh;
     gap: 100px;
 }
 
-.left-container-admin-view{
+.left-container-admin-view {
     width: 30%;
 }
 
-.left-container-user-view{
+.left-container-user-view {
     display: none;
 }
 
-.right-container-admin-view{
+.right-container-admin-view {
     width: 70%;
 }
 
-.right-container-user-view{
+.right-container-user-view {
     width: 100%;
 }
 
-.right-container{
+.right-container {
     background-color: $primary-white-bg;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
     gap: 5vw;
 }
 
-.congrats-message{
+.congrats-message {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
@@ -48,13 +48,13 @@
     color: $primary-btn-blue-text;
 }
 
-.multi-profile-list{
+.multi-profile-list {
     width: 80%;
     display: flex;
     justify-content: center;
 }
 
-.question-section{
+.question-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,6 +64,7 @@
     background-color: $secondary-blue-bg;
     box-shadow: $primary-box-shadow;
     border-radius: 10px;
+    //border: 2px solid $secondary-blue-btn;
     width: 95%;
     overflow-y: auto;
 }
@@ -79,20 +80,20 @@
     text-align: left;
     transition: background-color 0.3s, color 0.3s;
     box-shadow: $primary-box-shadow;
-  }
-  
-  .question-item:hover {
+}
+
+.question-item:hover {
     background-color: $primary-btn-white-hover;
     cursor: pointer;
-  }
-  
-  .question-item.selected {
+}
+
+.question-item.selected {
     background-color: $secondary-blue-btn;
     color: $primary-white-btn;
     border-color: $secondary-blue-btn;
-  }
+}
 
-.button-section{
+.button-section {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -100,25 +101,42 @@
 
 /* --- Buttons --- */
 .button {
-    padding: 10px 20px;
-    width: 8vw;
-    background-color: $third-blue-bg;
-    color: $primary-white-btn;
+    padding: 2vh 2vw;
+    width: 15vw;
     border: none;
     border-radius: 10px;
     transition: background-color 0.3s ease-in-out;
     font-size: 20px;
     box-shadow: $primary-box-shadow;
-    
 }
 
-.button:hover {
+.button:hover{
     cursor: pointer;
-    background-color: $third-btn-blue-hover;
 }
 
+.ranking{
+    width: 90%;
+}
 
-.multi-profile-list-container{
+.rank-btn {
+    background-color: $primary-white-btn;
+    color: $primary-black-text;
+}
+
+.rank-btn:hover {
+    background-color: $secondar-white-btn;
+}
+
+.leave-btn {
+    background-color: $primary-btn-leave;
+    color: $primary-white-btn;
+}
+
+.leave-btn:hover {
+    background-color: $primary-btn-leave-hover;
+}
+
+.multi-profile-list-container {
     width: 80%;
 }
 
@@ -130,38 +148,47 @@
     text-align: center;
 }
 
-.question-item:hover{
+.question-item:hover {
     cursor: pointer;
 }
 
-.quiz-question-container{
+.quiz-question-container {
     height: 100%;
 }
 
-#leave-btn{
+#leave-btn {
     background-color: $primary-white-btn;
     color: $primary-black-text
 }
 
-#leave-btn:hover{
+#leave-btn:hover {
     background-color: $primary-btn-white-hover;
 }
 
-.leave-btn-user-view{
+.leave-btn-user-view {
     display: flex;
     justify-content: center;
 }
 
-.button-section-user-view{
+.button-section-user-view {
     display: flex;
     justify-content: center;
     width: 100%;
     z-index: 1;
 }
 
-.wave{
+.wave {
     position: fixed;
     z-index: 0;
     bottom: 0px;
     left: 0px;
+}
+
+.ranking-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15vh;
+    height: 100%;
 }

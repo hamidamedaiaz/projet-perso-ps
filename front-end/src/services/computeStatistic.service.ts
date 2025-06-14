@@ -5,6 +5,9 @@ import { Quiz } from "src/models/quiz.model";
 import { QuestionResult } from "src/models/question-result.model";
 import { QuizListService } from "./quiz-list.service";
 import { EMPTY_QUIZ } from "src/mocks/quiz.mock";
+import { ProfileService } from "./profile.service";
+import { Profile } from "src/models/profile.model";
+import { GUEST_PROFILE } from "src/mocks/profile-list.mock";
 
 @Injectable({
   providedIn: 'root'
@@ -14,21 +17,21 @@ export class ComputeStatisticService {
 
   private quizzes: Quiz[] = []
 
-  constructor(private quizListService: QuizListService) {
+  constructor(private quizListService: QuizListService, private profileService: ProfileService) {
     this.quizListService.quizzes$.subscribe((quizzes) => this.quizzes = quizzes)
   }
 
-  public getAverageTime(questionResults: QuestionResult[]) {
-    if(questionResults.length === 0) return 0;
+  public getAverageTimeSpent(questionResults: QuestionResult[]) {
+    if (questionResults.length === 0) return 0;
     let totalTime = 0;
     questionResults.forEach(element => {
       totalTime += element.timeSpent;
     });
-    return Math.round((totalTime / questionResults.length)/1000)
+    return Math.round((totalTime / questionResults.length) / 1000)
   }
 
   public getAverageHintUsed(questionResults: QuestionResult[]): number {
-     if(questionResults.length === 0) return 0;
+    if (questionResults.length === 0) return 0;
     let numberOfHintsUsed = 0;
     questionResults.forEach(element => {
       numberOfHintsUsed += element.numberOfHintsUsed;
@@ -38,7 +41,7 @@ export class ComputeStatisticService {
 
 
   public getAverageNumberOfTries(questionResults: QuestionResult[]): number {
-     if(questionResults.length === 0) return 0;
+    if (questionResults.length === 0) return 0;
     let numberOfAnswersSubmitted = 0;
     questionResults.forEach(element => {
       numberOfAnswersSubmitted += element.answerIds.length;
@@ -47,7 +50,7 @@ export class ComputeStatisticService {
   }
 
   public getTotalHintUsed(questionResults: QuestionResult[]): number {
-    
+
     let hintCounter: number = 0;
     questionResults.forEach(element => {
       hintCounter += element.numberOfHintsUsed;
@@ -71,7 +74,7 @@ export class ComputeStatisticService {
   }
 
   public getPercentages(score: number, numberOfQuestions: number): number {
-    if(numberOfQuestions === 0) return 0;
+    if (numberOfQuestions === 0) return 0;
     return Math.floor((score / numberOfQuestions) * 100);
   }
 
@@ -79,6 +82,15 @@ export class ComputeStatisticService {
     let score = 0;
     let quiz = this.getQuizById(questionResults[0].quizId)
     questionResults.forEach((question) => {
+      if (this.isQuestionCorrect(quiz, question)) score++;
+    })
+    return score;
+  }
+
+  private getQuizResultScore(quizResult: QuizResult) {
+    let score = 0;
+    let quiz = this.getQuizById(quizResult.questionResults[0].quizId)
+    quizResult.questionResults.forEach((question) => {
       if (this.isQuestionCorrect(quiz, question)) score++;
     })
     return score;
@@ -98,9 +110,12 @@ export class ComputeStatisticService {
     const year = date.getFullYear();
     const month = date.getMonth() + 1; // Months are zero-based
     const day = date.getDate();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
 
-    const formattedDate = `${day}-${month}-${year}`;
+    const formattedDate = `${day}/${month}/${year} - ${hour}:${minutes}`;
     return formattedDate;
+
   }
 
   private getQuizById(quizId: number): Quiz {
@@ -141,7 +156,7 @@ export class ComputeStatisticService {
     if (quizResults.length === 0) return 0;
     let numberOfQuestion = this.getTotalNumberOfQuestion(quizResults);
     let totalTimeSpent = this.getTotalTimeSpent(quizResults)
-    return Math.round((totalTimeSpent / numberOfQuestion)/1000);
+    return Math.round((totalTimeSpent / numberOfQuestion) / 1000);
   }
 
   public getPercentageOfCorrectAnswer(quizResults: QuizResult[]): number {
@@ -161,7 +176,7 @@ export class ComputeStatisticService {
     return 100 - this.getPercentageOfCorrectAnswer(quizResults);
   }
 
-  public getDataPerMonth(quizResults: QuizResult[], year: number ): { [month: string]: QuizResult[] } {
+  public getDataPerMonth(quizResults: QuizResult[], year: number): { [month: string]: QuizResult[] } {
     const resultsByMonth: { [month: string]: QuizResult[] } = {};
 
     quizResults.forEach(result => {
@@ -187,18 +202,24 @@ export class ComputeStatisticService {
     return resultsByMonth;
   }
 
-  getYearsPlayed(quizResults:QuizResult[]):number[]{
+  getYearsPlayed(quizResults: QuizResult[]): number[] {
     const yearPlayed = [...new Set(quizResults.map(r => new Date(r.dateDebut).getFullYear()))];
-    let currentYear:number  =new Date(Date.now()).getFullYear();
-    if(!yearPlayed.includes(currentYear)) yearPlayed.push(currentYear)
+    let currentYear: number = new Date(Date.now()).getFullYear();
+    if (!yearPlayed.includes(currentYear)) yearPlayed.push(currentYear)
     return yearPlayed;
   }
 
-  getNumberOfPlays(quizResults:QuizResult[]){
-    return quizResults.length;
+  getNumberOfPlays(quizResults: QuizResult[]) {
+    const sessionsIds: string[] = []
+
+    quizResults.forEach((quizResult) => {
+      if (!sessionsIds.includes(quizResult.sessionId)) sessionsIds.push(quizResult.sessionId);
+    })
+
+    return sessionsIds.length;
   }
 
-  getAverageAttempts(quizResult:QuizResult){
+  getAverageAttempts(quizResult: QuizResult) {
     let counter = 0
     quizResult.questionResults.forEach((questionResult) => {
       counter += questionResult.answerIds.length;
@@ -206,36 +227,59 @@ export class ComputeStatisticService {
     return counter / quizResult.questionResults.length
   }
 
-  getAllAverageAttempts(quizResults:QuizResult[]){
-    if(quizResults.length === 0) return 0;
+  getAllAverageAttempts(quizResults: QuizResult[]) {
+    if (quizResults.length === 0) return 0;
     let attempsCounter = 0;
     quizResults.forEach((quizResult) => {
       attempsCounter += this.getAverageAttempts(quizResult);
     })
-    return Math.round(attempsCounter/quizResults.length)
+    return Math.round(attempsCounter / quizResults.length)
   }
 
   countAllAnswersAtIndex(index: number, questionResults: QuestionResult[], answerId: number): number {
-  let count = 0;
+    let count = 0;
 
-  questionResults.forEach((qr) => {
-    if (index <= 2) {
-      if (qr.answerIds.length > index && qr.answerIds[index] === answerId) {
-        count++;
-      }
-    } else {
-      // On cherche si l'answerId apparaît dans une position supérieure à 3
-      const hasMatchAfterIndex3 = qr.answerIds
-        .slice(4) // positions 4 et au-delà
-        .includes(answerId);
+    questionResults.forEach((qr) => {
+      if (index <= 2) {
+        if (qr.answerIds.length > index && qr.answerIds[index] === answerId) {
+          count++;
+        }
+      } else {
+        // On cherche si l'answerId apparaît dans une position supérieure à 3
+        const hasMatchAfterIndex3 = qr.answerIds
+          .slice(4) // positions 4 et au-delà
+          .includes(answerId);
 
-      if (hasMatchAfterIndex3) {
-        count++;
+        if (hasMatchAfterIndex3) {
+          count++;
+        }
       }
+    });
+
+    return count;
+  }
+
+
+  public getAverageScore(quizResults: QuizResult[]) {
+    let total_score = 0;
+    quizResults.forEach((quizResult) => {
+      total_score += this.getScore(quizResult.questionResults);
+    })
+
+    return Math.floor(total_score / quizResults.length);
+  }
+
+  public createRank(quizResult: QuizResult) {
+    const profile = this.profileService.getProfileById(quizResult.profileId);
+    if (!profile) {
+      console.log("Profil introuvable pour ID", quizResult.profileId);
+      return { name: 'None', lastName: '', score: -1 };
     }
-  });
-
-  return count;
-}
+    return {
+      name: profile.name,
+      lastName: profile.lastName,
+      score: this.getScore(quizResult.questionResults)
+    };
+  }
 
 }

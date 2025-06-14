@@ -25,16 +25,12 @@ export class MultiplayerGamePageComponent {
   constructor(private router: Router,
     private currentProfileService: CurrentProfileService,
     private currentPageService: CurrentPageService,
-    private sessionService: SessionService,
-    private socketService: SocketService) {
+    private sessionService: SessionService) {
     this.currentProfileService.current_profile$.subscribe((currentProfile) => {
       this.currentProfile = currentProfile;
     })
     this.currentPageService.setCurrentPage("multiplayer-game-page")
-    this.socketService.emit('login', {
-      sessionId: this.sessionService.getSessionId(),
-      profile: this.currentProfileService.getCurrentProfile()
-    })
+     this.sessionService.connect()
   }
 
   public leaveQuiz() {

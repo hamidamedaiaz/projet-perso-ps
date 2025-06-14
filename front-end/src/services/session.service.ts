@@ -11,6 +11,7 @@ import { CurrentProfileService } from './currentProfile.service';
 import { GamemodeService } from "./gamemode.service";
 import { PopUpService } from "./pop-up.service";
 import { RealTimeStatsService } from './real-time-stats.service';
+import { RecordResultService } from './record-result.service';
 @Injectable({
     providedIn: 'root'
 })
@@ -29,9 +30,15 @@ export class SessionService {
 
     public playersHasAnswered$: BehaviorSubject<Profile[]> = new BehaviorSubject<Profile[]>(this.playersHasAnswered);
 
+    private adminSessionId: string = 'None';
+
     private readonly PLAYERS_KEY: string = "PLAYERS";
 
+    private readonly PLAYERS_HAS_ANSWERED_KEY: string = "PLAYERS_HAS_ANSWERED_KEY"
+
     private readonly SESSION_ID_KEY: string = "SESSION_ID_KEY"
+
+    private readonly ADMIN_SESSION_ID_KEY: string = "ADMIN_SESSION_ID_KEY"
 
     constructor(private socketService: SocketService,
         private quizService: QuizService,
@@ -42,43 +49,49 @@ export class SessionService {
         private gamemodeService: GamemodeService,
         private popupService: PopUpService,
         private realTimeStatsService: RealTimeStatsService,
-        private localStorage: LocalStorageService) {
+        private localStorage: LocalStorageService,
+        private recordResultService: RecordResultService) {
 
         this.initSocketListeners();
         this.loadLocalStorage();
     }
 
     private loadLocalStorage(): void {
-        this.sessionId = "None";
-        this.players = [];
-        this.players$.next(this.players);
 
-        const sessionId = this.localStorage.getItem(this.SESSION_ID_KEY);
-        const players = this.localStorage.getItem(this.PLAYERS_KEY)
+        const savedSessionId = this.localStorageService.getItem(this.SESSION_ID_KEY);
+        const savedPlayers = this.localStorageService.getItem(this.PLAYERS_KEY)
+        const savedPlayersHasAnswered = this.localStorageService.getItem(this.PLAYERS_HAS_ANSWERED_KEY)
+        const savedAdminSessionId = this.localStorageService.getItem(this.ADMIN_SESSION_ID_KEY);
 
-        if (sessionId) {
-            this.sessionId = sessionId;
-            this.sessionId$.next(sessionId);
+        if (savedSessionId) {
+            this.sessionId = savedSessionId;
+            this.sessionId$.next(savedSessionId);
         }
 
-        if (players) {
-            console.log("loaded from local storage")
-            this.players = players;
+        if (savedPlayers) {
+            this.players = savedPlayers;
             this.players$.next(this.players);
         }
+
+        if (savedPlayersHasAnswered) {
+            this.playersHasAnswered = savedPlayersHasAnswered;
+            this.playersHasAnswered$.next(this.playersHasAnswered);
+        }
+
+        if (savedAdminSessionId) this.adminSessionId = savedAdminSessionId;
     }
 
     private initSocketListeners(): void {
 
         this.socketService.listen('player-has-answered', (data) => {
             if (this.sessionId === data.sessionId) {
-                console.log("Un joueur a joué", data)
                 this.savePlayerAnswer(data.profile, data.answer.id);
             }
         })
 
         this.socketService.listen('next-question', (data) => {
             if (data.sessionId === this.sessionId) {
+                console.log('SESSION ID NEXT QUESTION ', this.sessionId);
                 this.resetPlayersAnswers();
                 this.quizService.nextQuestion();
             }
@@ -87,8 +100,9 @@ export class SessionService {
         this.socketService.listen('quiz-joined-success', (data) => {
             if (data.quizId !== -1) {
                 this.resetSession();
-                const quiz = this.quizListService.getQuiz(data.quizId)
-                this.quizService.setQuiz(quiz)
+                const quiz = this.quizListService.getQuiz(data.quizId);
+                this.recordResultService.setSessionId(data.sessionId);
+                this.quizService.setQuiz(quiz);
                 this.setSessionId(data.sessionId);
                 this.gamemodeService.setCurrentGamemode(1);
                 this.addPlayers(data.sessionId, data.players);
@@ -115,8 +129,9 @@ export class SessionService {
 
         this.socketService.listen('quiz-started', (data) => {
             this.quizService.startQuiz();
+            console.log('SESSION ID START ', this.sessionId);
             this.resetPlayersAnswers();
-            console.log("Le quiz commence ", this.getPlayers())
+            this.recordResultService.setPlayers(this.players);
             this.router.navigate(['/multiplayer-game']);
         })
 
@@ -159,6 +174,19 @@ export class SessionService {
         })
     }
 
+    public generateAdminSessionId(): void {
+        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const array = new Uint8Array(12);
+        crypto.getRandomValues(array);
+        this.adminSessionId = Array.from(array, byte => charset[byte % charset.length]).join('');
+        this.localStorage.removeItem(this.ADMIN_SESSION_ID_KEY)
+        this.localStorage.storeItem(this.ADMIN_SESSION_ID_KEY, JSON.stringify(this.adminSessionId));
+    }
+
+    public getAdminSessionId(): string {
+        return this.adminSessionId
+    }
+
     public getPlayers(): Player[] {
         return this.players;
     }
@@ -183,12 +211,14 @@ export class SessionService {
         if (!this.playersHasAnswered.includes(profile)) {
             this.playersHasAnswered.push(profile)
             this.playersHasAnswered$.next(this.playersHasAnswered);
+            this.localStorageService.storeItem(this.PLAYERS_HAS_ANSWERED_KEY, JSON.stringify(this.playersHasAnswered));
         }
 
         const currentQuestion = this.quizService.question$.getValue();
 
         if (currentQuestion && currentQuestion.id !== -1) {
             this.realTimeStatsService.addAnswer(this.sessionId, currentQuestion.id, answerId);
+
         }
 
         if (this.verifyPlayersHasAllAnswered()) {
@@ -202,7 +232,6 @@ export class SessionService {
     public removePlayerById(sessionId: string, playerId: number) {
         if (this.sessionId === sessionId) {
             this.players = this.players.filter((p) => p.profile.id !== playerId);
-            console.log("avant de remove le player ", this.getPlayers())
             this.players$.next(this.players);
 
             this.localStorageService.removeItem(this.PLAYERS_KEY)
@@ -217,7 +246,6 @@ export class SessionService {
             const player = this.generateNewPlayer(profile)
             if (this.playerAlreadyExists(player)) return;
             this.players.push(player);
-            console.log("d'ajouter le player", this.getPlayers())
             this.players$.next(this.players);
 
             this.localStorageService.removeItem(this.PLAYERS_KEY)
@@ -253,6 +281,9 @@ export class SessionService {
     public resetPlayersAnswers() {
         this.playersHasAnswered = [];
         this.playersHasAnswered$.next(this.playersHasAnswered);
+
+        this.localStorageService.removeItem(this.PLAYERS_HAS_ANSWERED_KEY)
+        this.localStorageService.storeItem(this.PLAYERS_HAS_ANSWERED_KEY, JSON.stringify(this.playersHasAnswered));
     }
 
     public setSessionId(sessionId: string) {
@@ -272,7 +303,7 @@ export class SessionService {
 
     public getSessionId() { return this.sessionId; }
 
-    private resetSession() {
+    public resetSession() {
         this.sessionId = 'None';
         this.sessionId$.next(this.sessionId);
         this.players = [];
@@ -280,5 +311,16 @@ export class SessionService {
 
         this.localStorageService.storeItem(this.SESSION_ID_KEY, JSON.stringify(this.sessionId))
         this.localStorageService.storeItem(this.PLAYERS_KEY, JSON.stringify(this.getPlayers()));
+    }
+
+    public connect() {
+        if (this.currentProfileService.getCurrentProfile().role === 'admin') {
+            this.socketService.emit('admin-login', { sessionId: this.sessionId, adminSessionId: this.adminSessionId })
+        } else {
+            this.socketService.emit('login', {
+                sessionId: this.sessionId,
+                profile: this.currentProfileService.getCurrentProfile()
+            })
+        }
     }
 }

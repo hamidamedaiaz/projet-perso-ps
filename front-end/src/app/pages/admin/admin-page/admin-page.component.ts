@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { Router, RouterLink, RouterOutlet } from "@angular/router";
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ProfileListComponent } from 'src/app/components/admin/profiles/profile-list/profile-list.component';
 import { QuizAppComponent } from "../../../components/admin/admin_quizzes/quiz-app/quiz-app.component";
@@ -10,10 +10,13 @@ import { QuizDetailsComponent } from "../../../components/admin/admin_quizzes/qu
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { SelectionListComponent } from "../../../components/admin/admin_statistics/selection-list/selection-list.component";
 import { StatsService } from "../../../../services/stats.service";
-import { QuizStatsComponent } from "../../../components/admin/admin_statistics/quiz-stats/quiz-stats.component";
+import { QuizStatsComponent } from "../../../components/admin/admin_statistics/quiz-statistics/quiz-stats/quiz-stats.component";
 import { ActivatedRoute } from "@angular/router";
 import { PlayerStatsDetailsComponent } from "../player-stats-details/player-stats-details.component";
-import {PopupComponent} from "../../../components/popup/popup.component";
+import { PopupComponent } from "../../../components/popup/popup.component";
+import { QuizResultService } from 'src/services/quiz-result.service';
+import { SessionResultDetailsComponent } from '../../../components/admin/admin_statistics/quiz-statistics/quiz-session/session-result-details/session-result-details.component';
+import { CurrentProfileService } from 'src/services/currentProfile.service';
 
 @Component({
   selector: 'app-admin',
@@ -30,7 +33,8 @@ import {PopupComponent} from "../../../components/popup/popup.component";
     SelectionListComponent,
     QuizStatsComponent,
     PlayerStatsDetailsComponent,
-    PopupComponent
+    PopupComponent,
+    SessionResultDetailsComponent
   ],
 
   templateUrl: './admin-page.component.html',
@@ -47,17 +51,28 @@ export class AdminPageComponent implements OnInit {
   @Input()
   public context: string = "admin";
 
+  protected showLoader: boolean = false;
+
   constructor(
     private quizService: QuizListService,
     private statsService: StatsService,
     private cdr: ChangeDetectorRef, private currentPageService: CurrentPageService,
     private route: ActivatedRoute,
+    private router: Router,
+    private quizResultService: QuizResultService,
+    private currentProfileService: CurrentProfileService
   ) {
     this.currentPageService.setCurrentPage("admin");
+    this.ensureAuthentication();
+  }
+
+  private ensureAuthentication() {
+    if (!(this.currentProfileService.getCurrentProfile().role === 'admin')) {
+      this.router.navigate(['/'])
+    }
   }
 
   ngOnInit() {
-
     this.route.queryParams.subscribe(params => {
       if (params['section']) {
         this.setSection(params['section']);
@@ -82,7 +97,12 @@ export class AdminPageComponent implements OnInit {
 
   selectProfileStatistics() { this.setSection('acceuilli-stats'); }
 
-  toggleStatsMenu() { this.showStatsSubmenu = !this.showStatsSubmenu; }
+  async toggleStatsMenu() {
+    this.showStatsSubmenu = !this.showStatsSubmenu;
+    this.showLoader = true;
+    await this.quizResultService.requestResult();
+    this.showLoader = false;
+  }
 
   setSection(section: string) {
     this.activeSection = section;
@@ -103,5 +123,10 @@ export class AdminPageComponent implements OnInit {
   closeConfigPanel() {
     this.selectedProfile = false;
     this.cdr.detectChanges();
+  }
+
+  goHome(){
+    this.currentProfileService.resetCurrentProfile();
+    this.router.navigate(['/']);
   }
 }

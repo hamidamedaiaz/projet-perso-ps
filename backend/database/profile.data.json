@@ -5,10 +5,11 @@
     "lastName": "Root",
     "role": "admin",
     "SHOW_POP_UP_TIMER": 99999999999,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 10,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 10,
     "REMOVE_WRONG_ANSWER_INTERVAL": 999999999,
     "SHOW_HINT_TIMER": 5,
     "NUMBER_OF_HINTS_DISPLAYED": 9999,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -17,10 +18,11 @@
     "lastName": "User",
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
     "SHOW_HINT_TIMER": 5,
     "NUMBER_OF_HINTS_DISPLAYED": 5,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -30,9 +32,10 @@
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 5000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 3,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "4",
     "SHOW_HINT_TIMER": "15000",
     "NUMBER_OF_HINTS_DISPLAYED": 0,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -42,9 +45,10 @@
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 3,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 3,
     "SHOW_HINT_TIMER": "10000",
     "NUMBER_OF_HINTS_DISPLAYED": "4",
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -52,11 +56,12 @@
     "name": "Kylian",
     "lastName": "Mbappé",
     "role": "user",
-    "SHOW_POP_UP_TIMER": 10000,
-    "REMOVE_WRONG_ANSWER_INTERVAL": 5000,
-    "SHOW_HINT_TIMER": "15000",
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
-    "NUMBER_OF_HINTS_DISPLAYED": 4,
+    "SHOW_POP_UP_TIMER": "5000",
+    "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
+    "SHOW_HINT_TIMER": "5000",
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
+    "NUMBER_OF_HINTS_DISPLAYED": "5",
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -66,9 +71,10 @@
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
     "SHOW_HINT_TIMER": "15000",
     "NUMBER_OF_HINTS_DISPLAYED": 5,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -78,9 +84,10 @@
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
     "SHOW_HINT_TIMER": 5000,
     "NUMBER_OF_HINTS_DISPLAYED": 5,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -90,9 +97,10 @@
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
     "SHOW_HINT_TIMER": 5000,
     "NUMBER_OF_HINTS_DISPLAYED": 5,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
@@ -102,21 +110,23 @@
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
     "SHOW_HINT_TIMER": 5000,
     "NUMBER_OF_HINTS_DISPLAYED": 5,
+    "FONT_SIZE": 1,
     "profilePicture": "empty_path"
   },
   {
     "id": 1749031908696,
     "name": "Abdel",
-    "lastName": "A",
+    "lastName": "Algerian",
     "role": "user",
     "SHOW_POP_UP_TIMER": 15000,
     "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-    "NUMBER_OF_ANSWERS_DISPLAYED": 4,
+    "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
     "SHOW_HINT_TIMER": 5000,
     "NUMBER_OF_HINTS_DISPLAYED": 5,
+    "FONT_SIZE": "1.25",
     "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
   }
 ]

@@ -9,11 +9,17 @@ import { QuizListService } from 'src/services/quiz-list.service';
 import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 import { QuizResultService } from 'src/services/quiz-result.service';
 import { QuizResult } from 'src/models/quiz-result.model';
-import { QuestionResult } from 'src/models/question-result.model';
+import { QuizSessionHistoryComponent } from '../quiz-session/quiz-session-history/quiz-session-history.component';
+import { SessionResultDetailsComponent } from 'src/app/components/admin/admin_statistics/quiz-statistics/quiz-session/session-result-details/session-result-details.component';
+import { SessionHistory } from 'src/models/session-history.model';
+import { EMPTY_SESSION_HISTORY } from 'src/mocks/session-history.mock';
+import { SessionResultService } from 'src/services/session-result.service';
+import { SessionQuestionResult } from 'src/models/session-result.model';
 
 Chart.register(...registerables);
 
 interface QuestionStat {
+
   text: string;
   options: string[];
   pctFirst: number[];
@@ -22,27 +28,38 @@ interface QuestionStat {
   pctFourth: number[];
   avgTime: number;
   hintsUsed: number;
+
 }
 
 @Component({
+
   selector: 'app-quiz-stats',
   standalone: true,
-  imports: [CommonModule, NgForOf],
+  imports: [CommonModule, NgForOf, QuizSessionHistoryComponent, SessionResultDetailsComponent],
   templateUrl: './quiz-stats.component.html',
   styleUrls: ['./quiz-stats.component.scss']
-})
-export class QuizStatsComponent {
-  private quiz: Quiz = EMPTY_QUIZ;
-  private quizId: number = this.quiz.id;
 
-  totalPlays = 0;
-  averageTime = 0;
-  averageHints = 0;
-  averageAttempts = 0;
-  quizResults: QuizResult[] = [];
+})
+
+export class QuizStatsComponent {
+
+  protected quiz: Quiz = EMPTY_QUIZ;
+  public quizId: number = this.quiz.id;
+
+  protected isSessionSelected: boolean = false;
+
+  protected totalPlays = 0;
+  protected averageTime = 0;
+  protected averageHints = 0;
+  protected averageAttempts = 0;
+  protected quizResults: QuizResult[] = [];
 
   questionsStats: QuestionStat[] = [];
   selectedIndex: number = 0;
+
+  public selectedSessionHistory: SessionHistory = EMPTY_SESSION_HISTORY;
+
+  protected sessionHistory:SessionHistory[] = [];
 
   @Output()
   go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -54,7 +71,8 @@ export class QuizStatsComponent {
     private statsService: StatsService,
     private quizListService: QuizListService,
     private computeStatisticService: ComputeStatisticService,
-    private quizResultService: QuizResultService) {
+    private quizResultService: QuizResultService,
+    private sessionResultService: SessionResultService) {
     this.statsService.quizId$.subscribe((quizId) => {
       this.quizId = quizId;
       this.quiz = this.quizListService.getQuiz(this.quizId)
@@ -65,6 +83,7 @@ export class QuizStatsComponent {
       this.averageAttempts = this.computeStatisticService.getAllAverageAttempts(this.quizResults)
     });
 
+    this.sessionHistory = this.sessionResultService.formatQuizResultToSessionHistory(this.quizResults)
 
   }
   ngOnInit(): void {
@@ -107,10 +126,6 @@ export class QuizStatsComponent {
         third.push(this.computeStatisticService.countAllAnswersAtIndex(2, matchingQuestionResults, answer.id))
         other.push(this.computeStatisticService.countAllAnswersAtIndex(3, matchingQuestionResults, answer.id))
       })
-
-
-
-
       return {
         text: q.question,
         options: opts,
@@ -118,13 +133,12 @@ export class QuizStatsComponent {
         pctSecond: second,
         pctThird: third,
         pctFourth: other,
-        avgTime: this.computeStatisticService.getAverageTime(matchingQuestionResults),
+        avgTime: this.computeStatisticService.getAverageTimeSpent(matchingQuestionResults),
         hintsUsed: this.computeStatisticService.getAverageHintUsed(matchingQuestionResults)
       };
 
     });
   }
-
 
   selectQuestion(idx: number) {
     this.selectedIndex = idx;
@@ -152,14 +166,15 @@ export class QuizStatsComponent {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          y: { beginAtZero: true, max: Math.round(maxValue*1.50), ticks: { callback: v => v } },
-          x: { ticks: { autoSkip: false, font: { size: 10 } } } },
-          plugins: { legend: { position: 'bottom' }
+          y: { beginAtZero: true, max: Math.round(maxValue * 1.50), ticks: { callback: v => v } },
+          x: { ticks: { autoSkip: false, font: { size: 10 } } }
+        },
+        plugins: {
+          legend: { position: 'bottom' }
         }
       }
     });
   }
-
 
   private getChartData(idx: number) {
     const stat = this.questionsStats[idx];
@@ -173,8 +188,33 @@ export class QuizStatsComponent {
       ]
     };
   }
-}
-function ngOnInit() {
-  throw new Error('Function not implemented.');
+
+  public getQuizId() { return this.quizId; }
+
+  public viewSessionDetails(sessionId: string) {
+  
+    const tempSelectedSessionHistory = this.sessionHistory.find((sessionRes) => sessionRes.sessionId === sessionId);
+
+    if (tempSelectedSessionHistory) {
+      this.selectedSessionHistory = tempSelectedSessionHistory
+      this.isSessionSelected = true;
+    }
+
+
+  }
+
+  public navigateBack() {
+    this.loadQuestions();
+    this.renderChart();
+    setTimeout(() => {
+      if (this.groupChartRef) {
+        this.renderChart();
+      }
+    });
+    this.isSessionSelected = false;
+  }
+
+  public getSessionHistory(){ return this.sessionHistory; }
+
 }
 

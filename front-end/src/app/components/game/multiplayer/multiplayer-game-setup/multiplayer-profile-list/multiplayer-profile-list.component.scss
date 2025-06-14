@@ -1,33 +1,124 @@
 @import '/src/app/color-palette.scss';
 
-.search-input {
-  width: 100%;
-  border: $primary-border-white;
-  outline: none;
-  padding: 15px;
-  font-size: 16px;
-  border-radius: 10px;
-  background-color: $primary-white-bg;
-  color: $primary-black-text;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+*{
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.profile-list-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-  padding: 10px;
-  height: 55vh;
-  overflow-y: auto;
-}
-
-
-
-
-.item {
-  display: flex;
-  flex-direction: column; // ou "row" selon le layout voulu
+h2{
   text-align: center;
+  font-size: 2.6vh;
+  font-weight: 600;
+  color: $primary-black-text;
+  margin-bottom: 2vh;
+  border-top: 0.3vh solid $primary-blue-bg;
+  border-bottom: 0.3vh solid $primary-blue-bg;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+}
 
+#player-count{
+  color: #b1b1b1;
+}
+
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24vh, 0fr));
+  gap: 2vh;
+  padding: 2vh;
+  justify-content: center;
+}
+
+.player-card {
+  width: 25vh;
+  height: 25vh;
+  background-color: #ffffff;
+  border-radius: 1.6vh;
+  box-shadow: 0 0.8vh 2vh rgba(0, 0, 0, 0.08);
+  border: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  text-align: center;
+}
+
+
+.player-avatar {
+  width: 8vh;
+  height: 8vh;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.avatar-initials {
+  width: 100%;
+  height: 100%;
+  background-color: $primary-blue-bg;
+  color: white;
+  font-size: 2.4vh;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.player-name {
+  font-size: 1.8vh;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin: 1vh 0;
+  font-family: Arial, sans-serif;
+}
+
+.add-button {
+  background-color: $primary-delete-btn;
+  color: $primary-btn-white-text;
+  border: none;
+  padding: 1vh 1.6vh;
+  border-radius: 0.6vh;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0.3vh 0.6vh rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+  }
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 50vh;
+  margin: 0 auto 2vh auto;
+  padding: 1.2vh 2vh;
+  font-size: 1.8vh;
+  border: 1px solid #ccc;
+  border-radius: 1vh;
+  outline: none;
+
+  &:focus {
+    border-color: $primary-blue-bg;
+  }
 }

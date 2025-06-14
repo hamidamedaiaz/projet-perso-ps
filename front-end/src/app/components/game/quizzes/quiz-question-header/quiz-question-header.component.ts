@@ -18,6 +18,9 @@ export class QuizQuestionHeaderComponent {
   @Input()
   title!: string;
 
+  @Input()
+  font_size!: number;
+
   @Output()
   show_hints: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 

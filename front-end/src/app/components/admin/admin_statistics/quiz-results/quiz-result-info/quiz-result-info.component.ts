@@ -30,7 +30,7 @@ export class QuizResultInfoComponent {
     return this.computeStatisticService.convertTimeStampToDate(this.date);
   }
 
-  getAverageTimePerQuestions(){ return this.computeStatisticService.getAverageTime(this.questionResults); }
+  getAverageTimePerQuestions(){ return this.computeStatisticService.getAverageTimeSpent(this.questionResults); }
 
   getTotalHintsUsed(){ return this.computeStatisticService.getTotalHintUsed(this.questionResults) }
 

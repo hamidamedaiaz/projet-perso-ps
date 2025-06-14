@@ -1,8 +1,8 @@
-<section *ngIf="currentPage==='admin'">
+<section *ngIf="context==='profile-gestion'">
   <div class="admin-profile-header">
     <input type="text" id="search-bar" class="search-input" [(ngModel)]="searchQuery"
       placeholder="Rechercher un accueilli...">
-      <button id="add-profile" (click)="createProfile()">+ Ajouter un accueilli</button>
+    <button id="add-profile" (click)="createProfile()">+ Ajouter un accueilli</button>
   </div>
 
 
@@ -72,7 +72,8 @@
       <div class="profile-details">
 
         <ng-container *ngIf="profile.profilePicture && profile.profilePicture !== 'empty_path'; else initialsTemplate">
-          <div class="profile-avatar" [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
+          <div class="profile-avatar"
+            [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
         </ng-container>
         <ng-template #initialsTemplate>
           <div class="profile-avatar-text">{{ getInitials(profile) }}</div>
@@ -90,7 +91,8 @@
 </section>
 
 
-<section *ngIf="currentPage === 'home'" class="home-search-container">
+
+<section *ngIf="currentPage === 'home' || context == 'accueilli-stats'" class="home-search-container">
   <input type="text" id="search-bar" class="search-input enhanced" [(ngModel)]="searchQuery"
     placeholder="Sélectionner un accueilli pour jouer..." />
 
@@ -98,7 +100,8 @@
     <div class="profile-card" *ngFor="let profile of filteredProfiles()" (click)="profileSelectedHandler(profile)">
       <div class="profile-card-avatar">
         <div *ngIf="profile.profilePicture && profile.profilePicture !== 'empty_path'">
-          <div class="profile-img" [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
+          <div class="profile-img"
+            [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
         </div>
 
         <div *ngIf="profile.profilePicture && profile.profilePicture === 'empty_path'">
@@ -109,6 +112,36 @@
       <div class="profile-card-name">
         {{ profile.name }} <br> {{ profile.lastName }}
       </div>
+    </div>
+  </section>
+</section>
+
+<section *ngIf="currentPage === 'multiplayer-setup'">
+  <input type="text" id="search-bar" class="search-input enhanced" [(ngModel)]="searchQuery"
+    placeholder="Rechercher un accueilli" />
+
+  <section class="card-grid-multi">
+    <div class="profile-card-multi" *ngFor="let player of filteredSessionProfiles()">
+      <!-- <div class="profile-card"> -->
+      <section class="profile-card-content">
+        <div class="profile-card-avatar">
+          <div *ngIf="player.profile.profilePicture && player.profile.profilePicture !== 'empty_path'">
+            <div class="profile-img"
+              [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + player.profile.profilePicture + ')'}">
+            </div>
+          </div>
+
+          <div *ngIf="player.profile.profilePicture && player.profile.profilePicture === 'empty_path'">
+            <div class="profile-initials">{{ getInitials(player.profile) }}</div>
+          </div>
+
+        </div>
+        <div class="profile-card-name">
+          {{ player.profile.name }} <br> {{ player.profile.lastName }}
+        </div>
+      </section>
+      <!-- </div> -->
+      <button class="kick-btn" (click)="kickPlayer(player)">Retirer</button>
     </div>
   </section>
 </section>

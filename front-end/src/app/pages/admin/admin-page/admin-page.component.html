@@ -30,9 +30,9 @@
       </button>
       <button class="sidebar-btn" (click)="setSection('acceuilli')">
         <img class="logo" ngSrc="assets/icons/user.svg" height="512" width="512">
-        <span>Acceuilli</span>
+        <span>Accueilli</span>
       </button>
-      <button class="sidebar-btn home-btn" routerLink="/">
+      <button class="sidebar-btn home-btn" (click)="goHome()">
         <span>Retour</span>
       </button>
     </nav>
@@ -45,7 +45,8 @@
       </div>
 
       <div *ngIf="activeSection === 'selection-stat-acceuilli'">
-        <app-selection-list context="acceuilli" (profile_selected)="selectProfileStatistics()"></app-selection-list>
+        <!-- <app-selection-list context="acceuilli" (profile_selected)="selectProfileStatistics()"></app-selection-list> -->
+         <app-profile-list [context]="'accueilli-stats'" (profileSelected)="selectProfileStatistics()"></app-profile-list>
       </div>
 
       <div *ngIf="activeSection === 'selection-stat-quiz'">
@@ -55,6 +56,7 @@
       <div *ngIf="activeSection === 'acceuilli-stats'">
         <app-player-stats-details></app-player-stats-details>
       </div>
+
       <div *ngIf="activeSection === 'quiz-stats'">
         <app-quiz-stats></app-quiz-stats>
       </div>
@@ -67,7 +69,7 @@
         <div class="profiles-panel" [ngClass]="{'collapsed': selectedProfile}">
           <h2 class="section-title">Liste des acceuillis</h2>
           <app-profile-list class="profile-list-container" (profileDeleted)="closeConfigPanel()" (profileSelected)="onProfileSelect()"
-            [context]="'admin'">
+            [context]="'profile-gestion'">
           </app-profile-list>
         </div>
 
@@ -82,6 +84,8 @@
       </div>
     </main>
   </div>
+
+  <div *ngIf="showLoader" class="loader"></div>
 </body>
 
 </html>

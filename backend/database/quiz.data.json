@@ -104,26 +104,6 @@
           "Le groupe est connu pour son style country rock"
         ],
         "audioPath": ""
-      },
-      {
-        "id": 4,
-        "question": "jean",
-        "answers": [
-          {
-            "questionId": 4,
-            "id": 1,
-            "answerContent": "a",
-            "isCorrect": false
-          },
-          {
-            "questionId": 4,
-            "id": 2,
-            "answerContent": "a",
-            "isCorrect": true
-          }
-        ],
-        "hints": [],
-        "audioPath": ""
       }
     ]
   },
@@ -698,28 +678,47 @@
     ]
   },
   {
-    "id": 1749038290592,
-    "title": "A",
+    "id": 1749477085180,
+    "title": "Nouveau Quiz",
     "questions": [
       {
         "id": 1,
-        "question": "a",
+        "question": "Question Vide 1",
         "answers": [
           {
             "questionId": 1,
             "id": 1,
-            "answerContent": "a",
-            "isCorrect": false
+            "answerContent": "Bonne Réponse",
+            "isCorrect": true
           },
           {
             "questionId": 1,
             "id": 2,
-            "answerContent": "a",
+            "answerContent": "Mauvaise Réponse",
+            "isCorrect": false
+          }
+        ],
+        "hints": [
+          "Indice 1",
+          "Indice 2"
+        ],
+        "audioPath": ""
+      },
+      {
+        "id": 2,
+        "question": "Question Vide 2",
+        "answers": [
+          {
+            "questionId": 2,
+            "id": 1,
+            "answerContent": " ",
             "isCorrect": true
           }
         ],
-        "hints": [],
-        "audioPath": "1749039407676-file_example_MP3_5MG.mp3"
+        "hints": [
+          " "
+        ],
+        "audioPath": ""
       }
     ]
   }

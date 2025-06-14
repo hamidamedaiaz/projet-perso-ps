@@ -1,10 +1,10 @@
 @import '/src/app/color-palette.scss';
 
-.waiting-section{
+.waiting-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:2.0vh;
+    gap: 2.0vh;
     border-radius: 1.0vh;
     width: min(60vh, 80vw);
     background-color: $primary-blue-bg;
@@ -13,20 +13,20 @@
     user-select: none;
 }
 
-.wave{
+.wave {
     position: absolute;
     bottom: .0vh;
     left: .0vh;
     z-index: 0;
 }
 
-#leave-btn{
+#leave-btn {
     background-color: $primary-white-btn;
     color: $primary-black-text;
     z-index: 3;
 }
 
-#leave-btn:hover{
+#leave-btn:hover {
     background-color: $primary-btn-white-hover;
 }
 
@@ -37,11 +37,11 @@
     border-radius: 1.0vh;
     font-size: 3.0vh;
     width: 24vh;
-    height:8vh;
+    height: 8vh;
     transition: all 0.2s ease-in-out;
 }
 
-.button:hover{
+.button:hover {
     transform: scale(1.03);
     width: 26vh;
     cursor: pointer;
@@ -60,13 +60,13 @@
 }
 
 .tutorial-section {
-  z-index: 1000;
+    z-index: 1000;
 }
 
 .waiting-message {
     font-size: 6vh;
     font-family: Arial, Helvetica, sans-serif;
-    color:$primary-white-text;
+    color: $primary-white-text;
     font-weight: bold;
 }
 
@@ -86,6 +86,29 @@
     margin: 0 .5vh;
 }
 
+#tuto-btn {
+    position: absolute;
+    top: calc(17% - min(6vh, 6vw)); // je reprend le code fait au dessus mais wtf ??
+    right: 5vw;
+    padding: 1.2vh 2.4vh;
+    background-color: transparent;
+    color: $third-blue-btn;
+    border: 0.3vh solid $third-blue-btn;
+    border-radius: 1vh;
+    font-size: 1.8vh;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.05vh;
+    transition: all 0.3s ease-in-out;
+}
+
+#tuto-btn:hover {
+    background-color: $third-blue-btn;
+    color: $primary-btn-white-text;
+    transform: translateY(-0.3vh);
+}
+
 .dot:nth-child(1) {
     animation-delay: 0s;
 }
@@ -102,11 +125,12 @@
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
-

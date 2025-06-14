@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { GameTutorialComponent } from 'src/app/components/game/game-tutorial/game-tutorial.component';
+import { GamemodeService } from 'src/services/gamemode.service';
 
 @Component({
   selector: 'app-solo-tutorial',
   standalone: true,
-  imports: [ CommonModule, GameTutorialComponent ],
+  imports: [CommonModule, GameTutorialComponent],
   templateUrl: './solo-tutorial.component.html',
   styleUrl: './solo-tutorial.component.scss'
 })
@@ -18,7 +19,8 @@ export class SoloTutorialComponent {
 
   constructor(
     private router: Router,
-    private currentPageService: CurrentPageService
+    private currentPageService: CurrentPageService,
+    private gamemodeService:GamemodeService
   ) {
     this.currentPageService.setCurrentPage("solo-tutorial");
   }
@@ -40,5 +42,19 @@ export class SoloTutorialComponent {
     if (this.currentStep > 1) {
       this.currentStep--;
     }
+  }
+
+  public leaveToQuizSelection(): void {
+    this.router.navigate(['/select-quiz']);
+  }
+
+  public leavePageToMulti(): void {
+    this.router.navigate(['/waiting-start'])
+  }
+
+
+  public getCurrentGamemodeId(){
+    console.log(this.gamemodeService.getCurrentGamemode())
+    return this.gamemodeService.getCurrentGamemode().id;
   }
 }

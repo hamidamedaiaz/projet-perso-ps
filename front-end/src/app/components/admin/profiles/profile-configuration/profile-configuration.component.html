@@ -45,7 +45,9 @@
                 <div class="setting-item">
                     <label for="show-hint-timer-selector">Temps entre chaque indices</label>
                         <select id="show-hint-timer-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.SHOW_HINT_TIMER">
-                        <option [value]="30000" selected>30 secondes</option>
+                        <option [value]="60000">1 minute</option>
+                        <option [value]="45000">45 secondes</option>
+                        <option [value]="30000">30 secondes</option>
                         <option [value]="15000">15 secondes</option>
                         <option [value]="10000">10 secondes</option>
                         <option [value]="5000">5 secondes</option>
@@ -56,7 +58,9 @@
                 <div class="setting-item">
                     <label for="relaunch-timer-selector">Temps avant de relancer le joueur</label>
                     <select id="relaunch-timer-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.SHOW_POP_UP_TIMER">
-                        <option [value]="30000" selected>30 secondes</option>
+                        <option [value]="60000">1 minute</option>
+                        <option [value]="45000">45 secondes</option>
+                        <option [value]="30000">30 secondes</option>
                         <option [value]="15000">15 secondes</option>
                         <option [value]="10000">10 secondes</option>
                         <option [value]="5000">5 secondes</option>
@@ -67,6 +71,8 @@
                 <div class="setting-item">
                     <label for="remove-answer-timer-selector">Temps avant d'enlever une réponse</label>
                     <select id="remove-answer-timer-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.REMOVE_WRONG_ANSWER_INTERVAL">
+                        <option [value]="60000">1 minute</option>
+                        <option [value]="45000">45 secondes</option>
                         <option [value]="30000">30 secondes</option>
                         <option [value]="15000">15 secondes</option>
                         <option [value]="10000">10 secondes</option>
@@ -88,12 +94,13 @@
                 </div>
 
                 <div class="setting-item">
-                    <label for="answer-count-selector">Nombre de réponses affichées</label>
-                    <select id="answer-count-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.NUMBER_OF_ANSWERS_DISPLAYED">
+                    <label for="answer-count-selector">Nombre de mauvaises réponses affichées</label>
+                    <select id="answer-count-selector" class="configuration-select" [(ngModel)]="currentProfileCopy!.NUMBER_OF_WRONG_ANSWERS_DISPLAYED">
                         <option [value]="-1">Toutes</option>
                         <option [value]="4">4</option>
                         <option [value]="3">3</option>
                         <option [value]="2">2</option>
+                        <option [value]="1">1</option>
                     </select>
                 </div>
             </div>
@@ -102,10 +109,10 @@
             <div class="settings-group">
                 <div class="setting-item">
                     <label>Taille de police</label>
-                    <select class="configuration-select">
-                        <option value="Petit">Petit</option>
-                        <option value="Moyen" selected>Moyen</option>
-                        <option value="Grand">Grand</option>
+                    <select class="configuration-select" [(ngModel)]="currentProfileCopy!.FONT_SIZE">
+                        <option [value]="0.75">Petit</option>
+                        <option [value]="1">Moyen</option>
+                        <option [value]="1.25">Grand</option>
                     </select>
                 </div>
             </div>

@@ -36,12 +36,13 @@ export class CurrentProfileService {
     getCurrentProfile() { return this.current_profile; }
 
     resetCurrentProfile() {
-        if (this.current_profile.id !== -1) {
-            console.log("Current Profile has been reset successfully");
-            this.socketService.emit("lobby-disconnect", this.current_profile);
-            this.localStorageService.removeItem(this.CURRENT_PROFILE_KEY);
-            this.current_profile = GUEST_PROFILE;
-        }
+        console.log("Current Profile has been reset successfully");
+        this.socketService.emit("lobby-disconnect", this.current_profile);
+        this.current_profile = GUEST_PROFILE;
+        this.current_profile$.next(this.current_profile)
+
+        this.localStorageService.removeItem(this.CURRENT_PROFILE_KEY);
+        this.localStorageService.storeItem(this.CURRENT_PROFILE_KEY, JSON.stringify(this.current_profile))
     }
 
     public setAdmin() {

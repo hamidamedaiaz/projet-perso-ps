@@ -1,4 +1,9 @@
-<section *ngIf="getQuiz().id !== -1">
+<div *ngIf="isSessionSelected">
+  <app-session-result-details [sessionHistory]="selectedSessionHistory"
+    (go_back)="navigateBack()"></app-session-result-details>
+</div>
+
+<section *ngIf="getQuiz().id !== -1 && !isSessionSelected">
   <header class="header">
     <button class="back-button" (click)="goBack()">Retour</button>
     <div class="quiz-info">
@@ -51,8 +56,13 @@
       <canvas #groupChart></canvas>
     </main>
   </section>
+  <app-quiz-session-history [quizId]="getQuiz().id" [quizTitle]="getQuiz().title" [sessionHistory]="getSessionHistory()"
+    (viewDetailsEvent)="viewSessionDetails($event)"></app-quiz-session-history>
 </section>
+
+
+
 <section *ngIf="getQuiz().id == -1 || null">
-  <span>SOMETHING WHEN WRONG</span>
+  <span>SOMETHING WENT WRONG</span>
   <span>Try Again</span>
 </section>

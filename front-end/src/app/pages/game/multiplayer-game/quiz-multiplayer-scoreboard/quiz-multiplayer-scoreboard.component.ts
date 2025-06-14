@@ -9,11 +9,20 @@ import { QuizQuestionComponent } from 'src/app/components/game/quizzes/quiz-ques
 import { Question } from 'src/models/question.model';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
+import { RankingComponent } from 'src/app/components/admin/admin_statistics/quiz-statistics/ranking/ranking.component';
+import { QuizResult } from 'src/models/quiz-result.model';
+import { QuizResultService } from 'src/services/quiz-result.service';
+import { SessionResultService } from 'src/services/session-result.service';
+import { Rank } from 'src/models/rank.model';
+import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 
 @Component({
   selector: 'app-quiz-multiplayer-scoreboard',
   standalone: true,
-  imports: [MultiplayerProfileListComponent, CommonModule, QuizQuestionComponent],
+  imports: [MultiplayerProfileListComponent,
+    CommonModule,
+    QuizQuestionComponent,
+    RankingComponent],
   templateUrl: './quiz-multiplayer-scoreboard.component.html',
   styleUrl: './quiz-multiplayer-scoreboard.component.scss'
 })
@@ -28,21 +37,52 @@ export class QuizMultiplayerScoreboardComponent {
 
   public displayQuestion: Boolean = false;
 
+  protected hide_ranking: boolean = true;
+
+  public rankedList: Rank[] = [];
+
   constructor(private quizService: QuizService,
     private currentProfileService: CurrentProfileService,
     private router: Router,
     private socketService: SocketService,
-    private sessionService: SessionService) {
-
+    private sessionService: SessionService,
+    private quizResultService: QuizResultService,
+    private computeStatisticService: ComputeStatisticService) {
     this.quizService.quiz$.subscribe((quiz) => {
       this.quiz = quiz;
     })
+    this.hide_ranking = true;
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.loadConfettiScript();
+    this.sessionService.connect();
+
+    const sessionId = this.sessionService.getSessionId();
+
+    // Attendre que des résultats arrivent
+    let results: QuizResult[] = [];
+    while (results.length === 0) {
+      results = await this.quizResultService.getQuizResults(sessionId);
+      await new Promise(resolve => setTimeout(resolve, 500)); // attendre 500ms avant de réessayer
+    }
+
+    this.rankedList = this.getRank(results);
+    console.log(this.rankedList);
   }
+
+
+
+  private getRank(quizResults: QuizResult[]) {
+    let ranking: Rank[] = []
+    quizResults.forEach((quizResult) => {
+      const rank = this.computeStatisticService.createRank(quizResult);
+      if (!(rank.score === -1)) ranking.push(rank);
+    })
+    return ranking.sort((a, b) => a.score - b.score);
+  }
+
 
   loadConfettiScript(): void {
     const script = document.createElement('script');
@@ -91,6 +131,7 @@ export class QuizMultiplayerScoreboardComponent {
 
   public showQuestion(questionId: number) {
     this.displayQuestion = true;
+    this.hide_ranking = true;
     this.quizService.setQuestion(questionId);
   }
 
@@ -108,6 +149,11 @@ export class QuizMultiplayerScoreboardComponent {
 
   public getRole() {
     return this.currentProfileService.getCurrentProfile().role
+  }
+
+  public toogleRanking() {
+    this.displayQuestion = false;
+    this.hide_ranking = !this.hide_ranking;
   }
 
 }

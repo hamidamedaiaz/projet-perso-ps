@@ -34,10 +34,7 @@ export class WaitingStartPageComponent {
     private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("waiting-start-page")
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId);
-    this.socketService.emit('login', {
-      sessionId: this.sessionService.getSessionId(),
-      profile: this.currentProfileService.getCurrentProfile()
-    })
+    this.sessionService.connect()
   }
 
   public setWaitingMessage(message: string) {
@@ -51,5 +48,9 @@ export class WaitingStartPageComponent {
     this.router.navigate(['/multiplayer-game-login'])
     this.socketService.emit("leave-session", { profile: this.currentProfileService.getCurrentProfile(), sessionId: this.sessionId })
     this.socketService.emit("lobby-connection", this.currentProfileService.getCurrentProfile());
+  }
+  
+  public goTutorial(){
+    this.router.navigate(['/solo-tutorial'])
   }
 }

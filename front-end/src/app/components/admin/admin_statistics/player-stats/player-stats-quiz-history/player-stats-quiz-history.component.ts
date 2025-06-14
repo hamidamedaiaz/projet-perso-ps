@@ -68,14 +68,11 @@ export class PlayerStatsQuizHistoryComponent {
   }
 
   getTimeSpent(quizResult: QuizResult): number {
-    return this.computeStatisticsService.getAverageTime(quizResult.questionResults)
+    return this.computeStatisticsService.getAverageTimeSpent(quizResult.questionResults)
   }
 
   getHintsUsed(quizResult: QuizResult): number { return this.computeStatisticsService.getTotalHintUsed(quizResult.questionResults) }
 
   getQuizGamemodeName(quizResult: QuizResult): string { return quizResult.gamemode.name }
 
-
-
-  
 }

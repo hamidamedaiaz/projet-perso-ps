@@ -4,7 +4,6 @@
         <div *ngFor="let profile of getPlayers()">
             <div class="profile-card-avatar">
                 <div *ngIf="profile.profilePicture !== 'empty_path'">
-        
                     <div class="profile-img"
                         [ngStyle]="{'background-image': 'url(http://localhost:9428/upload/' + profile.profilePicture + ')'}">
                     </div>
@@ -13,6 +12,7 @@
                 <div *ngIf="profile.profilePicture === 'empty_path'">
                     <div class="profile-initials">{{ getInitials(profile) }}</div>
                 </div>
+
             </div>
         </div>
     </section>

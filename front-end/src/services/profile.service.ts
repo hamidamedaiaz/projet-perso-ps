@@ -50,9 +50,10 @@ export class ProfileService {
         role: 'user',
         SHOW_POP_UP_TIMER: 15000,
         REMOVE_WRONG_ANSWER_INTERVAL: 10000,
-        NUMBER_OF_ANSWERS_DISPLAYED: 4,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
         SHOW_HINT_TIMER: 5000,
         NUMBER_OF_HINTS_DISPLAYED: 5,
+        FONT_SIZE:1,
         profilePicture: profilePicture
       };
 
@@ -103,11 +104,11 @@ getProfiles(profileIds: number[]): Profile[] {
     );
   }
 
-  // getProfile(profileId:number):Profile{
-  //   const profile = this.profiles.find((profile) => profile.id === profileId)
-  //   if(profile)  return profile
-  //   return GUEST_PROFILE;
-  // }
+  getProfileById(profileId:number):Profile{
+    const profile = this.profiles.find((profile) => profile.id === profileId)
+    if(profile)  return profile
+    return GUEST_PROFILE;
+  }
 
 
   public deleteProfile(profileId: number): void {

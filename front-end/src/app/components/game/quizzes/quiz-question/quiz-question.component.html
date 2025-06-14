@@ -8,7 +8,7 @@
                 <app-multiplayer-in-game-list></app-multiplayer-in-game-list>
             </div>
 
-            <app-quiz-question-header [title]="getTitle()" (show_hints)="showHints()"></app-quiz-question-header>
+            <app-quiz-question-header [title]="getTitle()" [font_size]="currentProfileService.getCurrentProfile().FONT_SIZE" (show_hints)="showHints()"></app-quiz-question-header>
 
             <hr class="left-side-separator">
 
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <app-quiz-hints class="question-right-side" [class.active]="hintsActive"></app-quiz-hints>
+    <app-quiz-hints class="question-right-side" [font_size]="currentProfileService.getCurrentProfile().FONT_SIZE" [class.active]="hintsActive"></app-quiz-hints>
 
 
     <button *ngIf="(getGamemode().id === 0 || getRole() ==='admin') && isQuizRunning()" (click)="nextQuestion()"

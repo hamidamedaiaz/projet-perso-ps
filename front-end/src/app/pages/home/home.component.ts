@@ -6,7 +6,6 @@ import { NgIf, NgClass } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { PopUpCodeComponent } from 'src/app/popup-code/popup-code.component';
-import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-home',

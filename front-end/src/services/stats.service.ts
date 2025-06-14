@@ -1,10 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { LocalStorageService } from "./localstorage.service";
-import { EMPTY_QUIZ } from "src/mocks/quiz.mock";
-import { QuizResult } from "src/models/quiz-result.model";
-import { QUIZ_RESULT_EMPTY } from "src/mocks/quiz-results.mock";
-import { Quiz } from "src/models/quiz.model";
 import { QuizResultService } from "./quiz-result.service";
 
 @Injectable({

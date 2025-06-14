@@ -1,0 +1,31 @@
+<div class="quiz-history-section">
+    <h3 class="section-title">Historique des sessions en groupe</h3>
+    <div class="quiz-history-table-container">
+      <table class="quiz-history-table">
+        <thead>
+          <tr>
+            <th>Code de session</th>
+            <th>Quiz</th>
+            <th>Date</th>
+            <th>Score Moyen</th>
+            <th>Nombre de joueurs</th>
+        </thead>
+        <tbody>
+          <tr class="quiz-table-row" *ngFor="let session of sessionHistory, let i = index" (click)="viewSessionDetails(session.sessionId)">
+            <td> {{ session.sessionId }}</td>
+            <td class="quiz-title">{{ quizTitle }}</td>
+            <td>{{ session.dateDebut }}</td>
+            <td>
+              <div class="score-display" [ngClass]="getScoreColor(getPercent(session))">
+                {{ session.averageScore }}/{{ session.numberOfQuestions }}
+                <span class="score-percentage">({{ getPercent(session) }}%)</span>
+              </div>
+            </td>
+            <td>
+              {{ session.numberOfplayers }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

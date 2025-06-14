@@ -43,10 +43,7 @@ export class AnswerSubmittedPageComponent {
     this.show_result = false;
 
     this.clearTimer();
-    this.socketService.emit('login', {
-      sessionId: this.sessionService.getSessionId(),
-      profile: this.currentProfileService.getCurrentProfile()
-    })
+    this.sessionService.connect()
 
     this.loadLocalStorage();
 

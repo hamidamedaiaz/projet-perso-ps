@@ -1,19 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { QuizResult } from '../models/quiz-result.model';
 import { HttpClient } from '@angular/common/http';
 import { QUIZ_RESULT_EMPTY } from 'src/mocks/quiz-results.mock';
 import { ProfileService } from './profile.service';
 import { firstValueFrom } from 'rxjs';
-
-
-export interface MonthlyStatsData {
-  month: string;
-  score: number;
-  hintUsage: number;
-  responseTime: number;
-  accuracy: number;
-}
+import { CurrentProfileService } from './currentProfile.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +20,7 @@ export class QuizResultService implements OnInit {
   public results$: BehaviorSubject<QuizResult[]> = new BehaviorSubject<QuizResult[]>([]);
 
   constructor(
-    private http: HttpClient, private profileService: ProfileService) {
+    private http: HttpClient, private profileService: ProfileService, private currentProfileService:CurrentProfileService) {
     this.requestResult();
   }
 
@@ -36,13 +28,12 @@ export class QuizResultService implements OnInit {
     this.requestResult();
   }
 
-
-
-  private async requestResult(): Promise<void> {
+  public async requestResult(): Promise<void> {
     const quizResults = await firstValueFrom(this.http.get<QuizResult[]>(this.apiUrl));
     this.allResults = quizResults;
     this.results$.next(this.allResults);
-  } 
+  }
+
 
   getQuizResultsByProfile(profileId: number) {
     const quizResults = this.allResults.filter(
@@ -65,14 +56,16 @@ export class QuizResultService implements OnInit {
   }
 
   sendQuizResult(quizResult: QuizResult) {
-    this.http.post(this.apiUrl, quizResult).subscribe({
-      next: () => {
-        this.requestResult();
-      },
-      error: (err) => {
-        console.error(`Failed to create Quiz Result ${quizResult.id} - ${err}`);
-      }
-    })
+    if (quizResult.sessionId !== "None" && this.currentProfileService.getCurrentProfile().role !== 'admin') {
+      this.http.post(this.apiUrl, quizResult).subscribe({
+        next: () => {
+          this.requestResult();
+        },
+        error: (err) => {
+          console.error(`Failed to create Quiz Result ${quizResult.id} - ${err}`);
+        }
+      })
+    }
   }
 
   async deleteQuizResult(quizResultIndex: number): Promise<void> {
@@ -88,13 +81,16 @@ export class QuizResultService implements OnInit {
 
 
 
-  getProfilesInSession(sessionId: number) {
+  getProfilesInSession(sessionId: string) {
     const profileIds: number[] = []
     this.allResults.filter((quizResult) => {
       if (quizResult.sessionId === sessionId) profileIds.push(quizResult.profileId);
     })
     return this.profileService.getProfiles(profileIds);
-
   }
 
+  public async getQuizResults(sessionId:string){
+    await this.requestResult();
+    return this.allResults.filter(result => result.sessionId === sessionId);
+  }
 }

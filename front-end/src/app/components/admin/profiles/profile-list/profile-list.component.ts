@@ -9,7 +9,10 @@ import { CurrentPageService } from 'src/services/currentPage.service';
 import { GUEST_PROFILE } from 'src/mocks/profile-list.mock';
 import { Router } from '@angular/router';
 import { SocketService } from "../../../../../services/socket.service";
-import {FileUploadService} from "../../../../../services/file-upload.service";
+import { FileUploadService } from "../../../../../services/file-upload.service";
+import { SessionService } from 'src/services/session.service';
+import { Player } from 'src/models/player.model';
+import { StatsService } from 'src/services/stats.service';
 
 @Component({
   selector: 'app-profile-list',
@@ -46,6 +49,7 @@ export class ProfileListComponent {
   public showDeleteConfirm: boolean = false;
   public profileToDelete: Profile | null = null;
 
+  public players: Player[] = [];
 
   // Stocker l'image en tant que fichier
   public selectedAvatarFile: File | null = null;
@@ -59,7 +63,8 @@ export class ProfileListComponent {
     private currentPageService: CurrentPageService,
     private socketService: SocketService,
     private router: Router,
-    private fileUploadService: FileUploadService) {
+    private fileUploadService: FileUploadService,
+    private sessionService: SessionService, private statsService:StatsService) {
     this.profileService.profiles$.subscribe((profiles) => {
       this.profileList = profiles;
     });
@@ -67,12 +72,24 @@ export class ProfileListComponent {
     this.profileService.profileToEdit$.subscribe((profile) => {
       this.currentProfile = profile;
     })
+
+    this.sessionService.players$.subscribe((players) => this.players = players)
   }
 
   filteredProfiles() {
     return this.profileList.filter(profile =>
       profile.name.toLowerCase().concat(' ').concat(profile.lastName.toLowerCase()).includes(this.searchQuery.toLowerCase())
     );
+  }
+
+  public kickPlayer(player: Player) {
+    const sessionId: string = this.sessionService.getSessionId();
+    this.socketService.emit("kick-player", { profile: player.profile, sessionId: sessionId });
+    this.sessionService.removePlayerById(sessionId, player.profile.id)
+  }
+
+  public filteredSessionProfiles() {
+    return this.players
   }
 
   profileSelectedHandler(profile: Profile) {
@@ -82,15 +99,16 @@ export class ProfileListComponent {
         setTimeout(() => {
           this.router.navigate(['/gamemode-selection']);
         }, 100);
-
         this.socketService.emit("lobby-connection", profile)
-
-      } else if (this.context === 'admin') {
+      } else if (this.context === 'profile-gestion') {
         this.profileService.selectProfileForEdition(profile);
         this.profileSelected.emit(profile);
-      } else {
-
+      } else if (this.context === 'accueillis-stats'){
         this.profileSelected.emit(profile);
+      }
+      else {
+        this.profileSelected.emit(profile);
+        this.statsService.selectProfile(profile.id);
       }
       this.cdr.detectChanges();
     }, 0);
@@ -107,9 +125,10 @@ export class ProfileListComponent {
       role: 'user',
       SHOW_POP_UP_TIMER: 15000,
       REMOVE_WRONG_ANSWER_INTERVAL: 10000,
-      NUMBER_OF_ANSWERS_DISPLAYED: 4,
+      NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
       SHOW_HINT_TIMER: 5,
       NUMBER_OF_HINTS_DISPLAYED: 4,
+      FONT_SIZE:1,
       profilePicture: "empty_path"
     };
     this.showProfileForm = true;
@@ -152,7 +171,7 @@ export class ProfileListComponent {
 
     else {
 
-      if(this.selectedAvatarFile != null){
+      if (this.selectedAvatarFile != null) {
 
         this.fileUploadService.upload(this.selectedAvatarFile).subscribe({
           next: (res) => {
@@ -189,8 +208,9 @@ export class ProfileListComponent {
       SHOW_POP_UP_TIMER: 15000,
       REMOVE_WRONG_ANSWER_INTERVAL: 10000,
       SHOW_HINT_TIMER: 5,
-      NUMBER_OF_ANSWERS_DISPLAYED: 4,
+      NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
       NUMBER_OF_HINTS_DISPLAYED: 4,
+      FONT_SIZE:1,
       profilePicture: "empty_path"
     };
   }

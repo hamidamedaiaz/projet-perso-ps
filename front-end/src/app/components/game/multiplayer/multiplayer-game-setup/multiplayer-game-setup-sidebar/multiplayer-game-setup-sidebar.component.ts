@@ -32,11 +32,14 @@ export class MultiplayerGameSetupSidebarComponent {
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId)
   }
 
-  public launchGame() { this.launch_game.emit(true); }
+  public launchGame() { 
+    if(this.sessionService.players.length > 0) this.launch_game.emit(true); 
+  }
 
   public leaveSetup() {
     console.log("Leaving Setup");
     this.sessionService.leaveSetup();
     this.currentPageService.adminNav('quiz');
-    this.router.navigate(["/admin"]);  }
+    this.router.navigate(["/admin"]); 
+  }
 }

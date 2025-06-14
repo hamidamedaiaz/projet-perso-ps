@@ -1,0 +1,40 @@
+<div class="players-list-section">
+    <h3 class="section-title"> Classement des joueurs </h3>
+    <div class="players-list-table-container">
+        <table class="players-list-table">
+
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Score </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let r of rank || []; let i = index">
+                    <td>
+                        <ng-container [ngSwitch]="i">
+                            <span *ngSwitchCase="0">🥇 1er</span>
+                            <span *ngSwitchCase="1">🥈 2ème</span>
+                            <span *ngSwitchCase="2">🥉 3ème</span>
+                            <span *ngSwitchDefault>{{ i + 1 }}ème</span>
+                        </ng-container>
+                    </td>
+                    <td class="player-list-table-row">
+                        <span>{{ r?.lastName }}</span>
+                    </td>
+                    <td class="player-list-table-row">
+                        <span>{{ r?.name }}</span>
+                    </td>
+                    <td class="player-list-table-row">
+                        <span>{{ r?.score }}</span>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

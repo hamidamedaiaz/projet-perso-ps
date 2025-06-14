@@ -7,10 +7,11 @@ export const PROFILE_LIST: Profile[] = [
         lastName: 'Root',
         role: 'admin',
         SHOW_POP_UP_TIMER: 99999999999,
-        NUMBER_OF_ANSWERS_DISPLAYED: 10,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 10,
         REMOVE_WRONG_ANSWER_INTERVAL: 999999999,
         SHOW_HINT_TIMER: 5,
         NUMBER_OF_HINTS_DISPLAYED: 9999,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
     {
@@ -19,10 +20,11 @@ export const PROFILE_LIST: Profile[] = [
         lastName: 'User',
         role: 'user',
         SHOW_POP_UP_TIMER: 15000,
-        NUMBER_OF_ANSWERS_DISPLAYED: 4,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
         REMOVE_WRONG_ANSWER_INTERVAL: 10000,
         SHOW_HINT_TIMER: 5,
         NUMBER_OF_HINTS_DISPLAYED: 5,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
     {
@@ -32,9 +34,10 @@ export const PROFILE_LIST: Profile[] = [
         role: 'user',
         SHOW_POP_UP_TIMER: 15000,
         REMOVE_WRONG_ANSWER_INTERVAL: 5000,
-        NUMBER_OF_ANSWERS_DISPLAYED: 3,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 3,
         SHOW_HINT_TIMER: 5,
         NUMBER_OF_HINTS_DISPLAYED: 0,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
     {
@@ -44,9 +47,10 @@ export const PROFILE_LIST: Profile[] = [
         role: 'user',
         SHOW_POP_UP_TIMER: 15000,
         REMOVE_WRONG_ANSWER_INTERVAL: 10000,
-        NUMBER_OF_ANSWERS_DISPLAYED: 3,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 3,
         SHOW_HINT_TIMER: 5,
         NUMBER_OF_HINTS_DISPLAYED: 10,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
     {
@@ -57,8 +61,9 @@ export const PROFILE_LIST: Profile[] = [
         SHOW_POP_UP_TIMER: 10000,
         REMOVE_WRONG_ANSWER_INTERVAL: 5000,
         SHOW_HINT_TIMER: 5,
-        NUMBER_OF_ANSWERS_DISPLAYED: 4,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
         NUMBER_OF_HINTS_DISPLAYED: 4,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
     {
@@ -69,8 +74,9 @@ export const PROFILE_LIST: Profile[] = [
         SHOW_POP_UP_TIMER: 30000,
         REMOVE_WRONG_ANSWER_INTERVAL: 7000,
         SHOW_HINT_TIMER: 15,
-        NUMBER_OF_ANSWERS_DISPLAYED: 4,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
         NUMBER_OF_HINTS_DISPLAYED: 2,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
     {
@@ -78,11 +84,12 @@ export const PROFILE_LIST: Profile[] = [
         name: "Erling",
         lastName: "Haaland",
         role: 'user',
-        NUMBER_OF_ANSWERS_DISPLAYED: 4,
+        NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
         SHOW_POP_UP_TIMER: 30000,
         REMOVE_WRONG_ANSWER_INTERVAL: 15000,
         SHOW_HINT_TIMER: 5,
         NUMBER_OF_HINTS_DISPLAYED: 5,
+        FONT_SIZE:1,
         profilePicture: "empty_path"
     },
   {
@@ -91,10 +98,11 @@ export const PROFILE_LIST: Profile[] = [
     lastName: 'Root',
     role: 'admin',
     SHOW_POP_UP_TIMER: 99999999999,
-    NUMBER_OF_ANSWERS_DISPLAYED: 10,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 10,
     REMOVE_WRONG_ANSWER_INTERVAL: 999999999,
     SHOW_HINT_TIMER: 5,
     NUMBER_OF_HINTS_DISPLAYED: 9999,
+    FONT_SIZE:1,
     profilePicture: "empty_path"
   },
   {
@@ -103,10 +111,11 @@ export const PROFILE_LIST: Profile[] = [
     lastName: 'Root',
     role: 'admin',
     SHOW_POP_UP_TIMER: 99999999999,
-    NUMBER_OF_ANSWERS_DISPLAYED: 10,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 10,
     REMOVE_WRONG_ANSWER_INTERVAL: 999999999,
     SHOW_HINT_TIMER: 5,
     NUMBER_OF_HINTS_DISPLAYED: 9999,
+    FONT_SIZE:1,
     profilePicture: "empty_path"
   },
   {
@@ -115,10 +124,11 @@ export const PROFILE_LIST: Profile[] = [
     lastName: 'Root',
     role: 'admin',
     SHOW_POP_UP_TIMER: 99999999999,
-    NUMBER_OF_ANSWERS_DISPLAYED: 10,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 10,
     REMOVE_WRONG_ANSWER_INTERVAL: 999999999,
     SHOW_HINT_TIMER: 5,
     NUMBER_OF_HINTS_DISPLAYED: 9999,
+    FONT_SIZE:1,
     profilePicture: "empty_path"
   },
   {
@@ -127,10 +137,11 @@ export const PROFILE_LIST: Profile[] = [
     lastName: 'Root',
     role: 'admin',
     SHOW_POP_UP_TIMER: 99999999999,
-    NUMBER_OF_ANSWERS_DISPLAYED: 10,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 10,
     REMOVE_WRONG_ANSWER_INTERVAL: 999999999,
     SHOW_HINT_TIMER: 5,
     NUMBER_OF_HINTS_DISPLAYED: 9999,
+    FONT_SIZE:1,
     profilePicture: "empty_path"
   },
 ]
@@ -141,10 +152,11 @@ export const GUEST_PROFILE: Profile = {
     lastName: 'User',
     role: 'user',
     SHOW_POP_UP_TIMER: 15000,
-    NUMBER_OF_ANSWERS_DISPLAYED: 4,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
     REMOVE_WRONG_ANSWER_INTERVAL: 10000,
     SHOW_HINT_TIMER: 5,
     NUMBER_OF_HINTS_DISPLAYED: 5,
+    FONT_SIZE:1,
     profilePicture: "empty_path"
 };
 
@@ -154,9 +166,10 @@ export const ADMIN_PROFILE: Profile = {
     lastName: 'Root',
     role: 'admin',
     SHOW_POP_UP_TIMER: 99999999999,
-    NUMBER_OF_ANSWERS_DISPLAYED: 10,
+    NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 10,
     REMOVE_WRONG_ANSWER_INTERVAL: 999999999,
     SHOW_HINT_TIMER: 5,
     NUMBER_OF_HINTS_DISPLAYED: 9999,
+    FONT_SIZE:1,
     profilePicture: "empty_path"
 }

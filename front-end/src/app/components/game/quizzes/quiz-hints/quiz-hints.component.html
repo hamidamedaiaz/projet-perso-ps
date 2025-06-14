@@ -1,8 +1,8 @@
 <section class="hint-section">
-    <span class="hint-title">Indices</span>
+    <span class="hint-title" [style.font-size]="30 * font_size">Indices</span>
     <hr class="right-side-separator">
     <div class="hints-container" *ngFor="let hint of getDisplayedHints()">
-        <app-quiz-hint [hint]="hint" class="hint-item"></app-quiz-hint>
+        <app-quiz-hint [hint]="hint" class="hint-item" [font_size]="font_size"></app-quiz-hint>
     </div>
-    <p *ngIf="nextHints" class="hint-item">Prochain indice dans {{value}} s</p>
+    <p *ngIf="nextHints" class="hint-item" [style.font-size]="30 * font_size">Prochain indice dans {{timer}} s</p>
 </section>

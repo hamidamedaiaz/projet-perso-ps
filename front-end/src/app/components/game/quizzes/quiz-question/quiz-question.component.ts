@@ -66,7 +66,7 @@ export class QuizQuestionComponent {
 
 
   constructor(private router: Router,
-    private currentProfileService: CurrentProfileService,
+    public currentProfileService: CurrentProfileService,
     private quizService: QuizService,
     private gamemodeService: GamemodeService,
     private recordResultService: RecordResultService,
@@ -92,6 +92,8 @@ export class QuizQuestionComponent {
 
       if (this.getRole() === 'user') {
 
+        this.hintsActive = this.currentProfileService.getCurrentProfile().NUMBER_OF_HINTS_DISPLAYED != 0 && this.question.hints.length > 0;
+
         if (this.getGamemode().id === 0) {
           //SHOW POP-UP TIMER
           this.clearPopUpTimer();
@@ -107,7 +109,7 @@ export class QuizQuestionComponent {
       }
     })
 
-    this.socketService.emit('login', { sessionId: this.sessionService.getSessionId(), 
+    this.socketService.emit('login', { sessionId: this.sessionService.getSessionId(),
       profile: this.currentProfileService.getCurrentProfile() })
   }
 
