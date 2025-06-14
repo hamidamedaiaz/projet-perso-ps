@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
 import { Quiz } from "../models/quiz.model";
 import { EMPTY_QUIZ } from 'src/mocks/quiz.mock';
+import { Question } from 'src/models/question.model';
 
 @Injectable({
   providedIn: 'root'
@@ -75,6 +76,21 @@ export class QuizListService {
         throw new Error("No correct answer in a question");
       }
     })
+  }
+
+  public isQuestionCorrect(question:Question){
+    if(question.question.length == 0){
+        throw new Error("Question title incorrect");
+      }
+      let correctAnswerCount = 0;
+      question.answers.forEach(a => {
+        if(a.isCorrect){
+          correctAnswerCount+=1;
+        }
+      })
+      if(correctAnswerCount == 0){
+        throw new Error("No correct answer in a question");
+      }
   }
 
   public selectQuizForEdition(quiz: Quiz): void {

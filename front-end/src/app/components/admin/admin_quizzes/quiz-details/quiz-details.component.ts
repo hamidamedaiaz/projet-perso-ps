@@ -11,7 +11,7 @@ import { EMPTY_QUIZ } from "../../../../../mocks/quiz.mock";
 import { PopUpService } from "../../../../../services/pop-up.service";
 import { EMPTY_QUESTION } from 'src/mocks/question.mock';
 import { Router } from '@angular/router';
-import {FileUploadService} from "../../../../../services/file-upload.service";
+import { FileUploadService } from "../../../../../services/file-upload.service";
 
 @Component({
   selector: 'app-quiz-details',
@@ -28,6 +28,9 @@ export class QuizDetailsComponent implements OnChanges {
   @Output() leaveQuizEdition: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   public selectedQuestion: Question | null = null;
+
+  public selectedQuestionCopy: Question | null = null;
+
   private currentQuestionIndex = 0;
 
   quizCopy: Quiz = EMPTY_QUIZ;
@@ -60,9 +63,9 @@ export class QuizDetailsComponent implements OnChanges {
   }
 
   constructor(private quizService: QuizListService,
-              private popUpService: PopUpService,
-              private router:Router,
-              private fileUploadService: FileUploadService,
+    private popUpService: PopUpService,
+    private router: Router,
+    private fileUploadService: FileUploadService,
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -73,8 +76,11 @@ export class QuizDetailsComponent implements OnChanges {
   }
 
   selectQuestion(index: number) {
-    this.selectedQuestion = this.quizCopy.questions[index];
-    this.currentQuestionIndex = index;
+    if (this.currentQuestionIndex !== index) {
+      this.selectedQuestion = this.quizCopy.questions[index];
+      this.selectedQuestionCopy = JSON.parse(JSON.stringify(this.selectedQuestion));
+      this.currentQuestionIndex = index;
+    }
   }
 
 
@@ -88,12 +94,12 @@ export class QuizDetailsComponent implements OnChanges {
     };
 
     this.quizCopy.questions.push(newQuestion);
-    this.selectQuestion(this.quizCopy.questions.length-1);
-    
+    this.selectQuestion(this.quizCopy.questions.length - 1);
+
   }
 
-  public isQuestionSelected(index:number){
-    if(this.selectedQuestion && this.quizCopy.questions.indexOf(this.selectedQuestion) === index){
+  public isQuestionSelected(index: number) {
+    if (this.selectedQuestion && this.quizCopy.questions.indexOf(this.selectedQuestion) === index) {
       return true;
     }
     return false;
@@ -187,11 +193,11 @@ export class QuizDetailsComponent implements OnChanges {
 
     const finalizeSave = () => {
       try {
-        this.quizCopy.questions[this.currentQuestionIndex] = { ...this.selectedQuestion! };
-        this.quizService.isQuizCorrect(this.quizCopy);
-        this.quizService.RequestEditQuizzes(this.quizCopy);
-        this.popUpService.sendPopup(this.questionSavedPopup);
-        console.log("Question sauvegardée :", this.selectedQuestion);
+        if (this.selectedQuestion) {
+          this.quizService.isQuestionCorrect(this.selectedQuestion);
+          this.popUpService.sendPopup(this.questionSavedPopup);
+          console.log("Question sauvegardée :", this.selectedQuestion);
+        }
       } catch (err) {
         this.popUpService.sendPopup(this.questionErrorPopup);
         console.error("ERROR SAVING QUESTION:", err);
@@ -222,7 +228,7 @@ export class QuizDetailsComponent implements OnChanges {
   }
 
 
-  cancelQuizEditing(){
+  cancelQuizEditing() {
     this.quizCopy = JSON.parse(JSON.stringify(this.quiz));
     this.selectedQuestion = this.quizCopy.questions[this.currentQuestionIndex]
     this.selectedQuestion = null;
@@ -230,9 +236,11 @@ export class QuizDetailsComponent implements OnChanges {
     this.router.navigate(['/admin'])
   }
 
-  cancelQuestionEditing(){
-    this.selectedQuestion = this.quiz.questions[this.currentQuestionIndex];
-    this.quizCopy.questions[this.currentQuestionIndex] = this.quiz.questions[this.currentQuestionIndex];
+  cancelQuestionEditing() {
+    this.selectedQuestion = JSON.parse(JSON.stringify(this.selectedQuestionCopy));
+    if (this.selectedQuestion) {
+      this.quizCopy.questions[this.currentQuestionIndex] = this.selectedQuestion;
+    }
   }
 
   onAudioSelected(event: Event): void {
