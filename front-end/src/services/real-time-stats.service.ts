@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { QuestionStats} from 'src/models/QuestionStats'
+import { LocalStorageService } from './localstorage.service';
 
 
 
@@ -16,8 +17,13 @@ export class RealTimeStatsService {
   public currentSessionStats$ = new BehaviorSubject<Map<number, QuestionStats>>(new Map());
   
   private currentSessionId: string = '';
+  private readonly SESSION_STATS_KEY = 'REAL_TIME_SESSION_STATS';
+  private readonly CURRENT_SESSION_KEY = 'CURRENT_SESSION_ID';
 
-  constructor() {}
+
+  constructor(private localStorageService: LocalStorageService) {
+    this.loadFromStorage();
+  }
 
   
    /// on initialise une nauvelle session
@@ -26,6 +32,7 @@ export class RealTimeStatsService {
     this.currentSessionId = sessionId;
     this.sessionStats.set(sessionId, new Map());
     this.currentSessionStats$.next(new Map());
+    this.saveToStorage();
   }
 
   ///   ici on  Ajoute une reeponse et recalcule les pourcentages
@@ -60,6 +67,8 @@ export class RealTimeStatsService {
     if (sessionId === this.currentSessionId) {
       this.currentSessionStats$.next(sessionMap);
     }
+
+    this.saveToStorage();
   }
 
 
@@ -88,5 +97,63 @@ export class RealTimeStatsService {
     if (sessionId === this.currentSessionId) {
       this.currentSessionStats$.next(new Map());
     }
+
+    this.saveToStorage();
   }
+
+ private loadFromStorage(): void {
+  const savedStats = this.localStorageService.getItem(this.SESSION_STATS_KEY);
+  const savedCurrentSession = this.localStorageService.getItem(this.CURRENT_SESSION_KEY);
+  
+  if (savedStats) {
+    // reconstitue les Maps depuis l'objet JSON
+    Object.entries(savedStats).forEach(([sessionId, questionStatsObj]) => {
+      const questionStatsMap = new Map<number, QuestionStats>();
+
+      Object.entries(questionStatsObj as any).forEach(([questionId, stats]: [string, any]) => {
+        questionStatsMap.set(parseInt(questionId), {
+
+          questionId: stats.questionId,
+          totalAnswers: stats.totalAnswers,
+
+          answerCounts: new Map(Object.entries(stats.answerCounts).map(([k, v]) => [parseInt(k), v as number])),
+          percentages: new Map(Object.entries(stats.percentages).map(([k, v]) => [parseInt(k), v as number]))
+
+        });
+      });
+      this.sessionStats.set(sessionId, questionStatsMap);
+    });
+  }
+  
+  if (savedCurrentSession) {
+    this.currentSessionId = savedCurrentSession;
+    const currentStats = this.sessionStats.get(this.currentSessionId) || new Map();
+    this.currentSessionStats$.next(currentStats);
+  }
+}
+
+  private saveToStorage(): void {
+
+  // convertir les Maps en objets JSON
+  const statsObj: any = {};
+  this.sessionStats.forEach((questionStatsMap, sessionId) => {
+    const questionStatsObj: any = {};
+    questionStatsMap.forEach((stats, questionId) => {
+
+      questionStatsObj[questionId] = {
+
+        questionId: stats.questionId,
+        totalAnswers: stats.totalAnswers,
+
+        answerCounts: Object.fromEntries(stats.answerCounts),
+        percentages: Object.fromEntries(stats.percentages)
+      };
+        });
+
+    statsObj[sessionId] = questionStatsObj;
+  });
+  
+  this.localStorageService.storeItem(this.SESSION_STATS_KEY, JSON.stringify(statsObj));
+  this.localStorageService.storeItem(this.CURRENT_SESSION_KEY, JSON.stringify(this.currentSessionId));
+}
 }

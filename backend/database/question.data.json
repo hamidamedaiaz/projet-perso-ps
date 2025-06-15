@@ -785,5 +785,149 @@
         "profilePicture": "empty_path"
       }
     ]
+  },
+  {
+    "id": 1749968967912,
+    "sessionId": "DC3F96",
+    "quizId": 1747172294366,
+    "profileId": 1749031908696,
+    "dateDebut": 1749968921788,
+    "dateFin": 1749968967832,
+    "questionResults": [
+      {
+        "id": 1180685998947,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 18937,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1637054174104,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 33553,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 68778744232,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 30824,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 3,
+        "name": "Kylian",
+        "lastName": "Mbappé",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": "5000",
+        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
+        "SHOW_HINT_TIMER": "5000",
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
+        "NUMBER_OF_HINTS_DISPLAYED": "5",
+        "FONT_SIZE": 1,
+        "profilePicture": "empty_path"
+      },
+      {
+        "id": 1749031908696,
+        "name": "Abdel",
+        "lastName": "Algerian",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": "1.25",
+        "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749968967922,
+    "sessionId": "DC3F96",
+    "quizId": 1747172294366,
+    "profileId": 3,
+    "dateDebut": 1749968921774,
+    "dateFin": 1749968967832,
+    "questionResults": [
+      {
+        "id": 1244072290266,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 18940,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1057514698002,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 33583,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 993390311357,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 30832,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 3,
+        "name": "Kylian",
+        "lastName": "Mbappé",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": "5000",
+        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
+        "SHOW_HINT_TIMER": "5000",
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
+        "NUMBER_OF_HINTS_DISPLAYED": "5",
+        "FONT_SIZE": 1,
+        "profilePicture": "empty_path"
+      },
+      {
+        "id": 1749031908696,
+        "name": "Abdel",
+        "lastName": "Algerian",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": "1.25",
+        "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
+      }
+    ]
   }
 ]
