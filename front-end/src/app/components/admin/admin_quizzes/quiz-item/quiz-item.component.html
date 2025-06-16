@@ -1,8 +1,8 @@
 <div class="quiz-item" [ngClass]="currentPage === 'admin' ? 'adminView' : 'userView' ">
   <section class="header-card-section">
     <section *ngIf="currentPage==='admin'" class="button-section">
-      <button class="button"><img ngSrc="assets/icons/edit.svg" height="30" width="30" (click)="onEditClick()"></button>
-      <button class="button"><img ngSrc="assets/icons/xmark.svg" height="30" width="30"
+      <button class="button edit-btn"><img ngSrc="assets/icons/edit.svg" height="30" width="30" (click)="onEditClick()"></button>
+      <button class="button delete-btn"><img ngSrc="assets/icons/xmark.svg" height="30" width="30"
           (click)="onDeleteClick()"></button>
     </section>
     <h3 class="quiz-item-title">{{ quiz.title }}</h3>

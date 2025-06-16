@@ -8,7 +8,7 @@
     <!-- le [quiz]= ... permet de rentrer l'input que le quizz-item demande-->
 
     <div class="quiz-item create-quiz-item" (click)="createQuiz()">
-      <h3>+ Créer un quiz</h3>
+      <h3 class="create-quiz-btn">+ Créer un quiz</h3>
     </div>
 
     <app-quiz-item *ngFor="let quiz of filteredQuizzes()" [quiz]="quiz" (launchMultiGameEmitter)="launchMultiGame(quiz)"

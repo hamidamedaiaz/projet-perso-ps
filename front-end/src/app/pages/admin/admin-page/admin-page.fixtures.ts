@@ -1,15 +1,15 @@
 import { E2EComponentFixture } from "e2e/e2e-component.fixture";
 
-export class AppFixture extends E2EComponentFixture {
+export class AdminPageFixtures extends E2EComponentFixture {
 
-    getTitle() { return this.page.locator('/html/body/app-root/app-admin/html/body/div/main/div/span'); }
+    getTitle() { return this.page.locator('xpath=/html/body/app-root/app-admin/div/main/div/span'); }
 
-    getSideBarStatsBtn() { return this.page.locator('/html/body/app-root/app-admin/html/body/div/nav/button[1]') }
+    getSideBarStatsBtn() { return this.page.locator('xpath=/html/body/app-root/app-admin/div/nav/button[1]/span') }
 
-    getSideBarQuizBtn() { return this.page.locator('/html/body/app-root/app-admin/html/body/div/nav/button[2]') }
+    getSideBarQuizBtn() { return this.page.locator('xpath=/html/body/app-root/app-admin/div/nav/button[2]') }
 
-    getSideBarAccueilliBtn() { return this.page.locator('/html/body/app-root/app-admin/html/body/div/nav/button[3]') }
+    getSideBarAccueilliBtn() { return this.page.locator('xpath=/html/body/app-root/app-admin/div/nav/button[3]') }
 
-    getSideBarBackBtn() { return this.page.locator('/html/body/app-root/app-admin/html/body/div/nav/button[4]')}
+    getSideBarBackBtn() { return this.page.locator('xpath=/html/body/app-root/app-admin/div/nav/button[4]')}
 
 }

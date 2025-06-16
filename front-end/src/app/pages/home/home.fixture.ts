@@ -1,8 +1,8 @@
 import { E2EComponentFixture } from "e2e/e2e-component.fixture";
 
-export class HomeFixture extends E2EComponentFixture{
+export class HomeFixture extends E2EComponentFixture {
 
-  getCards(){
+  getCards() {
     return this.page.locator('.profile-card');
   }
 
@@ -11,4 +11,6 @@ export class HomeFixture extends E2EComponentFixture{
       hasText: name
     });
   }
+
+  getAdminBtn() { return this.page.locator('xpath=/html/body/app-root/app-home/section/button') }
 }

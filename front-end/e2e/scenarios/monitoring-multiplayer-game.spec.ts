@@ -1,24 +1,19 @@
 import { test, expect } from '@playwright/test';
 import { testUrl } from 'e2e/e2e.config';
-import { AppFixture } from 'src/app/app.fixture';
+import { AdminPageFixtures } from 'src/app/pages/admin/admin-page/admin-page.fixtures';
+import { HomeFixture } from 'src/app/pages/home/home.fixture';
 
 // This file is here to test the playwright integration.
 test.describe('Monitoring Multiplayer Game Test', () => {
-  test('Basic test', async ({ page }) => {
-    await page.goto(testUrl);
-    // Let's try with something you don't have in your page.
-    const pageTitle = await page.getByRole('heading', { name: 'AGreatHeadingNameYouDontHave' });
-    // It should not be visible as you don't have it in your page.
-    expect(pageTitle).not.toBeVisible();
-    // Test case pass? Means the playwright setup is done! Congrats!
-  });
 
   test('Access to admin page', async ({page}) => {
     await page.goto(testUrl)
 
-    const appComponentFixture = new AppFixture(page);
+    const homePageFixture = new HomeFixture(page);
 
-    const description = await page.locator('/html/body/app-root/app-admin/html/body/div/main/div/span');
+    const adminPageFixture = new AdminPageFixtures(page);
+
+    const description = await adminPageFixture.getTitle();
 
     expect(description).toBeVisible();
   })

@@ -2,7 +2,7 @@
   <!--<input type="text" id="search-bar" class="search-input" [(ngModel)]="searchQuery"
          placeholder="Rechercher un joueur...">-->
 
-  <h2>Joueurs dans la partie <span id="player-count">({{ players.length }})</span></h2>
+  <h2 class="title">Joueurs dans la partie <span id="player-count">({{ players.length }})</span></h2>
 
 
   <section class="profile-grid">
@@ -21,7 +21,7 @@
         {{ player.profile.name }} {{ player.profile.lastName }}
       </div>
 
-      <button class="add-button" (click)="removePlayer(player.profile)">
+      <button class="kick-button" (click)="removePlayer(player.profile)">
         Expulser
       </button>
 
