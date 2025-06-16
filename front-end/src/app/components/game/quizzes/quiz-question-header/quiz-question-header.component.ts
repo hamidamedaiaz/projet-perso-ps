@@ -15,14 +15,11 @@ import { SessionService } from 'src/services/session.service';
 
 export class QuizQuestionHeaderComponent {
 
-  @Input()
-  title!: string;
+  @Input() title!: string;
 
-  @Input()
-  font_size!: number;
+  @Input() font_size!: number;
 
-  @Output()
-  show_hints: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() show_hints: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   private areHintsActives: Boolean = false;
 
@@ -42,17 +39,11 @@ export class QuizQuestionHeaderComponent {
     })
   }
 
-  getRole(): string {
-    return this.curretProfileService.getCurrentProfile().role;
-  }
+  getRole(): string { return this.curretProfileService.getCurrentProfile().role; }
 
-  getNumberOfGivenAnswer(): number {
-    return this.sessionService.getNumberOfGivenAnswers();
-  }
+  getNumberOfGivenAnswer(): number { return this.sessionService.getNumberOfGivenAnswers(); }
 
-  getNumberOfPlayers(): number {
-    return this.sessionService.getNumberOfPlayers();
-  }
+  getNumberOfPlayers(): number { return this.sessionService.getNumberOfPlayers(); }
 
   showHints(): void {
     this.show_hints.emit(true);
@@ -61,12 +52,8 @@ export class QuizQuestionHeaderComponent {
     else this.showHintButtonContent = this.DISPLAY_HINTS;
   }
 
-  public getGamemode() {
-    return this.gamemodeService.getCurrentGamemode().name;
-  }
+  public getGamemode() { return this.gamemodeService.getCurrentGamemode().name; }
 
-  public isQuizRunning() {
-    return this.quizService.isQuizRunning;
-  }
+  public isQuizRunning() { return this.quizService.isQuizRunning; }
 
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { QuizHintsComponent } from '../quiz-hints/quiz-hints.component';
 import { CommonModule } from '@angular/common';
 import { Question } from 'src/models/question.model';
@@ -15,6 +15,7 @@ import { RecordResultService } from 'src/services/record-result.service';
 import { MultiPlayerInGameListComponent } from '../../multiplayer/multi-player-in-game-list/multiplayer-in-game-list.component';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
+import { environment } from 'src/environments/environment.development';
 
 
 @Component({
@@ -109,17 +110,15 @@ export class QuizQuestionComponent {
       }
     })
 
-    this.socketService.emit('login', { sessionId: this.sessionService.getSessionId(),
-      profile: this.currentProfileService.getCurrentProfile() })
+    this.socketService.emit('login', {
+      sessionId: this.sessionService.getSessionId(),
+      profile: this.currentProfileService.getCurrentProfile()
+    })
   }
 
-  public getGamemode() {
-    return this.gamemodeService.getCurrentGamemode();
-  }
+  public getGamemode() { return this.gamemodeService.getCurrentGamemode(); }
 
-  public getRole() {
-    return this.currentProfileService.getCurrentProfile().role;
-  }
+  public getRole() { return this.currentProfileService.getCurrentProfile().role; }
 
   ngOnChanges() { this.resetQuestion(); }
 
@@ -137,9 +136,7 @@ export class QuizQuestionComponent {
     }
   }
 
-  public showHints() {
-    this.hintsActive = !this.hintsActive
-  }
+  public showHints() { this.hintsActive = !this.hintsActive }
 
   public resetQuestion() {
     this.hintsActive = false;
@@ -209,18 +206,14 @@ export class QuizQuestionComponent {
   }
 
   public getAudioPath(): string {
-    return "http://localhost:9428/upload/" + this.question.audioPath;
+    return environment.basedUrl + "/upload/" + this.question.audioPath;
 
   }
 
   public getVolume(): number { return 50; }
 
-  public CancelPopPup() {
-    this.showQuestionPopUp = false;
-  }
+  public CancelPopPup() { this.showQuestionPopUp = false; }
 
-  public isQuizRunning() {
-    return this.quizService.isQuizRunning;
-  }
+  public isQuizRunning() { return this.quizService.isQuizRunning; }
 
 }

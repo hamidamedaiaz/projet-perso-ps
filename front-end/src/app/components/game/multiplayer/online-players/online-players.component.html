@@ -4,7 +4,8 @@
     <li *ngFor="let player of playerList" class="player-card">
       <div class="player-avatar">
         <div *ngIf="player.profilePicture !== 'empty_path'" class="avatar-img"
-             [ngStyle]="{'background-image': 'url(http://localhost:9428/upload/' + player.profilePicture + ')'}">
+             [ngStyle]="{'background-image': 'url(' + basedUrl + '/upload/' + player.profilePicture + ')'}">
+             
         </div>
         <div *ngIf="player.profilePicture === 'empty_path'" class="avatar-initials">
           {{ getInitials(player) }}

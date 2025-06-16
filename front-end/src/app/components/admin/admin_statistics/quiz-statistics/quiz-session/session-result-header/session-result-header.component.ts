@@ -10,13 +10,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SessionResultHeaderComponent {
 
   @Output()
-  public go_back:EventEmitter<boolean> = new EventEmitter<boolean>();
+  public go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(){}
+  constructor() { }
 
-  public navigateBack(){
-    this.go_back.emit(true);
-  }
+  public navigateBack() { this.go_back.emit(true); }
 
 
 }

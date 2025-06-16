@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { QuizListService } from 'src/services/quiz-list.service';
 import { ProfileService } from 'src/services/profile.service';
 import { QuizResultService } from 'src/services/quiz-result.service';
@@ -41,8 +41,7 @@ export class QuizResultDetailsComponent {
 
   public popUp: boolean = false;
 
-  @Output()
-  go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private statsService: StatsService,
@@ -86,13 +85,9 @@ export class QuizResultDetailsComponent {
 
   }
 
-  closePopUp() {
-    this.popUp = false;
-  }
+  closePopUp() { this.popUp = false; }
 
-  public showPopUp() {
-    this.popUp = true;
-  }
+  public showPopUp() { this.popUp = true; }
 
   async deleteQuizResult() {
     try {

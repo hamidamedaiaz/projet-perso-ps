@@ -8,25 +8,19 @@ import { BehaviorSubject } from "rxjs";
 export class CurrentPageService {
 
 
-    private current_page: String = "home"
+    private current_page: String = "home";
     public admin_navigation$ = new BehaviorSubject<string>("home");
 
     constructor() {}
 
-    adminNav(page : string){
-      this.admin_navigation$.next(page);
-    }
+    adminNav(page : string){ this.admin_navigation$.next(page); }
 
-    setCurrentPage(page: String) {
-        this.current_page = page;
-    }
+    setCurrentPage(page: String) { this.current_page = page; }
 
-    getCurrentPage(){
-        return this.current_page;
-    }
+    getCurrentPage(){ return this.current_page; }
 
     resetCurrentPage(){
-        console.log("Current Page has been reset to home successfully")
+        console.info("Current Page has been reset to home successfully")
         this.current_page="home";
     }
 }

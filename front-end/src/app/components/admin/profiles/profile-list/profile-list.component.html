@@ -73,7 +73,7 @@
 
         <ng-container *ngIf="profile.profilePicture && profile.profilePicture !== 'empty_path'; else initialsTemplate">
           <div class="profile-avatar"
-            [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
+            [ngStyle]="{'background-image': 'url(' + basedUrl + '/upload/' + profile.profilePicture + ')'}"></div>
         </ng-container>
         <ng-template #initialsTemplate>
           <div class="profile-avatar-text">{{ getInitials(profile) }}</div>
@@ -96,12 +96,13 @@
   <input type="text" id="search-bar" class="search-input enhanced" [(ngModel)]="searchQuery"
     placeholder="Sélectionner un accueilli pour jouer..." />
 
-  <section class="card-grid">
+  <section [ngClass]="context === 'accueilli-stats' ? 'card-grid-multi' : 'card-grid'">
     <div class="profile-card" *ngFor="let profile of filteredProfiles()" (click)="profileSelectedHandler(profile)">
       <div class="profile-card-avatar">
         <div *ngIf="profile.profilePicture && profile.profilePicture !== 'empty_path'">
           <div class="profile-img"
-            [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + profile.profilePicture + ')'}"></div>
+            [ngStyle]="{'background-image': 'url(' + basedUrl + '/upload/' + profile.profilePicture + ')'}">
+          </div>
         </div>
 
         <div *ngIf="profile.profilePicture && profile.profilePicture === 'empty_path'">
@@ -116,6 +117,12 @@
   </section>
 </section>
 
+
+
+
+
+
+
 <section *ngIf="currentPage === 'multiplayer-setup'">
   <input type="text" id="search-bar" class="search-input enhanced" [(ngModel)]="searchQuery"
     placeholder="Rechercher un accueilli" />
@@ -127,7 +134,7 @@
         <div class="profile-card-avatar">
           <div *ngIf="player.profile.profilePicture && player.profile.profilePicture !== 'empty_path'">
             <div class="profile-img"
-              [ngStyle]="{'background-image': 'url( http://localhost:9428/upload/' + player.profile.profilePicture + ')'}">
+              [ngStyle]="{'background-image': 'url(' + basedUrl + '/upload/' + player.profile.profilePicture + ')'}">
             </div>
           </div>
 

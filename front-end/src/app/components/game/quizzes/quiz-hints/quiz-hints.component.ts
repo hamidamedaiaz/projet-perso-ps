@@ -24,12 +24,10 @@ export class QuizHintsComponent implements OnDestroy {
 
   private SHOW_HINT_TIMER: number = 5;
 
-  @Input()
-  font_size! : number;
+  @Input() font_size! : number;
 
   constructor(private quizService: QuizService, private currentProfileService: CurrentProfileService, private recordResultService: RecordResultService) {
     this.currentProfileService.current_profile$.subscribe((profile) => {
-      // On divise par 1000 pour passer de MS en S
       this.SHOW_HINT_TIMER = profile.SHOW_HINT_TIMER / 1000;
     })
 
@@ -56,9 +54,7 @@ export class QuizHintsComponent implements OnDestroy {
   }
 
 
-  ngOnDestroy(): void {
-    this.stopTimer();
-  }
+  ngOnDestroy(): void { this.stopTimer(); }
 
   private startTimer(): void {
 
@@ -67,8 +63,6 @@ export class QuizHintsComponent implements OnDestroy {
     this.timerSubscription = interval(1000).subscribe(() => {
 
       this.timer--;
-
-      console.log(this.timer, this.displayedHints, this.hints)
 
       if (this.timer <= 0 && this.displayedHints.length < this.hints.length) {
 
@@ -94,11 +88,7 @@ export class QuizHintsComponent implements OnDestroy {
     }
   }
 
-  public getHints(): string[] {
-    return this.hints;
-  }
+  public getHints(): string[] { return this.hints; }
 
-  public getDisplayedHints(): string[] {
-    return this.displayedHints;
-  }
+  public getDisplayedHints(): string[] { return this.displayedHints; }
 }

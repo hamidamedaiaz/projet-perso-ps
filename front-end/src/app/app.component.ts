@@ -6,6 +6,4 @@ import { SessionService } from 'src/services/session.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor(private sessionService:SessionService) {}
-}
+export class AppComponent { constructor(private sessionService: SessionService) { } }

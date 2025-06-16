@@ -1,8 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StatsService } from 'src/services/stats.service';
-
-
 
 @Component({
 
@@ -19,26 +16,10 @@ export class QuizResultHeaderComponent {
   @Output() show_pop_up = new EventEmitter();
   @Output() goBack = new EventEmitter();
 
-  constructor(private statsService: StatsService) { }
+  constructor() { }
 
-  goback(): void {
-    console.log("go back")
-    this.goBack.emit()
-  }
+  goback(): void { this.goBack.emit() }
 
-  showPopUp() {
-    this.show_pop_up.emit(true);
-  }
-
-
-//     async deleteQuizResult() {
-//   try {
-//     await this.statsService.deleteQuizResult();
-//     this.goback(); // Seulement après succès
-//   } catch (err) {
-//     alert("Erreur lors de la suppression !");
-//     console.error(err);
-//   }
-// }
+  showPopUp() { this.show_pop_up.emit(true); }
 
 }

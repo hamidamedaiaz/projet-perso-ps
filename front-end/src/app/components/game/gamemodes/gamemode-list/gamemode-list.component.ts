@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Gamemode } from 'src/models/gamemode.model';
 import { GamemodeService } from 'src/services/gamemode.service';
-import { LocalStorageService } from 'src/services/localstorage.service';
 
 
 @Component({
@@ -13,21 +12,22 @@ export class GamemodeListComponent {
 
   public gamemodeList: Gamemode[] = [];
 
-  constructor(public gamemodeService: GamemodeService){
+  constructor(public gamemodeService: GamemodeService) {
     this.gamemodeService.gamemodes$.subscribe((gamemodes) => {
       this.gamemodeList = gamemodes;
     });
   }
 
   gamemodeSelected(id: number) {
-    console.log(id)
-    if(id === 0){
-      this.gamemodeService.playSolo();
-    }
-    else if(id === 1){
-      this.gamemodeService.playMulti();
-    } else {
-      console.log("Error : Undefied Gamemode")
+    switch (id) {
+      case 0:
+        this.gamemodeService.playSolo();
+        break;
+      case 1:
+        this.gamemodeService.playMulti();
+        break
+      default:
+        console.error("Error : Undefied Gamemode")
     }
   }
 

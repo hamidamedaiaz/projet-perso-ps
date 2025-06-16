@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'
-import { Router } from '@angular/router';
-import { QuizService } from 'src/services/quiz.service';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
@@ -43,12 +41,11 @@ export class AnswerSubmittedPageComponent {
     this.show_result = false;
 
     this.clearTimer();
-    this.sessionService.connect()
+    this.sessionService.connectToSession()
 
     this.loadLocalStorage();
 
     this.socketService.listen('correct-answer', (data) => {
-      console.log('correct-answer - ', data);
       if (data.sessionId === this.sessionService.getSessionId()) {
         this.message = "Bonne réponse !"
         this.localStorageService.storeItem(this.MESSAGE_KEY, JSON.stringify(this.message));
@@ -57,7 +54,6 @@ export class AnswerSubmittedPageComponent {
     })
 
     this.socketService.listen('wrong-answer', (data) => {
-      console.log('wrong answer - ', data)
       if (data.sessionId === this.sessionService.getSessionId()) {
         this.message = "Dommage, bien essayé !"
         this.correctAnswer = false;
@@ -91,10 +87,6 @@ export class AnswerSubmittedPageComponent {
     }, this.VALID_QUESTION_TIME);
   }
 
-  private clearTimer(): void {
-    if (this.valideQuestionTimer) {
-      clearTimeout(this.valideQuestionTimer)
-    }
-  }
+  private clearTimer(): void { if (this.valideQuestionTimer) clearTimeout(this.valideQuestionTimer) }
 
 }

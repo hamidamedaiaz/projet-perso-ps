@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Question } from "src/models/question.model";
 import { Quiz } from "src/models/quiz.model";
-import { EMPTY_QUIZ } from "src/mocks/quiz.mock";
 import { CurrentProfileService } from "./currentProfile.service";
 import { GUEST_PROFILE } from "src/mocks/profile-list.mock";
 import { Profile } from "src/models/profile.model";
@@ -41,7 +40,7 @@ export class QuizConfigurationService {
 
     public applyNumberOfDisplayedAnswersConfiguration(question: Question): Question {
 
-        if(this.profile.NUMBER_OF_WRONG_ANSWERS_DISPLAYED == -1) return question
+        if (this.profile.NUMBER_OF_WRONG_ANSWERS_DISPLAYED == -1) return question
 
         const originalAnswers = [...question.answers];
         const correctAnswers = originalAnswers.filter(answer => answer.isCorrect);
@@ -68,7 +67,7 @@ export class QuizConfigurationService {
 
     public applyNumberOfDisplayedHintsConfiguration(question: Question): Question {
 
-        if(this.profile.NUMBER_OF_HINTS_DISPLAYED == -1) return question;
+        if (this.profile.NUMBER_OF_HINTS_DISPLAYED == -1) return question;
 
         const hints: string[] = [];
         const originalHints = [...question.hints];

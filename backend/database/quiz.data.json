@@ -35,7 +35,7 @@
         "hints": [
           "Le leader du groupe était Freddie Mercury"
         ],
-        "audioPath": "1749038821531-file_example_MP3_5MG.mp3"
+        "audioPath": "1749992905027-Bohemian Rhapsody.mp3"
       },
       {
         "id": 102,
@@ -684,65 +684,6 @@
             "id": 4,
             "answerContent": "Réponse D",
             "isCorrect": false
-          }
-        ],
-        "hints": [],
-        "audioPath": ""
-      }
-    ]
-  },
-  {
-    "id": 1749477085180,
-    "title": "Nouveau Quiz",
-    "questions": [
-      {
-        "id": 1,
-        "question": "Question Vide 1",
-        "answers": [
-          {
-            "questionId": 1,
-            "id": 1,
-            "answerContent": "Bonne Réponse",
-            "isCorrect": true
-          },
-          {
-            "questionId": 1,
-            "id": 2,
-            "answerContent": "Mauvaise Réponse",
-            "isCorrect": false
-          }
-        ],
-        "hints": [
-          "Indice 1",
-          "Indice 2"
-        ],
-        "audioPath": ""
-      },
-      {
-        "id": 2,
-        "question": "Question Vide 2",
-        "answers": [
-          {
-            "questionId": 2,
-            "id": 1,
-            "answerContent": " ",
-            "isCorrect": true
-          }
-        ],
-        "hints": [
-          " "
-        ],
-        "audioPath": ""
-      },
-      {
-        "id": 3,
-        "question": "bon cette fois ci c'est pour de vraidzd",
-        "answers": [
-          {
-            "questionId": 3,
-            "id": 1,
-            "answerContent": "d'accord",
-            "isCorrect": true
           }
         ],
         "hints": [],

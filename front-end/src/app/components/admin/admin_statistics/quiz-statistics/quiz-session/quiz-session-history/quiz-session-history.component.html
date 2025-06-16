@@ -14,7 +14,7 @@
           <tr class="quiz-table-row" *ngFor="let session of sessionHistory, let i = index" (click)="viewSessionDetails(session.sessionId)">
             <td> {{ session.sessionId }}</td>
             <td class="quiz-title">{{ quizTitle }}</td>
-            <td>{{ session.dateDebut }}</td>
+            <td>{{ getDate(session) }}</td>
             <td>
               <div class="score-display" [ngClass]="getScoreColor(getPercent(session))">
                 {{ session.averageScore }}/{{ session.numberOfQuestions }}

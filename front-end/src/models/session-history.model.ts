@@ -1,10 +1,9 @@
 import { QuizResult } from "./quiz-result.model";
-import { Quiz } from "./quiz.model";
 
 export interface SessionHistory {
     sessionId: string;
-    quizId:number;
-    dateDebut: string;
+    quizId: number;
+    dateDebut: number;
     averageScore: number;
     numberOfQuestions: number;
     numberOfplayers: number;

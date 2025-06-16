@@ -12,7 +12,5 @@ export class NotFoundPageComponent {
 
   constructor(private location: Location){}
 
-  public redirectToHomePage(){
-    this.location.back();
-  }
+  public redirectToHomePage(){ this.location.back(); }
 }

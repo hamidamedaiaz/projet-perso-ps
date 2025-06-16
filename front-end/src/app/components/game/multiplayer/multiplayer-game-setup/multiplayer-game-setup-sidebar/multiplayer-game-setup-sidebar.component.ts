@@ -25,21 +25,16 @@ export class MultiplayerGameSetupSidebarComponent {
 
   public sessionId: String = "None";
 
-  constructor(private router: Router, private sessionService: SessionService, private quizService: QuizService,private currentPageService: CurrentPageService) {
-    this.quizService.quiz$.subscribe((quiz) => {
-      this.quiz = quiz;
-    })
+  constructor(private router: Router, private sessionService: SessionService, private quizService: QuizService, private currentPageService: CurrentPageService) {
+    this.quizService.quiz$.subscribe((quiz) => { this.quiz = quiz; })
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId)
   }
 
-  public launchGame() { 
-    if(this.sessionService.players.length > 0) this.launch_game.emit(true); 
-  }
+  public launchGame() { if (this.sessionService.players.length > 0) this.launch_game.emit(true); }
 
   public leaveSetup() {
-    console.log("Leaving Setup");
     this.sessionService.leaveSetup();
     this.currentPageService.adminNav('quiz');
-    this.router.navigate(["/admin"]); 
+    this.router.navigate(["/admin"]);
   }
 }

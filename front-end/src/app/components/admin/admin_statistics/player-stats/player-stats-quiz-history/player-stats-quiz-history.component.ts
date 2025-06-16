@@ -24,9 +24,7 @@ export class PlayerStatsQuizHistoryComponent {
 
   constructor(private computeStatisticsService: ComputeStatisticService, private quizListService: QuizListService) { }
 
-  viewQuizDetails(quizId: number) {
-    this.viewDetailsEvent.emit(quizId);
-  }
+  viewQuizDetails(quizId: number) { this.viewDetailsEvent.emit(quizId); }
 
   ngOnInit() {
     const quizIds = [...new Set(this.quizResults.map(qr => qr.quizId))];
@@ -35,13 +33,9 @@ export class PlayerStatsQuizHistoryComponent {
     });
   }
 
-  getQuizTitle(quizId: number): string {
-    return this.quizzesMap[quizId]?.title || 'Chargement...';
-  }
+  getQuizTitle(quizId: number): string { return this.quizzesMap[quizId]?.title || 'Chargement...'; }
 
-  getQuizScore(quizResult: QuizResult): number {
-    return this.computeStatisticsService.getScore(quizResult.questionResults);
-  }
+  getQuizScore(quizResult: QuizResult): number { return this.computeStatisticsService.getScore(quizResult.questionResults); }
 
 
   getScoreColor(score: number): string {
@@ -56,9 +50,7 @@ export class PlayerStatsQuizHistoryComponent {
 
   getQuizId(quizResult: QuizResult): number { return quizResult.quizId }
 
-  getQuiz(quizId: number) {
-    return this.quizListService.getQuiz(quizId)
-  }
+  getQuiz(quizId: number) { return this.quizListService.getQuiz(quizId) }
 
   getQuizNbOfQuestions(quizResult: QuizResult): number { return quizResult.questionResults.length }
 
@@ -67,9 +59,7 @@ export class PlayerStatsQuizHistoryComponent {
       .getPercentages(this.getQuizScore(quizResult), this.getQuizNbOfQuestions(quizResult))
   }
 
-  getTimeSpent(quizResult: QuizResult): number {
-    return this.computeStatisticsService.getAverageTimeSpent(quizResult.questionResults)
-  }
+  getTimeSpent(quizResult: QuizResult): number { return this.computeStatisticsService.getAverageTimeSpent(quizResult.questionResults) }
 
   getHintsUsed(quizResult: QuizResult): number { return this.computeStatisticsService.getTotalHintUsed(quizResult.questionResults) }
 

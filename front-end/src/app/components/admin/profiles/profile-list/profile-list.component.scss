@@ -135,6 +135,7 @@ app-profile-list {
   min-width: 12vh;
   transition: all 0.3s ease;
   background-color: #0086e0;
+  color:white;
 }
 
 .save-btn:hover {
@@ -548,10 +549,12 @@ app-profile-list {
 }
 
 .card-grid-multi {
+  flex-grow: 1;
   overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, 30vh);
   grid-template-rows: repeat(auto-fit, 16vh);
+  justify-content: center;
   gap: 2vh;
   padding: 2vh;
   border-radius: 1vh;

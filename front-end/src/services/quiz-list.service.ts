@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Quiz } from "../models/quiz.model";
 import { EMPTY_QUIZ } from 'src/mocks/quiz.mock';
 import { Question } from 'src/models/question.model';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizListService {
-  private apiUrl = 'http://localhost:9428/api/quizzes';
+  private apiUrl = environment.apiUrl + '/quizzes';
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject<Quiz[]>([]);
   private quizzes: Quiz[] = []
   public selectedEditQuiz$ = new BehaviorSubject<Quiz | null>(null);
 
-  constructor(private http: HttpClient) {
-    this.getQuizzes();
-  }
+  constructor(private http: HttpClient) { this.getQuizzes(); }
 
   public getQuizzes(): void {
     this.http.get<Quiz[]>(this.apiUrl).subscribe((quizzes: Quiz[]) => {
@@ -27,7 +26,7 @@ export class QuizListService {
 
   public getQuiz(quizId: number): Quiz {
     let quiz = this.quizzes.find((quiz) => quiz.id === quizId)
-    if(quiz) return quiz;
+    if (quiz) return quiz;
     return EMPTY_QUIZ;
   }
 
@@ -35,11 +34,8 @@ export class QuizListService {
 
     this.isQuizCorrect(q);
 
-    console.log("[SERVER REQUEST] - Request edition : ", q)
-
     this.http.post<Quiz>(this.apiUrl, q).subscribe({
-      next: (res) => {
-        console.log("[SERVER RESPONSE] - ", res)
+      next: () => {
         this.getQuizzes();
       },
       error: (err) => console.error("[SERVER ERROR] - ", err)
@@ -57,45 +53,43 @@ export class QuizListService {
   }
 
 
-  public isQuizCorrect(q : Quiz) : void{
-    if(q.questions.length == 0){
+  public isQuizCorrect(q: Quiz): void {
+    if (q.questions.length == 0) {
       throw new Error("Quiz lenght error");
     }
     q.questions.forEach(q => {
 
-      if(q.question.length == 0){
+      if (q.question.length == 0) {
         throw new Error("Question title incorrect");
       }
       let correctAnswerCount = 0;
       q.answers.forEach(a => {
-        if(a.isCorrect){
-          correctAnswerCount+=1;
+        if (a.isCorrect) {
+          correctAnswerCount += 1;
         }
       })
-      if(correctAnswerCount == 0){
+      if (correctAnswerCount == 0) {
         throw new Error("No correct answer in a question");
       }
     })
   }
 
-  public isQuestionCorrect(question:Question){
-    if(question.question.length == 0){
-        throw new Error("Question title incorrect");
+  public isQuestionCorrect(question: Question) {
+    if (question.question.length == 0) {
+      throw new Error("Question title incorrect");
+    }
+    let correctAnswerCount = 0;
+    question.answers.forEach(a => {
+      if (a.isCorrect) {
+        correctAnswerCount += 1;
       }
-      let correctAnswerCount = 0;
-      question.answers.forEach(a => {
-        if(a.isCorrect){
-          correctAnswerCount+=1;
-        }
-      })
-      if(correctAnswerCount == 0){
-        throw new Error("No correct answer in a question");
-      }
+    })
+    if (correctAnswerCount == 0) {
+      throw new Error("No correct answer in a question");
+    }
   }
 
-  public selectQuizForEdition(quiz: Quiz): void {
-    this.selectedEditQuiz$.next(quiz);
-  }
+  public selectQuizForEdition(quiz: Quiz): void { this.selectedEditQuiz$.next(quiz); }
 
   public deleteQuiz(quizId: number): void {
     try {
@@ -106,7 +100,6 @@ export class QuizListService {
         error: (err) => console.error("SERVER ERROR - ", err)
       });
     } catch (err) { console.error("Error - ", err) }
-
   }
 
 }

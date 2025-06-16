@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import { Quiz } from 'src/models/quiz.model';
@@ -14,7 +14,6 @@ import { SessionResultDetailsComponent } from 'src/app/components/admin/admin_st
 import { SessionHistory } from 'src/models/session-history.model';
 import { EMPTY_SESSION_HISTORY } from 'src/mocks/session-history.mock';
 import { SessionResultService } from 'src/services/session-result.service';
-import { SessionQuestionResult } from 'src/models/session-result.model';
 
 Chart.register(...registerables);
 
@@ -59,10 +58,9 @@ export class QuizStatsComponent {
 
   public selectedSessionHistory: SessionHistory = EMPTY_SESSION_HISTORY;
 
-  protected sessionHistory:SessionHistory[] = [];
+  protected sessionHistory: SessionHistory[] = [];
 
-  @Output()
-  go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @ViewChild('groupChart') groupChartRef!: ElementRef<HTMLCanvasElement>;
   private chart!: Chart;
@@ -99,9 +97,7 @@ export class QuizStatsComponent {
 
   public getQuiz() { return this.quiz }
 
-  goBack() {
-    { this.pageService.adminNav('selection-stat-quiz') }
-  }
+  goBack() { this.pageService.adminNav('selection-stat-quiz') }
 
   loadQuestions(): void {
     this.questionsStats = this.quiz.questions.map(q => {
@@ -192,14 +188,13 @@ export class QuizStatsComponent {
   public getQuizId() { return this.quizId; }
 
   public viewSessionDetails(sessionId: string) {
-  
+
     const tempSelectedSessionHistory = this.sessionHistory.find((sessionRes) => sessionRes.sessionId === sessionId);
 
     if (tempSelectedSessionHistory) {
       this.selectedSessionHistory = tempSelectedSessionHistory
       this.isSessionSelected = true;
     }
-
 
   }
 
@@ -214,7 +209,7 @@ export class QuizStatsComponent {
     this.isSessionSelected = false;
   }
 
-  public getSessionHistory(){ return this.sessionHistory; }
+  public getSessionHistory() { return this.sessionHistory; }
 
 }
 

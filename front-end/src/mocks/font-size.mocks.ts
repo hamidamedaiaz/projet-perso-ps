@@ -1,17 +1,17 @@
 import { FontSize } from "src/models/font-size.model";
 
 export const SMALL: FontSize = {
-    value:"small"
+    value: "small"
 }
 
 export const MEDIUM: FontSize = {
-    value:"medium"
+    value: "medium"
 }
 
 export const LARGE: FontSize = {
-    value:"large"
+    value: "large"
 }
 
 export const XLARGE: FontSize = {
-    value:"xlarge"
+    value: "xlarge"
 }

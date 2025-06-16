@@ -15,34 +15,32 @@ import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 export class QuizResultInfoComponent {
   @Input() quiz!: Quiz;
   @Input() profile!: Profile;
-  @Input() date!:number;
+  @Input() date!: number;
   @Input() questionResults!: QuestionResult[];
 
-  constructor(private computeStatisticService:ComputeStatisticService){}
-  
-  getScore(){ console.log(this.computeStatisticService.getScore(this.questionResults)); return this.computeStatisticService.getScore(this.questionResults) }
+  constructor(private computeStatisticService: ComputeStatisticService) { }
 
-  getTotalQuestions():number{ return this.quiz.questions.length; }
+  getScore() { return this.computeStatisticService.getScore(this.questionResults) }
 
-  getPercentages(){ return this.computeStatisticService.getPercentages(this.getScore(), this.getTotalQuestions()) }
-  
-  getDate(){
-    return this.computeStatisticService.convertTimeStampToDate(this.date);
-  }
+  getTotalQuestions(): number { return this.quiz.questions.length; }
 
-  getAverageTimePerQuestions(){ return this.computeStatisticService.getAverageTimeSpent(this.questionResults); }
+  getPercentages() { return this.computeStatisticService.getPercentages(this.getScore(), this.getTotalQuestions()) }
 
-  getTotalHintsUsed(){ return this.computeStatisticService.getTotalHintUsed(this.questionResults) }
+  getDate() { return this.computeStatisticService.convertTimeStampToDate(this.date); }
+
+  getAverageTimePerQuestions() { return this.computeStatisticService.getAverageTimeSpent(this.questionResults); }
+
+  getTotalHintsUsed() { return this.computeStatisticService.getTotalHintUsed(this.questionResults) }
 
   getScoreClass(): string {
-    let percent:number = this.computeStatisticService.getPercentages(this.getScore(),this.getTotalQuestions())
-    if ( percent >= 70) return 'grande-score';
+    let percent: number = this.computeStatisticService.getPercentages(this.getScore(), this.getTotalQuestions())
+    if (percent >= 70) return 'grande-score';
 
     else if (percent >= 50) return 'moyenne-score';
-    
+
     return 'petite-score';
   }
 
-  
+
 
 }

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuizService } from 'src/services/quiz.service'
 import { CurrentPageService } from 'src/services/currentPage.service';
-import { QuizListService } from 'src/services/quiz-list.service';
 import { GameTutorialComponent } from 'src/app/components/game/game-tutorial/game-tutorial.component';
 import { SocketService } from 'src/services/socket.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
@@ -34,12 +32,10 @@ export class WaitingStartPageComponent {
     private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("waiting-start-page")
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId);
-    this.sessionService.connect()
+    this.sessionService.connectToSession()
   }
 
-  public setWaitingMessage(message: string) {
-    this.waiting_message = message;
-  }
+  public setWaitingMessage(message: string) { this.waiting_message = message; }
 
   public setGameReady() { this.gameIsReady = true; }
 
@@ -49,8 +45,6 @@ export class WaitingStartPageComponent {
     this.socketService.emit("leave-session", { profile: this.currentProfileService.getCurrentProfile(), sessionId: this.sessionId })
     this.socketService.emit("lobby-connection", this.currentProfileService.getCurrentProfile());
   }
-  
-  public goTutorial(){
-    this.router.navigate(['/solo-tutorial'])
-  }
+
+  public goTutorial() { this.router.navigate(['/tutorial']) }
 }

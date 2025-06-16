@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { QuizService } from 'src/services/quiz.service';
@@ -25,9 +25,7 @@ export class QuizScoreboardComponent implements OnInit {
     this.maxPoint = this.QuizService.getNumberOfQuestions();
   }
 
-  ngOnInit(): void {
-    this.loadConfettiScript();
-  }
+  ngOnInit(): void { this.loadConfettiScript(); }
 
   loadConfettiScript(): void {
     const script = document.createElement('script');
@@ -62,13 +60,11 @@ export class QuizScoreboardComponent implements OnInit {
   }
 
   public replay() {
-    console.log("replay");
     this.QuizService.resetCurrentQuiz();
     this.router.navigate(["/select-quiz"]);
   }
 
   public exit() {
-    console.log("exiting the quiz...");
     this.QuizService.resetCurrentQuiz();
     this.currentProfileService.resetCurrentProfile();
     this.router.navigate(["/"]);

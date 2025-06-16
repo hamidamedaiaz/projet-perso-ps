@@ -6,6 +6,7 @@ import { Profile } from 'src/models/profile.model';
 import { SocketService } from 'src/services/socket.service';
 import { Player } from 'src/models/player.model';
 import { SessionService } from 'src/services/session.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-multiplayer-profile-list',
@@ -22,13 +23,12 @@ export class MultiplayerProfileListComponent {
 
   private sessionId: string = "None";
 
+  public basedUrl:string = environment.basedUrl;
+
   constructor(private sessionService: SessionService,
     private socketService: SocketService) {
 
-    this.sessionService.players$.subscribe((players) => {
-      console.log(players)
-      this.players = players;
-    })
+    this.sessionService.players$.subscribe((players) => { this.players = players; })
 
     this.sessionService.sessionId$.subscribe((sessionId) => this.sessionId = sessionId)
   }

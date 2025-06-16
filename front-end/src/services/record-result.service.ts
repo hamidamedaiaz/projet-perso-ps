@@ -13,9 +13,8 @@ import { LocalStorageService } from './localstorage.service';
 import { Player } from 'src/models/player.model';
 import { ProfileService } from './profile.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
+
 export class RecordResultService {
 
   private quizResult: QuizResult = QUIZ_RESULT_EMPTY;
@@ -100,17 +99,9 @@ export class RecordResultService {
     }
   }
 
-  public resetQuizResult() {
-    this.quizResult = this.getEmptyQuizResult();
-  }
+  public resetQuizResult() { this.quizResult = this.getEmptyQuizResult(); }
 
-  public stopRecording() {
-    if (!this.disabled) {
-      console.log('[CLIENT] Stop recording')
-      this.quizResult.dateFin = Date.now();
-      console.log(this.quizResult)
-    }
-  }
+  public stopRecording() { if (!this.disabled) this.quizResult.dateFin = Date.now(); }
 
   private generateEmptyQuestionResult(questionId: number): QuestionResult {
     return {
@@ -154,11 +145,11 @@ export class RecordResultService {
     this.quizResult.players = [];
 
     if (this.gamemodeService.getCurrentGamemode().id === 0) this.setSessionId(this.generateRandomSessionId());
-    
+
     this.quiz.questions.forEach(element => {
       this.quizResult.questionResults.push(this.generateEmptyQuestionResult(element.id));
     });
-    
+
   }
 
   private generateRandomSessionId() {

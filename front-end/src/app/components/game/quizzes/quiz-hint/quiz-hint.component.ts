@@ -9,10 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class QuizHintComponent {
 
-  @Input()
-  hint!: String;
+  @Input() hint!: String;
 
-  @Input()
-  font_size!: number;
+  @Input() font_size!: number;
 
 }

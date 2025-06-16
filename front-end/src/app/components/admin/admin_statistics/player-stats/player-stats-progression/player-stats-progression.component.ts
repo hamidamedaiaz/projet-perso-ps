@@ -1,14 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnChanges, SimpleChanges, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
 import { QuizResult } from 'src/models/quiz-result.model';
@@ -25,24 +15,20 @@ export class PlayerStatsProgressionComponent implements AfterViewInit, OnChanges
 
   @Input() quizResultsOfTheYear!: { [month: string]: QuizResult[]; };
   @Input() activeTab: 'score' | 'hints' | 'time' | 'accuracy' = 'score';
-  @Input() yearsPlayed:number[] = [];
+  @Input() yearsPlayed: number[] = [];
   @Input() activeYear: number = this.getCurrentYear();
-  
+
   @Output() tabChange = new EventEmitter<'score' | 'hints' | 'time' | 'accuracy'>();
   @Output() yearChange = new EventEmitter<number>();
 
   @ViewChild('progressChartCanvas') chartRef!: ElementRef<HTMLCanvasElement>;
   chart!: Chart;
 
-  constructor(private computeStatisticService: ComputeStatisticService) {
-
-  }
+  constructor(private computeStatisticService: ComputeStatisticService) { }
 
   private getCurrentYear(): number { return new Date(Date.now()).getFullYear() }
 
-  ngAfterViewInit() {
-    this.initChart();
-  }
+  ngAfterViewInit() { this.initChart(); }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.chart && (changes['monthlyPerformance'] || changes['activeTab'] || changes['activeYear'])) {
@@ -50,11 +36,9 @@ export class PlayerStatsProgressionComponent implements AfterViewInit, OnChanges
     }
   }
 
-  setActiveTab(tab: 'score' | 'hints' | 'time' | 'accuracy') {
-    this.tabChange.emit(tab);
-  }
+  setActiveTab(tab: 'score' | 'hints' | 'time' | 'accuracy') { this.tabChange.emit(tab); }
 
-  setActiveYear(year:number){
+  setActiveYear(year: number) {
     this.activeYear = year;
     this.yearChange.emit(year);
   }
@@ -131,7 +115,7 @@ export class PlayerStatsProgressionComponent implements AfterViewInit, OnChanges
 
 
   getChartData() {
-    
+
     const labels = this.generateMonthLabel(this.activeYear);
 
     const hintUsed = labels.map(month =>

@@ -17,10 +17,9 @@ import { QuestionResult } from 'src/models/question-result.model';
   templateUrl: './session-result-questions.component.html',
   styleUrl: './session-result-questions.component.scss'
 })
-export class SessionResultQuestionsComponent implements OnInit{
+export class SessionResultQuestionsComponent implements OnInit {
 
-  @Input()
-  sessionHistory: SessionHistory = EMPTY_SESSION_HISTORY
+  @Input() sessionHistory: SessionHistory = EMPTY_SESSION_HISTORY
 
   protected quiz: Quiz = EMPTY_QUIZ;
 
@@ -29,36 +28,30 @@ export class SessionResultQuestionsComponent implements OnInit{
   constructor(
     private quizListService: QuizListService,
     private sessionResultService: SessionResultService,
-    private computeStatisticService:ComputeStatisticService
-  ) {}
+    private computeStatisticService: ComputeStatisticService
+  ) { }
 
   ngOnInit(): void {
-    // Initialiser ici quand l'@Input est disponible
     this.quiz = this.quizListService.getQuiz(this.sessionHistory.quizId);
     this.sessionQuestionResults = this.sessionResultService.getSessionResults(this.sessionHistory);
-    console.log("sessionHistory", this.sessionHistory)
   }
 
-  public getSessionResults() {
-    return this.sessionQuestionResults;
-  }
+  public getSessionResults() { return this.sessionQuestionResults; }
 
-  public getQuestion(questionIndex: number) {
-    return this.quiz.questions[questionIndex];
-  }
+  public getQuestion(questionIndex: number) { return this.quiz.questions[questionIndex]; }
 
-  public getAverageTimeSpent(questionResults:QuestionResult[]) {
+  public getAverageTimeSpent(questionResults: QuestionResult[]) {
     return this.computeStatisticService.getAverageTimeSpent(questionResults);
   }
 
-  public getAverageHintsUsed(questionResults:QuestionResult[]){
+  public getAverageHintsUsed(questionResults: QuestionResult[]) {
     return this.computeStatisticService.getAverageHintUsed(questionResults);
   }
 
-  public getNumberOfTimesSelected(sessionQuestionResult:SessionQuestionResult, answerId:number){
+  public getNumberOfTimesSelected(sessionQuestionResult: SessionQuestionResult, answerId: number) {
     let counter = 0;
     sessionQuestionResult.questionResults.forEach((questionResult) => {
-      if(questionResult.answerIds.includes(answerId)) counter++;
+      if (questionResult.answerIds.includes(answerId)) counter++;
     })
     return counter;
   }

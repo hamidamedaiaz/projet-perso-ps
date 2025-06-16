@@ -1,13 +1,10 @@
 import { Injectable } from "@angular/core";
-import { forkJoin, map, Observable, of } from 'rxjs';
 import { QuizResult } from "src/models/quiz-result.model";
 import { Quiz } from "src/models/quiz.model";
 import { QuestionResult } from "src/models/question-result.model";
 import { QuizListService } from "./quiz-list.service";
 import { EMPTY_QUIZ } from "src/mocks/quiz.mock";
 import { ProfileService } from "./profile.service";
-import { Profile } from "src/models/profile.model";
-import { GUEST_PROFILE } from "src/mocks/profile-list.mock";
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +59,7 @@ export class ComputeStatisticService {
     if (quiz.id != -1) {  //Check if the quiz is valid
 
       let question = quiz.questions.find((question) => question.id === questionResult.questionId);
-      if (!question) { console.log("Error - Question Not Found "); return false; }
+      if (!question) { console.warn("Error - Question Not Found "); return false; }
       const correctAnswerIds: number[] = question.answers  //Retrieve only correct answer Ids
         .filter((answer) => answer.isCorrect)
         .map((answer) => answer.id)
@@ -162,7 +159,6 @@ export class ComputeStatisticService {
   public getPercentageOfCorrectAnswer(quizResults: QuizResult[]): number {
     if (quizResults.length === 0) return 0;
     let percentage = 0;
-    console.log("Quiz: ", quizResults)
     quizResults.forEach((quizResult) => {
       let quiz = this.getQuizById(quizResult.quizId);
       if (quiz.id === -1) return;
@@ -272,7 +268,7 @@ export class ComputeStatisticService {
   public createRank(quizResult: QuizResult) {
     const profile = this.profileService.getProfileById(quizResult.profileId);
     if (!profile) {
-      console.log("Profil introuvable pour ID", quizResult.profileId);
+      console.warn("Profil introuvable pour ID", quizResult.profileId);
       return { name: 'None', lastName: '', score: -1 };
     }
     return {

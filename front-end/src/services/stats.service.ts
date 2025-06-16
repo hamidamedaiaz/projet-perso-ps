@@ -3,9 +3,7 @@ import { BehaviorSubject } from "rxjs";
 import { LocalStorageService } from "./localstorage.service";
 import { QuizResultService } from "./quiz-result.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 
 export class StatsService {
 

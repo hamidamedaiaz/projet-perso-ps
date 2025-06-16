@@ -15,7 +15,7 @@
       </button>
 
       <!-- Sous-menu des statistiques -->
-      <div class="submenu" [class.open]="showStatsSubmenu">
+      <div class="submenu" [ngClass]="showStatsSubmenu ? 'open' : 'closed'">
         <button class="sidebar-btn submenu-btn" (click)="setSection('selection-stat-acceuilli')">
           <span>Statistiques Accueillis</span>
         </button>
@@ -67,7 +67,7 @@
 
       <div *ngIf="activeSection === 'acceuilli'" class="acceuilli-section">
         <div class="profiles-panel" [ngClass]="{'collapsed': selectedProfile}">
-          <h2 class="section-title">Liste des acceuillis</h2>
+          <h2 class="section-title">Liste des accueillis</h2>
           <app-profile-list class="profile-list-container" (profileDeleted)="closeConfigPanel()" (profileSelected)="onProfileSelect()"
             [context]="'profile-gestion'">
           </app-profile-list>

@@ -9,20 +9,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class QuizQuestionPopUpComponent {
 
-  @Output()
-  cancel_pop_pup: EventEmitter<Boolean> = new EventEmitter<Boolean>(); 
+  @Output() cancel_pop_pup: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
-  @Output()
-  continue_pop_pup: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() continue_pop_pup: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
-  private message:string = "Voulez-vous passer à la question suivante ?";
+  private message: string = "Voulez-vous passer à la question suivante ?";
 
-  constructor(){}
+  constructor() { }
 
-  public getMessage():string{ return this.message }
+  public getMessage(): string { return this.message }
 
-  public cancelPopUp():void{ this.cancel_pop_pup.emit(true); }
+  public cancelPopUp(): void { this.cancel_pop_pup.emit(true); }
 
-  public continuePopUp():void { this.continue_pop_pup.emit(true)}
+  public continuePopUp(): void { this.continue_pop_pup.emit(true) }
 
 }

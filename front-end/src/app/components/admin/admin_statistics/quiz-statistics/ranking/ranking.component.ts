@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Rank } from 'src/models/rank.model';
 
@@ -9,17 +9,16 @@ import { Rank } from 'src/models/rank.model';
   templateUrl: './ranking.component.html',
   styleUrl: './ranking.component.scss'
 })
-export class RankingComponent {
+export class RankingComponent implements OnInit{
 
 
 
-  @Input()
-  rank: Rank[] = []
+  @Input() rank: Rank[] = []
 
   constructor() { }
 
-  getRank() {
-    return this.rank;
-  }
+  ngOnInit() { this.rank.sort((a, b) => b.score - a.score); }
+
+  getRank() { return this.rank; }
 
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { FormsModule } from '@angular/forms';
 import { PopUpCodeComponent } from 'src/app/popup-code/popup-code.component';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { SocketService } from 'src/services/socket.service';
-
+import { SessionService } from 'src/services/session.service';
 @Component({
   selector: 'app-multiplayer-game-login-page',
   standalone: true,
@@ -32,41 +32,32 @@ export class MultiplayerGameLoginPageComponent {
   constructor(private router: Router,
     private currentPageService: CurrentPageService,
     private currentProfileService: CurrentProfileService,
-    private socketService: SocketService) {
+    private socketService: SocketService,
+    private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("multiplayer-game-login-page")
     this.message = this.JOIN_GAME_MESSAGE;
+    this.sessionService.connect();
   }
 
-
-
   public async joinGame() {
-    if (this.code === "") {
-      this.message = this.INVALID_CODE;
-    }
-    else if (this.code === "0000") {
-      this.message = this.NO_GAME_FOUND;
-    }
-    else if (this.code === "1111") {
-      this.message = this.NOT_ABLE_TO_JOIN
-    }
+    if (this.code === "") this.message = this.INVALID_CODE;
+    
     else {
       const profile = this.currentProfileService.getCurrentProfile();
       this.socketService.emit("join-session", { sessionId: this.code, profile: profile })
     }
+
   }
 
-  
+
 
 
   public leavePage() {
     this.currentProfileService.resetCurrentProfile();
-    this.router.navigate(["/"]) 
+    this.router.navigate(["/"])
   }
 
-  closePopUp() {
-    console.log("close")
-    this.popUp = false;
-  }
+  closePopUp() { this.popUp = false; }
 
   public showPopUp() { this.popUp = true; }
 

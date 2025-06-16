@@ -60,8 +60,6 @@ buildServer((server) => {
 
       const hasJoined = multiplayerQuizManager.joinSession(data.sessionId, data.profile)
 
-      console.log(hasJoined)
-
       if (hasJoined.success) {
         multiplayerQuizManager.registerPlayerSocket(data.profile.id, socket.id)
 
@@ -87,7 +85,7 @@ buildServer((server) => {
       const map = onlineManager.getMap()
       for (const [sId, profile] of map.entries()) {
         if (profile.id === data.profile.id) {
-          console.log('[SERVER] - Demande de move, PLAYER TROUVE', data)
+          console.log('[SERVER] - Demande de move : Player Trouvé')
           io.to(sId).emit('client-game-move', { code: data.sessionId })
         }
       }
@@ -107,7 +105,6 @@ buildServer((server) => {
         multiCast('player-has-leaved-session', data.sessionId, data)
 
         const adminSocket = multiplayerQuizManager.getAdminSocketId(data.sessionId)
-        console.log("[SERVER] admin socket ", adminSocket)
         io.to(adminSocket).emit('player-has-leaved-session', data)
       } else {
         console.log('[SERVER] leave-session-error emitted')
@@ -154,7 +151,7 @@ buildServer((server) => {
       const hasStarted = multiplayerQuizManager.startSession(data.sessionId)
       if (hasStarted.started) {
         console.log('[SERVER] session started successfully')
-        multiCast('quiz-started', data.sessionId, { sessionId: data.sessionId  }) //, players : hasStarted.players })
+        multiCast('quiz-started', data.sessionId, { sessionId: data.sessionId }) //, players : hasStarted.players })
       } else console.log('[SERVER] quiz-started-error')
     })
 
@@ -181,11 +178,11 @@ buildServer((server) => {
           socket.emit('wrong-answer', { sessionId: data.sessionId })
         }
         const adminSocket = multiplayerQuizManager.getAdminSocketId(data.sessionId)
-        
-        console.log('[SERVER] player-has-answered emitted ', data)
+
+        console.log('[SERVER] player-has-answered emitted')
         io.to(adminSocket).emit('player-has-answered', data)
         multiCast('player-has-answered', data.sessionId, data)
-      } else console.log('[SERVER] invalid answer error ')
+      } else console.log('[SERVER] invalid answer error')
     })
 
     socket.on('all-player-has-answered', (data) => {
@@ -195,6 +192,11 @@ buildServer((server) => {
 
     socket.on('login', (data) => {
       console.log('[SERVER] login received')
+      this.reconnected = onlineManager.handleReconnection(data.profile, socket.id)
+    })
+
+    socket.on('login-session', (data) => {
+      console.log('[SERVER] login-session received')
       this.reconnected = multiplayerQuizManager.handleReconnection(data.sessionId, data.profile, socket.id)
     })
 
@@ -209,8 +211,8 @@ buildServer((server) => {
 
       setTimeout(() => {
         if (!reconnected) {
-          console.log(`[SERVER] socket ${socket.id} still disconnected after 5 seconds.`);
 
+          console.log(`[SERVER] socket ${socket.id} still disconnected after 5 seconds.`);
 
           let playerId = null;
           for (const [id, sId] of multiplayerQuizManager.getPlayerSocketMap()) {

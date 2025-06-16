@@ -13,12 +13,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    try {
-        res.status(201).json(Gamemodes.create(req.body, false));
-    } catch(err) {
-        res.status(500).json(err);
-        console.log(err);
-    }
+  try {
+    res.status(201).json(Gamemodes.create(req.body, false));
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
 })
 
 module.exports = router

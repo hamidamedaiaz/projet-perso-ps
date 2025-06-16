@@ -1,12 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Profile } from 'src/models/profile.model';
 import { CurrentPageService } from "src/services/currentPage.service";
-import { ProfileService } from 'src/services/profile.service';
-import { GUEST_PROFILE } from 'src/mocks/profile-list.mock';
-
-
-
+import { environment } from 'src/environments/environment.development';
 @Component({
 
   selector: 'app-player-stats-header',
@@ -20,11 +16,11 @@ import { GUEST_PROFILE } from 'src/mocks/profile-list.mock';
 
 })
 
-
 export class PlayerStatsHeaderComponent {
 
-
   @Input() profile!:Profile;
+
+  protected basedUrl:string = environment.basedUrl;
 
   constructor(private navigation: CurrentPageService) { }
 
@@ -36,7 +32,7 @@ export class PlayerStatsHeaderComponent {
   getInitials(): string {
 
     if (!this.profile) {
-      console.log("Error - Profile not found"); 
+      console.error("Error - Profile not found"); 
       return '';
     }
 

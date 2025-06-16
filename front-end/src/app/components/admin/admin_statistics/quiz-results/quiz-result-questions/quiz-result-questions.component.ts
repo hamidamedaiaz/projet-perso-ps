@@ -29,17 +29,17 @@ export class QuizResultQuestionsComponent {
   isUserAnswer(answer: Answer, questionIndex: number): boolean {
     try {
       if (this.questionResults[questionIndex].answerIds.includes(answer.id)) return true;
-    } catch (err) { console.log(err); return false; }
+    } catch (err) { console.error(err); return false; }
     return false;
   }
 
   isCorrectAnswer(answer: Answer): boolean { return answer.isCorrect; }
 
-  getTimeSpent(result:QuestionResult){ return Math.round(result.timeSpent/1000) }
+  getTimeSpent(result: QuestionResult) { return Math.round(result.timeSpent / 1000) }
 
-  getHintsUsed(result: QuestionResult){ return result.numberOfHintsUsed }
+  getHintsUsed(result: QuestionResult) { return result.numberOfHintsUsed }
 
-  getQuestionResults(){ return this.questionResults}
+  getQuestionResults() { return this.questionResults }
 
   getTryIndex(a: Answer, indexQ: number): number {
     return this.questionResults[indexQ].answerIds.findIndex(id => id === a.id);

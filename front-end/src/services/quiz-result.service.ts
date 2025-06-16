@@ -6,6 +6,7 @@ import { QUIZ_RESULT_EMPTY } from 'src/mocks/quiz-results.mock';
 import { ProfileService } from './profile.service';
 import { firstValueFrom } from 'rxjs';
 import { CurrentProfileService } from './currentProfile.service';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -15,31 +16,28 @@ export class QuizResultService implements OnInit {
 
   private allResults: QuizResult[] = [];
 
-  private apiUrl: string = "http://localhost:9428/api/quiz-results/"
+  private apiUrl: string = environment.apiUrl + "/quiz-results/"
 
   public results$: BehaviorSubject<QuizResult[]> = new BehaviorSubject<QuizResult[]>([]);
 
   constructor(
-    private http: HttpClient, private profileService: ProfileService, private currentProfileService:CurrentProfileService) {
+    private http: HttpClient, private profileService: ProfileService, private currentProfileService: CurrentProfileService) {
     this.requestResult();
   }
 
-  ngOnInit(): void {
-    this.requestResult();
-  }
+  ngOnInit(): void { this.requestResult(); }
 
   public async requestResult(): Promise<void> {
     const quizResults = await firstValueFrom(this.http.get<QuizResult[]>(this.apiUrl));
     this.allResults = quizResults;
     this.results$.next(this.allResults);
   }
-
-
   getQuizResultsByProfile(profileId: number) {
-    const quizResults = this.allResults.filter(
-      (quizResult) => quizResult.profileId === profileId
-    );
-    return quizResults
+    const quizResults = this.allResults
+      .filter((quizResult) => quizResult.profileId === profileId)
+      .sort((a, b) => b.dateDebut - a.dateDebut);
+
+    return quizResults;
   }
 
   getQuizResultsByQuiz(quizId: number) {
@@ -89,7 +87,7 @@ export class QuizResultService implements OnInit {
     return this.profileService.getProfiles(profileIds);
   }
 
-  public async getQuizResults(sessionId:string){
+  public async getQuizResults(sessionId: string) {
     await this.requestResult();
     return this.allResults.filter(result => result.sessionId === sessionId);
   }

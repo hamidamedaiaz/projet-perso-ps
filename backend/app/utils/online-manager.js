@@ -36,3 +36,18 @@ export function getOnlinePlayers() {
 export function getPlayerFromSocketId(socketId) {
   return onlinePlayers.get(socketId);
 }
+
+export function handleReconnection(profile, socketId) {
+  for (const [oldSocketId, player] of onlinePlayers.entries()) {
+    if (player.id === profile.id) {
+      // Supprimer l'ancienne entrée
+      onlinePlayers.delete(oldSocketId);
+      // Ajouter avec le nouveau socketId
+      onlinePlayers.set(socketId, player);
+      console.log('[ONLINE-MANAGER] - Player reconnected:', profile.id);
+      return true;
+    }
+  }
+  console.log('[ONLINE-MANAGER] - Reconnection failed: profile not found', profile.id);
+  return false;
+}

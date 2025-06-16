@@ -1,3 +1,3 @@
-export interface FontSize{
-    value:string;
+export interface FontSize {
+    value: string;
 }

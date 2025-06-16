@@ -2,6 +2,9 @@ import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   reporter: [['html', { open: 'always' }]],
+  testMatch: [
+    'e2e/**/*.spec.ts'
+  ],
   use: {
     headless: false,
     viewport: { width: 1280, height: 720 },

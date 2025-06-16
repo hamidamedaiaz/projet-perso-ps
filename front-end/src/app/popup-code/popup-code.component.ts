@@ -14,15 +14,11 @@ import { Router } from '@angular/router';
 })
 export class PopUpCodeComponent {
 
-  @Input()
-  show: boolean = false;
+  @Input() show: boolean = false;
 
-  @Output()
-  close: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @Output()
-  success: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+  @Output() success: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public hide: boolean = true;
   public codeError: boolean = false;
@@ -75,17 +71,13 @@ export class PopUpCodeComponent {
     // Aller au champ suivant si un chiffre est saisi
     if (index < 3) {
       const nextInput = input.nextElementSibling as HTMLInputElement;
-      if (nextInput) {
-        nextInput.focus();
-      }
+      if (nextInput) nextInput.focus();
     }
 
     // Vérification si tous les chiffres sont remplis
     if (this.code.every(digit => digit !== '')) {
       const finalCode = this.code.join('');
-      if (finalCode === this.CORRECT_CODE) {
-        this.success.emit(true)
-      }
+      if (finalCode === this.CORRECT_CODE) this.success.emit(true)
       else {
         this.codeError = true;
         this.code = ['', '', '', ''];
@@ -97,16 +89,12 @@ export class PopUpCodeComponent {
     }
   }
 
-
-
   keyPressed(i: number, event: KeyboardEvent) {
     const inputs = document.querySelectorAll('.code-inputs input') as NodeListOf<HTMLInputElement>;
 
     if (event.key === 'Backspace') {
       this.code[i] = '';
-      if (i > 0) {
-        inputs[i - 1].focus();
-      }
+      if (i > 0) inputs[i - 1].focus();
       event.preventDefault();
     }
   }

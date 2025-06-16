@@ -9,7 +9,6 @@ import { AnswerComponent } from "../answer/answer.component";
 import { QuizListService } from "../../../../../services/quiz-list.service";
 import { EMPTY_QUIZ } from "../../../../../mocks/quiz.mock";
 import { PopUpService } from "../../../../../services/pop-up.service";
-import { EMPTY_QUESTION } from 'src/mocks/question.mock';
 import { Router } from '@angular/router';
 import { FileUploadService } from "../../../../../services/file-upload.service";
 
@@ -134,34 +133,26 @@ export class QuizDetailsComponent implements OnChanges {
     }
   }
 
-  addHint() {
-    this.selectedQuestion?.hints.push('');
-  }
+  addHint() { this.selectedQuestion?.hints.push(''); }
 
-  deleteHint(index: number) {
-    this.selectedQuestion?.hints.splice(index, 1);
-  }
+  deleteHint(index: number) { this.selectedQuestion?.hints.splice(index, 1); }
 
-  getSelectedQuestionName(question: Question): string {
-    return question.audioPath.split('/').pop() || '';
-  }
+  getSelectedQuestionName(question: Question): string { return question.audioPath.split('/').pop() || ''; }
 
   saveQuiz() {
     // Quand on save on va emit le quiz modifie pour que quiz app puisse le post sur le serveur.
-    console.log("Quiz enregistré :", this.quizCopy);
     try {
       this.quizService.RequestEditQuizzes(this.quizCopy);
       this.popUpService.sendPopup(this.succesPopup);
+      this.quizSaved.emit(this.quizCopy);
     }
     catch (err) {
       this.popUpService.sendPopup(this.errorPopup);
-      console.log("ERROR QUIZ DETAILS")
+      console.error("Error while saving the quiz")
     }
-    this.quizSaved.emit(this.quizCopy);
   }
 
   deleteQuestion(index: number) {
-
 
     //Si l'utilisateur supprime la question actuellement séléctionné
     if (this.selectedQuestion == this.quizCopy.questions[index]) {
@@ -177,9 +168,7 @@ export class QuizDetailsComponent implements OnChanges {
 
   }
 
-  trackByIndex(index: number, item: any): number {
-    return index;
-  }
+  trackByIndex(index: number): number { return index; }
 
   saveQuestion() {
     if (!this.selectedQuestion) {
@@ -196,7 +185,6 @@ export class QuizDetailsComponent implements OnChanges {
         if (this.selectedQuestion) {
           this.quizService.isQuestionCorrect(this.selectedQuestion);
           this.popUpService.sendPopup(this.questionSavedPopup);
-          console.log("Question sauvegardée :", this.selectedQuestion);
         }
       } catch (err) {
         this.popUpService.sendPopup(this.questionErrorPopup);

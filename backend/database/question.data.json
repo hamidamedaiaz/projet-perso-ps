@@ -1,184 +1,40 @@
 [
   {
-    "id": 1749914574728,
-    "sessionId": "0FE219",
+    "id": 1749975134939,
+    "sessionId": "F437E1",
     "quizId": 1747172294366,
-    "profileId": 1749031908696,
-    "dateDebut": 1749914557225,
-    "dateFin": 1749914574572,
+    "profileId": 1747726378306,
+    "dateDebut": 1749975126834,
+    "dateFin": 1749975134841,
     "questionResults": [
       {
-        "id": 300304211811,
+        "id": 753485653070,
         "quizId": 1747172294366,
         "questionId": 101,
         "answerIds": [
           3
         ],
-        "timeSpent": 6575,
+        "timeSpent": 18309,
         "numberOfHintsUsed": 0
       },
       {
-        "id": 1707727114765,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 13736,
-        "numberOfHintsUsed": 1
-      },
-      {
-        "id": 1025858627352,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 11641,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1749031908696,
-        "name": "Abdel",
-        "lastName": "Algerian",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": 5000,
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": "1.25",
-        "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
-      },
-      {
-        "id": 3,
-        "name": "Kylian",
-        "lastName": "Mbappé",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": "5000",
-        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
-        "SHOW_HINT_TIMER": "5000",
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
-        "NUMBER_OF_HINTS_DISPLAYED": "5",
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749914574785,
-    "sessionId": "0FE219",
-    "quizId": 1747172294366,
-    "profileId": 3,
-    "dateDebut": 1749914557226,
-    "dateFin": 1749914574573,
-    "questionResults": [
-      {
-        "id": 719612767728,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          1
-        ],
-        "timeSpent": 6578,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 651088636049,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          5
-        ],
-        "timeSpent": 13733,
-        "numberOfHintsUsed": 1
-      },
-      {
-        "id": 1350179449049,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 11644,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1749031908696,
-        "name": "Abdel",
-        "lastName": "Algerian",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": 5000,
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": "1.25",
-        "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
-      },
-      {
-        "id": 3,
-        "name": "Kylian",
-        "lastName": "Mbappé",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": "5000",
-        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
-        "SHOW_HINT_TIMER": "5000",
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
-        "NUMBER_OF_HINTS_DISPLAYED": "5",
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749915119839,
-    "sessionId": "4542D8",
-    "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749915109387,
-    "dateFin": 1749915119795,
-    "questionResults": [
-      {
-        "id": 538211318107,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 5221,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 732475342824,
+        "id": 758286712000,
         "quizId": 1747172294366,
         "questionId": 102,
         "answerIds": [
           6
         ],
-        "timeSpent": 5773,
+        "timeSpent": 20355,
         "numberOfHintsUsed": 0
       },
       {
-        "id": 1271670799388,
+        "id": 373449952599,
         "quizId": 1747172294366,
         "questionId": 103,
         "answerIds": [
           7
         ],
-        "timeSpent": 6794,
+        "timeSpent": 16311,
         "numberOfHintsUsed": 0
       }
     ],
@@ -188,14 +44,14 @@
     },
     "players": [
       {
-        "id": 1747471940431,
-        "name": "Federico",
-        "lastName": "Valverde",
+        "id": 1747726378306,
+        "name": "Dorian",
+        "lastName": "Villard",
         "role": "user",
         "SHOW_POP_UP_TIMER": 15000,
         "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
         "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": "15000",
+        "SHOW_HINT_TIMER": 5000,
         "NUMBER_OF_HINTS_DISPLAYED": 5,
         "FONT_SIZE": 1,
         "profilePicture": "empty_path"
@@ -203,15 +59,2409 @@
     ]
   },
   {
-    "id": 1749915207657,
-    "sessionId": "EC1E0D",
+    "id": 1749975182816,
+    "sessionId": "F5FB63",
     "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749915200173,
-    "dateFin": 1749915207598,
+    "profileId": 1747726378306,
+    "dateDebut": 1749975180999,
+    "dateFin": 1749975182737,
     "questionResults": [
       {
-        "id": 607179234512,
+        "id": 211666494403,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [],
+        "timeSpent": 12888,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 981092239646,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 1301,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1622299653801,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 1320,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1747726378306,
+        "name": "Dorian",
+        "lastName": "Villard",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "empty_path"
+      }
+    ]
+  },
+  {
+    "id": 1749977380682,
+    "sessionId": "43F543",
+    "quizId": 1747172294368,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977356523,
+    "dateFin": 1749977380657,
+    "questionResults": [
+      {
+        "id": 643631049304,
+        "quizId": 1747172294368,
+        "questionId": 301,
+        "answerIds": [
+          23,
+          21,
+          22,
+          20
+        ],
+        "timeSpent": 18354,
+        "numberOfHintsUsed": 3
+      },
+      {
+        "id": 1285815796319,
+        "quizId": 1747172294368,
+        "questionId": 302,
+        "answerIds": [
+          25,
+          26,
+          24
+        ],
+        "timeSpent": 3695,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 150415174422,
+        "quizId": 1747172294368,
+        "questionId": 3,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 2083,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977393079,
+    "sessionId": "50DBA7",
+    "quizId": 1747172294370,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977385356,
+    "dateFin": 1749977393054,
+    "questionResults": [
+      {
+        "id": 1409773310770,
+        "quizId": 1747172294370,
+        "questionId": 501,
+        "answerIds": [
+          43,
+          41,
+          42,
+          40
+        ],
+        "timeSpent": 8573,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1332444899460,
+        "quizId": 1747172294370,
+        "questionId": 502,
+        "answerIds": [
+          44,
+          45,
+          46
+        ],
+        "timeSpent": 6820,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977403184,
+    "sessionId": "1BCBD7",
+    "quizId": 1747172294373,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977395694,
+    "dateFin": 1749977403156,
+    "questionResults": [
+      {
+        "id": 1171227903374,
+        "quizId": 1747172294373,
+        "questionId": 801,
+        "answerIds": [],
+        "timeSpent": 3148,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1446599471802,
+        "quizId": 1747172294373,
+        "questionId": 802,
+        "answerIds": [],
+        "timeSpent": 3816,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1134571675089,
+        "quizId": 1747172294373,
+        "questionId": 3,
+        "answerIds": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "timeSpent": 15420,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977415401,
+    "sessionId": "CB5591",
+    "quizId": 1749477085180,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977405480,
+    "dateFin": 1749977415376,
+    "questionResults": [
+      {
+        "id": 1313583869214,
+        "quizId": 1749477085180,
+        "questionId": 1,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 8687,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1158282807752,
+        "quizId": 1749477085180,
+        "questionId": 2,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 9800,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 268945123255,
+        "quizId": 1749477085180,
+        "questionId": 3,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 21092,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977423717,
+    "sessionId": "11A9CA",
+    "quizId": 1747172294373,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977417262,
+    "dateFin": 1749977423693,
+    "questionResults": [
+      {
+        "id": 274712572345,
+        "quizId": 1747172294373,
+        "questionId": 801,
+        "answerIds": [
+          70
+        ],
+        "timeSpent": 10484,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1066966845957,
+        "quizId": 1747172294373,
+        "questionId": 802,
+        "answerIds": [
+          74
+        ],
+        "timeSpent": 10253,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 46269899444,
+        "quizId": 1747172294373,
+        "questionId": 3,
+        "answerIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "timeSpent": 11410,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977432368,
+    "sessionId": "C43B03",
+    "quizId": 1747172294368,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977425786,
+    "dateFin": 1749977432343,
+    "questionResults": [
+      {
+        "id": 156606580373,
+        "quizId": 1747172294368,
+        "questionId": 301,
+        "answerIds": [
+          22,
+          23,
+          20
+        ],
+        "timeSpent": 15371,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 343660130306,
+        "quizId": 1747172294368,
+        "questionId": 302,
+        "answerIds": [
+          24
+        ],
+        "timeSpent": 12493,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 393835499652,
+        "quizId": 1747172294368,
+        "questionId": 3,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 11461,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977441309,
+    "sessionId": "E0BB7B",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977433621,
+    "dateFin": 1749977441286,
+    "questionResults": [
+      {
+        "id": 509715795332,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3,
+          1
+        ],
+        "timeSpent": 15497,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1252952079062,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          6,
+          7,
+          4
+        ],
+        "timeSpent": 17159,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1459439328486,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8,
+          9,
+          10,
+          7
+        ],
+        "timeSpent": 20982,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977449486,
+    "sessionId": "C603DA",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977442448,
+    "dateFin": 1749977449463,
+    "questionResults": [
+      {
+        "id": 693236258466,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 14959,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 598343955383,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 16150,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 348152281169,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          9,
+          8,
+          10,
+          7
+        ],
+        "timeSpent": 25000,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977457460,
+    "sessionId": "F225DE",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977450797,
+    "dateFin": 1749977457436,
+    "questionResults": [
+      {
+        "id": 1218442711913,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 17738,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 545426249029,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          6,
+          5,
+          4
+        ],
+        "timeSpent": 21816,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1022974175566,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8,
+          7
+        ],
+        "timeSpent": 20187,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977509718,
+    "sessionId": "49110F",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977502024,
+    "dateFin": 1749977509695,
+    "questionResults": [
+      {
+        "id": 574829308664,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3,
+          4
+        ],
+        "timeSpent": 31388,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1049135628467,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          7,
+          4
+        ],
+        "timeSpent": 25980,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1319085749869,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 19340,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977515147,
+    "sessionId": "9D63FB",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977511116,
+    "dateFin": 1749977515123,
+    "questionResults": [
+      {
+        "id": 2506348174,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [],
+        "timeSpent": 6346,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 395787428432,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 6656,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 566009604455,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "timeSpent": 31054,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977522141,
+    "sessionId": "DE9756",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977516537,
+    "dateFin": 1749977522117,
+    "questionResults": [
+      {
+        "id": 1367259248264,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3,
+          4,
+          1
+        ],
+        "timeSpent": 32038,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1486141761775,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 3744,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1135118187309,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          9,
+          10,
+          8,
+          7
+        ],
+        "timeSpent": 31176,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977533762,
+    "sessionId": "CE20A7",
+    "quizId": 1747172294371,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977531147,
+    "dateFin": 1749977533737,
+    "questionResults": [
+      {
+        "id": 1146459730000,
+        "quizId": 1747172294371,
+        "questionId": 601,
+        "answerIds": [
+          53,
+          50
+        ],
+        "timeSpent": 31277,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 416479437219,
+        "quizId": 1747172294371,
+        "questionId": 602,
+        "answerIds": [],
+        "timeSpent": 4970,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977540965,
+    "sessionId": "10D255",
+    "quizId": 1747172294369,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977535380,
+    "dateFin": 1749977540942,
+    "questionResults": [
+      {
+        "id": 506642997317,
+        "quizId": 1747172294369,
+        "questionId": 401,
+        "answerIds": [
+          30,
+          31,
+          33
+        ],
+        "timeSpent": 43460,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 272561583001,
+        "quizId": 1747172294369,
+        "questionId": 402,
+        "answerIds": [
+          35,
+          33
+        ],
+        "timeSpent": 39941,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977546776,
+    "sessionId": "35B36D",
+    "quizId": 1747172294369,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977542662,
+    "dateFin": 1749977546752,
+    "questionResults": [
+      {
+        "id": 249159141661,
+        "quizId": 1747172294369,
+        "questionId": 401,
+        "answerIds": [
+          32
+        ],
+        "timeSpent": 17390,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1320511713097,
+        "quizId": 1747172294369,
+        "questionId": 402,
+        "answerIds": [
+          36,
+          35,
+          34,
+          33
+        ],
+        "timeSpent": 48032,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749977647350,
+    "sessionId": "1053A7",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977635662,
+    "dateFin": 1749977647323,
+    "questionResults": [
+      {
+        "id": 343482257761,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 124226,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 941958575483,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 37636,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1713332090826,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 42976,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749977682083,
+    "sessionId": "2DD5B4",
+    "quizId": 1747172294370,
+    "profileId": 1749976540932,
+    "dateDebut": 1749977675622,
+    "dateFin": 1749977682057,
+    "questionResults": [
+      {
+        "id": 297298412896,
+        "quizId": 1747172294370,
+        "questionId": 501,
+        "answerIds": [
+          40
+        ],
+        "timeSpent": 97749,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 996308761440,
+        "quizId": 1747172294370,
+        "questionId": 502,
+        "answerIds": [
+          44
+        ],
+        "timeSpent": 32474,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749977745930,
+    "sessionId": "21DA08",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749977733475,
+    "dateFin": 1749977745926,
+    "questionResults": [
+      {
+        "id": 231994559505,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 4492,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1606428144310,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 8378,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 68340928775,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 11293,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      },
+      {
+        "id": 1749976677595,
+        "name": "David",
+        "lastName": "Cantal",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976677587-istockphoto-1488927045-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749977745933,
+    "sessionId": "21DA08",
+    "quizId": 1747172294366,
+    "profileId": 1749976677595,
+    "dateDebut": 1749977733476,
+    "dateFin": 1749977745926,
+    "questionResults": [
+      {
+        "id": 641496515424,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3
+        ],
+        "timeSpent": 4486,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1410799199921,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          6
+        ],
+        "timeSpent": 8378,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1622933029464,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 11293,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      },
+      {
+        "id": 1749976677595,
+        "name": "David",
+        "lastName": "Cantal",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976677587-istockphoto-1488927045-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749979426676,
+    "sessionId": "8898AB",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749979341641,
+    "dateFin": 1749979426673,
+    "questionResults": [
+      {
+        "id": 505693202963,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3,
+          2,
+          1
+        ],
+        "timeSpent": 123833,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1441260084644,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 39027,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1268490107065,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          9,
+          7
+        ],
+        "timeSpent": 7200,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749979568446,
+    "sessionId": "D43E15",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749979506505,
+    "dateFin": 1749979568442,
+    "questionResults": [
+      {
+        "id": 991473358811,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3
+        ],
+        "timeSpent": 124365,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 935384636716,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          6
+        ],
+        "timeSpent": 19292,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1473021489169,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 78279,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749979568448,
+    "sessionId": "D43E15",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749979506505,
+    "dateFin": 1749979568442,
+    "questionResults": [
+      {
+        "id": 459304638692,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 41454,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1646901299447,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 9644,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1507195970297,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 46970,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749980281180,
+    "sessionId": "9BE8CA",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749980182872,
+    "dateFin": 1749980281176,
+    "questionResults": [
+      {
+        "id": 1748103620283,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3,
+          1
+        ],
+        "timeSpent": 407674,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 70003400798,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 86082,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 409219171330,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 96066,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749980462334,
+    "sessionId": "98D950",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749980402539,
+    "dateFin": 1749980462331,
+    "questionResults": [
+      {
+        "id": 378052697835,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 268962,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 575776577128,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 161288,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 719717764422,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 10837,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749980462337,
+    "sessionId": "98D950",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1749980402539,
+    "dateFin": 1749980462330,
+    "questionResults": [
+      {
+        "id": 120130142512,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 153668,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1457211980520,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 100828,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 289958851979,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 7226,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749982207436,
+    "sessionId": "B18A1D",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749982091832,
+    "dateFin": 1749982207433,
+    "questionResults": [
+      {
+        "id": 292790849422,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4,
+          1
+        ],
+        "timeSpent": 452883,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1748707349938,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 98004,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1398662555876,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          9,
+          7
+        ],
+        "timeSpent": 27115,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749982478898,
+    "sessionId": "3D8AFC",
+    "quizId": 1747172294367,
+    "profileId": 1749976540932,
+    "dateDebut": 1749982347337,
+    "dateFin": 1749982478894,
+    "questionResults": [
+      {
+        "id": 388300003597,
+        "quizId": 1747172294367,
+        "questionId": 201,
+        "answerIds": [
+          12
+        ],
+        "timeSpent": 476888,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 365341460485,
+        "quizId": 1747172294367,
+        "questionId": 202,
+        "answerIds": [
+          13
+        ],
+        "timeSpent": 831071,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 633098146566,
+        "quizId": 1747172294367,
+        "questionId": 203,
+        "answerIds": [
+          18
+        ],
+        "timeSpent": 99760,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749982478900,
+    "sessionId": "3D8AFC",
+    "quizId": 1747172294367,
+    "profileId": 1749976633359,
+    "dateDebut": 1749982347337,
+    "dateFin": 1749982478893,
+    "questionResults": [
+      {
+        "id": 588348153964,
+        "quizId": 1747172294367,
+        "questionId": 201,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 333821,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1347883073293,
+        "quizId": 1747172294367,
+        "questionId": 202,
+        "answerIds": [
+          15
+        ],
+        "timeSpent": 604422,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 315472452577,
+        "quizId": 1747172294367,
+        "questionId": 203,
+        "answerIds": [
+          17
+        ],
+        "timeSpent": 74816,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749982544620,
+    "sessionId": "F2B70F",
+    "quizId": 1747172294370,
+    "profileId": 1749976633359,
+    "dateDebut": 1749982530958,
+    "dateFin": 1749982544617,
+    "questionResults": [
+      {
+        "id": 629483682867,
+        "quizId": 1747172294370,
+        "questionId": 501,
+        "answerIds": [
+          40
+        ],
+        "timeSpent": 80953,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 172704137184,
+        "quizId": 1747172294370,
+        "questionId": 502,
+        "answerIds": [
+          45
+        ],
+        "timeSpent": 61191,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749982544622,
+    "sessionId": "F2B70F",
+    "quizId": 1747172294370,
+    "profileId": 1749976540932,
+    "dateDebut": 1749982530958,
+    "dateFin": 1749982544618,
+    "questionResults": [
+      {
+        "id": 1323513572967,
+        "quizId": 1747172294370,
+        "questionId": 501,
+        "answerIds": [
+          43
+        ],
+        "timeSpent": 105233,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 599858730796,
+        "quizId": 1747172294370,
+        "questionId": 502,
+        "answerIds": [
+          45
+        ],
+        "timeSpent": 77873,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749982618903,
+    "sessionId": "401F72",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1749982599981,
+    "dateFin": 1749982618900,
+    "questionResults": [
+      {
+        "id": 1211199701288,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 99910,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1475695707879,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 63218,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 280365814103,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 80218,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749982618905,
+    "sessionId": "401F72",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749982599981,
+    "dateFin": 1749982618900,
+    "questionResults": [
+      {
+        "id": 844792881229,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3
+        ],
+        "timeSpent": 124883,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 724314352842,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 77802,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 809627193931,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          9
+        ],
+        "timeSpent": 97408,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749985233568,
+    "sessionId": "6A9524",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749985109789,
+    "dateFin": 1749985233565,
+    "questionResults": [
+      {
+        "id": 1296570526430,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4,
+          1
+        ],
+        "timeSpent": 108182,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 970442281825,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5,
+          6,
+          4
+        ],
+        "timeSpent": 13647,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 787830355548,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 1943,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749985485558,
+    "sessionId": "E380D2",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1749985392035,
+    "dateFin": 1749985485554,
+    "questionResults": [
+      {
+        "id": 137442526742,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 52524,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1379799630983,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 75009,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 174969059449,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 10437,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749985485560,
+    "sessionId": "E380D2",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749985392035,
+    "dateFin": 1749985485554,
+    "questionResults": [
+      {
+        "id": 648481308539,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 52531,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 524522406231,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 75009,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 814629871382,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 10436,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      },
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749986364559,
+    "sessionId": "C674CE",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1749986226981,
+    "dateFin": 1749986364555,
+    "questionResults": [
+      {
+        "id": 1518540719163,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3,
+          1
+        ],
+        "timeSpent": 451902,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 832088801479,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 76633,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 643161883019,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 21753,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749986611996,
+    "sessionId": "8BA767",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749986511314,
+    "dateFin": 1749986611992,
+    "questionResults": [
+      {
+        "id": 768558357709,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 175122,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 377041438095,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 260613,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1537100711338,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 28626,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      },
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749986611998,
+    "sessionId": "8BA767",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1749986511311,
+    "dateFin": 1749986611993,
+    "questionResults": [
+      {
+        "id": 204540690948,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 43783,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 34674741193,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 104244,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1592684613567,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 14316,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      },
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749991129370,
+    "sessionId": "B8D024",
+    "quizId": 1747172294366,
+    "profileId": 1749990885996,
+    "dateDebut": 1749991041587,
+    "dateFin": 1749991129368,
+    "questionResults": [
+      {
+        "id": 298538882215,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          4,
+          1
+        ],
+        "timeSpent": 74519,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1172466021403,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 9300,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 482282272961,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8,
+          9,
+          7
+        ],
+        "timeSpent": 3959,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749991544870,
+    "sessionId": "629232",
+    "quizId": 1747172294366,
+    "profileId": 1749976584405,
+    "dateDebut": 1749991413729,
+    "dateFin": 1749991544866,
+    "questionResults": [
+      {
+        "id": 392768499849,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [],
+        "timeSpent": 39573,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 454581803235,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 29067,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 774526928578,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 124972,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      },
+      {
+        "id": 1749990885996,
+        "name": "Steve",
+        "lastName": "Presentation",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": "30000",
+        "REMOVE_WRONG_ANSWER_INTERVAL": "5000",
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": "10000",
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749990885991-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749991544872,
+    "sessionId": "629232",
+    "quizId": 1747172294366,
+    "profileId": 1749990885996,
+    "dateDebut": 1749991413729,
+    "dateFin": 1749991544866,
+    "questionResults": [
+      {
+        "id": 169041895815,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [],
+        "timeSpent": 39579,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1561468831044,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 29067,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 469685451085,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 124972,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976584405,
+        "name": "Pierre",
+        "lastName": "Roca",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976584397-istockphoto-153011771-2048x2048.jpg"
+      },
+      {
+        "id": 1749990885996,
+        "name": "Steve",
+        "lastName": "Presentation",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": "30000",
+        "REMOVE_WRONG_ANSWER_INTERVAL": "5000",
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": "10000",
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749990885991-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749992360108,
+    "sessionId": "763008",
+    "quizId": 1747172294366,
+    "profileId": 1749992097244,
+    "dateDebut": 1749992252958,
+    "dateFin": 1749992360106,
+    "questionResults": [
+      {
+        "id": 1655017701545,
         "quizId": 1747172294366,
         "questionId": 101,
         "answerIds": [
@@ -219,72 +2469,28 @@
           3,
           1
         ],
-        "timeSpent": 13793,
-        "numberOfHintsUsed": 0
+        "timeSpent": 300374,
+        "numberOfHintsUsed": 1
       },
       {
-        "id": 1713107487535,
+        "id": 1461748233138,
         "quizId": 1747172294366,
         "questionId": 102,
         "answerIds": [],
-        "timeSpent": 323,
-        "numberOfHintsUsed": 0
+        "timeSpent": 104505,
+        "numberOfHintsUsed": 1
       },
       {
-        "id": 26848028379,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          10,
-          7
-        ],
-        "timeSpent": 15541,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 0,
-      "name": "Seul"
-    },
-    "players": []
-  },
-  {
-    "id": 1749915274805,
-    "sessionId": "393675",
-    "quizId": 1747172294366,
-    "profileId": 3,
-    "dateDebut": 1749915266769,
-    "dateFin": 1749915274760,
-    "questionResults": [
-      {
-        "id": 1387824625677,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          1
-        ],
-        "timeSpent": 5207,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 256996593272,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 4235,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1468254423327,
+        "id": 1246404386117,
         "quizId": 1747172294366,
         "questionId": 103,
         "answerIds": [
           9,
+          8,
+          10,
           7
         ],
-        "timeSpent": 6515,
+        "timeSpent": 23700,
         "numberOfHintsUsed": 0
       }
     ],
@@ -295,42 +2501,227 @@
     "players": []
   },
   {
-    "id": 1749915300247,
-    "sessionId": "86823E",
+    "id": 1749993250844,
+    "sessionId": "6E4FF5",
     "quizId": 1747172294366,
-    "profileId": 1749031908696,
-    "dateDebut": 1749915294129,
-    "dateFin": 1749915300181,
+    "profileId": 1749976540932,
+    "dateDebut": 1749993066283,
+    "dateFin": 1749993250842,
     "questionResults": [
       {
-        "id": 824125194961,
+        "id": 135775475112,
         "quizId": 1747172294366,
         "questionId": 101,
         "answerIds": [
           2,
           1
         ],
-        "timeSpent": 8171,
-        "numberOfHintsUsed": 0
+        "timeSpent": 1243046,
+        "numberOfHintsUsed": 1
       },
       {
-        "id": 1572120479784,
+        "id": 1107407429731,
         "quizId": 1747172294366,
         "questionId": 102,
         "answerIds": [],
-        "timeSpent": 1257,
+        "timeSpent": 191963,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 34894336975,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          7
+        ],
+        "timeSpent": 41448,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1749993633165,
+    "sessionId": "04D89E",
+    "quizId": 1747172294366,
+    "profileId": 1749976540932,
+    "dateDebut": 1749993458653,
+    "dateFin": 1749993633158,
+    "questionResults": [
+      {
+        "id": 647954535928,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 98773,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1710239096004,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          5
+        ],
+        "timeSpent": 128977,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1282724367166,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 33696,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      },
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1749993633167,
+    "sessionId": "04D89E",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1749993458653,
+    "dateFin": 1749993633158,
+    "questionResults": [
+      {
+        "id": 139300869267,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          3
+        ],
+        "timeSpent": 98774,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 300082565164,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          4
+        ],
+        "timeSpent": 128964,
+        "numberOfHintsUsed": 1
+      },
+      {
+        "id": 1311949368070,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [
+          8
+        ],
+        "timeSpent": 33697,
+        "numberOfHintsUsed": 1
+      }
+    ],
+    "gamemode": {
+      "id": 1,
+      "name": "En Groupe"
+    },
+    "players": [
+      {
+        "id": 1749976540932,
+        "name": "Jean",
+        "lastName": "Dupont",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976540912-istockphoto-1313461425-2048x2048.jpg"
+      },
+      {
+        "id": 1749976633359,
+        "name": "Marie",
+        "lastName": "Curie",
+        "role": "user",
+        "SHOW_POP_UP_TIMER": 15000,
+        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
+        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
+        "SHOW_HINT_TIMER": 5000,
+        "NUMBER_OF_HINTS_DISPLAYED": 5,
+        "FONT_SIZE": 1,
+        "profilePicture": "1749976633351-depositphotos_16270615-stock-photo-portrait-smiling-elderly-woman.jpg"
+      }
+    ]
+  },
+  {
+    "id": 1750022673775,
+    "sessionId": "4EDF07",
+    "quizId": 1747172294366,
+    "profileId": 1749976677595,
+    "dateDebut": 1750022648222,
+    "dateFin": 1750022673735,
+    "questionResults": [
+      {
+        "id": 838539229410,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [],
+        "timeSpent": 0,
         "numberOfHintsUsed": 0
       },
       {
-        "id": 250913651055,
+        "id": 1069920568067,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 0,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 598891837233,
         "quizId": 1747172294366,
         "questionId": 103,
         "answerIds": [
           10,
-          9,
+          8,
           7
         ],
-        "timeSpent": 8709,
+        "timeSpent": 2834,
         "numberOfHintsUsed": 0
       }
     ],
@@ -341,31 +2732,117 @@
     "players": []
   },
   {
-    "id": 1749915554694,
-    "sessionId": "155B32",
+    "id": 1750022840697,
+    "sessionId": "143E45",
     "quizId": 1747172294366,
-    "profileId": 3,
-    "dateDebut": 1749915552837,
-    "dateFin": 1749915554645,
+    "profileId": 1749976677595,
+    "dateDebut": 1750022834725,
+    "dateFin": 1750022840693,
     "questionResults": [
       {
-        "id": 698869759266,
+        "id": 592175695650,
         "quizId": 1747172294366,
         "questionId": 101,
-        "answerIds": [],
-        "timeSpent": 1203,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 5865,
         "numberOfHintsUsed": 0
       },
       {
-        "id": 359438327147,
+        "id": 217513690125,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [
+          6,
+          7,
+          4
+        ],
+        "timeSpent": 5378,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 161672137629,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 686,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1750023217089,
+    "sessionId": "1F1E43",
+    "quizId": 1747172294366,
+    "profileId": 1749976633359,
+    "dateDebut": 1750023210241,
+    "dateFin": 1750023217085,
+    "questionResults": [
+      {
+        "id": 1355444293266,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [
+          1
+        ],
+        "timeSpent": 1924,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1524530571479,
         "quizId": 1747172294366,
         "questionId": 102,
         "answerIds": [],
-        "timeSpent": 427,
+        "timeSpent": 315,
         "numberOfHintsUsed": 0
       },
       {
-        "id": 1735892489848,
+        "id": 1072106356987,
+        "quizId": 1747172294366,
+        "questionId": 103,
+        "answerIds": [],
+        "timeSpent": 166,
+        "numberOfHintsUsed": 0
+      }
+    ],
+    "gamemode": {
+      "id": 0,
+      "name": "Seul"
+    },
+    "players": []
+  },
+  {
+    "id": 1750026330397,
+    "sessionId": "F5F73D",
+    "quizId": 1747172294366,
+    "profileId": 1749976677595,
+    "dateDebut": 1750026329169,
+    "dateFin": 1750026330386,
+    "questionResults": [
+      {
+        "id": 457832395743,
+        "quizId": 1747172294366,
+        "questionId": 101,
+        "answerIds": [],
+        "timeSpent": 896,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1161002612739,
+        "quizId": 1747172294366,
+        "questionId": 102,
+        "answerIds": [],
+        "timeSpent": 147,
+        "numberOfHintsUsed": 0
+      },
+      {
+        "id": 1102472493164,
         "quizId": 1747172294366,
         "questionId": 103,
         "answerIds": [],
@@ -379,325 +2856,30 @@
     },
     "players": [
       {
-        "id": 3,
-        "name": "Kylian",
-        "lastName": "Mbappé",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": "5000",
-        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
-        "SHOW_HINT_TIMER": "5000",
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
-        "NUMBER_OF_HINTS_DISPLAYED": "5",
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749916711650,
-    "sessionId": "DCFB7A",
-    "quizId": 1747172294366,
-    "profileId": 3,
-    "dateDebut": 1749916699908,
-    "dateFin": 1749916711582,
-    "questionResults": [
-      {
-        "id": 749002281229,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          1
-        ],
-        "timeSpent": 4126,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1287675432268,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          6
-        ],
-        "timeSpent": 7970,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1246579631423,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          10
-        ],
-        "timeSpent": 10565,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 3,
-        "name": "Kylian",
-        "lastName": "Mbappé",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": "5000",
-        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
-        "SHOW_HINT_TIMER": "5000",
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
-        "NUMBER_OF_HINTS_DISPLAYED": "5",
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749916771211,
-    "sessionId": "3C1191",
-    "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749916764326,
-    "dateFin": 1749916771158,
-    "questionResults": [
-      {
-        "id": 390800393752,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 2996,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 469779620915,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 4573,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1427857830735,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          10
-        ],
-        "timeSpent": 4548,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1747471940431,
-        "name": "Federico",
-        "lastName": "Valverde",
+        "id": 1749976677595,
+        "name": "David",
+        "lastName": "Cantal",
         "role": "user",
         "SHOW_POP_UP_TIMER": 15000,
         "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
         "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": "15000",
+        "SHOW_HINT_TIMER": 5000,
         "NUMBER_OF_HINTS_DISPLAYED": 5,
         "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
+        "profilePicture": "1749976677587-istockphoto-1488927045-2048x2048.jpg"
       }
     ]
   },
   {
-    "id": 1749916912055,
-    "sessionId": "012F4D",
+    "id": 1750065915985,
+    "sessionId": "120EB6",
     "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749916902016,
-    "dateFin": 1749916912000,
+    "profileId": 1749976584405,
+    "dateDebut": 1750065894863,
+    "dateFin": 1750065915863,
     "questionResults": [
       {
-        "id": 112414717260,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          2
-        ],
-        "timeSpent": 3778,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1577508313634,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 6458,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1730096256571,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 8824,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1747471940431,
-        "name": "Federico",
-        "lastName": "Valverde",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": "15000",
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749916997299,
-    "sessionId": "A95887",
-    "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749916987925,
-    "dateFin": 1749916997262,
-    "questionResults": [
-      {
-        "id": 743995212522,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          2
-        ],
-        "timeSpent": 3470,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 134129467420,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 4808,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 815111670931,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 10274,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1747471940431,
-        "name": "Federico",
-        "lastName": "Valverde",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": "15000",
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749917044633,
-    "sessionId": "D8303E",
-    "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749917036529,
-    "dateFin": 1749917044554,
-    "questionResults": [
-      {
-        "id": 1680075613855,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 2937,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 522785489069,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 5886,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1481104867346,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 6338,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1747471940431,
-        "name": "Federico",
-        "lastName": "Valverde",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": "15000",
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749918269698,
-    "sessionId": "08DBC7",
-    "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749917928838,
-    "dateFin": 1749918269634,
-    "questionResults": [
-      {
-        "id": 1590183377665,
+        "id": 1001006285997,
         "quizId": 1747172294366,
         "questionId": 101,
         "answerIds": [],
@@ -705,19 +2887,21 @@
         "numberOfHintsUsed": 0
       },
       {
-        "id": 1362050640322,
+        "id": 1706620388454,
         "quizId": 1747172294366,
         "questionId": 102,
         "answerIds": [],
-        "timeSpent": 962,
+        "timeSpent": 0,
         "numberOfHintsUsed": 0
       },
       {
-        "id": 223378088297,
+        "id": 1710939930679,
         "quizId": 1747172294366,
         "questionId": 103,
-        "answerIds": [],
-        "timeSpent": 368,
+        "answerIds": [
+          10
+        ],
+        "timeSpent": 5715,
         "numberOfHintsUsed": 0
       }
     ],
@@ -726,208 +2910,5 @@
       "name": "En Groupe"
     },
     "players": []
-  },
-  {
-    "id": 1749918364888,
-    "sessionId": "91734F",
-    "quizId": 1747172294366,
-    "profileId": 1747471940431,
-    "dateDebut": 1749918350589,
-    "dateFin": 1749918364829,
-    "questionResults": [
-      {
-        "id": 481371879942,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          3
-        ],
-        "timeSpent": 6710,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1363056611887,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          6
-        ],
-        "timeSpent": 10296,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1000946396035,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          7
-        ],
-        "timeSpent": 7010,
-        "numberOfHintsUsed": 0
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 1747471940431,
-        "name": "Federico",
-        "lastName": "Valverde",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": "15000",
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      }
-    ]
-  },
-  {
-    "id": 1749968967912,
-    "sessionId": "DC3F96",
-    "quizId": 1747172294366,
-    "profileId": 1749031908696,
-    "dateDebut": 1749968921788,
-    "dateFin": 1749968967832,
-    "questionResults": [
-      {
-        "id": 1180685998947,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          1
-        ],
-        "timeSpent": 18937,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1637054174104,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          5
-        ],
-        "timeSpent": 33553,
-        "numberOfHintsUsed": 1
-      },
-      {
-        "id": 68778744232,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          10
-        ],
-        "timeSpent": 30824,
-        "numberOfHintsUsed": 1
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 3,
-        "name": "Kylian",
-        "lastName": "Mbappé",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": "5000",
-        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
-        "SHOW_HINT_TIMER": "5000",
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
-        "NUMBER_OF_HINTS_DISPLAYED": "5",
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      },
-      {
-        "id": 1749031908696,
-        "name": "Abdel",
-        "lastName": "Algerian",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": 5000,
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": "1.25",
-        "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
-      }
-    ]
-  },
-  {
-    "id": 1749968967922,
-    "sessionId": "DC3F96",
-    "quizId": 1747172294366,
-    "profileId": 3,
-    "dateDebut": 1749968921774,
-    "dateFin": 1749968967832,
-    "questionResults": [
-      {
-        "id": 1244072290266,
-        "quizId": 1747172294366,
-        "questionId": 101,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 18940,
-        "numberOfHintsUsed": 0
-      },
-      {
-        "id": 1057514698002,
-        "quizId": 1747172294366,
-        "questionId": 102,
-        "answerIds": [
-          4
-        ],
-        "timeSpent": 33583,
-        "numberOfHintsUsed": 1
-      },
-      {
-        "id": 993390311357,
-        "quizId": 1747172294366,
-        "questionId": 103,
-        "answerIds": [
-          10
-        ],
-        "timeSpent": 30832,
-        "numberOfHintsUsed": 1
-      }
-    ],
-    "gamemode": {
-      "id": 1,
-      "name": "En Groupe"
-    },
-    "players": [
-      {
-        "id": 3,
-        "name": "Kylian",
-        "lastName": "Mbappé",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": "5000",
-        "REMOVE_WRONG_ANSWER_INTERVAL": "10000",
-        "SHOW_HINT_TIMER": "5000",
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": "1",
-        "NUMBER_OF_HINTS_DISPLAYED": "5",
-        "FONT_SIZE": 1,
-        "profilePicture": "empty_path"
-      },
-      {
-        "id": 1749031908696,
-        "name": "Abdel",
-        "lastName": "Algerian",
-        "role": "user",
-        "SHOW_POP_UP_TIMER": 15000,
-        "REMOVE_WRONG_ANSWER_INTERVAL": 10000,
-        "NUMBER_OF_WRONG_ANSWERS_DISPLAYED": 4,
-        "SHOW_HINT_TIMER": 5000,
-        "NUMBER_OF_HINTS_DISPLAYED": 5,
-        "FONT_SIZE": "1.25",
-        "profilePicture": "1749031908679-chill-4k-mountain-sunset-art-6jor3hh9q5cm5bjj.jpg"
-      }
-    ]
   }
 ]

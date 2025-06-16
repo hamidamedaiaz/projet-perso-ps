@@ -5,12 +5,9 @@ import { ADMIN_PROFILE, GUEST_PROFILE } from "../mocks/profile-list.mock";
 import { LocalStorageService } from "./localstorage.service";
 import { SocketService } from "./socket.service";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 
 export class CurrentProfileService {
-
 
     private current_profile: Profile = GUEST_PROFILE
 
@@ -36,7 +33,7 @@ export class CurrentProfileService {
     getCurrentProfile() { return this.current_profile; }
 
     resetCurrentProfile() {
-        console.log("Current Profile has been reset successfully");
+        console.info("Current Profile has been reset successfully");
         this.socketService.emit("lobby-disconnect", this.current_profile);
         this.current_profile = GUEST_PROFILE;
         this.current_profile$.next(this.current_profile)

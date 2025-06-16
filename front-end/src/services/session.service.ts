@@ -12,9 +12,9 @@ import { GamemodeService } from "./gamemode.service";
 import { PopUpService } from "./pop-up.service";
 import { RealTimeStatsService } from './real-time-stats.service';
 import { RecordResultService } from './record-result.service';
-@Injectable({
-    providedIn: 'root'
-})
+import { Popup } from 'src/models/popup.model';
+
+@Injectable({ providedIn: 'root' })
 
 export class SessionService {
 
@@ -50,7 +50,8 @@ export class SessionService {
         private popupService: PopUpService,
         private realTimeStatsService: RealTimeStatsService,
         private localStorage: LocalStorageService,
-        private recordResultService: RecordResultService) {
+        private recordResultService: RecordResultService,
+        private popUpService: PopUpService) {
 
         this.initSocketListeners();
         this.loadLocalStorage();
@@ -84,14 +85,11 @@ export class SessionService {
     private initSocketListeners(): void {
 
         this.socketService.listen('player-has-answered', (data) => {
-            if (this.sessionId === data.sessionId) {
-                this.savePlayerAnswer(data.profile, data.answer.id);
-            }
+            if (this.sessionId === data.sessionId) this.savePlayerAnswer(data.profile, data.answer.id); 
         })
 
         this.socketService.listen('next-question', (data) => {
             if (data.sessionId === this.sessionId) {
-                console.log('SESSION ID NEXT QUESTION ', this.sessionId);
                 this.resetPlayersAnswers();
                 this.quizService.nextQuestion();
             }
@@ -129,7 +127,6 @@ export class SessionService {
 
         this.socketService.listen('quiz-started', (data) => {
             this.quizService.startQuiz();
-            console.log('SESSION ID START ', this.sessionId);
             this.resetPlayersAnswers();
             this.recordResultService.setPlayers(this.players);
             this.router.navigate(['/multiplayer-game']);
@@ -144,7 +141,6 @@ export class SessionService {
         })
 
         this.socketService.listen("client-game-move", (data) => {
-            console.log("[CLIENT] - Demande de move recu : ", data)
             const profile = this.currentProfileService.getCurrentProfile();
 
             let timeLeft = 2;
@@ -172,6 +168,15 @@ export class SessionService {
             }, 3000)
 
         })
+
+        this.socketService.listen("quiz-joined-error", () => {
+            let errorPopUp:Popup = {
+                message: "Erreur - Impossible de rejoindre la session",
+                type: 'error',
+                duration: 5000
+            }
+            this.popUpService.sendPopup(errorPopUp);
+        })
     }
 
     public generateAdminSessionId(): void {
@@ -183,13 +188,9 @@ export class SessionService {
         this.localStorage.storeItem(this.ADMIN_SESSION_ID_KEY, JSON.stringify(this.adminSessionId));
     }
 
-    public getAdminSessionId(): string {
-        return this.adminSessionId
-    }
+    public getAdminSessionId(): string { return this.adminSessionId }
 
-    public getPlayers(): Player[] {
-        return this.players;
-    }
+    public getPlayers(): Player[] { return this.players; }
 
 
     public leaveSetup() {
@@ -240,7 +241,6 @@ export class SessionService {
     }
 
     public addPlayer(sessionId: string, profile: Profile) {
-        console.log(sessionId, this.sessionId)
         if (this.sessionId === sessionId) {
 
             const player = this.generateNewPlayer(profile)
@@ -291,8 +291,6 @@ export class SessionService {
         this.sessionId = sessionId;
         this.sessionId$.next(sessionId);
 
-        console.log(this.sessionId)
-
         this.localStorageService.removeItem(this.SESSION_ID_KEY)
         this.localStorageService.storeItem(this.SESSION_ID_KEY, JSON.stringify(sessionId));
     }
@@ -313,14 +311,20 @@ export class SessionService {
         this.localStorageService.storeItem(this.PLAYERS_KEY, JSON.stringify(this.getPlayers()));
     }
 
-    public connect() {
+    public connectToSession() {
         if (this.currentProfileService.getCurrentProfile().role === 'admin') {
             this.socketService.emit('admin-login', { sessionId: this.sessionId, adminSessionId: this.adminSessionId })
         } else {
-            this.socketService.emit('login', {
+            this.socketService.emit('login-session', {
                 sessionId: this.sessionId,
                 profile: this.currentProfileService.getCurrentProfile()
             })
         }
+    }
+
+    public connect() {
+        this.socketService.emit('login', {
+            profile: this.currentProfileService.getCurrentProfile()
+        });
     }
 }

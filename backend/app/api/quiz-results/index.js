@@ -1,14 +1,11 @@
 const { Router } = require('express')
 const QuizResults = require('../../models/quiz-result.model')
-const req = require("express/lib/request");
-const res = require("express/lib/response");
 const console = require("node:console");
 const router = new Router()
 
 router.get('/', (req, res) => {
   try {
     const quizResults = QuizResults.get();
-    //console.log(quizResults)
     res.status(200).json(quizResults);
   } catch (err) {
     res.status(500).json(err)
@@ -27,12 +24,12 @@ router.post('/', (req, res) => {
 })
 
 router.delete('/', (req, res) => {
-  try{
+  try {
     const resultId = req.body.id;
     const deletedResult = QuizResults.delete(resultId);
     res.status(200).json(deletedResult);
   }
-  catch(err) {
+  catch (err) {
     res.status(500).json(err)
     console.log(err)
   }

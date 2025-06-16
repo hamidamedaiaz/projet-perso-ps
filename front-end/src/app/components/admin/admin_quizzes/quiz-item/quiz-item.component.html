@@ -1,4 +1,4 @@
-<div class="quiz-item">
+<div class="quiz-item" [ngClass]="currentPage === 'admin' ? 'adminView' : 'userView' ">
   <section class="header-card-section">
     <section *ngIf="currentPage==='admin'" class="button-section">
       <button class="button"><img ngSrc="assets/icons/edit.svg" height="30" width="30" (click)="onEditClick()"></button>

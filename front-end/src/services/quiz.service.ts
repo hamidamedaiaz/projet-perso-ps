@@ -3,7 +3,7 @@ import { Question } from "src/models/question.model";
 import { Quiz } from "src/models/quiz.model";
 import { LocalStorageService } from "./localstorage.service";
 import { Answer } from "src/models/answer.model";
-import { BehaviorSubject, count, find, findIndex } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { EMPTY_QUESTION } from "src/mocks/question.mock"
 import { Router } from "@angular/router";
 import { GamemodeService } from "./gamemode.service";
@@ -32,7 +32,8 @@ export class QuizService {
   private readonly QUIZ_KEY = 'current_quiz';
   private readonly GIVEN_ANSWERS_KEY = 'current_score';
   private readonly QUESTION_ID_KEY = 'QUESTION_ID_kEY';
-  private readonly IS_QUIZ_RUNNING_KEY = "is_quiz_running"
+  private readonly IS_QUIZ_RUNNING_KEY = "is_quiz_running";
+  private readonly QUESTION_KEY = "QUESTION_KEY"
 
 
   public question$: BehaviorSubject<Question> = new BehaviorSubject<Question>(EMPTY_QUESTION);
@@ -51,11 +52,6 @@ export class QuizService {
     this.loadFromStorage();
 
 
-
-    this.question = this.quiz.questions[this.questionId];
-
-    console.log("questionId ", this.questionId)
-
     if (this.question) {
       this.question$.next(this.question);
     }
@@ -68,6 +64,7 @@ export class QuizService {
     const savedGivenAnswers = this.localStorageService.getItem(this.GIVEN_ANSWERS_KEY);
     const savedQuestionId = this.localStorageService.getItem(this.QUESTION_ID_KEY);
     const savedIsQuizRunning = this.localStorageService.getItem(this.IS_QUIZ_RUNNING_KEY)
+    const savedQuestion = this.localStorageService.getItem(this.QUESTION_KEY);
 
     if (savedQuiz) {
       this.quiz = savedQuiz;
@@ -81,6 +78,8 @@ export class QuizService {
     }
 
     if (savedIsQuizRunning) this.isQuizRunning = savedIsQuizRunning;
+
+    if (savedQuestion) this.question = savedQuestion;
   }
 
   public increaseScore(answer: Answer) {
@@ -108,7 +107,6 @@ export class QuizService {
       this.question = this.quiz.questions[0];
     }
 
-    // if (this.currentProfileService.getCurrentProfile().role !== 'admin') 
     this.recordResultService.setQuiz(this.quiz);
 
     // CHANGE OBSERVABLE VALUES
@@ -121,6 +119,9 @@ export class QuizService {
 
     this.localStorageService.storeItem(this.IS_QUIZ_RUNNING_KEY, JSON.stringify(this.isQuizRunning));
     this.localStorageService.storeItem(this.QUIZ_KEY, JSON.stringify(quiz));
+
+    this.localStorageService.removeItem(this.QUESTION_KEY);
+    this.localStorageService.storeItem(this.QUESTION_KEY, JSON.stringify(this.question));
   }
 
   public setQuestion(questionId: number): void {
@@ -222,13 +223,16 @@ export class QuizService {
         this.localStorageService.removeItem(this.QUESTION_ID_KEY);
         this.localStorageService.storeItem(this.QUESTION_ID_KEY, JSON.stringify(this.questionId));
 
+        this.localStorageService.removeItem(this.QUESTION_KEY)
+        this.localStorageService.storeItem(this.QUESTION_KEY, JSON.stringify(this.question));
+
         if (this.gamemodeService.getCurrentGamemode().id === 1) {
           this.router.navigate(['/multiplayer-game'])
         }
       }
     } else {
       this.resetCurrentQuiz();
-      console.log("An Error Occurred");
+      console.error("An Error Occurred");
       this.router.navigate(['/']);
     }
   }
@@ -243,8 +247,6 @@ export class QuizService {
 
     this.resetCurrentQuiz();
 
-    // if (this.currentProfileService.getCurrentProfile().role !== 'admin') 
-    console.log("STARTED RECORDING")
     this.recordResultService.startRecording()
 
     this.socketService.emit("lobby-disconnect", this.currentProfileService.getCurrentProfile());
@@ -266,6 +268,7 @@ export class QuizService {
     this.localStorageService.storeItem(this.IS_QUIZ_RUNNING_KEY, JSON.stringify(this.isQuizRunning));
     this.localStorageService.storeItem(this.QUIZ_KEY, JSON.stringify(this.quiz));
     this.localStorageService.storeItem(this.QUESTION_ID_KEY, JSON.stringify(this.questionId))
+    this.localStorageService.storeItem(this.QUESTION_KEY, JSON.stringify(this.question));
   }
 
   private shuffle(answers: Answer[]): Answer[] {

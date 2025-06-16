@@ -3,12 +3,8 @@ import { BehaviorSubject } from 'rxjs';
 import { QuestionStats} from 'src/models/QuestionStats'
 import { LocalStorageService } from './localstorage.service';
 
+@Injectable({ providedIn: 'root' })
 
-
-
-@Injectable({
-  providedIn: 'root'
-})
 export class RealTimeStatsService {
   
   private sessionStats = new Map<string, Map<number, QuestionStats>>();
@@ -21,9 +17,7 @@ export class RealTimeStatsService {
   private readonly CURRENT_SESSION_KEY = 'CURRENT_SESSION_ID';
 
 
-  constructor(private localStorageService: LocalStorageService) {
-    this.loadFromStorage();
-  }
+  constructor(private localStorageService: LocalStorageService) { this.loadFromStorage(); }
 
   
    /// on initialise une nauvelle session
@@ -38,9 +32,7 @@ export class RealTimeStatsService {
   ///   ici on  Ajoute une reeponse et recalcule les pourcentages
 
   addAnswer(sessionId: string, questionId: number, answerId: number) {
-    if (!this.sessionStats.has(sessionId)) {
-      this.sessionStats.set(sessionId, new Map());
-    }
+    if (!this.sessionStats.has(sessionId)) this.sessionStats.set(sessionId, new Map()); 
 
     const sessionMap = this.sessionStats.get(sessionId)!;
     
@@ -94,10 +86,7 @@ export class RealTimeStatsService {
 
   clearSession(sessionId: string) {
     this.sessionStats.delete(sessionId);
-    if (sessionId === this.currentSessionId) {
-      this.currentSessionStats$.next(new Map());
-    }
-
+    if (sessionId === this.currentSessionId) this.currentSessionStats$.next(new Map()); 
     this.saveToStorage();
   }
 

@@ -20,35 +20,22 @@ export class GameTutorialComponent {
   constructor(
     private router: Router,
     private currentPageService: CurrentPageService,
-    private gamemodeService:GamemodeService
-  ) {
-    this.currentPageService.setCurrentPage("solo-tutorial");
-  }
+    private gamemodeService: GamemodeService
+  ) { this.currentPageService.setCurrentPage("solo-tutorial"); }
 
-  public leaveToQuizSelection(): void {
-    this.router.navigate(['/select-quiz']);
-  }
+  public leaveToQuizSelection(): void { this.router.navigate(['/select-quiz']); }
 
-  public leaveToMulti(): void {
-    this.router.navigate(['/waiting-start']);
-  }
+  public leaveToMulti(): void { this.router.navigate(['/waiting-start']); }
 
   public nextStep(): void {
-    if (this.currentStep < this.totalSteps) {
-      this.currentStep++;
-    } else {
-      if(this.gamemodeService.getCurrentGamemode().id === 0) this.leaveToQuizSelection();
+    if (this.currentStep < this.totalSteps) this.currentStep++;
+    else {
+      if (this.gamemodeService.getCurrentGamemode().id === 0) this.leaveToQuizSelection();
       else if (this.gamemodeService.getCurrentGamemode().id === 1) this.leaveToMulti();
     }
   }
 
-  public getCurrentGamemodeId(){
-    return this.gamemodeService.getCurrentGamemode().id;
-  }
+  public getCurrentGamemodeId() { return this.gamemodeService.getCurrentGamemode().id; }
 
-  public previousStep(): void {
-    if (this.currentStep > 1) {
-      this.currentStep--;
-    }
-  }
+  public previousStep(): void { if (this.currentStep > 1) this.currentStep--; }
 }

@@ -14,11 +14,10 @@ import { QuizService } from 'src/services/quiz.service';
 })
 export class QuizAnswerMultiplayerComponent implements OnInit {
 
-  @Input()
-  answer!:Answer;
+  @Input() answer!: Answer;
 
-  constructor( private realTimeStatsService: RealTimeStatsService,
-    private quizService: QuizService){}
+  constructor(private realTimeStatsService: RealTimeStatsService,
+    private quizService: QuizService) { }
 
 
   ngOnInit() {

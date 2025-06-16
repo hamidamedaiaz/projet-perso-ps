@@ -4,12 +4,12 @@ import { Profile } from './profile.model';
 
 export interface QuizResult {
   id: number;
-  sessionId:string;
+  sessionId: string;
   quizId: number;
-  profileId:number
+  profileId: number
   dateDebut: number;
   dateFin: number;
   questionResults: QuestionResult[];
-  gamemode:Gamemode;
-  players:Profile[];
+  gamemode: Gamemode;
+  players: Profile[];
 }

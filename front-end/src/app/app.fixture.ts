@@ -14,7 +14,7 @@ export class AppFixture extends E2EComponentFixture {
   }
 
   clickOnShowButton() {
-      return this.getShowButton().click();
+    return this.getShowButton().click();
   }
 
   getSuccessMessage() {

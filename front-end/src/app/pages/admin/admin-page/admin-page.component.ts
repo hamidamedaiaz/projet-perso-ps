@@ -48,8 +48,7 @@ export class AdminPageComponent implements OnInit {
   selectedIdAcceuilliStats: number = -1;
   showStatsSubmenu: boolean = false;
 
-  @Input()
-  public context: string = "admin";
+  @Input() context: string = "admin";
 
   protected showLoader: boolean = false;
 
@@ -67,17 +66,11 @@ export class AdminPageComponent implements OnInit {
   }
 
   private ensureAuthentication() {
-    if (!(this.currentProfileService.getCurrentProfile().role === 'admin')) {
-      this.router.navigate(['/'])
-    }
+    if (!(this.currentProfileService.getCurrentProfile().role === 'admin')) { this.router.navigate(['/']) }
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      if (params['section']) {
-        this.setSection(params['section']);
-      }
-    });
+    this.route.queryParams.subscribe(params => { if (params['section']) this.setSection(params['section']); });
 
 
     // Permet de quand on clique sur un quiz dans quizDetail ça change de page
@@ -88,9 +81,7 @@ export class AdminPageComponent implements OnInit {
       }
     });
 
-    this.currentPageService.admin_navigation$.subscribe((val) => {
-      this.setSection(val);
-    })
+    this.currentPageService.admin_navigation$.subscribe((val) => { this.setSection(val); })
   }
 
   selectQuizStatistics() { this.setSection('quiz-stats'); }
@@ -106,9 +97,7 @@ export class AdminPageComponent implements OnInit {
 
   setSection(section: string) {
     this.activeSection = section;
-    if (section !== 'acceuilli') {
-      this.selectedProfile = false;
-    }
+    if (section !== 'acceuilli') this.selectedProfile = false;
   }
 
   onProfileStatsSelected(id: number) {
@@ -116,16 +105,14 @@ export class AdminPageComponent implements OnInit {
     this.statsService.selectProfile(id);
   }
 
-  onProfileSelect() {
-    this.selectedProfile = true;
-  }
+  onProfileSelect() { this.selectedProfile = true; }
 
   closeConfigPanel() {
     this.selectedProfile = false;
     this.cdr.detectChanges();
   }
 
-  goHome(){
+  goHome() {
     this.currentProfileService.resetCurrentProfile();
     this.router.navigate(['/']);
   }

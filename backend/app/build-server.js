@@ -17,9 +17,6 @@ module.exports = (cb) => {
   // Cyril : j'ai rajouté ça pour pouvoir upload les fichié
   app.use('/upload', express.static(path.join(__dirname, '../upload')))
 
-  // app.use('*', (req, res) => res.status(404).end())
-
-
   app.use(express.json({ limit: '50mb' }))
   app.use(express.urlencoded({ limit: '50mb', extended: true }))
 

@@ -12,27 +12,41 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.button{
+  width: 20vh;
+  height: 6vh;
+  padding: 1.2vh 2vh;
+  background-color: $third-blue-btn;
+  color: $primary-btn-white-text;
+  border: none;
+  border-radius: 1vh;
+  font-size: 1.8vh;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.05vh;
+  transition: all 0.2s ease-in-out;
+  box-shadow: $primary-box-shadow;
+}
+
+.button:hover{
+  background: $secondary-btn-blue-hover;
+  transform: translateY(-0.3vh);
+  box-shadow: $primary-box-shadow;
+}
+
+
 
 .skip-button {
   position: fixed;
-  top:5%;
-  left: 5%;
-  background-color: $primary-delete-btn;
-  color: $primary-white-text;
-  padding: 1.2vh 2.4vh;
-  font-size: 2.3vh;
-  font-weight: bold;
-  border: none;
-  border-radius: 1.2vh;
-  cursor: pointer;
-  box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.2s;
+  background-color: $primary-btn-leave;
+  left: 5vh;
+  top: 5vh;
   z-index: 20;
 }
 
 .skip-button:hover {
   background-color: $primary-delete-btn;
-  transform: scale(1.02);
 }
 
 
@@ -91,7 +105,7 @@
   font-weight: bold;
 }
 
-.start-button:hover{
+.start-button:hover {
   background-color: #45a049;
 }
 

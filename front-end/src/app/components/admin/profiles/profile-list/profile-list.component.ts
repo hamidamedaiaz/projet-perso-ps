@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectorRef } from '@angular/core';
 import { Profile } from 'src/models/profile.model';
 import { ProfileService } from 'src/services/profile.service';
-import { ProfileItemComponent } from '../profile-item/profile-item.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
@@ -13,6 +12,7 @@ import { FileUploadService } from "../../../../../services/file-upload.service";
 import { SessionService } from 'src/services/session.service';
 import { Player } from 'src/models/player.model';
 import { StatsService } from 'src/services/stats.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-profile-list',
@@ -30,6 +30,8 @@ export class ProfileListComponent {
   public isProfileListActivated: Boolean = false;
   public currentPage: String = this.currentPageService.getCurrentPage();
 
+  public basedUrl:string = environment.basedUrl;
+
   @Output()
   profileSelected: EventEmitter<Profile> = new EventEmitter<Profile>();
 
@@ -38,8 +40,7 @@ export class ProfileListComponent {
 
   public searchQuery: String = '';
 
-  @Input()
-  public context: string = '';
+  @Input() context: string = '';
 
   public avatarPreview: string | null = null;
 
@@ -64,7 +65,7 @@ export class ProfileListComponent {
     private socketService: SocketService,
     private router: Router,
     private fileUploadService: FileUploadService,
-    private sessionService: SessionService, private statsService:StatsService) {
+    private sessionService: SessionService, private statsService: StatsService) {
     this.profileService.profiles$.subscribe((profiles) => {
       this.profileList = profiles;
     });
@@ -93,6 +94,7 @@ export class ProfileListComponent {
   }
 
   profileSelectedHandler(profile: Profile) {
+
     setTimeout(() => {
       if (this.context === 'home') {
         this.currentProfileService.setCurrentProfile(profile);
@@ -103,7 +105,7 @@ export class ProfileListComponent {
       } else if (this.context === 'profile-gestion') {
         this.profileService.selectProfileForEdition(profile);
         this.profileSelected.emit(profile);
-      } else if (this.context === 'accueillis-stats'){
+      } else if (this.context === 'accueillis-stats') {
         this.profileSelected.emit(profile);
       }
       else {
@@ -128,7 +130,7 @@ export class ProfileListComponent {
       NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
       SHOW_HINT_TIMER: 5,
       NUMBER_OF_HINTS_DISPLAYED: 4,
-      FONT_SIZE:1,
+      FONT_SIZE: 1,
       profilePicture: "empty_path"
     };
     this.showProfileForm = true;
@@ -175,7 +177,6 @@ export class ProfileListComponent {
 
         this.fileUploadService.upload(this.selectedAvatarFile).subscribe({
           next: (res) => {
-            console.log('Upload réussi :', res);
             this.currentProfile.profilePicture = res.filename;
 
             this.profileService.createProfile(
@@ -194,6 +195,13 @@ export class ProfileListComponent {
         });
 
       }
+      else {
+        this.profileService.createProfile(
+          this.currentProfile.name,
+          this.currentProfile.lastName,
+        );
+        this.cancelProfileForm();
+      }
     }
   }
 
@@ -210,7 +218,7 @@ export class ProfileListComponent {
       SHOW_HINT_TIMER: 5,
       NUMBER_OF_WRONG_ANSWERS_DISPLAYED: 4,
       NUMBER_OF_HINTS_DISPLAYED: 4,
-      FONT_SIZE:1,
+      FONT_SIZE: 1,
       profilePicture: "empty_path"
     };
   }

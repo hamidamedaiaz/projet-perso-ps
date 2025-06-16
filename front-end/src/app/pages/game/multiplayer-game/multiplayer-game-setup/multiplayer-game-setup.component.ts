@@ -33,12 +33,10 @@ export class MultiplayerGameSetupComponent {
     private router: Router,
     private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("multiplayer-setup");
-    this.sessionService.connect();
+    this.sessionService.connectToSession();
   }
 
-  public getNumberOfPlayer() {
-    return this.sessionService.getNumberOfPlayers();
-  }
+  public getNumberOfPlayer() { return this.sessionService.getNumberOfPlayers(); }
 
   public launchGame() {
     this.gamemodeService.setCurrentGamemode(1);

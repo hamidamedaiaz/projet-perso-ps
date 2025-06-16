@@ -10,7 +10,7 @@
 
       <div class="player-avatar">
         <div *ngIf="player.profile.profilePicture !== 'empty_path'" class="avatar-img"
-             [ngStyle]="{'background-image': 'url(http://localhost:9428/upload/' + player.profile.profilePicture + ')'}">
+          [ngStyle]="{'background-image': 'url(' + basedUrl + '/upload/' + player.profile.profilePicture + ')'}">
         </div>
         <div *ngIf="player.profile.profilePicture === 'empty_path'" class="avatar-initials">
           {{ getInitials(player.profile) }}

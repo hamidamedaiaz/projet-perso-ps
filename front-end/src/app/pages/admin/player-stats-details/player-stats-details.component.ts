@@ -32,8 +32,8 @@ import { QuizResult } from 'src/models/quiz-result.model';
 })
 
 export class PlayerStatsDetailsComponent {
-  profile: Profile = GUEST_PROFILE;
 
+  profile: Profile = GUEST_PROFILE;
   totalGames: number = 0;
   bestScore: number = 0;
   averageScore: number = 0;
@@ -83,20 +83,14 @@ export class PlayerStatsDetailsComponent {
 
   }
 
-  getQuizResultsOfTheYear() {
-    return this.computeStatisticService.getDataPerMonth(this.quizResults, this.activeYear)
-  }
+  getQuizResultsOfTheYear() { return this.computeStatisticService.getDataPerMonth(this.quizResults, this.activeYear) }
 
-  getYearsPlayed(): number[] {
-    return this.computeStatisticService.getYearsPlayed(this.quizResults);
-  }
+  getYearsPlayed(): number[] { return this.computeStatisticService.getYearsPlayed(this.quizResults); }
 
   getProfile() { return this.profile; }
 
 
-  setActiveTab(tab: 'score' | 'hints' | 'time' | 'accuracy') {
-    this.activeTab = tab;
-  }
+  setActiveTab(tab: 'score' | 'hints' | 'time' | 'accuracy') { this.activeTab = tab; }
 
   setYearData(year: number) {
     this.activeYear = year;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {Popup} from "../models/popup.model";
+import { BehaviorSubject } from "rxjs";
+import { Popup } from "../models/popup.model";
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,9 @@ import {Popup} from "../models/popup.model";
 
 export class PopUpService {
 
-  constructor() {}
+  constructor() { }
 
   public popup$ = new BehaviorSubject<Popup | null>(null);
 
-  sendPopup(pop : Popup){
-    console.log("[POPUP SERVICE] - Send popUp")
-    this.popup$.next(pop);
-  }
+  sendPopup(pop: Popup) { this.popup$.next(pop); }
 }

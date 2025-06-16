@@ -8,13 +8,9 @@ import { Gamemode } from 'src/models/gamemode.model';
 })
 export class GamemodeComponent {
 
-  @Input()
-  gamemode: Gamemode | undefined;
+  @Input() gamemode: Gamemode | undefined;
 
-  @Output()
-  gamemodeSelected: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() gamemodeSelected: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
-  selectGamemode() {
-    this.gamemodeSelected.emit(true);
-  }
+  selectGamemode() { this.gamemodeSelected.emit(true); }
 }

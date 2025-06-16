@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Profile } from 'src/models/profile.model';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { QuizQuestionComponent } from 'src/app/components/game/quizzes/quiz-question/quiz-question.component';

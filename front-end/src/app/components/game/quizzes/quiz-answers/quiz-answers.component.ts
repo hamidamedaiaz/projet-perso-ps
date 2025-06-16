@@ -35,19 +35,15 @@ export class QuizAnswersComponent {
 
   public numberOfCorrectAnswer: number = -1;
 
-  private ANSWERS_KEY:string = "ANSWERS_KEY";
+  private ANSWERS_KEY: string = "ANSWERS_KEY";
 
-  @Input()
-  isInteractionDisabled: boolean = false;
+  @Input() isInteractionDisabled: boolean = false;
 
-  @Input()
-  characterSize : string = "";
+  @Input() characterSize: string = "";
 
-  @Output()
-  correct_answer: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() correct_answer: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
-  @Output()
-  next_question: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() next_question: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   constructor(
     private currentProfileService: CurrentProfileService,
@@ -90,12 +86,8 @@ export class QuizAnswersComponent {
         const wrongAnswers = (this.answers.filter((answer => !answer.isCorrect)))
         if (wrongAnswers.length > 0) {
           const answerToRemove = wrongAnswers.shift();
-          if (answerToRemove) {
-            this.hiddenAnswers.push(answerToRemove)
-          }
-        } else {
-          clearInterval(this.removeWrongAnswerInterval); // stoppe l'intervalle si plus de mauvaises réponses
-        }
+          if (answerToRemove) this.hiddenAnswers.push(answerToRemove)
+        } else clearInterval(this.removeWrongAnswerInterval); // stoppe l'intervalle si plus de mauvaises réponses
       }, this.REMOVE_WRONG_ANSWER_INTERVAL);
     });
 
@@ -103,24 +95,19 @@ export class QuizAnswersComponent {
   }
 
 
-  private loadLocalStorage(){
+  private loadLocalStorage() {
     const savedAnswers = this.localStorageService.getItem(this.ANSWERS_KEY);
-    if(savedAnswers) this.answers = savedAnswers;
+    if (savedAnswers) this.answers = savedAnswers;
   }
 
-  public getRole() {
-    return this.currentProfileService.getCurrentProfile().role;
-  }
+  public getRole() { return this.currentProfileService.getCurrentProfile().role; }
 
   public getAnswers() {
     this.answers.filter((answer) => !this.hiddenAnswers.includes(answer));
-    //console.log(this.answers);
     return this.answers;
   }
 
-  public isWrongAnswer(answer: Answer) {
-    return answer.isCorrect;
-  }
+  public isWrongAnswer(answer: Answer) { return answer.isCorrect; }
 
   public answerSelected(answer: Answer) {
     if (!this.isInteractionDisabled) {
@@ -152,9 +139,7 @@ export class QuizAnswersComponent {
     }
   }
 
-  public isAnswerHidden(answer: Answer) {
-    return this.hiddenAnswers.includes(answer);
-  }
+  public isAnswerHidden(answer: Answer) { return this.hiddenAnswers.includes(answer); }
 
   public getMultiplayerAnswers() {
     // on  Recuperee la question courante

@@ -6,14 +6,12 @@ import { SessionQuestionResult } from "src/models/session-result.model";
 import { ComputeStatisticService } from "./computeStatistic.service";
 import { QuizResultService } from "./quiz-result.service";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 
 export class SessionResultService {
 
-    constructor(private computeStatisticService: ComputeStatisticService, private quizResultService:QuizResultService) {}
-    
+    constructor(private computeStatisticService: ComputeStatisticService, private quizResultService: QuizResultService) { }
+
     public getSessionResults(sessionHistory: SessionHistory) {
 
         let sessionQuestionResults: SessionQuestionResult[] = [];
@@ -23,18 +21,16 @@ export class SessionResultService {
 
                 const index = this.getSessionQuestionResultIndex(sessionQuestionResults, questionResult.questionId);
 
-                if (index !== -1) sessionQuestionResults[index].questionResults.push(questionResult); 
-                else  sessionQuestionResults
-                        .push(this.createNewSessionQuestionResult(questionResult, sessionHistory.sessionId, sessionHistory.quizId));
+                if (index !== -1) sessionQuestionResults[index].questionResults.push(questionResult);
+                else sessionQuestionResults
+                    .push(this.createNewSessionQuestionResult(questionResult, sessionHistory.sessionId, sessionHistory.quizId));
             })
         })
 
         return sessionQuestionResults;
     }
 
-    public getSessionQuizResults(sessionId:string){
-        return this.quizResultService.getQuizResults(sessionId);
-    }
+    public getSessionQuizResults(sessionId: string) { return this.quizResultService.getQuizResults(sessionId); }
 
     private getSessionQuestionResultIndex(sessionQuestionResults: SessionQuestionResult[], questionId: number): number {
         return sessionQuestionResults.findIndex(result => result.questionId === questionId);
@@ -57,24 +53,29 @@ export class SessionResultService {
             let sessionIds = this.getDistinctSessionId(quizResults);
             sessionIds.forEach(sessionId => {
                 let currentQuizResults: QuizResult[] = quizResults.filter(quizResult => quizResult.sessionId === sessionId && quizResult.gamemode.id === 1);
-                sessionHistory.push(this.createSessionHistory(currentQuizResults));
+                if (currentQuizResults.length !== 0) sessionHistory.push(this.createSessionHistory(currentQuizResults));
             })
 
-        } catch (err) { console.log(err) }
+
+            sessionHistory.sort((a, b) => b.dateDebut - a.dateDebut);
+
+        } catch (err) { console.error(err) }
+
 
         return sessionHistory;
     }
 
-    private createSessionHistory(quizResults:QuizResult[]){
+    private createSessionHistory(quizResults: QuizResult[]) {
+
         return {
-                    sessionId: quizResults[0].sessionId,
-                    quizId: quizResults[0].quizId,
-                    dateDebut: this.computeStatisticService.convertTimeStampToDate(quizResults[0].dateDebut),
-                    averageScore: this.computeStatisticService.getAverageScore(quizResults),
-                    numberOfQuestions: quizResults[0].questionResults.length,
-                    numberOfplayers: quizResults[0].players.length,
-                    quizResults: quizResults
-                };
+            sessionId: quizResults[0].sessionId,
+            quizId: quizResults[0].quizId,
+            dateDebut: quizResults[0].dateDebut,
+            averageScore: this.computeStatisticService.getAverageScore(quizResults),
+            numberOfQuestions: quizResults[0].questionResults.length,
+            numberOfplayers: quizResults[0].players.length,
+            quizResults: quizResults
+        };
     }
 
     private getDistinctSessionId(quizResults: QuizResult[]) {

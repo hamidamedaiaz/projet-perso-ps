@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SocketService } from '../../../../../services/socket.service';
 import { Profile } from '../../../../../models/profile.model';
-import {NgForOf, NgIf, NgStyle} from '@angular/common';
-import { QuizService } from "../../../../../services/quiz.service";
+import { NgForOf, NgIf, NgStyle } from '@angular/common';
 import { SessionService } from 'src/services/session.service';
 import { PopUpService } from 'src/services/pop-up.service';
-import { interval } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-online-players',
@@ -19,6 +18,8 @@ export class OnlinePlayersComponent implements OnInit {
   public playerList: Profile[] = [];
 
   public sessionId: string = "None";
+
+  public basedUrl:string = environment.basedUrl;
 
   constructor(private socketService: SocketService, private sessionService: SessionService, private popUpService: PopUpService) {
     this.sessionId = this.sessionService.getSessionId();
@@ -35,7 +36,7 @@ export class OnlinePlayersComponent implements OnInit {
       const alreadyExists = this.playerList.some(p => p.id === player.id);
       if (!alreadyExists) {
         this.playerList.push(player);
-        console.log('[CLIENT] - lobby connection listen', player.name);
+        console.info('[CLIENT] - lobby connection listen', player.name);
       }
     });
 
@@ -43,24 +44,22 @@ export class OnlinePlayersComponent implements OnInit {
     this.socketService.listen('lobby-disconnect', data => {
       const player = data as Profile;
 
-      console.log("[CLIENT] - Listen lobby disconnect !!", data)
+      console.info("[CLIENT] - Listen lobby disconnect !!", data)
 
       const index = this.playerList.findIndex(p => p.id === player.id);
       if (index !== -1) {
         this.playerList.splice(index, 1);
-        console.log('[CLIENT] - lobby disconnect ', player.name);
+        console.info('[CLIENT] - lobby disconnect ', player.name);
       }
     });
 
-    this.socketService.listen('online-players', data => {
-      this.playerList = data.players;
-    })
+    this.socketService.listen('online-players', data => { this.playerList = data.players; })
 
 
   }
 
   addToGame(profile: Profile) {
-    console.log("[ONLINE PLAYER] - lobby-admin-move-player EMIT SOCKET , ID : " + this.sessionId)
+    console.info("[ONLINE PLAYER] - lobby-admin-move-player EMIT SOCKET , ID : " + this.sessionId)
     this.socketService.emit("lobby-admin-move-player", { sessionId: this.sessionId, profile: profile })
 
     this.popUpService.sendPopup({
@@ -70,7 +69,7 @@ export class OnlinePlayersComponent implements OnInit {
     })
   }
 
-  getInitials(profile : Profile): string {
+  getInitials(profile: Profile): string {
 
     const firstName = profile.name.charAt(0).toUpperCase();
     const lastName = profile.lastName.charAt(0).toUpperCase();

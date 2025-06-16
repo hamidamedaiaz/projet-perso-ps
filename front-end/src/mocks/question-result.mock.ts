@@ -2,11 +2,9 @@ import { QuestionResult } from "src/models/question-result.model";
 import { Answer } from "src/models/answer.model";
 import { QUIZ_EXAMPLE, QUIZ_EXAMPLE2 } from "./quiz.mock";
 
-function getAnswersIds(answers:Answer[]):number[]{
-    let ids:number[] = []
-    answers.forEach(element => {
-        ids.push(element.id)
-    });
+function getAnswersIds(answers: Answer[]): number[] {
+    let ids: number[] = []
+    answers.forEach(element => { ids.push(element.id) });
     return ids;
 }
 
@@ -31,11 +29,10 @@ export const QUESTION_RESULT: QuestionResult[] =
         id: 2,
         quizId: QUIZ_EXAMPLE.id,
         questionId: QUIZ_EXAMPLE.questions[2].id,
-        answerIds: [], 
+        answerIds: [],
         timeSpent: 12,
         numberOfHintsUsed: 1
-    }
-]
+    }]
 
 export const QUESTION_RESULT2: QuestionResult[] =
     [{
@@ -61,5 +58,4 @@ export const QUESTION_RESULT2: QuestionResult[] =
         answerIds: [],
         timeSpent: 12,
         numberOfHintsUsed: 1
-    }
-]
+    }]

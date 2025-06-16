@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-profile-item',
@@ -16,23 +17,21 @@ export class ProfileItemComponent {
 
   currentPage: String = this.currentPageService.getCurrentPage();
 
-  @Input()
-  profile: Profile | undefined;
+  public basedUrl = environment.apiUrl;
 
-  @Input()
-  context: string = '';
+  @Input() profile: Profile | undefined;
+ 
+  @Input() context: string = '';
 
-  @Output()
-  profileSelected: EventEmitter<Profile> = new EventEmitter<Profile>();
+  @Output() profileSelected: EventEmitter<Profile> = new EventEmitter<Profile>();
 
-  @Output()
-  delete_profile: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() delete_profile: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   constructor(
     private router: Router,
     private cdr: ChangeDetectorRef,
     private currentPageService: CurrentPageService,
-    private currentProfileService:CurrentProfileService
+    private currentProfileService: CurrentProfileService
   ) { }
 
   selectProfile() {
@@ -45,24 +44,19 @@ export class ProfileItemComponent {
           this.router.navigate(['/gamemode-selection']);
         }, 100);
       }
-      else if(this.currentPage==='admin'){
+      else if (this.currentPage === 'admin') {
         this.profileSelected.emit(this.profile);
         this.cdr.detectChanges();
       }
-      else if(this.currentPage === 'multiplayer-setup'){
-        console.log("remove ", this.profile)
+      else if (this.currentPage === 'multiplayer-setup') {
         this.profileSelected.emit(this.profile);
       }
     }
   }
 
-  deletePlayer(){
-    this.delete_profile.emit(true);
-  }
+  deletePlayer() { this.delete_profile.emit(true); }
 
-  public getRole(){
-    return this.currentProfileService.getCurrentProfile().name;
-  }
+  public getRole() { return this.currentProfileService.getCurrentProfile().name; }
 
   public getInitials(): string {
     if (!this.profile) return '';

@@ -29,8 +29,7 @@ export class PlayerStatsTherapyMetricsComponent implements OnInit {
   private correctTrendPositive: boolean = false;
   private incorrectTrendPositive: boolean = false;
 
-  @Input()
-  quizResults!: QuizResult[]
+  @Input() quizResults!: QuizResult[]
 
   constructor(private computeStatisticService: ComputeStatisticService) { }
 

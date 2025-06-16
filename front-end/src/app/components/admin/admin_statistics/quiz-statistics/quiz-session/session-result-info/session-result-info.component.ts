@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EMPTY_SESSION_HISTORY } from 'src/mocks/session-history.mock';;
-import { SessionHistory } from 'src/models/session-history.model';
 import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 import { QuizListService } from 'src/services/quiz-list.service';
 import { QuestionResult } from 'src/models/question-result.model';
@@ -16,20 +14,20 @@ import { QuizResult } from 'src/models/quiz-result.model';
 })
 export class SessionResultInfoComponent {
 
-  @Input() dateDebut:string = "None";
-  @Input() quizTitle:string ="None";
-  @Input() numberOfPlayers:number = -1;
-  @Input() averageScore:number = -1;
-  @Input() numberOfQuestions:number = -1;
-  @Input() quizResults:QuizResult[] = []; 
-  
-  constructor(private computeStatisticService:ComputeStatisticService, private quizListService:QuizListService) {}
+  @Input() dateDebut: number = -1;
+  @Input() quizTitle: string = "None";
+  @Input() numberOfPlayers: number = -1;
+  @Input() averageScore: number = -1;
+  @Input() numberOfQuestions: number = -1;
+  @Input() quizResults: QuizResult[] = [];
 
-  public getDate() { return this.dateDebut; }
+  constructor(private computeStatisticService: ComputeStatisticService, private quizListService: QuizListService) { }
 
-  public getQuizTitle(){ return this.quizTitle; }
+  public getDate() { return this.computeStatisticService.convertTimeStampToDate(this.dateDebut); }
 
-  public getNumberOfPlayers(){ return this.numberOfPlayers; }
+  public getQuizTitle() { return this.quizTitle; }
+
+  public getNumberOfPlayers() { return this.numberOfPlayers; }
 
 
   public getScoreClass(): string {
@@ -39,18 +37,18 @@ export class SessionResultInfoComponent {
     return 'petite-score';
   }
 
-  protected getPercentages():number { return this.computeStatisticService.getPercentages(this.averageScore, this.numberOfQuestions) }
+  protected getPercentages(): number { return this.computeStatisticService.getPercentages(this.averageScore, this.numberOfQuestions) }
 
-  getAverageTimePerQuestions(){ return this.computeStatisticService.getAverageTimeSpent(this.getQuestionResults()); }
+  getAverageTimePerQuestions() { return this.computeStatisticService.getAverageTimeSpent(this.getQuestionResults()); }
 
-  getTotalHintsUsed(){ return this.computeStatisticService.getAverageHintUsed(this.getQuestionResults()) }
+  getTotalHintsUsed() { return this.computeStatisticService.getAverageHintUsed(this.getQuestionResults()) }
 
-  public getScore(){ return this.averageScore; }
+  public getScore() { return this.averageScore; }
 
-  public getTotalQuestions(){ return this.numberOfQuestions; }
+  public getTotalQuestions() { return this.numberOfQuestions; }
 
-  public getQuestionResults(){
-    let questionResults:QuestionResult[] = [];
+  public getQuestionResults() {
+    let questionResults: QuestionResult[] = [];
     this.quizResults.forEach((quizResults) => questionResults = [...questionResults, ...quizResults.questionResults])
     return questionResults;
   }

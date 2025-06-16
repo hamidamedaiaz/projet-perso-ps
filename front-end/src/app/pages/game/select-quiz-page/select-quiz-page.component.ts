@@ -3,6 +3,7 @@ import { QuizAppComponent } from 'src/app/components/admin/admin_quizzes/quiz-ap
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { PopUpCodeComponent } from 'src/app/popup-code/popup-code.component';
+import { SessionService } from 'src/services/session.service';
 
 
 @Component({
@@ -14,22 +15,20 @@ import { PopUpCodeComponent } from 'src/app/popup-code/popup-code.component';
 })
 export class SelectQuizPageComponent {
 
-  constructor(private router: Router, private currentPageService: CurrentPageService) {
+  constructor(private router: Router,
+    private currentPageService: CurrentPageService,
+    private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("select-quiz-page");
+    this.sessionService.connect();
   }
 
   public popUp: boolean = false;
 
-  public goTutorial() {
-    this.router.navigate(["/solo-tutorial"])
-  }
+  public goTutorial() { this.router.navigate(["/tutorial"]) }
 
   public leavePage() { this.router.navigate(["/gamemode-selection"]) }
 
-  closePopUp() {
-    console.log("close")
-    this.popUp = false;
-  }
+  closePopUp() { this.popUp = false; }
 
   public showPopUp() { this.popUp = true; }
 

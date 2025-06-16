@@ -1,11 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { QuizResult } from 'src/models/quiz-result.model';
 import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 import { QuizListService } from 'src/services/quiz-list.service';
 import { CommonModule } from '@angular/common';
-import { QuizResultService } from 'src/services/quiz-result.service';
 import { SessionHistory } from 'src/models/session-history.model';
-import { SessionResultService } from 'src/services/session-result.service';
 @Component({
   selector: 'app-quiz-session-history',
   standalone: true,
@@ -17,24 +15,18 @@ export class QuizSessionHistoryComponent {
 
   @Input() sessionHistory: SessionHistory[] = [];
 
-  @Input()
-  quizId: number = -1;
+  @Input() quizId: number = -1;
 
-  @Input()
-  quizTitle: string = 'Chargement...' //Afficher cette valeur tant qu'on a pas reçu la nouvelle
+  @Input() quizTitle: string = 'Chargement...' //Afficher cette valeur tant qu'on a pas reçu la nouvelle
 
   @Output() viewDetailsEvent = new EventEmitter<string>();
 
-  constructor(private computeStatisticsService: ComputeStatisticService, 
-              private quizListService: QuizListService) {}
+  constructor(private computeStatisticsService: ComputeStatisticService,
+    private quizListService: QuizListService) { }
 
-  viewSessionDetails(sessionId: string) {
-    this.viewDetailsEvent.emit(sessionId);
-  }
+  viewSessionDetails(sessionId: string) { this.viewDetailsEvent.emit(sessionId); }
 
-  getQuizTitle(quizId: number): string {
-    return this.quizListService.getQuiz(quizId).title;
-  }
+  getQuizTitle(quizId: number): string { return this.quizListService.getQuiz(quizId).title; }
 
   getScoreColor(score: number): string {
     if (score >= 70) return 'correct';
@@ -50,9 +42,13 @@ export class QuizSessionHistoryComponent {
 
   getQuizNbOfQuestions(quizResult: QuizResult): number { return quizResult.questionResults.length }
 
-  getPercent(sessionHistory:SessionHistory): number {
-    return this.computeStatisticsService
+  getPercent(sessionHistory: SessionHistory): number {
+    return this.computeStatisticsService 
       .getPercentages(sessionHistory.averageScore, sessionHistory.numberOfQuestions)
+  }
+
+  getDate(sessionHistory: SessionHistory) { 
+    return this.computeStatisticsService.convertTimeStampToDate(sessionHistory.dateDebut)
   }
 
   getQuizGamemodeName(quizResult: QuizResult): string { return quizResult.gamemode.name }

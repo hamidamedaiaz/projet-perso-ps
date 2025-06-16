@@ -19,26 +19,23 @@ import { SoloTutorialComponent } from './pages/game/solo-tutorial/solo-tutorial.
 
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'admin', component: AdminPageComponent},
-  {path:'multiplayer-game-setup', component : MultiplayerGameSetupComponent},
-  {path:'gamemode-selection', component: GamemodeSelectionComponent},
-  {path:'singleplayer-game',component: SingleplayerGamePageComponent},
-  {path:'multiplayer-game-login', component: MultiplayerGameLoginPageComponent},
-  {path:'multiplayer-game',component: MultiplayerGamePageComponent},
-  {path:'waiting-start', component:WaitingStartPageComponent},
-  {path:'select-quiz', component:SelectQuizPageComponent},
-  {path:'quiz-scoreboard', component:QuizScoreboardComponent},
-  {path:'player-stats/:id', component: PlayerStatsDetailsComponent},
-  {path:'quiz-result/:profileId/:quizId', component: QuizResultDetailsComponent},
-  {path:'quiz-scoreboard',component:QuizScoreboardComponent},
-  {path: 'answer-submitted', component:AnswerSubmittedPageComponent},
-  {path: 'quiz-multiplayer-scoreboard', component:QuizMultiplayerScoreboardComponent},
-  {path:'solo-tutorial', component: SoloTutorialComponent},
-
-
-
-  {path:'**',component: NotFoundPageComponent},
+  { path: '', component: HomeComponent },
+  { path: 'admin', component: AdminPageComponent },
+  { path: 'multiplayer-game-setup', component: MultiplayerGameSetupComponent },
+  { path: 'gamemode-selection', component: GamemodeSelectionComponent },
+  { path: 'singleplayer-game', component: SingleplayerGamePageComponent },
+  { path: 'multiplayer-game-login', component: MultiplayerGameLoginPageComponent },
+  { path: 'multiplayer-game', component: MultiplayerGamePageComponent },
+  { path: 'waiting-start', component: WaitingStartPageComponent },
+  { path: 'select-quiz', component: SelectQuizPageComponent },
+  { path: 'quiz-scoreboard', component: QuizScoreboardComponent },
+  { path: 'player-stats/:id', component: PlayerStatsDetailsComponent },
+  { path: 'quiz-result/:profileId/:quizId', component: QuizResultDetailsComponent },
+  { path: 'quiz-scoreboard', component: QuizScoreboardComponent },
+  { path: 'answer-submitted', component: AnswerSubmittedPageComponent },
+  { path: 'quiz-multiplayer-scoreboard', component: QuizMultiplayerScoreboardComponent },
+  { path: 'tutorial', component: SoloTutorialComponent },
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({

@@ -22,13 +22,12 @@ import { SessionService } from 'src/services/session.service';
   styleUrl: './quiz-app.component.scss'
 })
 export class QuizAppComponent {
+  
   searchQuery: string = '';
   quizzes: Quiz[] = [];
   currentPage = this.currentPageService.getCurrentPage();
 
-  @Input()
-  context: String | undefined;
-
+  @Input() context: String | undefined;
 
   public showDeleteConfirm: Boolean = false;
 
@@ -41,7 +40,6 @@ export class QuizAppComponent {
     private socketService: SocketService,
     private sessionService: SessionService) {
     this.quizListService.quizzes$.subscribe((quizzes: Quiz[]) => {
-      console.log("Nouveaux quizzes reçus :", quizzes);
       this.quizzes = quizzes;
     });
   }
@@ -54,7 +52,6 @@ export class QuizAppComponent {
   }
 
   public async launchMultiGame(quiz: Quiz) {
-    console.log("Launching this quiz in multiplayer mode ", quiz);
     this.sessionService.generateAdminSessionId();
     this.socketService.emit('generate-new-session', { quiz: quiz, adminSessionId: this.sessionService.getAdminSessionId() });
     const data = await this.socketService.listenOnce('session-created');
@@ -65,20 +62,16 @@ export class QuizAppComponent {
   }
 
   public launchSoloGame(quiz: Quiz) {
-    console.log("Launching this quiz in singleplayer mode ", quiz);
     this.quizService.setQuiz(quiz);
     this.quizService.startQuiz();
     this.router.navigate(["/singleplayer-game"])
   }
 
-  public createQuiz() {
-    this.quizListService.createQuiz();
-  }
+  public createQuiz() { this.quizListService.createQuiz(); }
 
   public deleteQuiz(quiz: Quiz) {
     this.showDeleteConfirm = true;
     this.quizToDelete = quiz;
-    console.log("detected")
   }
 
   confirmDelete() {
@@ -88,9 +81,6 @@ export class QuizAppComponent {
     } else this.cancelDelete();
   }
 
-  cancelDelete() {
-    this.showDeleteConfirm = false;
-    console.log("Suppresson canceled");
-  }
+  cancelDelete() { this.showDeleteConfirm = false; }
 
 }

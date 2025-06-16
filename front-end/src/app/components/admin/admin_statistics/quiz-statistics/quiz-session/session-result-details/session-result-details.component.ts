@@ -12,8 +12,6 @@ import { CommonModule } from '@angular/common';
 import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 import { ProfileService } from 'src/services/profile.service';
 import { Rank } from 'src/models/rank.model';
-import { QuizResult } from 'src/models/quiz-result.model';
-
 @Component({
   selector: 'app-session-result-details',
   standalone: true,
@@ -27,8 +25,7 @@ import { QuizResult } from 'src/models/quiz-result.model';
 })
 export class SessionResultDetailsComponent implements OnInit {
 
-  @Input()
-  sessionHistory!: SessionHistory;
+  @Input() sessionHistory!: SessionHistory;
 
   show_pop_up: boolean = false;
 
@@ -40,8 +37,7 @@ export class SessionResultDetailsComponent implements OnInit {
 
   protected activeTab: string = "questions";
 
-  @Output()
-  go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() go_back: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private quizListService: QuizListService, private computeStatisticService: ComputeStatisticService, private profileService: ProfileService) {
   }
@@ -62,9 +58,7 @@ export class SessionResultDetailsComponent implements OnInit {
 
   public deleteQuizResult() { }
 
-  public getQuiz() {
-    return this.quiz;
-  }
+  public getQuiz() { return this.quiz; }
 
   public getQuestionResults() {
     let questionResults: QuestionResult[] = []
@@ -78,26 +72,19 @@ export class SessionResultDetailsComponent implements OnInit {
 
   public getNumberOfPlayers() { return this.sessionHistory.numberOfplayers; }
 
-  public getNumberOfQuestions() {
-    return this.sessionHistory.numberOfQuestions;
-  }
+  public getNumberOfQuestions() { return this.sessionHistory.numberOfQuestions; }
 
   public getAverageScore() { return this.sessionHistory.averageScore; }
 
-  public getQuizResults() {
-    console.log("QuizRESULTS : ", this.sessionHistory.quizResults)
-    return this.sessionHistory.quizResults
-  }
+  public getQuizResults() { return this.sessionHistory.quizResults }
 
-  public setActiveTab(newTab: string) {
-    this.activeTab = newTab;
-  }
+  public setActiveTab(newTab: string) { this.activeTab = newTab; }
 
   public getRank() {
     let ranking: Rank[] = []
     this.sessionHistory.quizResults.forEach((quizResult) => {
       const rank = this.computeStatisticService.createRank(quizResult);
-      if(!(rank.score === -1)) ranking.push(rank);
+      if (!(rank.score === -1)) ranking.push(rank);
     })
     return ranking.sort((a, b) => a.score - b.score);
   }

@@ -2,9 +2,8 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, catchError, Observable, of } from "rxjs";
 import { GUEST_PROFILE, PROFILE_LIST } from "../mocks/profile-list.mock";
 import { Profile } from "src/models/profile.model";
-import { LocalStorageService } from "./localstorage.service";
 import { HttpClient } from '@angular/common/http';
-//import { HttpClient } from "@angular/common/http"
+import { environment } from "src/environments/environment.development";
 
 @Injectable({
   providedIn: 'root'
@@ -15,21 +14,17 @@ export class ProfileService {
 
   private profiles: Profile[] = [];
 
-  private apiUrl = "http://localhost:9428/api/profiles";
+  private apiUrl = environment.apiUrl + "/profiles";
 
   public profiles$: BehaviorSubject<Profile[]> = new BehaviorSubject<Profile[]>(this.profiles);
 
   public profileToEdit$: BehaviorSubject<Profile> = new BehaviorSubject<Profile>(PROFILE_LIST[0]);
 
-  constructor(private http: HttpClient) {
-    this.getProfileList();
-  }
+  constructor(private http: HttpClient) { this.getProfileList(); }
 
 
 
-  public selectProfileForEdition(profileToEdit: Profile) {
-    this.profileToEdit$.next(profileToEdit);
-  }
+  public selectProfileForEdition(profileToEdit: Profile) { this.profileToEdit$.next(profileToEdit); }
 
   public getSelectedProfileForEdition() {
     if (this.profileToEdit$) return this.profileToEdit$;
@@ -86,9 +81,7 @@ export class ProfileService {
   });
 }
 
-getProfiles(profileIds: number[]): Profile[] {
-    return this.profiles.filter(profile => profileIds.includes(profile.id));
-}
+getProfiles(profileIds: number[]): Profile[] { return this.profiles.filter(profile => profileIds.includes(profile.id)); }
 
 
 // On return un Observable pour gérer le cas ou la base de donnée met du tps à retourner le profile

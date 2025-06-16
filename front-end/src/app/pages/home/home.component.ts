@@ -32,16 +32,11 @@ export class HomeComponent {
 
   public popUp: boolean = false;
 
-  @Input()
-  public context: string = "home";
+  @Input() context: string = "home";
+ 
+  closePopUp() { this.popUp = false; }
 
-  closePopUp() {
-    this.popUp = false;
-  }
-
-  public showPopUp() {
-    this.popUp = true;
-  }
+  public showPopUp() { this.popUp = true; }
 
   public goToAdminPanel() {
     this.currentPageService.setCurrentPage("admin");

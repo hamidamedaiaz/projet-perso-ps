@@ -69,13 +69,15 @@ html {
 // Styles pour le sous-menu
 .submenu {
   max-height: 0;
-  overflow: hidden;
   transition: max-height 0.3s ease-out;
   margin-left: 15px;
   margin-bottom: 10px;
 
   &.open {
     max-height: 200px; // Hauteur suffisante pour contenir tous les sous-éléments
+  }
+  &.closed {
+    overflow: hidden;
   }
 
   .submenu-btn {

@@ -231,6 +231,7 @@ export function isSessionAdmin(socketId) {
 
 export function handleReconnection(sessionId, profile, socketId) {
   let connected = false;
+  
   sessions.forEach(session => {
     if (session.id === sessionId) {
       session.players.forEach(player => {

@@ -1,4 +1,4 @@
-  const Joi = require('joi')
+const Joi = require('joi')
 const BaseModel = require('../utils/base-model.js')
 const Answer = require('./answer.model.js');
 

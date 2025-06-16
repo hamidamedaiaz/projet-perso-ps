@@ -7,7 +7,6 @@ import { QuizQuestionComponent } from 'src/app/components/game/quizzes/quiz-ques
 import { CommonModule } from '@angular/common';
 import { PopUpCodeComponent } from 'src/app/popup-code/popup-code.component';
 import { SessionService } from 'src/services/session.service';
-import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-multiplayer-game-page',
@@ -30,7 +29,7 @@ export class MultiplayerGamePageComponent {
       this.currentProfile = currentProfile;
     })
     this.currentPageService.setCurrentPage("multiplayer-game-page")
-     this.sessionService.connect()
+    this.sessionService.connectToSession()
   }
 
   public leaveQuiz() {
@@ -38,9 +37,7 @@ export class MultiplayerGamePageComponent {
     this.router.navigate(["/admin"]);
   }
 
-  public getRole() {
-    return this.currentProfile?.role
-  }
+  public getRole() { return this.currentProfile?.role }
 
   public closePopUp() { this.popUp = false; }
 

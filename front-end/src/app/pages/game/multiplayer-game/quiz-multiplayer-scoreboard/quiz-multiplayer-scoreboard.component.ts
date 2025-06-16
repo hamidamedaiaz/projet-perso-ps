@@ -6,13 +6,11 @@ import { CommonModule } from '@angular/common';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
 import { Router } from '@angular/router';
 import { QuizQuestionComponent } from 'src/app/components/game/quizzes/quiz-question/quiz-question.component';
-import { Question } from 'src/models/question.model';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
 import { RankingComponent } from 'src/app/components/admin/admin_statistics/quiz-statistics/ranking/ranking.component';
 import { QuizResult } from 'src/models/quiz-result.model';
 import { QuizResultService } from 'src/services/quiz-result.service';
-import { SessionResultService } from 'src/services/session-result.service';
 import { Rank } from 'src/models/rank.model';
 import { ComputeStatisticService } from 'src/services/computeStatistic.service';
 
@@ -33,8 +31,6 @@ export class QuizMultiplayerScoreboardComponent {
 
   private congrats_message: string = "Félicitation, vous avez terminé le quiz !"
 
-  private displayedQuestion: Question | null = null;
-
   public displayQuestion: Boolean = false;
 
   protected hide_ranking: boolean = true;
@@ -48,16 +44,13 @@ export class QuizMultiplayerScoreboardComponent {
     private sessionService: SessionService,
     private quizResultService: QuizResultService,
     private computeStatisticService: ComputeStatisticService) {
-    this.quizService.quiz$.subscribe((quiz) => {
-      this.quiz = quiz;
-    })
+    this.quizService.quiz$.subscribe((quiz) => { this.quiz = quiz; })
     this.hide_ranking = true;
-
   }
 
   async ngOnInit() {
     this.loadConfettiScript();
-    this.sessionService.connect();
+    this.sessionService.connectToSession();
 
     const sessionId = this.sessionService.getSessionId();
 
@@ -69,10 +62,7 @@ export class QuizMultiplayerScoreboardComponent {
     }
 
     this.rankedList = this.getRank(results);
-    console.log(this.rankedList);
   }
-
-
 
   private getRank(quizResults: QuizResult[]) {
     let ranking: Rank[] = []
@@ -82,7 +72,6 @@ export class QuizMultiplayerScoreboardComponent {
     })
     return ranking.sort((a, b) => a.score - b.score);
   }
-
 
   loadConfettiScript(): void {
     const script = document.createElement('script');
@@ -116,18 +105,11 @@ export class QuizMultiplayerScoreboardComponent {
     }
   }
 
-  public getQuizTitle() {
-    return this.quiz?.title;
-  }
+  public getQuizTitle() { return this.quiz?.title; }
 
-  public getQuizQuestions() {
-    console.log(this.quiz?.questions);
-    return this.quiz?.questions
-  }
+  public getQuizQuestions() { return this.quiz?.questions }
 
-  public get_congrats_message() {
-    return this.congrats_message;
-  }
+  public get_congrats_message() { return this.congrats_message; }
 
   public showQuestion(questionId: number) {
     this.displayQuestion = true;
@@ -147,9 +129,7 @@ export class QuizMultiplayerScoreboardComponent {
     this.router.navigate(["/multiplayer-game-login"]);
   }
 
-  public getRole() {
-    return this.currentProfileService.getCurrentProfile().role
-  }
+  public getRole() { return this.currentProfileService.getCurrentProfile().role }
 
   public toogleRanking() {
     this.displayQuestion = false;

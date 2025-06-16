@@ -1,9 +1,10 @@
 @import '/src/app/color-palette.scss';
 
-.header-card-section{
+.header-card-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2vh;
   height: 50%;
   width: 100%;
@@ -14,10 +15,7 @@
   height: 20vh;
   padding: 3vh;
   border-radius: 1.5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+
   gap: 2vh;
   border: $primary-border-white;
   background-color: $secondary-white-bg;
@@ -25,9 +23,22 @@
   box-shadow: $primary-box-shadow;
   position: relative;
   overflow: hidden;
+
+  &.adminView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &.userView {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
-.quiz-item-title{
+.quiz-item-title {
   margin: 0vh;
   width: 100%;
   text-align: center;
@@ -37,12 +48,13 @@
   color: $primary-black-text;
 }
 
-.button-section{
+
+.button-section {
   display: flex;
   align-self: flex-end;
 }
 
-.button{
+.button {
   border: none;
   background: none;
   padding: 0.8vh;
@@ -57,7 +69,7 @@
 }
 
 
-.button:hover{
+.button:hover {
   background: $primary-btn-white-hover;
   transform: scale(1.1);
 }
@@ -77,7 +89,7 @@
   box-shadow: 0 0.2vh 0.8vh rgba(231, 76, 60, 0.3);
 }
 
-.launch-game-btn{
+.launch-game-btn {
   background: linear-gradient(135deg, $secondary-blue-bg 0%, $third-blue-bg 100%);
   border: none;
   color: $primary-white-text;
@@ -93,7 +105,7 @@
   overflow: hidden;
 }
 
-.launch-game-btn:hover{
+.launch-game-btn:hover {
   background-color: $secondary-btn-blue-hover;
   cursor: pointer;
 }

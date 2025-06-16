@@ -1,13 +1,11 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
-import {Profile} from "../../../../../models/profile.model";
-import {Quiz} from "../../../../../models/quiz.model";
-import {ProfileService} from "../../../../../services/profile.service";
-import {QuizListService} from "../../../../../services/quiz-list.service";
-import {Router} from "@angular/router";
-import {CurrentPageService} from "../../../../../services/currentPage.service";
-import {StatsService} from "../../../../../services/stats.service";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { NgForOf, NgIf } from "@angular/common";
+import { Profile } from "../../../../../models/profile.model";
+import { Quiz } from "../../../../../models/quiz.model";
+import { ProfileService } from "../../../../../services/profile.service";
+import { QuizListService } from "../../../../../services/quiz-list.service";
+import { StatsService } from "../../../../../services/stats.service";
 import { QuizResultService } from 'src/services/quiz-result.service';
 
 @Component({
@@ -21,7 +19,7 @@ import { QuizResultService } from 'src/services/quiz-result.service';
   templateUrl: './selection-list.component.html',
   styleUrl: './selection-list.component.scss'
 })
-export class SelectionListComponent implements OnInit{
+export class SelectionListComponent implements OnInit {
 
   profiles: Profile[] = [];
   quizzes: Quiz[] = [];
@@ -31,7 +29,7 @@ export class SelectionListComponent implements OnInit{
   searchQuery = '';
   numberOfPages: number = 1;
 
-  @Input() context : string = "";
+  @Input() context: string = "";
 
   @Output() profile_selected: EventEmitter<number> = new EventEmitter<number>();
   @Output() quiz_selected: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -41,28 +39,26 @@ export class SelectionListComponent implements OnInit{
     private profileService: ProfileService,
     private quizService: QuizListService,
     private statService: StatsService,
-    private quizResultService:QuizResultService, // Laisser le quizResultService pour qu'il charge les données # Sparadra
-  ) {}
+    private quizResultService: QuizResultService, // Laisser le quizResultService pour qu'il charge les données # Sparadra
+  ) { }
 
 
   ngOnInit() {
-    if(this.context === "acceuilli"){
+    if (this.context === "acceuilli") {
       this.profileService.profiles$.subscribe(profiles => {
         this.profiles = profiles;
-        console.log('Stats, acceuilli , size :', this.profiles.length);
       });
     }
 
-    if(this.context === "quiz"){
+    if (this.context === "quiz") {
       this.quizService.quizzes$.subscribe(quizzes => {
         this.quizzes = quizzes;
-        console.log('Stats, quiz , size :', this.quizzes.length);
       })
     }
 
     this.quizService.quizzes$.subscribe(quizzes => {
       this.quizzes = quizzes;
-      this.numberOfPages = Math.floor(this.quizzes.length/this.ITEMS_PER_PAGE);
+      this.numberOfPages = Math.floor(this.quizzes.length / this.ITEMS_PER_PAGE);
     });
   }
 
@@ -74,18 +70,18 @@ export class SelectionListComponent implements OnInit{
     const query = this.searchQuery.toLowerCase();
     // On récupère les profil de la query
     filtered = filtered.filter(profile =>
-        profile.name.toLowerCase().includes(query) ||
-        profile.lastName.toLowerCase().includes(query)
-      );
+      profile.name.toLowerCase().includes(query) ||
+      profile.lastName.toLowerCase().includes(query)
+    );
     // on Tri par nom
     filtered.sort((a, b) =>
       (a.lastName + a.name).localeCompare(b.lastName + b.name)
     );
 
-    return filtered.slice((this.currentPage-1)*this.ITEMS_PER_PAGE, (this.currentPage)*this.ITEMS_PER_PAGE);
+    return filtered.slice((this.currentPage - 1) * this.ITEMS_PER_PAGE, (this.currentPage) * this.ITEMS_PER_PAGE);
   }
 
-  filteredQuizzes() : Quiz[]{
+  filteredQuizzes(): Quiz[] {
     let filtered = [...this.quizzes];
 
     const query = this.searchQuery.toLowerCase();
@@ -98,24 +94,21 @@ export class SelectionListComponent implements OnInit{
       (a.title).localeCompare(b.title)
     );
 
-    return filtered.slice((this.currentPage-1)*this.ITEMS_PER_PAGE, (this.currentPage)*this.ITEMS_PER_PAGE);
+    return filtered.slice((this.currentPage - 1) * this.ITEMS_PER_PAGE, (this.currentPage) * this.ITEMS_PER_PAGE);
   }
 
 
-  getProfileStats(id: number){
+  getProfileStats(id: number) {
     this.profile_selected.emit(id);
-    console.log("profile selected, ", id);
     this.statService.selectProfile(id);
   }
 
-  getQuizStat(id : number){
+  getQuizStat(id: number) {
     this.quiz_selected.emit(true);
     this.statService.selectQuiz(id);
   }
 
-  changePage(page: number) {
-    this.currentPage = page;
-  }
+  changePage(page: number) { this.currentPage = page; }
 
   getTotalPages(): number {
 
@@ -126,5 +119,6 @@ export class SelectionListComponent implements OnInit{
     );
 
 
-    return Math.max(1, Math.ceil(filtered.length / this.ITEMS_PER_PAGE));  }
+    return Math.max(1, Math.ceil(filtered.length / this.ITEMS_PER_PAGE));
+  }
 }

@@ -1,10 +1,8 @@
-<div *ngIf="profile" class="result-item" (click)="selectProfile()" >
+<div *ngIf="profile" class="result-item" (click)="selectProfile()">
 
   <div class="profile-picture-container">
-    <div
-      class="profile-picture"
-      *ngIf="profile.profilePicture !== 'empty_path'"
-      [ngStyle]="{'background-image': 'url(http://localhost:9428/upload/' + profile.profilePicture + ')'}">
+    <div class="profile-picture" *ngIf="profile.profilePicture !== 'empty_path'"
+      [ngStyle]="{'background-image': 'url( {{basedUrl}} /upload/' + profile.profilePicture + ')'}">
     </div>
     <div class="profile-picture initials" *ngIf="profile.profilePicture === 'empty_path'">
       {{ getInitials() }}
