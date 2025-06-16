@@ -1,6 +1,6 @@
 import { E2EComponentFixture } from "e2e/e2e-component.fixture";
 
-export class AdminPageFixtures extends E2EComponentFixture {
+export class AdminPageFixture extends E2EComponentFixture {
 
     getTitle() { return this.page.locator('xpath=/html/body/app-root/app-admin/div/main/div/span'); }
 

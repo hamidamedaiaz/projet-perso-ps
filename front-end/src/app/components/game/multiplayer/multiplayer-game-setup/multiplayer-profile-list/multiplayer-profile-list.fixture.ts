@@ -6,8 +6,6 @@ export class MultiplayerProfileListFixture extends E2EComponentFixture {
 
     getPlayers() { return this.page.locator('.player-card') }
 
-    getPlayerByName(name: string) {
-        return this.getPlayers().filter({ hasText: name })
-    }
+    getPlayerByName(name: string) { return this.getPlayers().filter({ hasText: name }) }
 
 }
