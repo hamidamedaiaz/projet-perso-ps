@@ -2,14 +2,16 @@ import { test, expect } from '@playwright/test';
 import { testUrl } from 'e2e/e2e.config';
 import { QuizAppFixture } from 'src/app/components/admin/admin_quizzes/quiz-app/quiz-app.fixture';
 import { MultiplayerGameSetupSideBarFixture } from 'src/app/components/game/multiplayer/multiplayer-game-setup/multiplayer-game-setup-sidebar/multiplayer-game-setup-sidebar.fixture';
+import { MultiplayerProfileListFixture } from 'src/app/components/game/multiplayer/multiplayer-game-setup/multiplayer-profile-list/multiplayer-profile-list.fixture';
+import { OnlinePlayersFixture } from 'src/app/components/game/multiplayer/online-players/online-players.fixture';
 import { AdminPageFixture } from 'src/app/pages/admin/admin-page/admin-page.fixtures';
 import { HomeFixture } from 'src/app/pages/home/home.fixture';
 import { PopUpCodeFixture } from 'src/app/popup-code/popup-code.fixture';
 
 // This file is here to test the playwright integration.
-test.describe('Monitoring Multiplayer Game Test', () => {
+test.describe('Create Multiplayer Game Test', () => {
 
-  test('Monitoring Multiplayer Game Test', async ({ page }) => {
+  test('Create Multiplayer Game Test', async ({ page }) => {
 
     const homePageFixture = new HomeFixture(page);
 
@@ -21,7 +23,11 @@ test.describe('Monitoring Multiplayer Game Test', () => {
 
     const multiplayerGameSetupSideBarFixture = new MultiplayerGameSetupSideBarFixture(page);
 
-    await page.goto(testUrl)
+    const onlinePlayersFixture = new OnlinePlayersFixture(page);
+
+    const multiplayerProfileListFixture = new MultiplayerProfileListFixture(page);
+
+    await page.goto(testUrl);
 
     await test.step("Access to admin page'", async () => {
 
@@ -44,7 +50,7 @@ test.describe('Monitoring Multiplayer Game Test', () => {
 
       await expect(adminPageFixture.getSideBarStatsBtn()).toBeVisible();
 
-    })
+    });
 
     await test.step("Select a quiz", async () => {
 
@@ -68,15 +74,17 @@ test.describe('Monitoring Multiplayer Game Test', () => {
 
       await expect(multiplayerGameSetupSideBarFixture.getStartGameBtn()).toBeVisible();
 
-    })
+      await expect(onlinePlayersFixture.getPlayers()).toHaveCount(0);
 
-    await test.step('', async () => {
-      
-    })
+      await expect(onlinePlayersFixture.getTitle()).toBeVisible();
 
+      await expect(multiplayerProfileListFixture.getPlayers()).toHaveCount(0);
 
+      await expect(multiplayerProfileListFixture.getTitle()).toBeVisible();
 
-  })
+    });
+
+  });
 
 });
 
