@@ -4,7 +4,7 @@ import { Profile } from '../../../../../models/profile.model';
 import { NgForOf, NgIf, NgStyle } from '@angular/common';
 import { SessionService } from 'src/services/session.service';
 import { PopUpService } from 'src/services/pop-up.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-online-players',

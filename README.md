@@ -7,12 +7,11 @@ Application Angular de quiz musicaux conçue pour les personnes atteinte d'alzhe
 ```bash
 cd front-end
 npm install
-npm install chart.js
 npm start
 ```
 
 ## Authors : 
 - Meskini Driss
-- Rouillon Cyil
+- Rouillon Cyril
 - Amediaz Hamid
 - Gros Nathan

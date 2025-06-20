@@ -9,18 +9,15 @@
 }
 
 .sidebar {
-  width: 14%;
+  width: 20vw;
   background-color: $secondary-blue-bg;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 1vw;
+  box-shadow: 0.1vw 0 0.3vw rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   z-index: 10;
-  width: 300px;
-  min-width: 300px; 
-  max-width: 300px;
-  transition: none; 
+  transition: none;
 }
 
 .home-btn {
@@ -29,18 +26,18 @@
 
 .sidebar-btn {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 0.5vw;
   align-items: center;
-  gap: 10px;
+  gap: 0.5vw;
   width: 100%;
-  padding: 12px;
+  padding: 0.6vw;
   background-color: $third-blue-btn;
   border: none;
   color: $primary-btn-white-text;
-  font-size: 18px;
+  font-size: 1vw;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 0.3vw;
   transition: all 0.3s ease;
 
   &:hover {
@@ -63,11 +60,11 @@
 .submenu {
   max-height: 0;
   transition: max-height 0.3s ease-out;
-  margin-left: 15px;
-  margin-bottom: 10px;
+  margin-left: 0.8vw;
+  margin-bottom: 0.5vw;
 
   &.open {
-    max-height: 200px; // Hauteur suffisante pour contenir tous les sous-éléments
+    max-height: 10vw; // Hauteur suffisante pour contenir tous les sous-éléments
   }
   &.closed {
     overflow: hidden;
@@ -75,9 +72,9 @@
 
   .submenu-btn {
     background-color: $third-blue-btn;
-    font-size: 16px;
-    padding: 10px;
-    margin-bottom: 8px;
+    font-size: 0.8vw;
+    padding: 0.5vw;
+    margin-bottom: 0.4vw;
 
     &:hover {
       background-color: $secondary-btn-blue-hover;
@@ -86,26 +83,27 @@
 }
 
 .logo {
-  height: 24px;
-  width: 24px;
+  height: 1.2vw;
+  width: 1.2vw;
   flex-shrink: 0;
 }
 
 .content {
   flex-grow: 1;
-  padding: 20px;
+  padding: 1vw;
   background-color: $primary-white-bg;
-  border-radius: 8px;
-  margin: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4vw;
+  margin: 1vw;
+  width: 80vw;
+  box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
   overflow: auto;
   position: relative;
 }
 
 .section-title {
   color: $primary-black-text;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
+  margin-bottom: 1vw;
+  font-size: 1.5vw; //TODO
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -113,9 +111,9 @@
   &::after {
     content: '';
     flex-grow: 1;
-    height: 1px;
+    height: 0.1vw;
     background-color: $primary-white-bg;
-    margin-left: 15px;
+    margin-left: 0.8vw;
   }
 }
 
@@ -130,7 +128,7 @@
   flex: 1;
   transition: all 0.3s ease-in-out;
   overflow-y: auto;
-  padding-right: 20px;
+  padding-right: 1vw;
 
   &.collapsed {
     max-width: 35%;
@@ -225,15 +223,14 @@
 }
 
 .home-page-title {
-  font-size: 5rem;
+  position: absolute;
+  font-size: 5vw;
   font-weight: bold;
-  margin-bottom: 20px;
   display: flex;
   justify-content: center;
-  /* centre horizontalement */
-  align-items: center;
-  /* centre verticalement */
-  height: 80%;
+  text-align: center;
+  margin-top: calc(50vh - 12vw);
+  height: 70%;
   width: 100%;
   color: $primary-blue-text;
   user-select: none;
@@ -244,9 +241,10 @@
 
 #subText {
   position: absolute;
-  top: 45%;
-  left: 38%;
-  font-size: 3vh;
+  top: 50%;
+  font-size: 2vw;
+  width: 100%;
+  text-align: center;
   color: $secondary-white-text;
   user-select: none;
 }

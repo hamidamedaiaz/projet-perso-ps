@@ -10,6 +10,6 @@
 </section>
 <section *ngIf="getRole() === 'admin'" class="answers-section-admin-view">
     <div class="answers-container" *ngFor="let answer of getMultiplayerAnswers()">
-        <app-quiz-answer-multiplayer [answer]="answer"></app-quiz-answer-multiplayer>
+        <app-quiz-answer-multiplayer [answer]="answer" id="multiplayer-answer"></app-quiz-answer-multiplayer>
     </div>
 </section>

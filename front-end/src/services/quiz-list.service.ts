@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Quiz } from "../models/quiz.model";
 import { EMPTY_QUIZ } from 'src/mocks/quiz.mock';
 import { Question } from 'src/models/question.model';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

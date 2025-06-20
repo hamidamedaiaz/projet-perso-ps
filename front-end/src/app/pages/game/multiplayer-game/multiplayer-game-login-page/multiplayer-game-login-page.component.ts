@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { FormsModule } from '@angular/forms';
@@ -13,15 +13,11 @@ import { SessionService } from 'src/services/session.service';
   templateUrl: './multiplayer-game-login-page.component.html',
   styleUrl: './multiplayer-game-login-page.component.scss'
 })
-export class MultiplayerGameLoginPageComponent {
+export class MultiplayerGameLoginPageComponent implements OnInit {
 
   public code: string = "";
 
   private JOIN_GAME_MESSAGE: string = "Rejoindre une partie"
-
-  private NO_GAME_FOUND: string = "Partie terminée ou inexistante"
-
-  private NOT_ABLE_TO_JOIN: string = "Impossible de rejoindre la partie"
 
   private INVALID_CODE: string = "Code Invalide"
 
@@ -35,22 +31,20 @@ export class MultiplayerGameLoginPageComponent {
     private socketService: SocketService,
     private sessionService: SessionService) {
     this.currentPageService.setCurrentPage("multiplayer-game-login-page")
-    this.message = this.JOIN_GAME_MESSAGE;
     this.sessionService.connect();
   }
 
+  ngOnInit(): void { this.message = this.JOIN_GAME_MESSAGE; }
+
   public async joinGame() {
     if (this.code === "") this.message = this.INVALID_CODE;
-    
+
     else {
       const profile = this.currentProfileService.getCurrentProfile();
       this.socketService.emit("join-session", { sessionId: this.code, profile: profile })
     }
 
   }
-
-
-
 
   public leavePage() {
     this.currentProfileService.resetCurrentProfile();

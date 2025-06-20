@@ -1,7 +1,7 @@
 <div class="player-list-container">
     <section class="title">Accueillis ayant répondu :</section>
     <section class="player-list-section">
-        <div *ngFor="let profile of getPlayers()">
+        <div *ngFor="let profile of getPlayers()" class="profile-card-container">
             <div class="profile-card-avatar">
                 <div *ngIf="profile.profilePicture !== 'empty_path'">
                     <div class="profile-img"

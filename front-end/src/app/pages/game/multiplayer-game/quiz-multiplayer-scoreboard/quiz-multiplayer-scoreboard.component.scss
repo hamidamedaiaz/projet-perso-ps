@@ -54,7 +54,7 @@
     justify-content: center;
 }
 
-.question-section {
+.scoreboard-question-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,7 +69,7 @@
     overflow-y: auto;
 }
 
-.question-item {
+.scoreboard-question-item {
     width: 90%;
     padding: 15px;
     margin-bottom: 10px;
@@ -82,12 +82,12 @@
     box-shadow: $primary-box-shadow;
 }
 
-.question-item:hover {
+.scoreboard-question-item:hover {
     background-color: $primary-btn-white-hover;
     cursor: pointer;
 }
 
-.question-item.selected {
+.scoreboard-question-item.selected {
     background-color: $secondary-blue-btn;
     color: $primary-white-btn;
     border-color: $secondary-blue-btn;
@@ -127,12 +127,12 @@
     background-color: $secondar-white-btn;
 }
 
-.leave-btn {
+.user-leave-btn, .admin-leave-btn {
     background-color: $primary-btn-leave;
     color: $primary-white-btn;
 }
 
-.leave-btn:hover {
+.user-leave-btn, .admin-leave-btn:hover {
     background-color: $primary-btn-leave-hover;
 }
 
@@ -148,10 +148,6 @@
     text-align: center;
 }
 
-.question-item:hover {
-    cursor: pointer;
-}
-
 .quiz-question-container {
     height: 100%;
 }
@@ -165,7 +161,7 @@
     background-color: $primary-btn-white-hover;
 }
 
-.leave-btn-user-view {
+.user-leave-btn, .admin-leave-btn-user-view {
     display: flex;
     justify-content: center;
 }

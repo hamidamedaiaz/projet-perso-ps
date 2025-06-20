@@ -1,7 +1,7 @@
 <div class="global-container" [ngClass]="{'correct-flash' : correctAnswer && show_result}">
     <section class="content">
         <section [ngClass]="{ 'hidden': show_result }" class="section">
-            <p class="message">Réponse Enregistrée</p>
+            <p class="answer-saved message">Réponse Enregistrée</p>
             <section class="dot-section">
                 <span class="dot">.</span>
                 <span class="dot">.</span>
@@ -10,7 +10,7 @@
         </section>
 
         <section [ngClass]="{ 'hidden': !show_result }" class="section">
-            <p class="message">{{message}}</p>
+            <p class="answer-result message">{{message}}</p>
         </section>
     </section>
     <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

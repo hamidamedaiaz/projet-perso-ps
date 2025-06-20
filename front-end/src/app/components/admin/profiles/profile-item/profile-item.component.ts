@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CurrentPageService } from 'src/services/currentPage.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-item',
@@ -20,7 +20,7 @@ export class ProfileItemComponent {
   public basedUrl = environment.apiUrl;
 
   @Input() profile: Profile | undefined;
- 
+
   @Input() context: string = '';
 
   @Output() profileSelected: EventEmitter<Profile> = new EventEmitter<Profile>();

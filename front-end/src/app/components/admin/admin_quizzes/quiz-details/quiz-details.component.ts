@@ -30,7 +30,7 @@ export class QuizDetailsComponent implements OnChanges {
 
   public selectedQuestionCopy: Question | null = null;
 
-  private currentQuestionIndex = 0;
+  private currentQuestionIndex = -1;
 
   quizCopy: Quiz = EMPTY_QUIZ;
 

@@ -12,7 +12,7 @@ const config: PlaywrightTestConfig = {
     video: 'on-first-retry',
     screenshot: 'only-on-failure',
     launchOptions: {
-      slowMo: 1000,
+      slowMo: 200,
     }
   },
 };

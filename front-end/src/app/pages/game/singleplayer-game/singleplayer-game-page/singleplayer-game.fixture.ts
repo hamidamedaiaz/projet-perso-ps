@@ -2,26 +2,26 @@ import { E2EComponentFixture } from "e2e/e2e-component.fixture";
 
 export class SingleplayerGameFixture extends E2EComponentFixture {
 
-  getHiddenAnswer(){
+  getHiddenAnswer() {
     return this.page.locator(".hidden-answer");
   }
 
-  getPlayButton(){
+  getPlayButton() {
     return this.page.locator("#play-btn");
   }
 
-  getStopButton(){
+  getStopButton() {
     return this.page.locator("#pause-btn");
   }
 
-  getTitle(){
+  getTitle() {
     return this.page.locator(".question-title user-view");
   }
   getAvailableAnswer() {
     return this.page.locator('div.answers-container:not(.selected-answer)');
   }
 
-  async getAvailableAnswerExcept(name : string) {
+  async getAvailableAnswerExcept(name: string) {
     const allAnswers = this.page.locator('div.answers-container:not(.selected-answer)');
     const count = await allAnswers.count();
     const filteredAnswers = [];
@@ -43,11 +43,25 @@ export class SingleplayerGameFixture extends E2EComponentFixture {
     return this.page.locator('p.hint-item', { hasText: name });
   }
 
-  getPopup(){
+  getPopup() {
     return this.page.locator('.pop-up-container');
   }
 
-  getCancelgetCancelButtonPopUp(){
+  getCancelgetCancelButtonPopUp() {
     return this.page.locator(".cancel-btn");
+  }
+
+  getTutorialButton(){
+    return this.page.locator("#tuto-btn")
+  }
+
+
+  getQuestion(){
+    return this.page.locator('.question-title');
+
+  }
+
+  getSkipButton(){
+    return this.page.locator(".next-question-btn");
   }
 }

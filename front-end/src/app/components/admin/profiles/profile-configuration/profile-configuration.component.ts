@@ -3,7 +3,7 @@ import { Profile } from 'src/models/profile.model';
 import { FormsModule } from "@angular/forms";
 import { ProfileService } from 'src/services/profile.service';
 import { CommonModule } from '@angular/common';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-configuration',

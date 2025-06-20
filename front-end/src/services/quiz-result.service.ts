@@ -6,7 +6,7 @@ import { QUIZ_RESULT_EMPTY } from 'src/mocks/quiz-results.mock';
 import { ProfileService } from './profile.service';
 import { firstValueFrom } from 'rxjs';
 import { CurrentProfileService } from './currentProfile.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

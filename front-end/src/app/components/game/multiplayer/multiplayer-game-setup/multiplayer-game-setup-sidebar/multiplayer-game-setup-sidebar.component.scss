@@ -6,7 +6,7 @@
 }
 
 .quiz-title {
-    font-size: 50px;
+    font-size: 3vw;
     font-weight: 600;
     width: 90%;
     color: $primary-white-text;
@@ -15,7 +15,7 @@
 }
 
 .quiz-container {
-    padding: 5vh 0px;
+    padding: 5vh 2vw;
     background-color: $primary-blue-bg;
     display: flex;
     flex-direction: column;
@@ -27,13 +27,13 @@
 
 .button{
     width: 60%;
-    height: 60px;
+    height: 3vw;
     color: $primary-white-btn;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.5vw;
     cursor: pointer;
     transition: all 0.3s ease-in-out ;
-    font-size: 20px;
+    font-size: 1.5vw;
 }
 
 .button:hover{
@@ -61,12 +61,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 1vw;
     width: 100%;
 }
 
 .game-code-label, #game-code{
-    font-size: 40px;
+    font-size: 2vw;
     color: $primary-white-text;
     font-weight: bold;
     font-family: "Arial", sans-serif;
@@ -77,7 +77,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 1vw;
     width: 100%;
 }
 

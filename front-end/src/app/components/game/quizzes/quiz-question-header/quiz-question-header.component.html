@@ -2,13 +2,12 @@
     <div class="question-title"
          [ngClass]="getRole()==='admin' && isQuizRunning() ? 'admin-view': 'user-view'"
          [style.font-size]="30 * font_size">
-
           {{title}}
     </div>
     <section class="question-header-multi-container" >
         <div *ngIf="getRole() === 'admin' && isQuizRunning()" class="answer-counter">Réponses:
             {{getNumberOfGivenAnswer()}}/{{getNumberOfPlayers()}}</div>
-        <button *ngIf="getRole()==='admin'" (click)="showHints()" class="button">
+        <button *ngIf="getRole()==='admin'" (click)="showHints()" id="toggle-hints-btn" class="button">
             {{showHintButtonContent}}
         </button>
     </section>

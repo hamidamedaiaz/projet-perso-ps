@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Profile } from 'src/models/profile.model';
 import { CurrentPageService } from "src/services/currentPage.service";
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 @Component({
 
   selector: 'app-player-stats-header',
@@ -32,7 +32,7 @@ export class PlayerStatsHeaderComponent {
   getInitials(): string {
 
     if (!this.profile) {
-      console.error("Error - Profile not found"); 
+      console.error("Error - Profile not found");
       return '';
     }
 

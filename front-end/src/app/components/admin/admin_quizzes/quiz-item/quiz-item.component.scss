@@ -106,6 +106,6 @@
 }
 
 .launch-game-btn:hover {
-  background-color: $secondary-btn-blue-hover;
+  transform: scale(1.05);
   cursor: pointer;
 }

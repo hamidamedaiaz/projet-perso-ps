@@ -3,7 +3,7 @@ import { Profile } from 'src/models/profile.model';
 import { CommonModule } from '@angular/common';
 import { SessionService } from 'src/services/session.service';
 import { CurrentProfileService } from 'src/services/currentProfile.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-multiplayer-in-game-list',

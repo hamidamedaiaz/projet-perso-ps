@@ -14,4 +14,6 @@ export class QuizAppFixture extends E2EComponentFixture {
 
     getCreateQuizBtn() { return this.page.locator('.create-quiz-btn') }
 
+    getConfirmBtn(){return this.page.locator(".confirm-delete-btn")}
+
 }

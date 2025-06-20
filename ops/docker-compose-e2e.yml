@@ -1,0 +1,41 @@
+name: octave
+services:
+  front-e2e:
+    image: octave-front
+    build:
+      context: ../front-end
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT: docker-e2e
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - back-e2e
+
+  back-e2e:
+    image: octave-back
+    build:
+      context: ../backend
+      dockerfile: Dockerfile-e2e
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+
+  playwright:
+    image: octave-playwright
+    build:
+      context: ../front-end
+      dockerfile: Dockerfile-e2e
+    environment:
+      TEST_URL: http://front-e2e
+    depends_on:
+      - back-e2e
+      - front-e2e
+    volumes:
+      - ./e2e-results/test-results/:/usr/local/app/test-result/:rw
+      - ./e2e-results/playwright-report/:/usr/local/app/playwright-report/:rw

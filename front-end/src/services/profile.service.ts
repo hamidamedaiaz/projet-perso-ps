@@ -3,7 +3,7 @@ import { BehaviorSubject, catchError, Observable, of } from "rxjs";
 import { GUEST_PROFILE, PROFILE_LIST } from "../mocks/profile-list.mock";
 import { Profile } from "src/models/profile.model";
 import { HttpClient } from '@angular/common/http';
-import { environment } from "src/environments/environment.development";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'

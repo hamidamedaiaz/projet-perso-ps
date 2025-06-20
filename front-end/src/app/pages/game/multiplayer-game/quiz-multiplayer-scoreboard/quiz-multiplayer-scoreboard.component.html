@@ -2,8 +2,8 @@
     <div class="left-container" *ngIf="getRole()==='admin'"
         [ngClass]="getRole()==='admin'?'left-container-admin-view':'left-container-user-view'">
         <div class="quiz-title">{{getQuizTitle()}}</div>
-        <section class="question-section">
-            <button *ngFor="let question of getQuizQuestions()" class="question-item"
+        <section class="scoreboard-question-section">
+            <button *ngFor="let question of getQuizQuestions()" class="scoreboard-question-item"
                 (click)="showQuestion(question.id)">{{question.question}}</button>
         </section>
         <section class="button-section">
@@ -11,7 +11,7 @@
                 classement</button>
             <button class="button rank-btn" *ngIf="!hide_ranking" (click)="toogleRanking()">Masquer le
                 classement</button>
-            <button class="button leave-btn" (click)="leaveMultiplayerQuiz()">Quitter</button>
+            <button class="button leave-btn admin-leave-btn" (click)="leaveMultiplayerQuiz()">Quitter</button>
         </section>
     </div>
     <div class="right-container"
@@ -21,7 +21,7 @@
             <app-ranking class="ranking" [rank]="rankedList"></app-ranking>
         </section>
         <div class="button-section-user-view" *ngIf="getRole()==='user'">
-            <button class="button leave-btn" (click)="leaveQuiz()">Quitter</button>
+            <button class="button leave-btn user-leave-btn" (click)="leaveQuiz()">Quitter</button>
         </div>
         <app-quiz-question *ngIf="displayQuestion && hide_ranking" class="quiz-question-container"></app-quiz-question>
     </div>

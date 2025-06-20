@@ -1,0 +1,8 @@
+FROM node:22.14
+WORKDIR /app
+COPY package*.json ./
+RUN ls
+RUN npm install
+COPY . .
+EXPOSE 9428
+CMD ["npm", "run", "dev"]

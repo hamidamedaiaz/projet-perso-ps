@@ -15,7 +15,7 @@ import { RecordResultService } from 'src/services/record-result.service';
 import { MultiPlayerInGameListComponent } from '../../multiplayer/multi-player-in-game-list/multiplayer-in-game-list.component';
 import { SocketService } from 'src/services/socket.service';
 import { SessionService } from 'src/services/session.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 
 @Component({

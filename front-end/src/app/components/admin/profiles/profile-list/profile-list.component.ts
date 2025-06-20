@@ -12,7 +12,7 @@ import { FileUploadService } from "../../../../../services/file-upload.service";
 import { SessionService } from 'src/services/session.service';
 import { Player } from 'src/models/player.model';
 import { StatsService } from 'src/services/stats.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-list',

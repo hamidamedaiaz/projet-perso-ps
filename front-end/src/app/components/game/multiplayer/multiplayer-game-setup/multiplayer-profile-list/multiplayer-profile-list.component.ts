@@ -6,7 +6,7 @@ import { Profile } from 'src/models/profile.model';
 import { SocketService } from 'src/services/socket.service';
 import { Player } from 'src/models/player.model';
 import { SessionService } from 'src/services/session.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-multiplayer-profile-list',

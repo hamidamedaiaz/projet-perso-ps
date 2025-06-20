@@ -5,7 +5,7 @@ import { GAMEMODE_UNDEFINED } from "../mocks/gamemode-list.mock";
 import { Router } from "@angular/router";
 import { LocalStorageService } from "./localstorage.service";
 import { HttpClient } from '@angular/common/http';
-import { environment } from "src/environments/environment.development";
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
@@ -36,7 +36,7 @@ export class GamemodeService {
 
   private loadFromStorage(): void {
     const savedGamemode = this.localStorageService.getItem('Gamemode');
-    if (savedGamemode) this.current_gamemode = savedGamemode; 
+    if (savedGamemode) this.current_gamemode = savedGamemode;
   }
 
   playSolo() {
